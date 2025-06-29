@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="4" type="long" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
+  <component name="BlazeImportSettings">
+    <option name="buildSystem" value="Bazel" />
+    <option name="locationHash" value="TreePro-6b01a4ca" />
+    <option name="projectDataDirectory" value="D:\Projects\CppLibraries\Tree.Pro\.clwb" />
+    <option name="projectName" value="Tree.Pro" />
+    <option name="projectViewFile" value="D:\Projects\CppLibraries\Tree.Pro\.clwb\.bazelproject" />
+    <option name="workspaceRoot" value="D:\Projects\CppLibraries\Tree.Pro" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="48d0d5f4-4206-4859-905d-5479da9f0e96" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2zBHGfzFXMgaZdigIg1sl8ottfJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Bazel Command.Bazel test TreeMachine.Pro.Tests:tree_machine_pro_tests.executor": "Run",
+    "Bazel Command.Test.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "bazel.project.detector.is.bazel.project": "true",
+    "cf.advertisement.text.overridden": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Bazel test Tree.Pro.Tests:tree_pro_tests" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command" nameIsGenerated="true">
+      <blaze-settings kind="cc_test" handler-id="BlazeCLionRunConfigurationHandlerProvider" blaze-command="test">
+        <blaze-target>//Tree.Pro.Tests:tree_pro_tests</blaze-target>
+        <env_state>
+          <envs />
+        </env_state>
+      </blaze-settings>
+      <method v="2">
+        <option name="Blaze.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command">
+      <blaze-settings kind="cc_test" handler-id="BlazeCLionRunConfigurationHandlerProvider" blaze-command="test">
+        <blaze-target>//Tree.Pro.Tests:tree_pro_tests</blaze-target>
+        <env_state>
+          <envs />
+        </env_state>
+      </blaze-settings>
+      <method v="2">
+        <option name="Blaze.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="48d0d5f4-4206-4859-905d-5479da9f0e96" name="Changes" comment="" />
+      <created>1751197454426</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751197454426</updated>
+      <workItem from="1751197459309" duration="1078000" />
+      <workItem from="1751199182308" duration="1379000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

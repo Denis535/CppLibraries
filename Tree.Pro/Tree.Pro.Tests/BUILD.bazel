@@ -1,0 +1,14 @@
+cc_test(
+    name = "tree_pro_tests",
+    srcs = glob([
+        "Sources/**/*.cpp",
+    ]),
+    includes = [
+        ".",
+    ],
+    deps = [
+        "@googletest//:gtest_main",
+        "//Tree.Pro:tree_pro",
+    ],
+    visibility = ["//visibility:public"],
+)

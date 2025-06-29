@@ -1,0 +1,8 @@
+# Bazel
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+bazel-tree.pro/
+
+# Misc
+*.lock
