@@ -2,8 +2,8 @@
 #include <any>
 #include <cassert>
 #include <functional>
-#include "../TreeBase.h"
-#include "Helpers.h"
+#include "../Hierarchical.Internal/Helpers.h"
+#include "TreeBase.h"
 
 namespace Hierarchical {
 

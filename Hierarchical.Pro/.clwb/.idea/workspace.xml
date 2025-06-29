@@ -3,6 +3,13 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/RefactoringsMru/CppRenameRefactoring/DoRenameRelatedFiles/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoRenameType/@EntryValue" value="false" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
   <component name="BlazeImportSettings">
     <option name="buildSystem" value="Bazel" />
     <option name="locationHash" value="HierarchicalPro-f8f26762" />
@@ -20,15 +27,27 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3102e26e-e359-4458-b424-f41795e63319" name="Changes" comment="" />
+    <list default="true" id="3102e26e-e359-4458-b424-f41795e63319" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro.Tests/Sources/Hierarchical/Tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Hierarchical.Pro.Tests/Sources/Hierarchical/Tree.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Hierarchical.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Internal/Helpers.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical.Internal/Helpers.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Internal/NodeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Impl_NodeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Internal/NodeBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Impl_NodeBase2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Internal/TreeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Impl_TreeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2zBhe0GTsZ5Dh0z4nQvgGHyfr9v" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,11 +62,13 @@
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "bazel.project.detector.is.bazel.project": "true",
     "cf.advertisement.text.overridden": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -57,6 +78,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\CppLibraries\Hierarchical.Pro\Hierarchical.Pro\Headers" />
+      <recent name="D:\Projects\CppLibraries\Hierarchical.Pro\Hierarchical.Pro\Headers\Hierarchical" />
+      <recent name="D:\Projects\CppLibraries\Hierarchical.Pro\Hierarchical.Pro\Headers\Hierarchical.Internal" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Test" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command">
       <blaze-settings handler-id="BlazeCLionRunConfigurationHandlerProvider" blaze-command="test" kind="cc_test">
@@ -78,6 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1751210467335</updated>
       <workItem from="1751210471199" duration="632000" />
+      <workItem from="1751211578740" duration="1116000" />
     </task>
     <servers />
   </component>

@@ -1,8 +1,8 @@
 #pragma once
 #include <any>
 #include <functional>
-#include "../NodeBase2.h"
-#include "Helpers.h"
+#include "../Hierarchical.Internal/Helpers.h"
+#include "NodeBase2.h"
 
 namespace Hierarchical {
     using namespace Hierarchical::Internal;

@@ -6,8 +6,8 @@
 #include <list>
 #include <variant>
 #include <vector>
-#include "../NodeBase.h"
-#include "Helpers.h"
+#include "../Hierarchical.Internal/Helpers.h"
+#include "NodeBase.h"
 
 namespace Hierarchical {
     using namespace Hierarchical::Internal;

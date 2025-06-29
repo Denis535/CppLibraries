@@ -1,5 +1,5 @@
 #pragma once
-#include "Hierarchical/Hierarchical.h"
+#include "Hierarchical.h"
 
 namespace Hierarchical {
     using namespace std;
