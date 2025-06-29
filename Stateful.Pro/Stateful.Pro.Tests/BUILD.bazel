@@ -1,0 +1,14 @@
+cc_test(
+    name = "stateful_pro_tests",
+    srcs = glob([
+        "Sources/**/*.cpp",
+    ]),
+    includes = [
+        ".",
+    ],
+    deps = [
+        "@googletest//:gtest_main",
+        "//Stateful.Pro:stateful_pro",
+    ],
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,5 @@
+view_project_root: true
+derive_targets_from_directories: true
+directories:
+  Stateful.Pro
+  Stateful.Pro.Tests

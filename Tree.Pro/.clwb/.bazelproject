@@ -1,8 +1,5 @@
 view_project_root: true
-derive_targets_from_directories: false
+derive_targets_from_directories: true
 directories:
   Tree.Pro
   Tree.Pro.Tests
-targets:
-  //Tree.Pro:tree_pro
-  //Tree.Pro.Tests:tree_pro_tests

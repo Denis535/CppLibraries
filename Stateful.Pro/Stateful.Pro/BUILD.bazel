@@ -1,0 +1,10 @@
+cc_library(
+    name = "stateful_pro",
+    hdrs = glob([
+        "Headers/**/*.h",
+    ]),
+    strip_include_prefix = "Headers",
+    deps = [
+    ],
+    visibility = ["//visibility:public"],
+)
