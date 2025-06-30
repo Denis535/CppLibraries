@@ -20,7 +20,6 @@
   </component>
   <component name="BlazeSyncStatusState">
     <option name="dirty" value="true" />
-    <option name="lastSyncFailed" value="true" />
   </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
@@ -32,12 +31,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3102e26e-e359-4458-b424-f41795e63319" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/tools/PackageParser_deploy.jar" beforeDir="false" afterPath="$PROJECT_DIR$/aspects/tools/PackageParser_deploy.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Impl_TreeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Impl_TreeBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Impl_NodeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Hierarchical.Pro/Headers/Hierarchical/Impl_NodeBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/Impl_StateBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/Impl_StatefulBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/Impl_StatefulBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/StateBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/StatefulBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/StatefulBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/Impl_StateBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/Impl_StatefulBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/Impl_StatefulBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/StateBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/StatefulBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/StatefulBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +116,7 @@
       <workItem from="1751212875916" duration="481000" />
       <workItem from="1751275223996" duration="405000" />
       <workItem from="1751275657837" duration="273000" />
+      <workItem from="1751298678427" duration="611000" />
     </task>
     <servers />
   </component>

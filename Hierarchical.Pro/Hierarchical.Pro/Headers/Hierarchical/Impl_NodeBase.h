@@ -1,11 +1,7 @@
 #pragma once
 #include <algorithm>
-#include <any>
 #include <cassert>
 #include <functional>
-#include <list>
-#include <variant>
-#include <vector>
 #include "Hierarchical.Internal/Helpers.h"
 #include "Hierarchical/NodeBase.h"
 
@@ -250,6 +246,7 @@ namespace Hierarchical {
         this->m_Activity = Activity_::Active;
         this->OnAfterActivate(argument);
     }
+
     template <typename TThis>
     void NodeBase<TThis>::Deactivate(const any argument) {
         assert((this->Tree_NoRecursive() != nullptr || this->Parent() != nullptr) && "Node must have owner");
