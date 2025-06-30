@@ -11,6 +11,8 @@ namespace Stateful {
 
     template <typename TThis>
     class StateBase {
+        friend class StatefulBase<TThis>;
+
         public:
         enum class Activity_ : uint8_t { // NOLINT
             Inactive,
@@ -64,8 +66,8 @@ namespace Stateful {
         virtual ~StateBase();
 
         private:
-        void Attach(StateBase *const stateful, const any argument);
-        void Detach(StateBase *const stateful, const any argument);
+        void Attach(StatefulBase<TThis> *const stateful, const any argument);
+        void Detach(StatefulBase<TThis> *const stateful, const any argument);
 
         private:
         void Activate(const any argument);

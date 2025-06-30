@@ -59,11 +59,11 @@ namespace Stateful {
     template <typename TThis>
     StateBase<TThis>::~StateBase() {
         assert(this->Stateful() == nullptr && "State must have no stateful");
-        assert(this->m_Activity == Activity_::Inactive && "Node must be inactive");
+        assert(this->m_Activity == Activity_::Inactive && "State must be inactive");
     }
 
     template <typename TThis>
-    void StateBase<TThis>::Attach(StateBase *const stateful, const any argument) {
+    void StateBase<TThis>::Attach(StatefulBase<TThis> *const stateful, const any argument) {
         assert(stateful != nullptr && "Argument 'stateful' must be non-null");
         assert(this->Stateful() == nullptr && "State must have no stateful");
         assert(this->m_Activity == Activity_::Inactive && "State must be inactive");
@@ -77,7 +77,7 @@ namespace Stateful {
     }
 
     template <typename TThis>
-    void StateBase<TThis>::Detach(StateBase *const stateful, const any argument) {
+    void StateBase<TThis>::Detach(StatefulBase<TThis> *const stateful, const any argument) {
         assert(stateful != nullptr && "Argument 'stateful' must be non-null");
         assert(this->Stateful() == stateful && "State must have stateful");
         assert(this->m_Activity == Activity_::Active && "State must be active");
@@ -110,14 +110,14 @@ namespace Stateful {
         this->OnBeforeDeactivate(argument);
         this->m_Activity = Activity_::Deactivating;
         {
-            this.OnDeactivate(argument);
+            this->OnDeactivate(argument);
         }
         this->m_Activity = Activity_::Inactive;
         this->OnAfterDeactivate(argument);
     }
 
     template <typename TThis>
-    void StateBase<TThis>::OnAttach(const any argument) {
+    void StateBase<TThis>::OnAttach([[maybe_unused]] const any argument) {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeAttach(const any argument) {
@@ -133,7 +133,7 @@ namespace Stateful {
     }
 
     template <typename TThis>
-    void StateBase<TThis>::OnDetach(const any argument) {
+    void StateBase<TThis>::OnDetach([[maybe_unused]] const any argument) {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeDetach(const any argument) {
@@ -149,7 +149,7 @@ namespace Stateful {
     }
 
     template <typename TThis>
-    void StateBase<TThis>::OnActivate(const any argument) {
+    void StateBase<TThis>::OnActivate([[maybe_unused]] const any argument) {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeActivate(const any argument) {
@@ -165,7 +165,7 @@ namespace Stateful {
     }
 
     template <typename TThis>
-    void StateBase<TThis>::OnDeactivate(const any argument) {
+    void StateBase<TThis>::OnDeactivate([[maybe_unused]] const any argument) {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeDeactivate(const any argument) {

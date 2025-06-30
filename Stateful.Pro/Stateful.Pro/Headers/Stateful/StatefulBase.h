@@ -23,10 +23,10 @@ namespace Stateful {
         virtual ~StatefulBase();
 
         protected:
-        void SetState(T *const state, const any argument, const function<void(T *const, const any)> callback);
-        void AddState(T *const state, const any argument);
-        void RemoveState(T *const state, const any argument, const function<void(T *const, const any)> callback);
-        void RemoveState(const any argument, const function<void(T *const, const any)> callback);
+        void SetState(T *const state, const any argument, const function<void(const T *const, const any)> callback);
+        virtual void AddState(T *const state, const any argument);
+        virtual void RemoveState(T *const state, const any argument, const function<void(const T *const, const any)> callback);
+        void RemoveState(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
         StatefulBase &operator=(const StatefulBase &other) = delete;
