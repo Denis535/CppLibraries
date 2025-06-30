@@ -8,6 +8,11 @@
 namespace Hierarchical {
 
     template <typename T>
+    T *TreeBase<T>::Root() const {
+        return this->m_Root;
+    }
+
+    template <typename T>
     TreeBase<T>::TreeBase() {
         static_assert(is_base_of_v<NodeBase<T>, T>);
     }
@@ -15,11 +20,6 @@ namespace Hierarchical {
     template <typename T>
     TreeBase<T>::~TreeBase() {
         assert(this->m_Root == nullptr && "Tree must have no root");
-    }
-
-    template <typename T>
-    T *TreeBase<T>::Root() const {
-        return this->m_Root;
     }
 
     template <typename T>
