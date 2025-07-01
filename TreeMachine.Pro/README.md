@@ -1,22 +1,24 @@
 # Overview
-The library that allows you to easily implement a tree structure.
+
+The library that allows you to easily implement a hierarchical object.
 
 # Reference
+
 ```
-namespace Hierarchical {
+namespace TreeMachine {
     template <typename T>
-    class TreeBase {
+    class TreeMachineBase {
 
         protected:
         [[nodiscard]] T *Root() const;
 
         protected:
-        explicit TreeBase();
+        explicit TreeMachineBase();
 
         public:
-        explicit TreeBase(const TreeBase &other) = delete;
-        explicit TreeBase(TreeBase &&other) = delete;
-        virtual ~TreeBase();
+        explicit TreeMachineBase(const TreeMachineBase &other) = delete;
+        explicit TreeMachineBase(TreeMachineBase &&other) = delete;
+        virtual ~TreeMachineBase();
 
         protected:
         virtual void AddRoot(T *const root, const any argument);                                                              // overriding methods must invoke base implementation
@@ -24,16 +26,16 @@ namespace Hierarchical {
         void RemoveRoot(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        TreeBase &operator=(const TreeBase &other) = delete;
-        TreeBase &operator=(TreeBase &&other) = delete;
+        TreeMachineBase &operator=(const TreeMachineBase &other) = delete;
+        TreeMachineBase &operator=(TreeMachineBase &&other) = delete;
     };
 }
 ```
+
 ```
-namespace Hierarchical {
+namespace TreeMachine {
     template <typename TThis>
     class NodeBase {
-        friend class TreeBase<TThis>;
 
         public:
         enum class Activity : uint8_t {
@@ -44,7 +46,7 @@ namespace Hierarchical {
         };
 
         public:
-        [[nodiscard]] TreeBase<TThis> *Tree() const;
+        [[nodiscard]] TreeMachineBase<TThis> *Machine() const;
 
         public:
         [[nodiscard]] bool IsRoot() const;
@@ -132,8 +134,9 @@ namespace Hierarchical {
     };
 }
 ```
+
 ```
-namespace Hierarchical {
+namespace TreeMachine {
     template <typename TThis>
     class NodeBase2 : public NodeBase<TThis> {
 
@@ -201,19 +204,18 @@ namespace Hierarchical {
 ```
 
 # Example
+
 ```
 #pragma once
-#include "Hierarchical/Hierarchical.h"
+#include "TreeMachine.h"
 
-namespace Hierarchical {
-using namespace std;
+namespace TreeMachine {
+    using namespace std;
 
     class Node : public NodeBase2<Node> {
 
         public:
         explicit Node() = default;
-        explicit Node(Node &other) = delete;
-        explicit Node(Node &&other) = delete;
         ~Node() override {
             NodeBase::RemoveChildren(
                 nullptr,
@@ -302,10 +304,6 @@ using namespace std;
         using NodeBase::RemoveChild;
         using NodeBase::RemoveChildren;
         using NodeBase::RemoveSelf;
-
-        public:
-        Node &operator=(const Node &other) = delete;
-        Node &operator=(Node &&other) = delete;
     };
     class Root final : public Node {
     };
@@ -313,33 +311,28 @@ using namespace std;
     };
     class B final : public Node {
     };
-    class Tree final : public TreeBase<Node> {
+    class TreeMachine final : public TreeMachineBase<Node> {
 
         public:
-        using TreeBase::Root;
+        using TreeMachineBase::Root;
 
         public:
-        explicit Tree() = default;
-        explicit Tree(Tree &other) = delete;
-        explicit Tree(Tree &&other) = delete;
-        ~Tree() override {
+        explicit TreeMachine() = default;
+        ~TreeMachine() override {
             if (this->Root() != nullptr) {
-                TreeBase::RemoveRoot(
+                TreeMachineBase::RemoveRoot(
                     nullptr,
                     [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
             }
         }
 
         public:
-        using TreeBase::AddRoot;
-        using TreeBase::RemoveRoot;
-
-        public:
-        Tree &operator=(const Tree &other) = delete;
-        Tree &operator=(Tree &&other) = delete;
+        using TreeMachineBase::AddRoot;
+        using TreeMachineBase::RemoveRoot;
     };
 }
 ```
 
 # Links
-- https://github.com/Denis535/CppLibraries/tree/main/Hierarchical.Pro
+
+- https://github.com/Denis535/CppLibraries/tree/main/TreeMachine.Pro

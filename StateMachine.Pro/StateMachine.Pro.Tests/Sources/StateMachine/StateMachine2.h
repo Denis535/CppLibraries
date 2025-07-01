@@ -8,8 +8,6 @@ namespace StateMachine {
 
         public:
         explicit State() = default;
-        explicit State(const State &other) = delete;
-        explicit State(State &&other) = delete;
         ~State() override = default;
 
         protected:
@@ -59,10 +57,6 @@ namespace StateMachine {
         void OnAfterDeactivate(const any argument) override {
             StateBase::OnAfterDeactivate(argument);
         }
-
-        public:
-        State &operator=(const State &other) = delete;
-        State &operator=(State &&other) = delete;
     };
     class A : public State {
     };
@@ -75,8 +69,6 @@ namespace StateMachine {
 
         public:
         explicit StateMachine() = default;
-        explicit StateMachine(const StateMachine &other) = delete;
-        explicit StateMachine(StateMachine &&other) = delete;
         ~StateMachine() override {
             if (this->State() != nullptr) {
                 StateMachineBase::RemoveState(
@@ -89,9 +81,5 @@ namespace StateMachine {
         using StateMachineBase::SetState;
         using StateMachineBase::AddState;
         using StateMachineBase::RemoveState;
-
-        public:
-        StateMachine &operator=(const StateMachine &other) = delete;
-        StateMachine &operator=(StateMachine &&other) = delete;
     };
 }
