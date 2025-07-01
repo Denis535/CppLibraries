@@ -1,7 +1,7 @@
 #pragma once
-#include "Stateful.h"
+#include "StateMachine.h"
 
-namespace Stateful {
+namespace StateMachine {
     using namespace std;
 
     class State : public StateBase<State> {
@@ -68,30 +68,30 @@ namespace Stateful {
     };
     class B : public State {
     };
-    class Stateful : public StatefulBase<State> {
+    class StateMachine : public StateMachineBase<State> {
 
         public:
-        using StatefulBase::State;
+        using StateMachineBase::State;
 
         public:
-        explicit Stateful() = default;
-        explicit Stateful(const Stateful &other) = delete;
-        explicit Stateful(Stateful &&other) = delete;
-        ~Stateful() override {
+        explicit StateMachine() = default;
+        explicit StateMachine(const StateMachine &other) = delete;
+        explicit StateMachine(StateMachine &&other) = delete;
+        ~StateMachine() override {
             if (this->State() != nullptr) {
-                StatefulBase::RemoveState(
+                StateMachineBase::RemoveState(
                     nullptr,
                     [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             }
         }
 
         public:
-        using StatefulBase::SetState;
-        using StatefulBase::AddState;
-        using StatefulBase::RemoveState;
+        using StateMachineBase::SetState;
+        using StateMachineBase::AddState;
+        using StateMachineBase::RemoveState;
 
         public:
-        Stateful &operator=(const Stateful &other) = delete;
-        Stateful &operator=(Stateful &&other) = delete;
+        StateMachine &operator=(const StateMachine &other) = delete;
+        StateMachine &operator=(StateMachine &&other) = delete;
     };
 }

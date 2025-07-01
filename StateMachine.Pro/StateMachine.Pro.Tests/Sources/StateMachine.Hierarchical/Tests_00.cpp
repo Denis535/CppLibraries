@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
-#include "Stateful.h"
+#include "StateMachine.h"
 
-namespace Stateful::Hierarchical {
+namespace StateMachine::Hierarchical {
     using namespace std;
 
     // TEST(Tests_00, Test_00) { // NOLINT

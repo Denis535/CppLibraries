@@ -1,5 +1,5 @@
 cc_test(
-    name = "stateful_pro_tests",
+    name = "state_machine_pro_tests",
     srcs = glob([
         "Sources/**/*.cpp",
     ]),
@@ -8,7 +8,7 @@ cc_test(
     ],
     deps = [
         "@googletest//:gtest_main",
-        "//Stateful.Pro:stateful_pro",
+        "//StateMachine.Pro:state_machine_pro",
     ],
     visibility = ["//visibility:public"],
 )

@@ -2,11 +2,11 @@
 #include <any>
 #include <functional>
 
-namespace Stateful {
+namespace StateMachine {
     using namespace std;
 
     template <typename T>
-    class StatefulBase {
+    class StateMachineBase {
 
         private:
         T *m_State = nullptr;
@@ -15,12 +15,12 @@ namespace Stateful {
         [[nodiscard]] T *State() const;
 
         protected:
-        explicit StatefulBase();
+        explicit StateMachineBase();
 
         public:
-        explicit StatefulBase(const StatefulBase &other) = delete;
-        explicit StatefulBase(StatefulBase &&other) = delete;
-        virtual ~StatefulBase();
+        explicit StateMachineBase(const StateMachineBase &other) = delete;
+        explicit StateMachineBase(StateMachineBase &&other) = delete;
+        virtual ~StateMachineBase();
 
         protected:
         void SetState(T *const state, const any argument, const function<void(const T *const, const any)> callback);
@@ -29,7 +29,7 @@ namespace Stateful {
         void RemoveState(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        StatefulBase &operator=(const StatefulBase &other) = delete;
-        StatefulBase &operator=(StatefulBase &&other) = delete;
+        StateMachineBase &operator=(const StateMachineBase &other) = delete;
+        StateMachineBase &operator=(StateMachineBase &&other) = delete;
     };
 }

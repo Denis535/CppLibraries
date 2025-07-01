@@ -3,15 +3,15 @@
 #include <functional>
 #include <variant>
 
-namespace Stateful {
+namespace StateMachine {
     using namespace std;
 
     template <typename T>
-    class StatefulBase;
+    class StateMachineBase;
 
     template <typename TThis>
     class StateBase {
-        friend class StatefulBase<TThis>;
+        friend class StateMachineBase<TThis>;
 
         public:
         enum class Activity_ : uint8_t { // NOLINT
@@ -22,7 +22,7 @@ namespace Stateful {
         };
 
         private:
-        variant<nullptr_t, StatefulBase<TThis> *> m_Owner = nullptr;
+        variant<nullptr_t, StateMachineBase<TThis> *> m_Owner = nullptr;
 
         private:
         Activity_ m_Activity = Activity_::Inactive;
@@ -40,7 +40,7 @@ namespace Stateful {
         function<void(const any)> m_OnAfterDeactivateCallback = nullptr;
 
         public:
-        [[nodiscard]] StatefulBase<TThis> *Stateful() const;
+        [[nodiscard]] StateMachineBase<TThis> *Machine() const;
 
         public:
         [[nodiscard]] Activity_ Activity() const;
@@ -66,8 +66,8 @@ namespace Stateful {
         virtual ~StateBase();
 
         private:
-        void Attach(StatefulBase<TThis> *const stateful, const any argument);
-        void Detach(StatefulBase<TThis> *const stateful, const any argument);
+        void Attach(StateMachineBase<TThis> *const machine, const any argument);
+        void Detach(StateMachineBase<TThis> *const machine, const any argument);
 
         private:
         void Activate(const any argument);

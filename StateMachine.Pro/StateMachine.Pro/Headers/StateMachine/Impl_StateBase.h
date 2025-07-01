@@ -1,12 +1,12 @@
 #pragma once
 #include "StateBase.h"
 
-namespace Stateful {
+namespace StateMachine {
     using namespace std;
 
     template <typename TThis>
-    StatefulBase<TThis> *StateBase<TThis>::Stateful() const {
-        if (auto *const *const tree = get_if<StatefulBase<TThis> *>(&this->m_Owner)) {
+    StateMachineBase<TThis> *StateBase<TThis>::Machine() const {
+        if (auto *const *const tree = get_if<StateMachineBase<TThis> *>(&this->m_Owner)) {
             return *tree;
         }
         return nullptr;
@@ -58,17 +58,17 @@ namespace Stateful {
 
     template <typename TThis>
     StateBase<TThis>::~StateBase() {
-        assert(this->Stateful() == nullptr && "State must have no stateful");
+        assert(this->Machine() == nullptr && "State must have no machine");
         assert(this->m_Activity == Activity_::Inactive && "State must be inactive");
     }
 
     template <typename TThis>
-    void StateBase<TThis>::Attach(StatefulBase<TThis> *const stateful, const any argument) {
-        assert(stateful != nullptr && "Argument 'stateful' must be non-null");
-        assert(this->Stateful() == nullptr && "State must have no stateful");
+    void StateBase<TThis>::Attach(StateMachineBase<TThis> *const machine, const any argument) {
+        assert(machine != nullptr && "Argument 'machine' must be non-null");
+        assert(this->Machine() == nullptr && "State must have no machine");
         assert(this->m_Activity == Activity_::Inactive && "State must be inactive");
         {
-            this->m_Owner = stateful;
+            this->m_Owner = machine;
             this->OnBeforeAttach(argument);
             this->OnAttach(argument);
             this->OnAfterAttach(argument);
@@ -77,9 +77,9 @@ namespace Stateful {
     }
 
     template <typename TThis>
-    void StateBase<TThis>::Detach(StatefulBase<TThis> *const stateful, const any argument) {
-        assert(stateful != nullptr && "Argument 'stateful' must be non-null");
-        assert(this->Stateful() == stateful && "State must have stateful");
+    void StateBase<TThis>::Detach(StateMachineBase<TThis> *const machine, const any argument) {
+        assert(machine != nullptr && "Argument 'machine' must be non-null");
+        assert(this->Machine() == machine && "State must have machine");
         assert(this->m_Activity == Activity_::Active && "State must be active");
         this->Deactivate(argument);
         {
@@ -92,7 +92,7 @@ namespace Stateful {
 
     template <typename TThis>
     void StateBase<TThis>::Activate(const any argument) {
-        assert(this->Stateful() != nullptr && "State must have stateful");
+        assert(this->Machine() != nullptr && "State must have machine");
         assert(this->m_Activity == Activity_::Inactive && "State must be inactive");
         this->OnBeforeActivate(argument);
         this->m_Activity = Activity_::Activating;
@@ -105,7 +105,7 @@ namespace Stateful {
 
     template <typename TThis>
     void StateBase<TThis>::Deactivate(const any argument) {
-        assert(this->Stateful() != nullptr && "State must have stateful");
+        assert(this->Machine() != nullptr && "State must have machine");
         assert(this->m_Activity == Activity_::Active && "State must be active");
         this->OnBeforeDeactivate(argument);
         this->m_Activity = Activity_::Deactivating;

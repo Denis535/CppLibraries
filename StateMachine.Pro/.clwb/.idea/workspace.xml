@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BackendCodeEditorMiscSettings">
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="7" type="long" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
+  </component>
+  <component name="BlazeImportSettings">
+    <option name="buildSystem" value="Bazel" />
+    <option name="locationHash" value="StateMachinePro-efb20420" />
+    <option name="projectDataDirectory" value="D:\Projects\CppLibraries\StateMachine.Pro\.clwb" />
+    <option name="projectName" value="StateMachine.Pro" />
+    <option name="projectViewFile" value="D:\Projects\CppLibraries\StateMachine.Pro\.clwb\.bazelproject" />
+    <option name="workspaceRoot" value="D:\Projects\CppLibraries\StateMachine.Pro" />
+  </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.bazelrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clang-format" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clang-tidy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.bazelproject" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.blaze/modules/.project-data-dir.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.blaze/modules/.workspace.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/blazeTargetInfo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/editor.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/BUILD.bazel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/artifacts.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/cc_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/code_generator_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/fast_build_info_bundled.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/flag_hack.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/intellij_info_bundled.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/intellij_info_impl_bundled.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/java_classpath.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/java_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/make_variables.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/python_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/tools/CreateAar_deploy.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/tools/JarFilter_deploy.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/tools/PackageParser_deploy.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/.clwb/aspects/xcode_query.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/MODULE.bazel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro.Tests/BUILD.bazel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro.Tests/Sources/Stateful.Hierarchical/Tests_00.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro.Tests/Sources/Stateful/Stateful2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro.Tests/Sources/Stateful/Tests_00.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/BUILD.bazel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/Impl_StateBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/Impl_StatefulBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/StateBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.Hierarchical/StatefulBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/Impl_StateBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/Impl_StatefulBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/StateBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/Stateful.Pro/Headers/Stateful/StatefulBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Stateful.Pro/platforms/BUILD.bazel" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2zGiwGTjdx9Ds5ccJpw1Q3zHbNc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showScratchesAndConsoles" value="false" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Bazel Command.Test.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.RadMigrateCodeStyle": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.advertisement.text.overridden": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Test" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command">
+      <blaze-settings blaze-command="test" kind="cc_test" handler-id="BlazeCLionRunConfigurationHandlerProvider">
+        <blaze-target>//StateMachine.Pro.Tests:state_machine_pro_tests</blaze-target>
+        <env_state>
+          <envs />
+        </env_state>
+      </blaze-settings>
+      <method v="2">
+        <option name="Blaze.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="" />
+      <created>1751364048856</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1751364048856</updated>
+      <workItem from="1751364050011" duration="137000" />
+      <workItem from="1751364267062" duration="3354000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

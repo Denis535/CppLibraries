@@ -1,5 +1,5 @@
 cc_library(
-    name = "stateful_pro",
+    name = "state_machine_pro",
     hdrs = glob([
         "Headers/**/*.h",
     ]),
