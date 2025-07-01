@@ -44,10 +44,10 @@ namespace TreeMachine {
         function<void(const any)> m_OnAfterDeactivateCallback = nullptr;
 
         public:
-        [[nodiscard]] TreeMachineBase<TThis> *Tree() const;
+        [[nodiscard]] TreeMachineBase<TThis> *Machine() const;
 
         private:
-        [[nodiscard]] TreeMachineBase<TThis> *Tree_NoRecursive() const; // NOLINT
+        [[nodiscard]] TreeMachineBase<TThis> *Machine_NoRecursive() const; // NOLINT
 
         public:
         [[nodiscard]] bool IsRoot() const;
@@ -90,9 +90,9 @@ namespace TreeMachine {
         virtual ~NodeBase();
 
         private:
-        void Attach(TreeMachineBase<TThis> *const tree, const any argument);
+        void Attach(TreeMachineBase<TThis> *const machine, const any argument);
         void Attach(TThis *const parent, const any argument);
-        void Detach(TreeMachineBase<TThis> *const tree, const any argument);
+        void Detach(TreeMachineBase<TThis> *const machine, const any argument);
         void Detach(TThis *const parent, const any argument);
 
         private:

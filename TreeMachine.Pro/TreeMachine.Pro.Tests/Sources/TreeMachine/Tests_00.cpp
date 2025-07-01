@@ -12,7 +12,7 @@ namespace TreeMachine {
 
         for (const auto *const node : vector<Node *>{root, a, b}) {
             EXPECT_NE(node, nullptr);
-            EXPECT_EQ(node->Tree(), nullptr);
+            EXPECT_EQ(node->Machine(), nullptr);
             EXPECT_EQ(node->IsRoot(), true);
             EXPECT_EQ(node->Root(), node);
             EXPECT_EQ(node->Parent(), nullptr);
@@ -28,7 +28,7 @@ namespace TreeMachine {
             // machine.AddRoot root
             machine->AddRoot(root, nullptr);
             EXPECT_NE(machine->Root(), nullptr);
-            EXPECT_EQ(machine->Root()->Tree(), machine);
+            EXPECT_EQ(machine->Root()->Machine(), machine);
             EXPECT_EQ(machine->Root()->IsRoot(), true);
             EXPECT_EQ(machine->Root()->Root(), root);
             EXPECT_EQ(machine->Root()->Parent(), nullptr);
@@ -43,7 +43,7 @@ namespace TreeMachine {
             // machine.Root.AddChildren a, b
             machine->Root()->AddChildren(vector<Node *>{a, b}, nullptr);
             EXPECT_NE(machine->Root(), nullptr);
-            EXPECT_EQ(machine->Root()->Tree(), machine);
+            EXPECT_EQ(machine->Root()->Machine(), machine);
             EXPECT_EQ(machine->Root()->IsRoot(), true);
             EXPECT_EQ(machine->Root()->Root(), root);
             EXPECT_EQ(machine->Root()->Parent(), nullptr);
@@ -54,7 +54,7 @@ namespace TreeMachine {
             EXPECT_EQ(machine->Root()->Descendants().size(), 2);
             EXPECT_EQ(machine->Root()->DescendantsAndSelf().size(), 3);
             for (const auto *const child : machine->Root()->Children()) {
-                EXPECT_EQ(child->Tree(), machine);
+                EXPECT_EQ(child->Machine(), machine);
                 EXPECT_EQ(child->IsRoot(), false);
                 EXPECT_EQ(child->Root(), root);
                 EXPECT_EQ(child->Parent(), root);
@@ -70,7 +70,7 @@ namespace TreeMachine {
             // machine.Root.RemoveChildren
             machine->Root()->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
             EXPECT_NE(machine->Root(), nullptr);
-            EXPECT_EQ(machine->Root()->Tree(), machine);
+            EXPECT_EQ(machine->Root()->Machine(), machine);
             EXPECT_EQ(machine->Root()->IsRoot(), true);
             EXPECT_EQ(machine->Root()->Root(), root);
             EXPECT_EQ(machine->Root()->Parent(), nullptr);
@@ -96,7 +96,7 @@ namespace TreeMachine {
 
         for (const auto *const node : vector<Node *>{root}) {
             EXPECT_NE(node, nullptr);
-            EXPECT_EQ(node->Tree(), nullptr);
+            EXPECT_EQ(node->Machine(), nullptr);
             EXPECT_EQ(node->IsRoot(), true);
             EXPECT_EQ(node->Root(), node);
             EXPECT_EQ(node->Parent(), nullptr);
@@ -112,7 +112,7 @@ namespace TreeMachine {
             // machine.AddRoot
             machine->AddRoot(root, nullptr);
             EXPECT_NE(machine->Root(), nullptr);
-            EXPECT_EQ(machine->Root()->Tree(), machine);
+            EXPECT_EQ(machine->Root()->Machine(), machine);
             EXPECT_EQ(machine->Root()->IsRoot(), true);
             EXPECT_EQ(machine->Root()->Root(), root);
             EXPECT_EQ(machine->Root()->Parent(), nullptr);
@@ -139,7 +139,7 @@ namespace TreeMachine {
 
         for (const auto *const node : vector<Node *>{root, a, b}) {
             EXPECT_NE(node, nullptr);
-            EXPECT_EQ(node->Tree(), nullptr);
+            EXPECT_EQ(node->Machine(), nullptr);
             EXPECT_EQ(node->IsRoot(), true);
             EXPECT_EQ(node->Root(), node);
             EXPECT_EQ(node->Parent(), nullptr);
@@ -155,7 +155,7 @@ namespace TreeMachine {
             // root.AddChildren
             root->AddChildren(vector<Node *>{a, b}, nullptr);
             EXPECT_NE(root, nullptr);
-            EXPECT_EQ(root->Tree(), nullptr);
+            EXPECT_EQ(root->Machine(), nullptr);
             EXPECT_EQ(root->IsRoot(), true);
             // EXPECT_EQ(root->Root(), root);
             EXPECT_EQ(root->Parent(), nullptr);
@@ -166,7 +166,7 @@ namespace TreeMachine {
             EXPECT_EQ(root->Descendants().size(), 2);
             EXPECT_EQ(root->DescendantsAndSelf().size(), 3);
             for (const auto *const child : root->Children()) {
-                EXPECT_EQ(child->Tree(), nullptr);
+                EXPECT_EQ(child->Machine(), nullptr);
                 EXPECT_EQ(child->IsRoot(), false);
                 EXPECT_EQ(child->Root(), root);
                 EXPECT_EQ(child->Parent(), root);
@@ -182,7 +182,7 @@ namespace TreeMachine {
             // root.RemoveChildren
             root->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
             EXPECT_NE(root, nullptr);
-            EXPECT_EQ(root->Tree(), nullptr);
+            EXPECT_EQ(root->Machine(), nullptr);
             EXPECT_EQ(root->IsRoot(), true);
             // EXPECT_EQ(root->Root(), root);
             EXPECT_EQ(root->Parent(), nullptr);
@@ -203,7 +203,7 @@ namespace TreeMachine {
 
         for (const auto *const node : vector<Node *>{root, a, b}) {
             EXPECT_NE(node, nullptr);
-            EXPECT_EQ(node->Tree(), nullptr);
+            EXPECT_EQ(node->Machine(), nullptr);
             EXPECT_EQ(node->IsRoot(), true);
             EXPECT_EQ(node->Root(), node);
             EXPECT_EQ(node->Parent(), nullptr);
@@ -223,7 +223,7 @@ namespace TreeMachine {
             // machine.AddRoot root
             machine->AddRoot(root, nullptr);
             EXPECT_NE(machine->Root(), nullptr);
-            EXPECT_EQ(machine->Root()->Tree(), machine);
+            EXPECT_EQ(machine->Root()->Machine(), machine);
             EXPECT_EQ(machine->Root()->IsRoot(), true);
             EXPECT_EQ(machine->Root()->Root(), root);
             EXPECT_EQ(machine->Root()->Parent(), nullptr);

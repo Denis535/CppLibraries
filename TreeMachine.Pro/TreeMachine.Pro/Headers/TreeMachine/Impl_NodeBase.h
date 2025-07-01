@@ -9,17 +9,17 @@ namespace TreeMachine {
     using namespace TreeMachine::Internal;
 
     template <typename TThis>
-    TreeMachineBase<TThis> *NodeBase<TThis>::Tree() const {
+    TreeMachineBase<TThis> *NodeBase<TThis>::Machine() const {
         if (auto *const *const tree = get_if<TreeMachineBase<TThis> *>(&this->m_Owner)) {
             return *tree;
         }
         if (const auto *const *const node = get_if<TThis *>(&this->m_Owner)) {
-            return (*node)->Tree();
+            return (*node)->Machine();
         }
         return nullptr;
     }
     template <typename TThis>
-    TreeMachineBase<TThis> *NodeBase<TThis>::Tree_NoRecursive() const { // NOLINT
+    TreeMachineBase<TThis> *NodeBase<TThis>::Machine_NoRecursive() const { // NOLINT
         if (auto *const *const tree = get_if<TreeMachineBase<TThis> *>(&this->m_Owner)) {
             return *tree;
         }
@@ -156,20 +156,20 @@ namespace TreeMachine {
 
     template <typename TThis>
     NodeBase<TThis>::~NodeBase() {
-        assert(this->Tree_NoRecursive() == nullptr && "Node must have no tree");
+        assert(this->Machine_NoRecursive() == nullptr && "Node must have no machine");
         assert(this->Parent() == nullptr && "Node must have no parent");
         assert(this->m_Activity == Activity_::Inactive && "Node must be inactive");
         assert(this->m_Children.empty() && "Node must have no children");
     }
 
     template <typename TThis>
-    void NodeBase<TThis>::Attach(TreeMachineBase<TThis> *const tree, const any argument) {
-        assert(tree != nullptr && "Argument 'tree' must be non-null");
-        assert(this->Tree_NoRecursive() == nullptr && "Node must have no tree");
+    void NodeBase<TThis>::Attach(TreeMachineBase<TThis> *const machine, const any argument) {
+        assert(machine != nullptr && "Argument 'machine' must be non-null");
+        assert(this->Machine_NoRecursive() == nullptr && "Node must have no machine");
         assert(this->Parent() == nullptr && "Node must have no parent");
         assert(this->m_Activity == Activity_::Inactive && "Node must be inactive");
         {
-            this->m_Owner = tree;
+            this->m_Owner = machine;
             this->OnBeforeAttach(argument);
             this->OnAttach(argument);
             this->OnAfterAttach(argument);
@@ -181,7 +181,7 @@ namespace TreeMachine {
     template <typename TThis>
     void NodeBase<TThis>::Attach(TThis *const parent, const any argument) {
         assert(parent != nullptr && "Argument 'parent' must be non-null");
-        assert(this->Tree_NoRecursive() == nullptr && "Node must have no tree");
+        assert(this->Machine_NoRecursive() == nullptr && "Node must have no machine");
         assert(this->Parent() == nullptr && "Node must have no parent");
         assert(this->m_Activity == Activity_::Inactive && "Node must be inactive");
         {
@@ -196,9 +196,9 @@ namespace TreeMachine {
     }
 
     template <typename TThis>
-    void NodeBase<TThis>::Detach(TreeMachineBase<TThis> *const tree, const any argument) {
-        assert(tree != nullptr && "Argument 'tree' must be non-null");
-        assert(this->Tree_NoRecursive() == tree && "Node must have tree");
+    void NodeBase<TThis>::Detach(TreeMachineBase<TThis> *const machine, const any argument) {
+        assert(machine != nullptr && "Argument 'machine' must be non-null");
+        assert(this->Machine_NoRecursive() == machine && "Node must have machine");
         assert(this->Parent() == nullptr && "Node must have no parent");
         assert(this->m_Activity == Activity_::Active && "Node must be active");
         if constexpr (true) { // NOLINT
@@ -214,7 +214,7 @@ namespace TreeMachine {
     template <typename TThis>
     void NodeBase<TThis>::Detach(TThis *const parent, const any argument) {
         assert(parent != nullptr && "Argument 'parent' must be non-null");
-        assert(this->Tree_NoRecursive() == nullptr && "Node must have no tree");
+        assert(this->Machine_NoRecursive() == nullptr && "Node must have no machine");
         assert(this->Parent() == parent && "Node must have parent");
         if (parent->m_Activity == Activity_::Active) {
             assert(this->m_Activity == Activity_::Active && "Node must be active");
@@ -232,8 +232,8 @@ namespace TreeMachine {
 
     template <typename TThis>
     void NodeBase<TThis>::Activate(const any argument) {
-        assert((this->Tree_NoRecursive() != nullptr || this->Parent() != nullptr) && "Node must have owner");
-        assert((this->Tree_NoRecursive() != nullptr || this->Parent()->m_Activity == Activity_::Active || this->Parent()->m_Activity == Activity_::Activating) && "Node must have valid owner");
+        assert((this->Machine_NoRecursive() != nullptr || this->Parent() != nullptr) && "Node must have owner");
+        assert((this->Machine_NoRecursive() != nullptr || this->Parent()->m_Activity == Activity_::Active || this->Parent()->m_Activity == Activity_::Activating) && "Node must have valid owner");
         assert(this->m_Activity == Activity_::Inactive && "Node must be inactive");
         this->OnBeforeActivate(argument);
         this->m_Activity = Activity_::Activating;
@@ -249,8 +249,8 @@ namespace TreeMachine {
 
     template <typename TThis>
     void NodeBase<TThis>::Deactivate(const any argument) {
-        assert((this->Tree_NoRecursive() != nullptr || this->Parent() != nullptr) && "Node must have owner");
-        assert((this->Tree_NoRecursive() != nullptr || this->Parent()->m_Activity == Activity_::Active || this->Parent()->m_Activity == Activity_::Deactivating) && "Node must have valid owner");
+        assert((this->Machine_NoRecursive() != nullptr || this->Parent() != nullptr) && "Node must have owner");
+        assert((this->Machine_NoRecursive() != nullptr || this->Parent()->m_Activity == Activity_::Active || this->Parent()->m_Activity == Activity_::Deactivating) && "Node must have valid owner");
         assert(this->m_Activity == Activity_::Active && "Node must be active");
         this->OnBeforeDeactivate(argument);
         this->m_Activity = Activity_::Deactivating;
@@ -331,7 +331,7 @@ namespace TreeMachine {
     template <typename TThis>
     void NodeBase<TThis>::AddChild(TThis *const child, const any argument) {
         assert(child != nullptr && "Argument 'child' must be non-null");
-        assert(child->Tree_NoRecursive() == nullptr && "Argument 'child' must have no tree");
+        assert(child->Machine_NoRecursive() == nullptr && "Argument 'child' must have no machine");
         assert(child->Parent() == nullptr && "Argument 'child' must have no parent");
         assert(child->m_Activity == Activity_::Inactive && "Argument 'child' must be inactive");
         assert(!contains(this->m_Children, child) && "Node must have no child");
@@ -349,7 +349,7 @@ namespace TreeMachine {
     template <typename TThis>
     void NodeBase<TThis>::RemoveChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback) {
         assert(child != nullptr && "Argument 'child' must be non-null");
-        assert(child->Tree_NoRecursive() == nullptr && "Argument 'child' must have no tree");
+        assert(child->Machine_NoRecursive() == nullptr && "Argument 'child' must have no machine");
         assert(child->Parent() == this && "Argument 'child' must have parent");
         if (this->m_Activity == Activity_::Active) {
             assert(child->m_Activity == Activity_::Active && "Argument 'child' must be active");
@@ -398,8 +398,8 @@ namespace TreeMachine {
         if (auto *const parent = this->Parent()) {
             parent->RemoveChild(this, argument, callback);
         } else {
-            assert(this->Tree_NoRecursive() != nullptr && "Node must have tree");
-            this->Tree_NoRecursive()->RemoveRoot(this, argument, callback);
+            assert(this->Machine_NoRecursive() != nullptr && "Node must have machine");
+            this->Machine_NoRecursive()->RemoveRoot(this, argument, callback);
         }
     }
 
