@@ -17,10 +17,6 @@
     <option name="projectViewFile" value="D:\Projects\CppLibraries\StateMachine.Pro\.clwb\.bazelproject" />
     <option name="workspaceRoot" value="D:\Projects\CppLibraries\StateMachine.Pro" />
   </component>
-  <component name="BlazeSyncStatusState">
-    <option name="dirty" value="true" />
-    <option name="lastSyncFailed" value="true" />
-  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -32,11 +28,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine/StateMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine/StateMachine2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/StateMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/StateMachine2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/TreeMachine.Pro.Tests/Sources/TreeMachine/TreeMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/TreeMachine.Pro.Tests/Sources/TreeMachine/TreeMachine2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/aspects/code_generator_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/aspects/intellij_info_bundled.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/aspects/java_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/aspects/python_info.bzl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +47,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -108,7 +105,8 @@
       <workItem from="1751364267062" duration="3580000" />
       <workItem from="1751379737558" duration="514000" />
       <workItem from="1751382557077" duration="34000" />
-      <workItem from="1751382664781" duration="685000" />
+      <workItem from="1751382664781" duration="763000" />
+      <workItem from="1751442664124" duration="2519000" />
     </task>
     <servers />
   </component>

@@ -5,7 +5,9 @@
   </component>
   <component name="BackendCodeEditorMiscSettings">
     <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
-    <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoRenameType/@EntryValue" value="false" type="bool" />
+    <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
   <component name="BlazeImportSettings">
     <option name="buildSystem" value="Bazel" />
@@ -29,9 +31,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine/TreeMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine/TreeMachine2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/code_generator_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/intellij_info_bundled.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/java_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/python_info.bzl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +48,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -101,6 +108,9 @@
       <workItem from="1751376558215" duration="3133000" />
       <workItem from="1751380260000" duration="2265000" />
       <workItem from="1751382596244" duration="55000" />
+      <workItem from="1751383437695" duration="675000" />
+      <workItem from="1751441015899" duration="38000" />
+      <workItem from="1751441091591" duration="1101000" />
     </task>
     <servers />
   </component>
