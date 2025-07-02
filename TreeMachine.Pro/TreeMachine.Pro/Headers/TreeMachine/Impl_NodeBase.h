@@ -10,8 +10,8 @@ namespace TreeMachine {
 
     template <typename TThis>
     TreeMachineBase<TThis> *NodeBase<TThis>::Machine() const {
-        if (auto *const *const tree = get_if<TreeMachineBase<TThis> *>(&this->m_Owner)) {
-            return *tree;
+        if (auto *const *const machine = get_if<TreeMachineBase<TThis> *>(&this->m_Owner)) {
+            return *machine;
         }
         if (const auto *const *const node = get_if<TThis *>(&this->m_Owner)) {
             return (*node)->Machine();
@@ -20,8 +20,8 @@ namespace TreeMachine {
     }
     template <typename TThis>
     TreeMachineBase<TThis> *NodeBase<TThis>::Machine_NoRecursive() const { // NOLINT
-        if (auto *const *const tree = get_if<TreeMachineBase<TThis> *>(&this->m_Owner)) {
-            return *tree;
+        if (auto *const *const machine = get_if<TreeMachineBase<TThis> *>(&this->m_Owner)) {
+            return *machine;
         }
         return nullptr;
     }
