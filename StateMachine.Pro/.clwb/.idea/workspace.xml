@@ -30,6 +30,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/StateMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/StateMachine2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
@@ -106,7 +107,7 @@
       <workItem from="1751379737558" duration="514000" />
       <workItem from="1751382557077" duration="34000" />
       <workItem from="1751382664781" duration="763000" />
-      <workItem from="1751442664124" duration="2519000" />
+      <workItem from="1751442664124" duration="6248000" />
     </task>
     <servers />
   </component>

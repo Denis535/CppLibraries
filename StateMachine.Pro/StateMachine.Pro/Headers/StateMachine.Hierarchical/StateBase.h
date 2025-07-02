@@ -22,7 +22,7 @@ namespace StateMachine::Hierarchical {
         };
 
         private:
-        variant<nullptr_t, StateMachineBase<TThis> *> m_Owner = nullptr;
+        variant<nullptr_t, StateMachineBase<TThis> *, TThis *> m_Owner = nullptr;
 
         private:
         Activity_ m_Activity = Activity_::Inactive;
@@ -42,8 +42,28 @@ namespace StateMachine::Hierarchical {
         public:
         [[nodiscard]] StateMachineBase<TThis> *Machine() const;
 
+        private:
+        [[nodiscard]] StateMachineBase<TThis> *Machine_NoRecursive() const; // NOLINT
+
+        public:
+        [[nodiscard]] bool IsRoot() const;
+        [[nodiscard]] const TThis *Root() const;
+        [[nodiscard]] TThis *Root();
+
+        public:
+        [[nodiscard]] TThis *Parent() const;
+        [[nodiscard]] vector<TThis *> Ancestors() const;
+        [[nodiscard]] vector<const TThis *> AncestorsAndSelf() const;
+        [[nodiscard]] vector<TThis *> AncestorsAndSelf();
+
         public:
         [[nodiscard]] Activity_ Activity() const;
+
+        public:
+        [[nodiscard]] TThis *Child() const;
+        [[nodiscard]] vector<TThis *> Descendants() const;
+        [[nodiscard]] vector<const TThis *> DescendantsAndSelf() const;
+        [[nodiscard]] vector<TThis *> DescendantsAndSelf();
 
         public:
         [[nodiscard]] const function<void(const any)> &OnBeforeAttachCallback() const;
@@ -67,7 +87,9 @@ namespace StateMachine::Hierarchical {
 
         private:
         void Attach(StateMachineBase<TThis> *const machine, const any argument);
+        void Attach(TThis *const parent, const any argument);
         void Detach(StateMachineBase<TThis> *const machine, const any argument);
+        void Detach(TThis *const parent, const any argument);
 
         private:
         void Activate(const any argument);
@@ -88,6 +110,13 @@ namespace StateMachine::Hierarchical {
         virtual void OnDeactivate(const any argument);       // overriding methods must invoke base implementation
         virtual void OnBeforeDeactivate(const any argument); // overriding methods must invoke base implementation
         virtual void OnAfterDeactivate(const any argument);  // overriding methods must invoke base implementation
+
+        protected:
+        void SetChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
+        virtual void AddChild(TThis *const child, const any argument);
+        virtual void RemoveChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
+        void RemoveChild(const any argument, const function<void(const TThis *const, const any)> callback);
+        void RemoveSelf(const any argument, const function<void(const TThis *const, const any)> callback);
 
         public:
         void OnBeforeAttachCallback(const function<void(const any)> callback);
