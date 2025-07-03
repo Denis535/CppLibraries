@@ -31,13 +31,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/Impl_StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/Impl_StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/Impl_StateMachineBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine/Impl_StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine/Impl_StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine/Impl_StateMachineBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +106,8 @@
       <workItem from="1751527596057" duration="47000" />
       <workItem from="1751527708007" duration="1939000" />
       <workItem from="1751529704166" duration="18000" />
-      <workItem from="1751530489809" duration="9428000" />
+      <workItem from="1751530489809" duration="9512000" />
+      <workItem from="1751551712903" duration="41000" />
     </task>
     <servers />
   </component>

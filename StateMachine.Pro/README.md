@@ -228,4 +228,4 @@ namespace StateMachine {
 
 # Links
 
-- https://github.com/Denis535/CppLibraries/tree/main/StateMachine.Pro
+- https://github.com/Denis535/Cpp.Libraries/tree/main/StateMachine.Pro

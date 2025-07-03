@@ -335,4 +335,4 @@ namespace TreeMachine {
 
 # Links
 
-- https://github.com/Denis535/CppLibraries/tree/main/TreeMachine.Pro
+- https://github.com/Denis535/Cpp.Libraries/tree/main/TreeMachine.Pro
