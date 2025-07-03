@@ -27,11 +27,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Hierarchical/StateMachineBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +108,8 @@
       <workItem from="1751551712903" duration="41000" />
       <workItem from="1751553677549" duration="36000" />
       <workItem from="1751554022951" duration="418000" />
-      <workItem from="1751569436435" duration="506000" />
+      <workItem from="1751569436435" duration="619000" />
+      <workItem from="1751571552606" duration="344000" />
     </task>
     <servers />
   </component>
