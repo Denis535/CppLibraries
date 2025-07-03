@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="4" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="5" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
@@ -12,10 +12,10 @@
   <component name="BlazeImportSettings">
     <option name="buildSystem" value="Bazel" />
     <option name="locationHash" value="StateMachinePro-efb20420" />
-    <option name="projectDataDirectory" value="D:\Projects\CppLibraries\StateMachine.Pro\.clwb" />
+    <option name="projectDataDirectory" value="D:\Projects\Cpp.Libraries\StateMachine.Pro\.clwb" />
     <option name="projectName" value="StateMachine.Pro" />
-    <option name="projectViewFile" value="D:\Projects\CppLibraries\StateMachine.Pro\.clwb\.bazelproject" />
-    <option name="workspaceRoot" value="D:\Projects\CppLibraries\StateMachine.Pro" />
+    <option name="projectViewFile" value="D:\Projects\Cpp.Libraries\StateMachine.Pro\.clwb\.bazelproject" />
+    <option name="workspaceRoot" value="D:\Projects\Cpp.Libraries\StateMachine.Pro" />
   </component>
   <component name="BlazeSyncStatusState">
     <option name="dirty" value="true" />
@@ -31,8 +31,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +42,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -108,6 +109,8 @@
       <workItem from="1751529704166" duration="18000" />
       <workItem from="1751530489809" duration="9512000" />
       <workItem from="1751551712903" duration="41000" />
+      <workItem from="1751553677549" duration="36000" />
+      <workItem from="1751554022951" duration="418000" />
     </task>
     <servers />
   </component>
