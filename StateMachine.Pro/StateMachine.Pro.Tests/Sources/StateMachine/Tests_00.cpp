@@ -42,6 +42,16 @@ namespace StateMachine {
         auto *const a = new A();
         auto *const b = new B();
         {
+            // SetState null
+            machine->SetState(nullptr, nullptr, nullptr);
+            ASSERT_EQ(machine->State(), nullptr);
+        }
+        {
+            // SetState null
+            machine->SetState(nullptr, nullptr, nullptr);
+            ASSERT_EQ(machine->State(), nullptr);
+        }
+        {
             // SetState a
             machine->SetState(a, nullptr, nullptr);
             ASSERT_EQ(machine->State(), a);

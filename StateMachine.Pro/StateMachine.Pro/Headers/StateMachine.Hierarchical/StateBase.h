@@ -115,7 +115,7 @@ namespace StateMachine::Hierarchical {
         virtual void OnAfterDeactivate(const any argument);  // overriding methods must invoke base implementation
 
         protected:
-        void SetChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
+        virtual void SetChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
         virtual void AddChild(TThis *const child, const any argument);
         virtual void RemoveChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
         void RemoveChild(const any argument, const function<void(const TThis *const, const any)> callback);

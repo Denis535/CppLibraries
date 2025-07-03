@@ -29,10 +29,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,6 +112,7 @@
       <workItem from="1751551781466" duration="33000" />
       <workItem from="1751553479436" duration="193000" />
       <workItem from="1751554449125" duration="281000" />
+      <workItem from="1751569337673" duration="86000" />
     </task>
     <servers />
   </component>
