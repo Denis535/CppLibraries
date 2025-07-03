@@ -34,6 +34,7 @@
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Hierarchical/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Hierarchical/Impl_StateBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Hierarchical/StateBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine/Impl_StateBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine/Impl_NodeBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine/Impl_NodeBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +110,11 @@
       <workItem from="1751383437695" duration="675000" />
       <workItem from="1751441015899" duration="38000" />
       <workItem from="1751441091591" duration="1101000" />
-      <workItem from="1751483171267" duration="107000" />
+      <workItem from="1751483171267" duration="376000" />
+      <workItem from="1751526244330" duration="669000" />
+      <workItem from="1751527647797" duration="56000" />
+      <workItem from="1751529671607" duration="29000" />
+      <workItem from="1751529724082" duration="609000" />
     </task>
     <servers />
   </component>

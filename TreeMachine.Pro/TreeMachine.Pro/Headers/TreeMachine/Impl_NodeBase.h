@@ -13,8 +13,8 @@ namespace TreeMachine {
         if (auto *const *const machine = get_if<TreeMachineBase<TThis> *>(&this->m_Owner)) {
             return *machine;
         }
-        if (const auto *const *const node = get_if<TThis *>(&this->m_Owner)) {
-            return (*node)->Machine();
+        if (const auto *const *const parent = get_if<TThis *>(&this->m_Owner)) {
+            return (*parent)->Machine();
         }
         return nullptr;
     }
@@ -396,10 +396,10 @@ namespace TreeMachine {
     template <typename TThis>
     void NodeBase<TThis>::RemoveSelf(const any argument, const function<void(const TThis *const, const any)> callback) {
         if (auto *const parent = this->Parent()) {
-            parent->RemoveChild(this, argument, callback);
+            parent->RemoveChild(static_cast<TThis *>(this), argument, callback);
         } else {
             assert(this->Machine_NoRecursive() != nullptr && "Node must have machine");
-            this->Machine_NoRecursive()->RemoveRoot(this, argument, callback);
+            this->Machine_NoRecursive()->RemoveRoot(static_cast<TThis *>(this), argument, callback);
         }
     }
 
