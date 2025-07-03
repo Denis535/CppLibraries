@@ -1,4 +1,5 @@
 #pragma once
+#include <cassert>
 #include "StateBase.h"
 
 namespace StateMachine {
@@ -6,8 +7,8 @@ namespace StateMachine {
 
     template <typename TThis>
     StateMachineBase<TThis> *StateBase<TThis>::Machine() const {
-        if (auto *const *const tree = get_if<StateMachineBase<TThis> *>(&this->m_Owner)) {
-            return *tree;
+        if (auto *const *const machine = get_if<StateMachineBase<TThis> *>(&this->m_Owner)) {
+            return *machine;
         }
         return nullptr;
     }

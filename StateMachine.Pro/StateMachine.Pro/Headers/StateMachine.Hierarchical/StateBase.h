@@ -28,6 +28,9 @@ namespace StateMachine::Hierarchical {
         Activity_ m_Activity = Activity_::Inactive;
 
         private:
+        TThis *m_Child = nullptr;
+
+        private:
         function<void(const any)> m_OnBeforeAttachCallback = nullptr;
         function<void(const any)> m_OnAfterAttachCallback = nullptr;
         function<void(const any)> m_OnBeforeDetachCallback = nullptr;
