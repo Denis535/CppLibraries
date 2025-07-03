@@ -13,7 +13,15 @@ namespace StateMachine::Hierarchical {
             machine->AddState(a, nullptr);
             ASSERT_EQ(machine->State(), a);
             ASSERT_EQ(a->Machine(), machine);
+            ASSERT_EQ(a->IsRoot(), true);
+            ASSERT_EQ(a->Root(), a);
+            ASSERT_EQ(a->Parent(), nullptr);
+            ASSERT_EQ(a->Ancestors().size(), 0);
+            ASSERT_EQ(a->AncestorsAndSelf().size(), 1);
             ASSERT_EQ(a->Activity(), State::Activity_::Active);
+            ASSERT_EQ(a->Child(), nullptr);
+            ASSERT_EQ(a->Descendants().size(), 0);
+            ASSERT_EQ(a->DescendantsAndSelf().size(), 1);
         }
         {
             // RemoveState
@@ -24,9 +32,16 @@ namespace StateMachine::Hierarchical {
         {
             // AddState b
             machine->AddState(b, nullptr);
-            ASSERT_EQ(machine->State(), b);
             ASSERT_EQ(b->Machine(), machine);
+            ASSERT_EQ(b->IsRoot(), true);
+            ASSERT_EQ(b->Root(), b);
+            ASSERT_EQ(b->Parent(), nullptr);
+            ASSERT_EQ(b->Ancestors().size(), 0);
+            ASSERT_EQ(b->AncestorsAndSelf().size(), 1);
             ASSERT_EQ(b->Activity(), State::Activity_::Active);
+            ASSERT_EQ(b->Child(), nullptr);
+            ASSERT_EQ(b->Descendants().size(), 0);
+            ASSERT_EQ(b->DescendantsAndSelf().size(), 1);
         }
         {
             // RemoveState
@@ -46,29 +61,62 @@ namespace StateMachine::Hierarchical {
             machine->SetState(a, nullptr, nullptr);
             ASSERT_EQ(machine->State(), a);
             ASSERT_EQ(a->Machine(), machine);
+            ASSERT_EQ(a->IsRoot(), true);
+            ASSERT_EQ(a->Root(), a);
+            ASSERT_EQ(a->Parent(), nullptr);
+            ASSERT_EQ(a->Ancestors().size(), 0);
+            ASSERT_EQ(a->AncestorsAndSelf().size(), 1);
             ASSERT_EQ(a->Activity(), State::Activity_::Active);
+            ASSERT_EQ(a->Child(), nullptr);
+            ASSERT_EQ(a->Descendants().size(), 0);
+            ASSERT_EQ(a->DescendantsAndSelf().size(), 1);
         }
         {
             // SetState a
             machine->SetState(a, nullptr, nullptr);
             ASSERT_EQ(machine->State(), a);
             ASSERT_EQ(a->Machine(), machine);
+            ASSERT_EQ(a->IsRoot(), true);
+            ASSERT_EQ(a->Root(), a);
+            ASSERT_EQ(a->Parent(), nullptr);
+            ASSERT_EQ(a->Ancestors().size(), 0);
+            ASSERT_EQ(a->AncestorsAndSelf().size(), 1);
             ASSERT_EQ(a->Activity(), State::Activity_::Active);
+            ASSERT_EQ(a->Child(), nullptr);
+            ASSERT_EQ(a->Descendants().size(), 0);
+            ASSERT_EQ(a->DescendantsAndSelf().size(), 1);
         }
         {
             // SetState b
             machine->SetState(b, nullptr, [](const auto *const state, [[maybe_unused]] auto arg) { delete state; });
             ASSERT_EQ(machine->State(), b);
             ASSERT_EQ(b->Machine(), machine);
+            ASSERT_EQ(b->IsRoot(), true);
+            ASSERT_EQ(b->Root(), b);
+            ASSERT_EQ(b->Parent(), nullptr);
+            ASSERT_EQ(b->Ancestors().size(), 0);
+            ASSERT_EQ(b->AncestorsAndSelf().size(), 1);
             ASSERT_EQ(b->Activity(), State::Activity_::Active);
+            ASSERT_EQ(b->Child(), nullptr);
+            ASSERT_EQ(b->Descendants().size(), 0);
+            ASSERT_EQ(b->DescendantsAndSelf().size(), 1);
             // a must-be deleted
         }
         {
             // SetState b
             machine->SetState(b, nullptr, nullptr);
             ASSERT_EQ(machine->State(), b);
+            ASSERT_EQ(machine->State(), b);
             ASSERT_EQ(b->Machine(), machine);
+            ASSERT_EQ(b->IsRoot(), true);
+            ASSERT_EQ(b->Root(), b);
+            ASSERT_EQ(b->Parent(), nullptr);
+            ASSERT_EQ(b->Ancestors().size(), 0);
+            ASSERT_EQ(b->AncestorsAndSelf().size(), 1);
             ASSERT_EQ(b->Activity(), State::Activity_::Active);
+            ASSERT_EQ(b->Child(), nullptr);
+            ASSERT_EQ(b->Descendants().size(), 0);
+            ASSERT_EQ(b->DescendantsAndSelf().size(), 1);
         }
         {
             // SetState null
