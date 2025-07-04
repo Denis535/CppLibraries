@@ -5,6 +5,8 @@ cc_library(
     ]),
     strip_include_prefix = "Headers",
     deps = [
+        "@state_machine_pro//:state_machine_pro",
+        "@tree_machine_pro//:tree_machine_pro",
     ],
     visibility = ["//visibility:public"],
 )
