@@ -1,0 +1,14 @@
+cc_test(
+    name = "game_framework_pro_tests",
+    srcs = glob([
+        "Sources/**/*.cpp",
+    ]),
+    includes = [
+        ".",
+    ],
+    deps = [
+        "@googletest//:gtest_main",
+        "//GameFramework.Pro:game_framework_pro",
+    ],
+    visibility = ["//visibility:public"],
+)

@@ -1,0 +1,5 @@
+# Bazel
+bazel-*/
+
+# Misc
+*.lock
