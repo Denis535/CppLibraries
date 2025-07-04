@@ -1,0 +1,4 @@
+alias(
+    name = "state_machine_pro",
+    actual = "//StateMachine.Pro:state_machine_pro",
+)

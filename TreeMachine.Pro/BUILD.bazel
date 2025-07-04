@@ -1,0 +1,4 @@
+alias(
+    name = "tree_machine_pro",
+    actual = "//TreeMachine.Pro:tree_machine_pro",
+)
