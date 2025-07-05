@@ -29,7 +29,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="" />
+    <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +115,7 @@
       <workItem from="1751553479436" duration="193000" />
       <workItem from="1751554449125" duration="281000" />
       <workItem from="1751569337673" duration="86000" />
+      <workItem from="1751722507167" duration="71000" />
     </task>
     <servers />
   </component>

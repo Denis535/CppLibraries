@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="47" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="8" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
-    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppFormatterOtherPage" type="string" />
+    <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppGeneralOptions" type="string" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
   <component name="BlazeImportSettings">
@@ -17,9 +17,6 @@
     <option name="projectName" value="GameFramework.Pro" />
     <option name="projectViewFile" value="D:\Projects\Cpp.Libraries\GameFramework.Pro\.clwb\.bazelproject" />
     <option name="workspaceRoot" value="D:\Projects\Cpp.Libraries\GameFramework.Pro" />
-  </component>
-  <component name="BlazeSyncStatusState">
-    <option name="dirty" value="true" />
   </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
@@ -31,29 +28,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../.clang-format" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.blaze/modules/.workspace.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.blaze/modules/.workspace.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/BUILD.bazel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/artifacts.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/cc_info.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/code_generator_info.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/fast_build_info_bundled.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/flag_hack.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/intellij_info_bundled.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/intellij_info_impl_bundled.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/java_classpath.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/java_info.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/make_variables.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/python_info.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/tools/CreateAar_deploy.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/tools/JarFilter_deploy.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/tools/PackageParser_deploy.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aspects/xcode_query.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFramework/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFramework/Tests_00.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/GameFramework.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/GameFramework.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_GameFramework.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_GameFramework.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +42,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -100,7 +83,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C/C++",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "Errors",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -146,7 +130,8 @@
       <workItem from="1751651201272" duration="7126000" />
       <workItem from="1751698212168" duration="2232000" />
       <workItem from="1751700511634" duration="94000" />
-      <workItem from="1751700694947" duration="13510000" />
+      <workItem from="1751700694947" duration="14207000" />
+      <workItem from="1751722732589" duration="4437000" />
     </task>
     <servers />
   </component>
