@@ -4,27 +4,37 @@
 namespace GameFramework {
     using namespace std;
 
-    class Program : public ProgramBase {
+    class Program final : public ProgramBase {
     };
 
-    class Theme : public ThemeBase {
+    class Theme final : public ThemeBase {
     };
-    class PlayList : public PlayListBase {
+    class MainPlayList final : public PlayListBase {
     };
-    class Screen : public ScreenBase {
-    };
-    class RootWidget : public WidgetBase {
-    };
-    class Router : RouterBase {
+    class GamePlayList final : public PlayListBase {
     };
 
-    class Application : public ApplicationBase {
+    class Screen final : public ScreenBase {
     };
-    class Game : public GameBase {
+    class RootWidget final : public WidgetBase {
     };
-    class Player : public PlayerBase {
+    class MainWidget final : public WidgetBase {
     };
-    class Entity : public EntityBase {
+    class GameWidget final : public WidgetBase {
+    };
+
+    class Router final : RouterBase {
+    };
+
+    class Application final : public ApplicationBase {
+    };
+
+    class Game final : public GameBase {
+    };
+    class Player final : public PlayerBase {
+    };
+
+    class Entity final : public EntityBase {
     };
 
     TEST(Tests_00, Test_00) { // NOLINT

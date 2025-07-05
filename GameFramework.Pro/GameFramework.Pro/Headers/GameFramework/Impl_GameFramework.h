@@ -5,86 +5,86 @@
 namespace GameFramework {
 
     // ### ProgramBase ###
-    ProgramBase::ProgramBase() = default;
-    ProgramBase::~ProgramBase() = default;
+    inline ProgramBase::ProgramBase() = default;
+    inline ProgramBase::~ProgramBase() = default;
 
     // ### ThemeBase ###
-    ThemeBase::ThemeBase() = default;
-    ThemeBase::~ThemeBase() {
+    inline ThemeBase::ThemeBase() = default;
+    inline ThemeBase::~ThemeBase() {
         assert(this->State() == nullptr && "Theme must have no state");
     }
 
     // ### PlayListBase ###
-    PlayListBase::PlayListBase() = default;
-    PlayListBase::~PlayListBase() = default;
+    inline PlayListBase::PlayListBase() = default;
+    inline PlayListBase::~PlayListBase() = default;
 
     // ### ScreenBase ###
-    ScreenBase::ScreenBase() = default;
-    ScreenBase::~ScreenBase() {
+    inline ScreenBase::ScreenBase() = default;
+    inline ScreenBase::~ScreenBase() {
         assert(this->Root() == nullptr && "Screen must have no root");
     }
 
     // ### WidgetBase ###
-    ScreenBase *WidgetBase::Screen() const {
+    inline ScreenBase *WidgetBase::Screen() const {
         return dynamic_cast<ScreenBase *>(this->Machine());
     }
-    bool WidgetBase::IsViewable() const {
+    inline bool WidgetBase::IsViewable() const {
         return false;
     }
-    ViewBase *WidgetBase::View() const {
+    inline ViewBase *WidgetBase::View() const {
         return nullptr;
     }
 
-    WidgetBase::WidgetBase() = default;
-    WidgetBase::~WidgetBase() {
+    inline WidgetBase::WidgetBase() = default;
+    inline WidgetBase::~WidgetBase() {
         assert(this->WidgetBase::View() == nullptr && "Widget must have no view");
     }
 
-    void WidgetBase::ShowView(ViewBase *const view) const {
+    inline void WidgetBase::ShowView(ViewBase *const view) const {
         assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
         const auto wasShown = TryShowView(view);
         assert(wasShown && "View was not shown");
     }
-    void WidgetBase::ShowViewRecursive(ViewBase *const view) const {
+    inline void WidgetBase::ShowViewRecursive(ViewBase *const view) const {
         assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
         const auto wasShown = TryShowViewRecursive(view);
         assert(wasShown && "View was not shown");
     }
-    void WidgetBase::HideView(ViewBase *const view) const {
+    inline void WidgetBase::HideView(ViewBase *const view) const {
         assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
         const auto wasHidden = TryHideView(view);
         assert(wasHidden && "View was not hidden");
     }
-    void WidgetBase::HideViewRecursive(ViewBase *const view) const {
+    inline void WidgetBase::HideViewRecursive(ViewBase *const view) const {
         assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
         const auto wasHidden = TryHideViewRecursive(view);
         assert(wasHidden && "View was not hidden");
     }
 
-    bool WidgetBase::TryShowView(ViewBase *const view) const {
+    inline bool WidgetBase::TryShowView(ViewBase *const view) const {
         assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
         return this->IsViewable() && this->View()->TryAddView(view);
     }
-    bool WidgetBase::TryShowViewRecursive(ViewBase *const view) const {
+    inline bool WidgetBase::TryShowViewRecursive(ViewBase *const view) const {
         assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
         if (this->IsViewable() && this->View()->TryAddView(view)) {
             return true;
         }
-        if (auto *const parent = this->Parent()) {
+        if (const auto *const parent = this->Parent()) {
             return parent->TryShowViewRecursive(view);
         }
         return false;
     }
-    bool WidgetBase::TryHideView(ViewBase *const view) const {
+    inline bool WidgetBase::TryHideView(ViewBase *const view) const {
         assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
         return this->IsViewable() && this->View()->TryRemoveView(view);
     }
-    bool WidgetBase::TryHideViewRecursive(ViewBase *const view) const {
+    inline bool WidgetBase::TryHideViewRecursive(ViewBase *const view) const {
         assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
         if (this->IsViewable() && this->View()->TryRemoveView(view)) {
             return true;
         }
-        if (auto *const parent = this->Parent()) {
+        if (const auto *const parent = this->Parent()) {
             return parent->TryHideViewRecursive(view);
         }
         return false;
@@ -124,40 +124,40 @@ namespace GameFramework {
     }
 
     // ### ViewBase ###
-    bool ViewBase::IsInHierarchy() {
+    inline bool ViewBase::IsInHierarchy() {
         assert(false && "Not implemented");
         return false;
     }
 
-    ViewBase::ViewBase() = default;
-    ViewBase::~ViewBase() {
+    inline ViewBase::ViewBase() = default;
+    inline ViewBase::~ViewBase() {
         assert(!this->ViewBase::IsInHierarchy() && "View must be not in hierarchy");
     }
 
-    bool ViewBase::TryAddView([[maybe_unused]] ViewBase *const view) {
+    inline bool ViewBase::TryAddView([[maybe_unused]] ViewBase *const view) {
         return false;
     }
-    bool ViewBase::TryRemoveView([[maybe_unused]] ViewBase *const view) {
+    inline bool ViewBase::TryRemoveView([[maybe_unused]] ViewBase *const view) {
         return false;
     }
 
     // ### RouterBase ###
-    RouterBase::RouterBase() = default;
-    RouterBase::~RouterBase() = default;
+    inline RouterBase::RouterBase() = default;
+    inline RouterBase::~RouterBase() = default;
 
     // ### ApplicationBase ###
-    ApplicationBase::ApplicationBase() = default;
-    ApplicationBase::~ApplicationBase() = default;
+    inline ApplicationBase::ApplicationBase() = default;
+    inline ApplicationBase::~ApplicationBase() = default;
 
     // ### GameBase ###
-    GameBase::GameBase() = default;
-    GameBase::~GameBase() = default;
+    inline GameBase::GameBase() = default;
+    inline GameBase::~GameBase() = default;
 
     // ### PlayerBase ###
-    PlayerBase::PlayerBase() = default;
-    PlayerBase::~PlayerBase() = default;
+    inline PlayerBase::PlayerBase() = default;
+    inline PlayerBase::~PlayerBase() = default;
 
     // ### EntityBase ###
-    EntityBase::EntityBase() = default;
-    EntityBase::~EntityBase() = default;
+    inline EntityBase::EntityBase() = default;
+    inline EntityBase::~EntityBase() = default;
 }

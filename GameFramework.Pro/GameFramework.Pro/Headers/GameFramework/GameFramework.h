@@ -10,12 +10,12 @@ namespace GameFramework {
     class ProgramBase {
 
         protected:
-        inline explicit ProgramBase();
+        explicit ProgramBase();
 
         public:
         explicit ProgramBase(const ProgramBase &other) = delete;
         explicit ProgramBase(ProgramBase &&other) = delete;
-        inline virtual ~ProgramBase();
+        virtual ~ProgramBase();
 
         public:
         ProgramBase &operator=(const ProgramBase &other) = delete;
@@ -26,12 +26,12 @@ namespace GameFramework {
     class ThemeBase : public StateMachineBase<PlayListBase> {
 
         protected:
-        inline explicit ThemeBase();
+        explicit ThemeBase();
 
         public:
         explicit ThemeBase(const ThemeBase &other) = delete;
         explicit ThemeBase(ThemeBase &&other) = delete;
-        inline virtual ~ThemeBase();
+        ~ThemeBase() override;
 
         public:
         ThemeBase &operator=(const ThemeBase &other) = delete;
@@ -40,12 +40,12 @@ namespace GameFramework {
     class PlayListBase : public StateBase<PlayListBase> {
 
         protected:
-        inline explicit PlayListBase();
+        explicit PlayListBase();
 
         public:
         explicit PlayListBase(const PlayListBase &other) = delete;
         explicit PlayListBase(PlayListBase &&other) = delete;
-        inline virtual ~PlayListBase();
+        ~PlayListBase() override;
 
         public:
         PlayListBase &operator=(const PlayListBase &other) = delete;
@@ -59,43 +59,45 @@ namespace GameFramework {
     class ScreenBase : public TreeMachineBase<WidgetBase> {
 
         protected:
-        inline explicit ScreenBase();
+        explicit ScreenBase();
 
         public:
         explicit ScreenBase(const ScreenBase &other) = delete;
         explicit ScreenBase(ScreenBase &&other) = delete;
-        inline virtual ~ScreenBase();
+        ~ScreenBase() override;
 
         public:
         ScreenBase &operator=(const ScreenBase &other) = delete;
         ScreenBase &operator=(ScreenBase &&other) = delete;
     };
     class WidgetBase : public NodeBase2<WidgetBase> {
+        template <typename TView>
+        friend class ViewableWidgetBase;
 
         public:
-        [[nodiscard]] inline ScreenBase *Screen() const;
-        [[nodiscard]] inline virtual bool IsViewable() const;
-        [[nodiscard]] inline virtual ViewBase *View() const;
+        [[nodiscard]] ScreenBase *Screen() const;
+        [[nodiscard]] virtual bool IsViewable() const;
+        [[nodiscard]] virtual ViewBase *View() const;
 
         protected:
-        inline explicit WidgetBase();
+        explicit WidgetBase();
 
         public:
         explicit WidgetBase(const WidgetBase &other) = delete;
         explicit WidgetBase(WidgetBase &&other) = delete;
-        inline virtual ~WidgetBase();
+        ~WidgetBase() override;
 
         protected:
-        inline virtual void ShowView(ViewBase *const view) const;
-        inline virtual void ShowViewRecursive(ViewBase *const view) const;
-        inline virtual void HideView(ViewBase *const view) const;
-        inline virtual void HideViewRecursive(ViewBase *const view) const;
+        virtual void ShowView(ViewBase *const view) const;
+        virtual void ShowViewRecursive(ViewBase *const view) const;
+        virtual void HideView(ViewBase *const view) const;
+        virtual void HideViewRecursive(ViewBase *const view) const;
 
         private:
-        inline bool TryShowView(ViewBase *const view) const;
-        inline bool TryShowViewRecursive(ViewBase *const view) const;
-        inline bool TryHideView(ViewBase *const view) const;
-        inline bool TryHideViewRecursive(ViewBase *const view) const;
+        bool TryShowView(ViewBase *const view) const;
+        bool TryShowViewRecursive(ViewBase *const view) const;
+        bool TryHideView(ViewBase *const view) const;
+        bool TryHideViewRecursive(ViewBase *const view) const;
 
         public:
         WidgetBase &operator=(const WidgetBase &other) = delete;
@@ -130,22 +132,21 @@ namespace GameFramework {
     };
     class ViewBase {
         friend WidgetBase;
-        friend ViewableWidgetBase;
 
         public:
-        inline virtual bool IsInHierarchy();
+        [[nodiscard]] virtual bool IsInHierarchy();
 
         protected:
-        inline explicit ViewBase();
+        explicit ViewBase();
 
         public:
         explicit ViewBase(const ViewBase &other) = delete;
         explicit ViewBase(ViewBase &&other) = delete;
-        inline virtual ~ViewBase();
+        virtual ~ViewBase();
 
         protected:
-        inline virtual bool TryAddView(ViewBase *const view);
-        inline virtual bool TryRemoveView(ViewBase *const view);
+        virtual bool TryAddView(ViewBase *const view);
+        virtual bool TryRemoveView(ViewBase *const view);
 
         public:
         ViewBase &operator=(const ViewBase &other) = delete;
@@ -155,12 +156,12 @@ namespace GameFramework {
     class RouterBase {
 
         protected:
-        inline explicit RouterBase();
+        explicit RouterBase();
 
         public:
         explicit RouterBase(const RouterBase &other) = delete;
         explicit RouterBase(RouterBase &&other) = delete;
-        inline virtual ~RouterBase();
+        virtual ~RouterBase();
 
         public:
         RouterBase &operator=(const RouterBase &other) = delete;
@@ -170,12 +171,12 @@ namespace GameFramework {
     class ApplicationBase {
 
         protected:
-        inline explicit ApplicationBase();
+        explicit ApplicationBase();
 
         public:
         explicit ApplicationBase(const ApplicationBase &other) = delete;
         explicit ApplicationBase(ApplicationBase &&other) = delete;
-        inline virtual ~ApplicationBase();
+        virtual ~ApplicationBase();
 
         public:
         ApplicationBase &operator=(const ApplicationBase &other) = delete;
@@ -185,12 +186,12 @@ namespace GameFramework {
     class GameBase {
 
         protected:
-        inline explicit GameBase();
+        explicit GameBase();
 
         public:
         explicit GameBase(const GameBase &other) = delete;
         explicit GameBase(GameBase &&other) = delete;
-        inline virtual ~GameBase();
+        virtual ~GameBase();
 
         public:
         GameBase &operator=(const GameBase &other) = delete;
@@ -199,12 +200,12 @@ namespace GameFramework {
     class PlayerBase {
 
         protected:
-        inline explicit PlayerBase();
+        explicit PlayerBase();
 
         public:
         explicit PlayerBase(const PlayerBase &other) = delete;
         explicit PlayerBase(PlayerBase &&other) = delete;
-        inline virtual ~PlayerBase();
+        virtual ~PlayerBase();
 
         public:
         PlayerBase &operator=(const PlayerBase &other) = delete;
@@ -213,12 +214,12 @@ namespace GameFramework {
     class EntityBase {
 
         protected:
-        inline explicit EntityBase();
+        explicit EntityBase();
 
         public:
         explicit EntityBase(const EntityBase &other) = delete;
         explicit EntityBase(EntityBase &&other) = delete;
-        inline virtual ~EntityBase();
+        virtual ~EntityBase();
 
         public:
         EntityBase &operator=(const EntityBase &other) = delete;
