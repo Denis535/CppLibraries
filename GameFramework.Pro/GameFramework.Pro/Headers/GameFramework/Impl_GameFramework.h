@@ -36,9 +36,7 @@ namespace GameFramework {
     }
 
     inline WidgetBase::WidgetBase() = default;
-    inline WidgetBase::~WidgetBase() {
-        assert(this->WidgetBase::View() == nullptr && "Widget must have no view");
-    }
+    inline WidgetBase::~WidgetBase() = default;
 
     inline void WidgetBase::ShowView(ViewBase *const view) const {
         assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
@@ -109,7 +107,7 @@ namespace GameFramework {
     }
     template <typename TView>
     ViewableWidgetBase<TView>::~ViewableWidgetBase() {
-        assert(this->View() == nullptr && "Widget must have no view");
+        delete this->m_View;
     }
 
     template <typename TView>
