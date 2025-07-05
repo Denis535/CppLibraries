@@ -92,12 +92,12 @@ namespace GameFramework {
 
     // ### ViewableWidgetBase ###
     template <typename TView>
-    bool ViewableWidgetBase<TView>::IsViewable() const final {
+    bool ViewableWidgetBase<TView>::IsViewable() const {
         return true;
     }
     template <typename TView>
-    ViewBase *ViewableWidgetBase<TView>::View() const final {
-        return static_cast<TView *>(this->m_View);
+    ViewBase *ViewableWidgetBase<TView>::View() const {
+        return this->m_View;
     }
     template <typename TView>
     TView *ViewableWidgetBase<TView>::View_Typed() const { // NOLINT
@@ -105,7 +105,7 @@ namespace GameFramework {
     }
 
     template <typename TView>
-    ViewableWidgetBase<TView>::ViewableWidgetBase(TView view) : m_View(view) {
+    ViewableWidgetBase<TView>::ViewableWidgetBase(TView *const view) : m_View(view) {
     }
     template <typename TView>
     ViewableWidgetBase<TView>::~ViewableWidgetBase() {

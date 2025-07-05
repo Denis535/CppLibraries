@@ -115,7 +115,7 @@ namespace GameFramework {
         [[nodiscard]] TView *View_Typed() const; // NOLINT
 
         protected:
-        explicit ViewableWidgetBase(TView view);
+        explicit ViewableWidgetBase(TView *const view);
 
         public:
         explicit ViewableWidgetBase(const ViewableWidgetBase &other) = delete;

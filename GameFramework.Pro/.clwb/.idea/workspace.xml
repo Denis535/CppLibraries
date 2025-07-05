@@ -43,6 +43,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
@@ -131,7 +135,7 @@
       <workItem from="1751698212168" duration="2232000" />
       <workItem from="1751700511634" duration="94000" />
       <workItem from="1751700694947" duration="14207000" />
-      <workItem from="1751722732589" duration="6219000" />
+      <workItem from="1751722732589" duration="8861000" />
     </task>
     <servers />
   </component>
