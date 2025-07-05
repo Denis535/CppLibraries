@@ -1,0 +1,5 @@
+alias(
+    name = "game_framework_pro",
+    actual = "//GameFramework.Pro:game_framework_pro",
+    visibility = ["//visibility:public"],
+)

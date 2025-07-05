@@ -22,21 +22,7 @@ namespace GameFramework {
         ProgramBase &operator=(ProgramBase &&other) = delete;
     };
 
-    class ThemeBase {
-
-        protected:
-        explicit ThemeBase();
-
-        public:
-        explicit ThemeBase(const ThemeBase &other) = delete;
-        explicit ThemeBase(ThemeBase &&other) = delete;
-        virtual ~ThemeBase();
-
-        public:
-        ThemeBase &operator=(const ThemeBase &other) = delete;
-        ThemeBase &operator=(ThemeBase &&other) = delete;
-    };
-    class PlayListBase {
+    class PlayListBase : public StateBase<PlayListBase> {
 
         protected:
         explicit PlayListBase();
@@ -50,35 +36,21 @@ namespace GameFramework {
         PlayListBase &operator=(const PlayListBase &other) = delete;
         PlayListBase &operator=(PlayListBase &&other) = delete;
     };
-
-    class ScreenBase {
-
-        protected:
-        explicit ScreenBase();
-
-        public:
-        explicit ScreenBase(const ScreenBase &other) = delete;
-        explicit ScreenBase(ScreenBase &&other) = delete;
-        virtual ~ScreenBase();
-
-        public:
-        ScreenBase &operator=(const ScreenBase &other) = delete;
-        ScreenBase &operator=(ScreenBase &&other) = delete;
-    };
-    class WidgetBase {
+    class ThemeBase : public StateMachineBase<PlayListBase> {
 
         protected:
-        explicit WidgetBase();
+        explicit ThemeBase();
 
         public:
-        explicit WidgetBase(const WidgetBase &other) = delete;
-        explicit WidgetBase(WidgetBase &&other) = delete;
-        virtual ~WidgetBase();
+        explicit ThemeBase(const ThemeBase &other) = delete;
+        explicit ThemeBase(ThemeBase &&other) = delete;
+        virtual ~ThemeBase();
 
         public:
-        WidgetBase &operator=(const WidgetBase &other) = delete;
-        WidgetBase &operator=(WidgetBase &&other) = delete;
+        ThemeBase &operator=(const ThemeBase &other) = delete;
+        ThemeBase &operator=(ThemeBase &&other) = delete;
     };
+
     class ViewBase {
 
         protected:
@@ -92,6 +64,49 @@ namespace GameFramework {
         public:
         ViewBase &operator=(const ViewBase &other) = delete;
         ViewBase &operator=(ViewBase &&other) = delete;
+    };
+    class WidgetBase : public NodeBase<WidgetBase> {
+
+        protected:
+        explicit WidgetBase();
+
+        public:
+        explicit WidgetBase(const WidgetBase &other) = delete;
+        explicit WidgetBase(WidgetBase &&other) = delete;
+        virtual ~WidgetBase();
+
+        public:
+        WidgetBase &operator=(const WidgetBase &other) = delete;
+        WidgetBase &operator=(WidgetBase &&other) = delete;
+    };
+    template <typename TView>
+    class WidgetBase<TView> : public WidgetBase {
+
+        protected:
+        explicit WidgetBase();
+
+        public:
+        explicit WidgetBase(const WidgetBase &other) = delete;
+        explicit WidgetBase(WidgetBase &&other) = delete;
+        virtual ~WidgetBase();
+
+        public:
+        WidgetBase &operator=(const WidgetBase &other) = delete;
+        WidgetBase &operator=(WidgetBase &&other) = delete;
+    };
+    class ScreenBase : public TreeMachineBase<WidgetBase> {
+
+        protected:
+        explicit ScreenBase();
+
+        public:
+        explicit ScreenBase(const ScreenBase &other) = delete;
+        explicit ScreenBase(ScreenBase &&other) = delete;
+        virtual ~ScreenBase();
+
+        public:
+        ScreenBase &operator=(const ScreenBase &other) = delete;
+        ScreenBase &operator=(ScreenBase &&other) = delete;
     };
 
     class ApplicationBase {
