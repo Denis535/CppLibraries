@@ -4,6 +4,7 @@
 namespace GameFramework {
     using namespace std;
 
+    // Game
     class Entity final : public EntityBase {
 
         public:
@@ -41,6 +42,7 @@ namespace GameFramework {
         Game &operator=(Game &&other) = delete;
     };
 
+    // App
     class Application final : public ApplicationBase {
 
         public:
@@ -54,6 +56,7 @@ namespace GameFramework {
         Application &operator=(Application &&other) = delete;
     };
 
+    // UI
     class Router final : RouterBase {
 
         public:
@@ -68,11 +71,6 @@ namespace GameFramework {
     };
 
     class MainWidgetView final : public ViewBase {
-
-        public:
-        bool IsInHierarchy() const final {
-            return false;
-        }
 
         public:
         explicit MainWidgetView() = default;
@@ -93,16 +91,19 @@ namespace GameFramework {
         explicit MainWidget(MainWidget &&other) = delete;
         ~MainWidget() override = default;
 
+        protected:
+        void OnActivate([[maybe_unused]] const any argument) override {
+            this->ShowSelf();
+        }
+        void OnDeactivate([[maybe_unused]] const any argument) override {
+            this->HideSelf();
+        }
+
         public:
         MainWidget &operator=(const MainWidget &other) = delete;
         MainWidget &operator=(MainWidget &&other) = delete;
     };
     class GameWidgetView final : public ViewBase {
-
-        public:
-        bool IsInHierarchy() const final {
-            return false;
-        }
 
         public:
         explicit GameWidgetView() = default;
@@ -123,6 +124,14 @@ namespace GameFramework {
         explicit GameWidget(GameWidget &&other) = delete;
         ~GameWidget() override = default;
 
+        protected:
+        void OnActivate([[maybe_unused]] const any argument) override {
+            this->ShowSelf();
+        }
+        void OnDeactivate([[maybe_unused]] const any argument) override {
+            this->HideSelf();
+        }
+
         public:
         GameWidget &operator=(const GameWidget &other) = delete;
         GameWidget &operator=(GameWidget &&other) = delete;
@@ -138,6 +147,14 @@ namespace GameFramework {
         explicit RootWidget(RootWidget &&other) = delete;
         ~RootWidget() override {
             this->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
+        }
+
+        protected:
+        void OnActivate([[maybe_unused]] const any argument) override {
+            // this->ShowSelf();
+        }
+        void OnDeactivate([[maybe_unused]] const any argument) override {
+            // this->HideSelf();
         }
 
         public:
@@ -204,6 +221,7 @@ namespace GameFramework {
         Theme &operator=(Theme &&other) = delete;
     };
 
+    // Program
     class Program final : public ProgramBase {
 
         private:
@@ -221,10 +239,10 @@ namespace GameFramework {
         explicit Program(const Program &other) = delete;
         explicit Program(Program &&other) = delete;
         ~Program() override {
-            delete m_Application;
-            delete m_Router;
-            delete m_Screen;
-            delete m_Theme;
+            delete this->m_Application;
+            delete this->m_Router;
+            delete this->m_Screen;
+            delete this->m_Theme;
         }
 
         public:

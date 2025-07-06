@@ -88,16 +88,16 @@ namespace GameFramework {
         ~WidgetBase() override;
 
         protected:
-        virtual void ShowView(ViewBase *const view) const;
-        virtual void ShowViewRecursive(ViewBase *const view) const;
-        virtual void HideView(ViewBase *const view) const;
-        virtual void HideViewRecursive(ViewBase *const view) const;
+        void ShowWidget(WidgetBase *const widget) const;
+        void ShowWidgetRecursive(WidgetBase *const widget) const;
+        void HideWidget(WidgetBase *const widget) const;
+        void HideWidgetRecursive(WidgetBase *const widget) const;
 
         private:
-        bool TryShowView(ViewBase *const view) const;
-        bool TryShowViewRecursive(ViewBase *const view) const;
-        bool TryHideView(ViewBase *const view) const;
-        bool TryHideViewRecursive(ViewBase *const view) const;
+        bool TryShowWidget(WidgetBase *const widget) const;
+        bool TryShowWidgetRecursive(WidgetBase *const widget) const;
+        bool TryHideWidget(WidgetBase *const widget) const;
+        bool TryHideWidgetRecursive(WidgetBase *const widget) const;
 
         public:
         WidgetBase &operator=(const WidgetBase &other) = delete;
@@ -132,9 +132,6 @@ namespace GameFramework {
     };
     class ViewBase {
         friend WidgetBase;
-
-        public:
-        [[nodiscard]] virtual bool IsInHierarchy() const;
 
         protected:
         explicit ViewBase();

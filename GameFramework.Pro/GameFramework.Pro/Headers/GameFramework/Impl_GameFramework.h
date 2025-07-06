@@ -38,52 +38,60 @@ namespace GameFramework {
     inline WidgetBase::WidgetBase() = default;
     inline WidgetBase::~WidgetBase() = default;
 
-    inline void WidgetBase::ShowView(ViewBase *const view) const {
-        assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
-        const auto wasShown = TryShowView(view);
-        assert(wasShown && "View was not shown");
+    inline void WidgetBase::ShowWidget(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        const auto wasShown = TryShowWidget(widget);
+        assert(wasShown && "Widget was not shown");
     }
-    inline void WidgetBase::ShowViewRecursive(ViewBase *const view) const {
-        assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
-        const auto wasShown = TryShowViewRecursive(view);
-        assert(wasShown && "View was not shown");
+    inline void WidgetBase::ShowWidgetRecursive(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        const auto wasShown = TryShowWidgetRecursive(widget);
+        assert(wasShown && "Widget was not shown");
     }
-    inline void WidgetBase::HideView(ViewBase *const view) const {
-        assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
-        const auto wasHidden = TryHideView(view);
-        assert(wasHidden && "View was not hidden");
+    inline void WidgetBase::HideWidget(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        const auto wasHidden = TryHideWidget(widget);
+        assert(wasHidden && "Widget was not hidden");
     }
-    inline void WidgetBase::HideViewRecursive(ViewBase *const view) const {
-        assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
-        const auto wasHidden = TryHideViewRecursive(view);
-        assert(wasHidden && "View was not hidden");
+    inline void WidgetBase::HideWidgetRecursive(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        const auto wasHidden = TryHideWidgetRecursive(widget);
+        assert(wasHidden && "Widget was not hidden");
     }
 
-    inline bool WidgetBase::TryShowView(ViewBase *const view) const {
-        assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
-        return this->IsViewable() && this->View()->TryAddView(view);
+    inline bool WidgetBase::TryShowWidget(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        return this->IsViewable() && this->View()->TryAddView(widget->View());
     }
-    inline bool WidgetBase::TryShowViewRecursive(ViewBase *const view) const {
-        assert(!view->IsInHierarchy() && "Argument 'view' must be not in hierarchy");
-        if (this->IsViewable() && this->View()->TryAddView(view)) {
+    inline bool WidgetBase::TryShowWidgetRecursive(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        if (this->IsViewable() && this->View()->TryAddView(widget->View())) {
             return true;
         }
         if (const auto *const parent = this->Parent()) {
-            return parent->TryShowViewRecursive(view);
+            return parent->TryShowWidgetRecursive(widget);
         }
         return false;
     }
-    inline bool WidgetBase::TryHideView(ViewBase *const view) const {
-        assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
-        return this->IsViewable() && this->View()->TryRemoveView(view);
+    inline bool WidgetBase::TryHideWidget(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        return this->IsViewable() && this->View()->TryRemoveView(widget->View());
     }
-    inline bool WidgetBase::TryHideViewRecursive(ViewBase *const view) const {
-        assert(view->IsInHierarchy() && "Argument 'view' must be in hierarchy");
-        if (this->IsViewable() && this->View()->TryRemoveView(view)) {
+    inline bool WidgetBase::TryHideWidgetRecursive(WidgetBase *const widget) const {
+        assert(widget != nullptr && "Argument 'widget' must be non-null");
+        assert(widget->IsViewable() && "Argument 'widget' must be viewable");
+        if (this->IsViewable() && this->View()->TryRemoveView(widget->View())) {
             return true;
         }
         if (const auto *const parent = this->Parent()) {
-            return parent->TryHideViewRecursive(view);
+            return parent->TryHideWidgetRecursive(widget);
         }
         return false;
     }
@@ -104,29 +112,21 @@ namespace GameFramework {
 
     template <typename TView>
     ViewableWidgetBase<TView>::ViewableWidgetBase(TView *const view) : m_View(view) {
-        assert(!this->m_View->IsInHierarchy() && "View must be not in hierarchy");
     }
     template <typename TView>
     ViewableWidgetBase<TView>::~ViewableWidgetBase() {
-        assert(!this->m_View->IsInHierarchy() && "View must be not in hierarchy");
         delete this->m_View;
     }
 
     template <typename TView>
     void ViewableWidgetBase<TView>::ShowSelf() {
         assert(this->Parent() != nullptr && "Widget must have parent");
-        this->Parent()->ShowViewRecursive(this->View());
+        this->Parent()->ShowWidgetRecursive(this);
     }
     template <typename TView>
     void ViewableWidgetBase<TView>::HideSelf() {
         assert(this->Parent() != nullptr && "Widget must have parent");
-        this->Parent()->HideViewRecursive(this->View());
-    }
-
-    // ### ViewBase ###
-    inline bool ViewBase::IsInHierarchy() const {
-        assert(false && "Not implemented");
-        return false;
+        this->Parent()->HideWidgetRecursive(this);
     }
 
     inline ViewBase::ViewBase() = default;
