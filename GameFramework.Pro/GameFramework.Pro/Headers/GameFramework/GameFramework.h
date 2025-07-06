@@ -71,8 +71,7 @@ namespace GameFramework {
         ScreenBase &operator=(ScreenBase &&other) = delete;
     };
     class WidgetBase : public NodeBase2<WidgetBase> {
-        template <typename TView>
-        friend class ViewableWidgetBase;
+        friend ViewableWidgetBase;
 
         public:
         [[nodiscard]] ScreenBase *Screen() const;
@@ -88,16 +87,20 @@ namespace GameFramework {
         ~WidgetBase() override;
 
         protected:
-        void ShowWidget(WidgetBase *const widget) const;
-        void ShowWidgetRecursive(WidgetBase *const widget) const;
-        void HideWidget(WidgetBase *const widget) const;
-        void HideWidgetRecursive(WidgetBase *const widget) const;
+        virtual void ShowSelf();
+        virtual void HideSelf();
 
-        private:
-        bool TryShowWidget(WidgetBase *const widget) const;
-        bool TryShowWidgetRecursive(WidgetBase *const widget) const;
-        bool TryHideWidget(WidgetBase *const widget) const;
-        bool TryHideWidgetRecursive(WidgetBase *const widget) const;
+        protected:
+        void ShowWidget(WidgetBase *const widget);
+        void ShowWidgetRecursive(WidgetBase *const widget);
+        void HideWidget(WidgetBase *const widget);
+        void HideWidgetRecursive(WidgetBase *const widget);
+
+        protected:
+        virtual bool TryShowWidget(WidgetBase *const widget);
+        bool TryShowWidgetRecursive(WidgetBase *const widget);
+        virtual bool TryHideWidget(WidgetBase *const widget);
+        bool TryHideWidgetRecursive(WidgetBase *const widget);
 
         public:
         WidgetBase &operator=(const WidgetBase &other) = delete;
@@ -122,16 +125,11 @@ namespace GameFramework {
         explicit ViewableWidgetBase(ViewableWidgetBase &&other) = delete;
         ~ViewableWidgetBase() override;
 
-        protected:
-        virtual void ShowSelf();
-        virtual void HideSelf();
-
         public:
         ViewableWidgetBase &operator=(const ViewableWidgetBase &other) = delete;
         ViewableWidgetBase &operator=(ViewableWidgetBase &&other) = delete;
     };
     class ViewBase {
-        friend WidgetBase;
 
         protected:
         explicit ViewBase();
@@ -140,10 +138,6 @@ namespace GameFramework {
         explicit ViewBase(const ViewBase &other) = delete;
         explicit ViewBase(ViewBase &&other) = delete;
         virtual ~ViewBase();
-
-        protected:
-        virtual bool TryAddView(ViewBase *const view);
-        virtual bool TryRemoveView(ViewBase *const view);
 
         public:
         ViewBase &operator=(const ViewBase &other) = delete;
