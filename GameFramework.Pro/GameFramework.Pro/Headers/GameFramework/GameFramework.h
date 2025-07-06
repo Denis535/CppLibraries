@@ -134,7 +134,7 @@ namespace GameFramework {
         friend WidgetBase;
 
         public:
-        [[nodiscard]] virtual bool IsInHierarchy();
+        [[nodiscard]] virtual bool IsInHierarchy() const;
 
         protected:
         explicit ViewBase();

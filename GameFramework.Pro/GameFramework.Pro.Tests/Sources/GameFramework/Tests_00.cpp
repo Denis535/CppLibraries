@@ -70,6 +70,11 @@ namespace GameFramework {
     class MainWidgetView final : public ViewBase {
 
         public:
+        bool IsInHierarchy() const final {
+            return false;
+        }
+
+        public:
         explicit MainWidgetView() = default;
         explicit MainWidgetView(const MainWidgetView &other) = delete;
         explicit MainWidgetView(MainWidgetView &&other) = delete;
@@ -93,6 +98,11 @@ namespace GameFramework {
         MainWidget &operator=(MainWidget &&other) = delete;
     };
     class GameWidgetView final : public ViewBase {
+
+        public:
+        bool IsInHierarchy() const final {
+            return false;
+        }
 
         public:
         explicit GameWidgetView() = default;

@@ -104,11 +104,11 @@ namespace GameFramework {
 
     template <typename TView>
     ViewableWidgetBase<TView>::ViewableWidgetBase(TView *const view) : m_View(view) {
-        // assert(!this->m_View->IsInHierarchy() && "View must be not in hierarchy");
+        assert(!this->m_View->IsInHierarchy() && "View must be not in hierarchy");
     }
     template <typename TView>
     ViewableWidgetBase<TView>::~ViewableWidgetBase() {
-        // assert(!this->m_View->IsInHierarchy() && "View must be not in hierarchy");
+        assert(!this->m_View->IsInHierarchy() && "View must be not in hierarchy");
         delete this->m_View;
     }
 
@@ -124,7 +124,7 @@ namespace GameFramework {
     }
 
     // ### ViewBase ###
-    inline bool ViewBase::IsInHierarchy() {
+    inline bool ViewBase::IsInHierarchy() const {
         assert(false && "Not implemented");
         return false;
     }
