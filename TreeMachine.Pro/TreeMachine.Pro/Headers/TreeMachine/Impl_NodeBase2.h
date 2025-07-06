@@ -51,7 +51,7 @@ namespace TreeMachine {
 
     template <typename TThis>
     void NodeBase2<TThis>::OnAttach(const any argument) {
-        NodeBase<TThis>::OnAttach(argument);
+        this->NodeBase<TThis>::OnAttach(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnBeforeAttach(const any argument) {
@@ -61,11 +61,11 @@ namespace TreeMachine {
             }
             static_cast<NodeBase2 *>(ancestor)->OnBeforeDescendantAttach(static_cast<TThis *>(this), argument);
         }
-        NodeBase<TThis>::OnBeforeAttach(argument);
+        this->NodeBase<TThis>::OnBeforeAttach(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnAfterAttach(const any argument) {
-        NodeBase<TThis>::OnAfterAttach(argument);
+        this->NodeBase<TThis>::OnAfterAttach(argument);
         for (auto *const ancestor : this->Ancestors()) {
             static_cast<NodeBase2 *>(ancestor)->OnAfterDescendantAttach(static_cast<TThis *>(this), argument);
             if (ancestor->m_OnAfterDescendantAttachCallback) {
@@ -76,7 +76,7 @@ namespace TreeMachine {
 
     template <typename TThis>
     void NodeBase2<TThis>::OnDetach(const any argument) {
-        NodeBase<TThis>::OnDetach(argument);
+        this->NodeBase<TThis>::OnDetach(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnBeforeDetach(const any argument) {
@@ -86,11 +86,11 @@ namespace TreeMachine {
             }
             static_cast<NodeBase2 *>(ancestor)->OnBeforeDescendantDetach(static_cast<TThis *>(this), argument);
         }
-        NodeBase<TThis>::OnBeforeDetach(argument);
+        this->NodeBase<TThis>::OnBeforeDetach(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnAfterDetach(const any argument) {
-        NodeBase<TThis>::OnAfterDetach(argument);
+        this->NodeBase<TThis>::OnAfterDetach(argument);
         for (auto *const ancestor : this->Ancestors()) {
             static_cast<NodeBase2 *>(ancestor)->OnAfterDescendantDetach(static_cast<TThis *>(this), argument);
             if (ancestor->m_OnAfterDescendantDetachCallback) {
@@ -114,7 +114,7 @@ namespace TreeMachine {
 
     template <typename TThis>
     void NodeBase2<TThis>::OnActivate(const any argument) {
-        NodeBase<TThis>::OnActivate(argument);
+        this->NodeBase<TThis>::OnActivate(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnBeforeActivate(const any argument) {
@@ -124,11 +124,11 @@ namespace TreeMachine {
             }
             static_cast<NodeBase2 *>(ancestor)->OnBeforeDescendantActivate(static_cast<TThis *>(this), argument);
         }
-        NodeBase<TThis>::OnBeforeActivate(argument);
+        this->NodeBase<TThis>::OnBeforeActivate(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnAfterActivate(const any argument) {
-        NodeBase<TThis>::OnAfterActivate(argument);
+        this->NodeBase<TThis>::OnAfterActivate(argument);
         for (auto *const ancestor : this->Ancestors()) {
             static_cast<NodeBase2 *>(ancestor)->OnAfterDescendantActivate(static_cast<TThis *>(this), argument);
             if (ancestor->m_OnAfterDescendantActivateCallback) {
@@ -139,7 +139,7 @@ namespace TreeMachine {
 
     template <typename TThis>
     void NodeBase2<TThis>::OnDeactivate(const any argument) {
-        NodeBase<TThis>::OnDeactivate(argument);
+        this->NodeBase<TThis>::OnDeactivate(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnBeforeDeactivate(const any argument) {
@@ -149,11 +149,11 @@ namespace TreeMachine {
             }
             static_cast<NodeBase2 *>(ancestor)->OnBeforeDescendantDeactivate(static_cast<TThis *>(this), argument);
         }
-        NodeBase<TThis>::OnBeforeDeactivate(argument);
+        this->NodeBase<TThis>::OnBeforeDeactivate(argument);
     }
     template <typename TThis>
     void NodeBase2<TThis>::OnAfterDeactivate(const any argument) {
-        NodeBase<TThis>::OnAfterDeactivate(argument);
+        this->NodeBase<TThis>::OnAfterDeactivate(argument);
         for (auto *const ancestor : this->Ancestors()) {
             static_cast<NodeBase2 *>(ancestor)->OnAfterDescendantDeactivate(static_cast<TThis *>(this), argument);
             if (ancestor->m_OnAfterDescendantDeactivateCallback) {

@@ -9,85 +9,85 @@ namespace TreeMachine {
         public:
         explicit Node() = default;
         ~Node() override {
-            NodeBase::RemoveChildren(
+            this->RemoveChildren(
                 nullptr,
                 [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
         }
 
         protected:
         void OnAttach(const any argument) override {
-            NodeBase2::OnAttach(argument);
+            this->NodeBase2::OnAttach(argument);
             cout << "OnAttach: " << typeid(*this).name() << endl;
         }
         void OnBeforeAttach(const any argument) override {
-            NodeBase2::OnBeforeAttach(argument);
+            this->NodeBase2::OnBeforeAttach(argument);
         }
         void OnAfterAttach(const any argument) override {
-            NodeBase2::OnAfterAttach(argument);
+            this->NodeBase2::OnAfterAttach(argument);
         }
 
         protected:
         void OnDetach(const any argument) override {
             cout << "OnDetach: " << typeid(*this).name() << endl;
-            NodeBase2::OnDetach(argument);
+            this->NodeBase2::OnDetach(argument);
         }
         void OnBeforeDetach(const any argument) override {
-            NodeBase2::OnBeforeDetach(argument);
+            this->NodeBase2::OnBeforeDetach(argument);
         }
         void OnAfterDetach(const any argument) override {
-            NodeBase2::OnAfterDetach(argument);
+            this->NodeBase2::OnAfterDetach(argument);
         }
 
         protected:
         void OnBeforeDescendantAttach(Node *const descendant, const any argument) override {
-            NodeBase2::OnBeforeDescendantAttach(descendant, argument);
+            this->NodeBase2::OnBeforeDescendantAttach(descendant, argument);
         }
         void OnAfterDescendantAttach(Node *const descendant, const any argument) override {
-            NodeBase2::OnAfterDescendantAttach(descendant, argument);
+            this->NodeBase2::OnAfterDescendantAttach(descendant, argument);
         }
         void OnBeforeDescendantDetach(Node *const descendant, const any argument) override {
-            NodeBase2::OnBeforeDescendantDetach(descendant, argument);
+            this->NodeBase2::OnBeforeDescendantDetach(descendant, argument);
         }
         void OnAfterDescendantDetach(Node *const descendant, const any argument) override {
-            NodeBase2::OnAfterDescendantDetach(descendant, argument);
+            this->NodeBase2::OnAfterDescendantDetach(descendant, argument);
         }
 
         protected:
         void OnActivate(const any argument) override {
-            NodeBase2::OnActivate(argument);
+            this->NodeBase2::OnActivate(argument);
             cout << "OnActivate: " << typeid(*this).name() << endl;
         }
         void OnBeforeActivate(const any argument) override {
-            NodeBase2::OnBeforeActivate(argument);
+            this->NodeBase2::OnBeforeActivate(argument);
         }
         void OnAfterActivate(const any argument) override {
-            NodeBase2::OnAfterActivate(argument);
+            this->NodeBase2::OnAfterActivate(argument);
         }
 
         protected:
         void OnDeactivate(const any argument) override {
             cout << "OnDeactivate: " << typeid(*this).name() << endl;
-            NodeBase2::OnDeactivate(argument);
+            this->NodeBase2::OnDeactivate(argument);
         }
         void OnBeforeDeactivate(const any argument) override {
-            NodeBase2::OnBeforeDeactivate(argument);
+            this->NodeBase2::OnBeforeDeactivate(argument);
         }
         void OnAfterDeactivate(const any argument) override {
-            NodeBase2::OnAfterDeactivate(argument);
+            this->NodeBase2::OnAfterDeactivate(argument);
         }
 
         protected:
         void OnBeforeDescendantActivate(Node *const descendant, const any argument) override {
-            NodeBase2::OnBeforeDescendantActivate(descendant, argument);
+            this->NodeBase2::OnBeforeDescendantActivate(descendant, argument);
         }
         void OnAfterDescendantActivate(Node *const descendant, const any argument) override {
-            NodeBase2::OnAfterDescendantActivate(descendant, argument);
+            this->NodeBase2::OnAfterDescendantActivate(descendant, argument);
         }
         void OnBeforeDescendantDeactivate(Node *const descendant, const any argument) override {
-            NodeBase2::OnBeforeDescendantDeactivate(descendant, argument);
+            this->NodeBase2::OnBeforeDescendantDeactivate(descendant, argument);
         }
         void OnAfterDescendantDeactivate(Node *const descendant, const any argument) override {
-            NodeBase2::OnAfterDescendantDeactivate(descendant, argument);
+            this->NodeBase2::OnAfterDescendantDeactivate(descendant, argument);
         }
 
         public:
@@ -112,7 +112,7 @@ namespace TreeMachine {
         explicit TreeMachine() = default;
         ~TreeMachine() override {
             if (this->Root() != nullptr) {
-                TreeMachineBase::RemoveRoot(
+                this->RemoveRoot(
                     nullptr,
                     [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
             }
