@@ -28,6 +28,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/StateMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Hierarchical/StateMachine2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine/StateMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine/StateMachine2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +116,7 @@
       <workItem from="1751572584844" duration="71000" />
       <workItem from="1751650955804" duration="241000" />
       <workItem from="1751722580602" duration="148000" />
+      <workItem from="1751790592895" duration="692000" />
     </task>
     <servers />
   </component>

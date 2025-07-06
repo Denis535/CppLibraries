@@ -319,50 +319,50 @@ namespace StateMachine {
 
         protected:
         void OnAttach(const any argument) override {
-            StateBase::OnAttach(argument);
+            this->StateBase::OnAttach(argument);
             cout << "OnAttach: " << typeid(*this).name() << endl;
         }
         void OnBeforeAttach(const any argument) override {
-            StateBase::OnBeforeAttach(argument);
+            this->StateBase::OnBeforeAttach(argument);
         }
         void OnAfterAttach(const any argument) override {
-            StateBase::OnAfterAttach(argument);
+            this->StateBase::OnAfterAttach(argument);
         }
 
         protected:
         void OnDetach(const any argument) override {
             cout << "OnDetach: " << typeid(*this).name() << endl;
-            StateBase::OnDetach(argument);
+            this->StateBase::OnDetach(argument);
         }
         void OnBeforeDetach(const any argument) override {
-            StateBase::OnBeforeDetach(argument);
+            this->StateBase::OnBeforeDetach(argument);
         }
         void OnAfterDetach(const any argument) override {
-            StateBase::OnAfterDetach(argument);
+            this->StateBase::OnAfterDetach(argument);
         }
 
         protected:
         void OnActivate(const any argument) override {
-            StateBase::OnActivate(argument);
+            this->StateBase::OnActivate(argument);
             cout << "OnActivate: " << typeid(*this).name() << endl;
         }
         void OnBeforeActivate(const any argument) override {
-            StateBase::OnBeforeActivate(argument);
+            this->StateBase::OnBeforeActivate(argument);
         }
         void OnAfterActivate(const any argument) override {
-            StateBase::OnAfterActivate(argument);
+            this->StateBase::OnAfterActivate(argument);
         }
 
         protected:
         void OnDeactivate(const any argument) override {
             cout << "OnDeactivate: " << typeid(*this).name() << endl;
-            StateBase::OnDeactivate(argument);
+            this->StateBase::OnDeactivate(argument);
         }
         void OnBeforeDeactivate(const any argument) override {
-            StateBase::OnBeforeDeactivate(argument);
+            this->StateBase::OnBeforeDeactivate(argument);
         }
         void OnAfterDeactivate(const any argument) override {
-            StateBase::OnAfterDeactivate(argument);
+            this->StateBase::OnAfterDeactivate(argument);
         }
     };
     class A : public State {
@@ -378,7 +378,7 @@ namespace StateMachine {
         explicit StateMachine() = default;
         ~StateMachine() override {
             if (this->State() != nullptr) {
-                StateMachineBase::RemoveState(
+                this->RemoveState(
                     nullptr,
                     [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             }
