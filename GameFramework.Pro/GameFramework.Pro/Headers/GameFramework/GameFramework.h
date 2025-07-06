@@ -71,12 +71,9 @@ namespace GameFramework {
         ScreenBase &operator=(ScreenBase &&other) = delete;
     };
     class WidgetBase : public NodeBase2<WidgetBase> {
-        friend ViewableWidgetBase;
 
         public:
         [[nodiscard]] ScreenBase *Screen() const;
-        [[nodiscard]] virtual bool IsViewable() const;
-        [[nodiscard]] virtual ViewBase *View() const;
 
         protected:
         explicit WidgetBase();
@@ -113,9 +110,7 @@ namespace GameFramework {
         TView *const m_View = nullptr;
 
         public:
-        [[nodiscard]] bool IsViewable() const final;
-        [[nodiscard]] ViewBase *View() const final;
-        [[nodiscard]] TView *View_Typed() const; // NOLINT
+        [[nodiscard]] TView *View() const;
 
         protected:
         explicit ViewableWidgetBase(TView *const view);

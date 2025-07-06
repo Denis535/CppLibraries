@@ -31,11 +31,19 @@ namespace GameFramework {
     };
     class Game final : public GameBase {
 
+        private:
+        Player *const m_Player = nullptr;
+        Entity *const m_Entity = nullptr;
+
         public:
-        explicit Game() = default;
+        explicit Game() : m_Player(new Player()), m_Entity(new Entity()) {
+        }
         explicit Game(const Game &other) = delete;
         explicit Game(Game &&other) = delete;
-        ~Game() override = default;
+        ~Game() override {
+            delete this->m_Player;
+            delete this->m_Entity;
+        }
 
         public:
         Game &operator=(const Game &other) = delete;
@@ -45,11 +53,17 @@ namespace GameFramework {
     // App
     class Application final : public ApplicationBase {
 
+        private:
+        Game *const m_Game = nullptr;
+
         public:
-        explicit Application() = default;
+        explicit Application() : m_Game(new Game()) {
+        }
         explicit Application(const Application &other) = delete;
         explicit Application(Application &&other) = delete;
-        ~Application() override = default;
+        ~Application() override {
+            delete this->m_Game;
+        }
 
         public:
         Application &operator=(const Application &other) = delete;

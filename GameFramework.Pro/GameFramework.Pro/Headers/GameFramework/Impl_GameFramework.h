@@ -28,12 +28,6 @@ namespace GameFramework {
     inline ScreenBase *WidgetBase::Screen() const {
         return dynamic_cast<ScreenBase *>(this->Machine());
     }
-    inline bool WidgetBase::IsViewable() const {
-        return false;
-    }
-    inline ViewBase *WidgetBase::View() const {
-        return nullptr;
-    }
 
     inline WidgetBase::WidgetBase() = default;
     inline WidgetBase::~WidgetBase() = default;
@@ -99,15 +93,7 @@ namespace GameFramework {
 
     // ### ViewableWidgetBase ###
     template <typename TView>
-    bool ViewableWidgetBase<TView>::IsViewable() const {
-        return true;
-    }
-    template <typename TView>
-    ViewBase *ViewableWidgetBase<TView>::View() const {
-        return this->m_View;
-    }
-    template <typename TView>
-    TView *ViewableWidgetBase<TView>::View_Typed() const { // NOLINT
+    TView *ViewableWidgetBase<TView>::View() const {
         return this->m_View;
     }
 
