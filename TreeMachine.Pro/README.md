@@ -217,7 +217,7 @@ namespace TreeMachine {
         public:
         explicit Node() = default;
         ~Node() override {
-            this->NodeBase::RemoveChildren(
+            this->RemoveChildren(
                 nullptr,
                 [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
         }
@@ -320,7 +320,7 @@ namespace TreeMachine {
         explicit TreeMachine() = default;
         ~TreeMachine() override {
             if (this->Root() != nullptr) {
-                this->TreeMachineBase::RemoveRoot(
+                this->RemoveRoot(
                     nullptr,
                     [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
             }

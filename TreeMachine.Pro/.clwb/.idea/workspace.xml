@@ -31,9 +31,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine/TreeMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine/TreeMachine2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine/Impl_NodeBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine/Impl_NodeBase2.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +119,7 @@
       <workItem from="1751569337673" duration="86000" />
       <workItem from="1751722507167" duration="71000" />
       <workItem from="1751788492279" duration="2079000" />
+      <workItem from="1751791375839" duration="205000" />
     </task>
     <servers />
   </component>
