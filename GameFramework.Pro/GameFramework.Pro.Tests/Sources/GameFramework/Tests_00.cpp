@@ -4,80 +4,69 @@
 namespace GameFramework {
     using namespace std;
 
-    class Program final : public ProgramBase {
+    class Entity final : public EntityBase {
 
         public:
-        explicit Program() = default;
-        explicit Program(const Program &other) = delete;
-        explicit Program(Program &&other) = delete;
-        ~Program() override = default;
+        explicit Entity() = default;
+        explicit Entity(const Entity &other) = delete;
+        explicit Entity(Entity &&other) = delete;
+        ~Entity() override = default;
 
         public:
-        Program &operator=(const Program &other) = delete;
-        Program &operator=(Program &&other) = delete;
+        Entity &operator=(const Entity &other) = delete;
+        Entity &operator=(Entity &&other) = delete;
+    };
+    class Player final : public PlayerBase {
+
+        public:
+        explicit Player() = default;
+        explicit Player(const Player &other) = delete;
+        explicit Player(Player &&other) = delete;
+        ~Player() override = default;
+
+        public:
+        Player &operator=(const Player &other) = delete;
+        Player &operator=(Player &&other) = delete;
+    };
+    class Game final : public GameBase {
+
+        public:
+        explicit Game() = default;
+        explicit Game(const Game &other) = delete;
+        explicit Game(Game &&other) = delete;
+        ~Game() override = default;
+
+        public:
+        Game &operator=(const Game &other) = delete;
+        Game &operator=(Game &&other) = delete;
     };
 
-    class Theme final : public ThemeBase {
+    class Application final : public ApplicationBase {
 
         public:
-        explicit Theme() = default;
-        explicit Theme(const Theme &other) = delete;
-        explicit Theme(Theme &&other) = delete;
-        ~Theme() override = default;
+        explicit Application() = default;
+        explicit Application(const Application &other) = delete;
+        explicit Application(Application &&other) = delete;
+        ~Application() override = default;
 
         public:
-        Theme &operator=(const Theme &other) = delete;
-        Theme &operator=(Theme &&other) = delete;
-    };
-    class MainPlayList final : public PlayListBase {
-
-        public:
-        explicit MainPlayList() = default;
-        explicit MainPlayList(const MainPlayList &other) = delete;
-        explicit MainPlayList(MainPlayList &&other) = delete;
-        ~MainPlayList() override = default;
-
-        public:
-        MainPlayList &operator=(const MainPlayList &other) = delete;
-        MainPlayList &operator=(MainPlayList &&other) = delete;
-    };
-    class GamePlayList final : public PlayListBase {
-
-        public:
-        explicit GamePlayList() = default;
-        explicit GamePlayList(const GamePlayList &other) = delete;
-        explicit GamePlayList(GamePlayList &&other) = delete;
-        ~GamePlayList() override = default;
-
-        public:
-        GamePlayList &operator=(const GamePlayList &other) = delete;
-        GamePlayList &operator=(GamePlayList &&other) = delete;
+        Application &operator=(const Application &other) = delete;
+        Application &operator=(Application &&other) = delete;
     };
 
-    class Screen final : public ScreenBase {
+    class Router final : RouterBase {
 
         public:
-        explicit Screen() = default;
-        explicit Screen(const Screen &other) = delete;
-        explicit Screen(Screen &&other) = delete;
-        ~Screen() override = default;
+        explicit Router() = default;
+        explicit Router(const Router &other) = delete;
+        explicit Router(Router &&other) = delete;
+        ~Router() override = default;
 
         public:
-        Screen &operator=(const Screen &other) = delete;
-        Screen &operator=(Screen &&other) = delete;
+        Router &operator=(const Router &other) = delete;
+        Router &operator=(Router &&other) = delete;
     };
-    class RootWidget final : public WidgetBase {
 
-        public:
-        explicit RootWidget() = default;
-        explicit RootWidget(const RootWidget &other) = delete;
-        explicit RootWidget(RootWidget &&other) = delete;
-        ~RootWidget() override = default;
-
-        public:
-        RootWidget &operator=(const RootWidget &other) = delete;
-        RootWidget &operator=(RootWidget &&other) = delete;
-    };
     class MainWidgetView final : public ViewBase {
 
         public:
@@ -128,72 +117,113 @@ namespace GameFramework {
         GameWidget &operator=(const GameWidget &other) = delete;
         GameWidget &operator=(GameWidget &&other) = delete;
     };
-
-    class Router final : RouterBase {
-
-        public:
-        explicit Router() = default;
-        explicit Router(const Router &other) = delete;
-        explicit Router(Router &&other) = delete;
-        ~Router() override = default;
+    class RootWidget final : public WidgetBase {
 
         public:
-        Router &operator=(const Router &other) = delete;
-        Router &operator=(Router &&other) = delete;
+        explicit RootWidget() {
+            this->AddChild(new MainWidget(), nullptr);
+            this->AddChild(new GameWidget(), nullptr);
+        }
+        explicit RootWidget(const RootWidget &other) = delete;
+        explicit RootWidget(RootWidget &&other) = delete;
+        ~RootWidget() override {
+            this->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
+        }
+
+        public:
+        RootWidget &operator=(const RootWidget &other) = delete;
+        RootWidget &operator=(RootWidget &&other) = delete;
+    };
+    class Screen final : public ScreenBase {
+
+        public:
+        explicit Screen() {
+            this->AddRoot(new RootWidget(), nullptr);
+        }
+        explicit Screen(const Screen &other) = delete;
+        explicit Screen(Screen &&other) = delete;
+        ~Screen() override {
+            this->RemoveRoot(nullptr, [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
+        }
+
+        public:
+        Screen &operator=(const Screen &other) = delete;
+        Screen &operator=(Screen &&other) = delete;
     };
 
-    class Application final : public ApplicationBase {
+    class MainPlayList final : public PlayListBase {
 
         public:
-        explicit Application() = default;
-        explicit Application(const Application &other) = delete;
-        explicit Application(Application &&other) = delete;
-        ~Application() override = default;
+        explicit MainPlayList() = default;
+        explicit MainPlayList(const MainPlayList &other) = delete;
+        explicit MainPlayList(MainPlayList &&other) = delete;
+        ~MainPlayList() override = default;
 
         public:
-        Application &operator=(const Application &other) = delete;
-        Application &operator=(Application &&other) = delete;
+        MainPlayList &operator=(const MainPlayList &other) = delete;
+        MainPlayList &operator=(MainPlayList &&other) = delete;
+    };
+    class GamePlayList final : public PlayListBase {
+
+        public:
+        explicit GamePlayList() = default;
+        explicit GamePlayList(const GamePlayList &other) = delete;
+        explicit GamePlayList(GamePlayList &&other) = delete;
+        ~GamePlayList() override = default;
+
+        public:
+        GamePlayList &operator=(const GamePlayList &other) = delete;
+        GamePlayList &operator=(GamePlayList &&other) = delete;
+    };
+    class Theme final : public ThemeBase {
+
+        public:
+        explicit Theme() {
+            this->SetState(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
+            this->SetState(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
+        }
+        explicit Theme(const Theme &other) = delete;
+        explicit Theme(Theme &&other) = delete;
+        ~Theme() override {
+            this->SetState(nullptr, nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
+            this->SetState(nullptr, nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
+        }
+
+        public:
+        Theme &operator=(const Theme &other) = delete;
+        Theme &operator=(Theme &&other) = delete;
     };
 
-    class Game final : public GameBase {
+    class Program final : public ProgramBase {
+
+        private:
+        Theme *const m_Theme = nullptr;
+        Screen *const m_Screen = nullptr;
+        Router *const m_Router = nullptr;
+        Application *const m_Application = nullptr;
 
         public:
-        explicit Game() = default;
-        explicit Game(const Game &other) = delete;
-        explicit Game(Game &&other) = delete;
-        ~Game() override = default;
+        explicit Program() : m_Theme(new Theme()),
+                             m_Screen(new Screen()),
+                             m_Router(new Router()),
+                             m_Application(new Application()) {
+        }
+        explicit Program(const Program &other) = delete;
+        explicit Program(Program &&other) = delete;
+        ~Program() override {
+            delete m_Application;
+            delete m_Router;
+            delete m_Screen;
+            delete m_Theme;
+        }
 
         public:
-        Game &operator=(const Game &other) = delete;
-        Game &operator=(Game &&other) = delete;
-    };
-    class Player final : public PlayerBase {
-
-        public:
-        explicit Player() = default;
-        explicit Player(const Player &other) = delete;
-        explicit Player(Player &&other) = delete;
-        ~Player() override = default;
-
-        public:
-        Player &operator=(const Player &other) = delete;
-        Player &operator=(Player &&other) = delete;
-    };
-
-    class Entity final : public EntityBase {
-
-        public:
-        explicit Entity() = default;
-        explicit Entity(const Entity &other) = delete;
-        explicit Entity(Entity &&other) = delete;
-        ~Entity() override = default;
-
-        public:
-        Entity &operator=(const Entity &other) = delete;
-        Entity &operator=(Entity &&other) = delete;
+        Program &operator=(const Program &other) = delete;
+        Program &operator=(Program &&other) = delete;
     };
 
     TEST(Tests_00, Test_00) { // NOLINT
+        auto program = Program();
     }
 
 }
