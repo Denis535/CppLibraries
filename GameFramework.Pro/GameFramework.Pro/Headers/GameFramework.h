@@ -1,3 +1,3 @@
 #pragma once
-#include "GameFramework/GameFramework.h"
-#include "GameFramework/Impl_GameFramework.h"
+#include "GameFramework/ProgramBase.h"
+#include "GameFramework/Impl_ProgramBase.h"

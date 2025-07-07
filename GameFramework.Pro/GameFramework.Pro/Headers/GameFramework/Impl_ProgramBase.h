@@ -1,6 +1,6 @@
 #pragma once
 #include <cassert>
-#include "GameFramework/GameFramework.h"
+#include "GameFramework/ProgramBase.h"
 
 namespace GameFramework {
 
