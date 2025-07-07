@@ -71,19 +71,6 @@ namespace GameFramework {
     };
 
     // UI
-    class Router final : RouterBase {
-
-        public:
-        explicit Router() = default;
-        explicit Router(const Router &other) = delete;
-        explicit Router(Router &&other) = delete;
-        ~Router() override = default;
-
-        public:
-        Router &operator=(const Router &other) = delete;
-        Router &operator=(Router &&other) = delete;
-    };
-
     class MainWidgetView final : public ViewBase {
 
         public:
@@ -253,6 +240,24 @@ namespace GameFramework {
         Theme &operator=(Theme &&other) = delete;
     };
 
+    class Router final : RouterBase {
+
+        private:
+        Theme *const m_Theme = nullptr;
+        Screen *const m_Screen = nullptr;
+
+        public:
+        explicit Router(Theme *const theme, Screen *const screen) : m_Theme(theme), m_Screen(screen) {
+        }
+        explicit Router(const Router &other) = delete;
+        explicit Router(Router &&other) = delete;
+        ~Router() override = default;
+
+        public:
+        Router &operator=(const Router &other) = delete;
+        Router &operator=(Router &&other) = delete;
+    };
+
     // Program
     class Program final : public ProgramBase {
 
@@ -265,7 +270,7 @@ namespace GameFramework {
         public:
         explicit Program() : m_Theme(new Theme()),
                              m_Screen(new Screen()),
-                             m_Router(new Router()),
+                             m_Router(new Router(this->m_Theme, this->m_Screen)),
                              m_Application(new Application()) {
         }
         explicit Program(const Program &other) = delete;
