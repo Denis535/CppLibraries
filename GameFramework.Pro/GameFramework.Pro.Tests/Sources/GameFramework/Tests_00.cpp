@@ -257,7 +257,6 @@ namespace GameFramework {
         explicit Theme(Theme &&other) = delete;
         ~Theme() override {
             this->SetState(nullptr, nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
-            this->SetState(nullptr, nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
 
         public:

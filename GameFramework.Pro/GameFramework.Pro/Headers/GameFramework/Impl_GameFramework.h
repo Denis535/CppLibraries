@@ -64,7 +64,7 @@ namespace GameFramework {
 
     inline bool WidgetBase::TryShowWidget(WidgetBase *const widget) {
         assert(widget != nullptr && "Argument 'widget' must be non-null");
-        return false; // You must override to show widget
+        return false; // You can override to show widget
     }
     inline bool WidgetBase::TryShowWidgetRecursive(WidgetBase *const widget) {
         assert(widget != nullptr && "Argument 'widget' must be non-null");
@@ -78,7 +78,7 @@ namespace GameFramework {
     }
     inline bool WidgetBase::TryHideWidget(WidgetBase *const widget) {
         assert(widget != nullptr && "Argument 'widget' must be non-null");
-        return false; // You must override to hide widget
+        return false; // You can override to hide widget
     }
     inline bool WidgetBase::TryHideWidgetRecursive(WidgetBase *const widget) {
         assert(widget != nullptr && "Argument 'widget' must be non-null");
