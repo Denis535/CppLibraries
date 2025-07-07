@@ -41,8 +41,8 @@ namespace GameFramework {
         explicit Game(const Game &other) = delete;
         explicit Game(Game &&other) = delete;
         ~Game() override {
-            delete this->m_Player;
             delete this->m_Entity;
+            delete this->m_Player;
         }
 
         public:
@@ -73,12 +73,11 @@ namespace GameFramework {
     // UI
     class Router final : RouterBase {
 
-        // private:
-        // ThemeBase *const m_Theme = nullptr;
-        // ScreenBase *const m_Screen = nullptr;
+        private:
+        Application *const m_Application = nullptr;
 
         public:
-        explicit Router() {
+        explicit Router(Application *const application) : m_Application(application) {
         }
         explicit Router(const Router &other) = delete;
         explicit Router(Router &&other) = delete;
@@ -201,10 +200,11 @@ namespace GameFramework {
     class Screen final : public ScreenBase {
 
         private:
+        Application *const m_Application = nullptr;
         Router *const m_Router = nullptr;
 
         public:
-        explicit Screen(Router *const router) : m_Router(router) {
+        explicit Screen(Application *const application, Router *const router) : m_Application(application), m_Router(router) {
             this->AddRoot(new RootWidget(), nullptr);
         }
         explicit Screen(const Screen &other) = delete;
@@ -245,10 +245,11 @@ namespace GameFramework {
     class Theme final : public ThemeBase {
 
         private:
+        Application *const m_Application = nullptr;
         Router *const m_Router = nullptr;
 
         public:
-        explicit Theme(Router *const router) : m_Router(router) {
+        explicit Theme(Application *const application, Router *const router) : m_Application(application), m_Router(router) {
             this->SetState(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             this->SetState(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
@@ -275,9 +276,9 @@ namespace GameFramework {
 
         public:
         explicit Program() : m_Application(new Application()),
-                             m_Router(new Router()),
-                             m_Screen(new Screen(this->m_Router)),
-                             m_Theme(new Theme(this->m_Router)) {
+                             m_Router(new Router(this->m_Application)),
+                             m_Screen(new Screen(this->m_Application, this->m_Router)),
+                             m_Theme(new Theme(this->m_Application, this->m_Router)) {
         }
         explicit Program(const Program &other) = delete;
         explicit Program(Program &&other) = delete;
