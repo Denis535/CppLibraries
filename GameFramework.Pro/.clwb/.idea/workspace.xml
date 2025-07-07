@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="19" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="20" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppGeneralOptions" type="string" />
@@ -28,7 +28,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFramework/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFramework/Tests_00.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_ProgramBase2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase2.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

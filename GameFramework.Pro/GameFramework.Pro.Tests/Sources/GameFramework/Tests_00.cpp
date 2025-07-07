@@ -265,28 +265,14 @@ namespace GameFramework {
     };
 
     // Program
-    class Program final : public ProgramBase {
-
-        private:
-        Application *const m_Application = nullptr;
-        Router *const m_Router = nullptr;
-        Screen *const m_Screen = nullptr;
-        Theme *const m_Theme = nullptr;
+    class Program final : public ProgramBase2<Theme, Screen, Router, Application> {
 
         public:
-        explicit Program() : m_Application(new Application()),
-                             m_Router(new Router(this->m_Application)),
-                             m_Screen(new Screen(this->m_Application, this->m_Router)),
-                             m_Theme(new Theme(this->m_Application, this->m_Router)) {
+        explicit Program() : ProgramBase2(new class Application(), new class Router(this->Application()), new class Screen(this->Application(), this->Router()), new class Theme(this->Application(), this->Router())) {
         }
         explicit Program(const Program &other) = delete;
         explicit Program(Program &&other) = delete;
-        ~Program() override {
-            delete this->m_Theme;
-            delete this->m_Screen;
-            delete this->m_Router;
-            delete this->m_Application;
-        }
+        ~Program() override = default;
 
         public:
         Program &operator=(const Program &other) = delete;
