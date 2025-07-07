@@ -105,6 +105,7 @@ namespace GameFramework {
         delete this->m_View;
     }
 
+    // ### ViewBase ###
     inline ViewBase::ViewBase() = default;
     inline ViewBase::~ViewBase() = default;
 
