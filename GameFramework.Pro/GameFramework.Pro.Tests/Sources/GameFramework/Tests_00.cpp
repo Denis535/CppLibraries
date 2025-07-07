@@ -71,6 +71,24 @@ namespace GameFramework {
     };
 
     // UI
+    class Router final : RouterBase {
+
+        // private:
+        // ThemeBase *const m_Theme = nullptr;
+        // ScreenBase *const m_Screen = nullptr;
+
+        public:
+        explicit Router() {
+        }
+        explicit Router(const Router &other) = delete;
+        explicit Router(Router &&other) = delete;
+        ~Router() override = default;
+
+        public:
+        Router &operator=(const Router &other) = delete;
+        Router &operator=(Router &&other) = delete;
+    };
+
     class MainWidgetView final : public ViewBase {
 
         public:
@@ -182,8 +200,11 @@ namespace GameFramework {
     };
     class Screen final : public ScreenBase {
 
+        private:
+        Router *const m_Router = nullptr;
+
         public:
-        explicit Screen() {
+        explicit Screen(Router *const router) : m_Router(router) {
             this->AddRoot(new RootWidget(), nullptr);
         }
         explicit Screen(const Screen &other) = delete;
@@ -223,8 +244,11 @@ namespace GameFramework {
     };
     class Theme final : public ThemeBase {
 
+        private:
+        Router *const m_Router = nullptr;
+
         public:
-        explicit Theme() {
+        explicit Theme(Router *const router) : m_Router(router) {
             this->SetState(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             this->SetState(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
@@ -240,46 +264,28 @@ namespace GameFramework {
         Theme &operator=(Theme &&other) = delete;
     };
 
-    class Router final : RouterBase {
-
-        private:
-        Theme *const m_Theme = nullptr;
-        Screen *const m_Screen = nullptr;
-
-        public:
-        explicit Router(Theme *const theme, Screen *const screen) : m_Theme(theme), m_Screen(screen) {
-        }
-        explicit Router(const Router &other) = delete;
-        explicit Router(Router &&other) = delete;
-        ~Router() override = default;
-
-        public:
-        Router &operator=(const Router &other) = delete;
-        Router &operator=(Router &&other) = delete;
-    };
-
     // Program
     class Program final : public ProgramBase {
 
         private:
-        Theme *const m_Theme = nullptr;
-        Screen *const m_Screen = nullptr;
-        Router *const m_Router = nullptr;
         Application *const m_Application = nullptr;
+        Router *const m_Router = nullptr;
+        Screen *const m_Screen = nullptr;
+        Theme *const m_Theme = nullptr;
 
         public:
-        explicit Program() : m_Theme(new Theme()),
-                             m_Screen(new Screen()),
-                             m_Router(new Router(this->m_Theme, this->m_Screen)),
-                             m_Application(new Application()) {
+        explicit Program() : m_Application(new Application()),
+                             m_Router(new Router()),
+                             m_Screen(new Screen(this->m_Router)),
+                             m_Theme(new Theme(this->m_Router)) {
         }
         explicit Program(const Program &other) = delete;
         explicit Program(Program &&other) = delete;
         ~Program() override {
-            delete this->m_Application;
-            delete this->m_Router;
-            delete this->m_Screen;
             delete this->m_Theme;
+            delete this->m_Screen;
+            delete this->m_Router;
+            delete this->m_Application;
         }
 
         public:
