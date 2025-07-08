@@ -6,16 +6,16 @@ namespace Event {
     using namespace std;
 
     template <typename... Args>
-    class CallbackRegistry;
+    class SubscriberRegistry;
 
     template <typename... Args>
     class Event final {
 
         private:
-        CallbackRegistry<Args...> m_CallbackRegistry;
+        SubscriberRegistry<Args...> m_SubscriberRegistry;
 
         public:
-        CallbackRegistry<Args...> &CallbackRegistry();
+        SubscriberRegistry<Args...> &SubscriberRegistry();
 
         public:
         explicit Event();
@@ -31,35 +31,35 @@ namespace Event {
         Event &operator=(Event &&other) = delete;
     };
     template <typename... Args>
-    class CallbackRegistry final {
+    class SubscriberRegistry final {
         friend Event;
 
         private:
         function<void(Args...)> m_Callback = nullptr;
 
         private:
-        explicit CallbackRegistry();
+        explicit SubscriberRegistry();
 
         public:
-        explicit CallbackRegistry(const CallbackRegistry &other) = delete;
-        explicit CallbackRegistry(CallbackRegistry &&other) = delete;
-        ~CallbackRegistry();
+        explicit SubscriberRegistry(const SubscriberRegistry &other) = delete;
+        explicit SubscriberRegistry(SubscriberRegistry &&other) = delete;
+        ~SubscriberRegistry();
 
         public:
         void Subscribe(function<void(Args...)> callback);
         void Unsubscribe();
 
         public:
-        CallbackRegistry &operator=(const CallbackRegistry &other) = delete;
-        CallbackRegistry &operator=(CallbackRegistry &&other) = delete;
+        SubscriberRegistry &operator=(const SubscriberRegistry &other) = delete;
+        SubscriberRegistry &operator=(SubscriberRegistry &&other) = delete;
     };
 }
 namespace Event {
 
     // ### Event ###
     template <typename... Args>
-    CallbackRegistry<Args...> &Event<Args...>::CallbackRegistry() {
-        return this->m_CallbackRegistry;
+    SubscriberRegistry<Args...> &Event<Args...>::SubscriberRegistry() {
+        return this->m_SubscriberRegistry;
     }
 
     template <typename... Args>
@@ -69,25 +69,24 @@ namespace Event {
 
     template <typename... Args>
     void Event<Args...>::Invoke(Args... args) const {
-        if (this->m_CallbackRegistry.m_Callback) {
-            this->m_CallbackRegistry.m_Callback(args...);
+        if (this->m_SubscriberRegistry.m_Callback) {
+            this->m_SubscriberRegistry.m_Callback(args...);
         }
     }
 
-    // ### CallbackRegistry ###
+    // ### SubscriberRegistry ###
     template <typename... Args>
-    CallbackRegistry<Args...>::CallbackRegistry() = default;
+    SubscriberRegistry<Args...>::SubscriberRegistry() = default;
     template <typename... Args>
-    CallbackRegistry<Args...>::~CallbackRegistry() = default;
+    SubscriberRegistry<Args...>::~SubscriberRegistry() = default;
 
     template <typename... Args>
-    void CallbackRegistry<Args...>::Subscribe(function<void(Args...)> callback) {
+    void SubscriberRegistry<Args...>::Subscribe(function<void(Args...)> callback) {
         assert(!static_cast<bool>(this->m_Callback));
         this->m_Callback = callback;
     }
-
     template <typename... Args>
-    void CallbackRegistry<Args...>::Unsubscribe() {
+    void SubscriberRegistry<Args...>::Unsubscribe() {
         this->m_Callback = nullptr;
     }
 }

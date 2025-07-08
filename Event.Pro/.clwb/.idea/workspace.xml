@@ -29,7 +29,8 @@
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/Event/Tests_00.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Event.Pro/Headers/Event.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event/MulticastEvent.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/Event/MulticastEvent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event/Event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/Event/Event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event/MulticastEvent.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-format" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-format" afterDir="false" />
@@ -61,29 +62,29 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Bazel Command.Test.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "bazel.project.detector.is.bazel.project": "true",
-    "cf.advertisement.text.overridden": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Bazel Command.Test.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;bazel.project.detector.is.bazel.project&quot;: &quot;true&quot;,
+    &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Projects\Cpp.Libraries\Event.Pro\Event.Pro\Headers" />
