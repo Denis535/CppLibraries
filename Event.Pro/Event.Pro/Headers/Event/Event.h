@@ -62,7 +62,8 @@ namespace Event {
     }
 
     template <typename... Args>
-    Event<Args...>::Event() = default;
+    Event<Args...>::Event() : m_CallbackRegistry() {
+    }
     template <typename... Args>
     Event<Args...>::~Event() = default;
 

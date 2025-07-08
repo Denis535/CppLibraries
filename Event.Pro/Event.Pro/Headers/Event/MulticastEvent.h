@@ -63,7 +63,8 @@ namespace Event {
     }
 
     template <typename... Args>
-    MulticastEvent<Args...>::MulticastEvent() = default;
+    MulticastEvent<Args...>::MulticastEvent() : m_CallbackRegistry() {
+    }
     template <typename... Args>
     MulticastEvent<Args...>::~MulticastEvent() = default;
 
@@ -78,7 +79,8 @@ namespace Event {
 
     // ### CallbackRegistry ###
     template <typename... Args>
-    MultiCallbackRegistry<Args...>::MultiCallbackRegistry() = default;
+    MultiCallbackRegistry<Args...>::MultiCallbackRegistry() : m_Callbacks() {
+    }
     template <typename... Args>
     MultiCallbackRegistry<Args...>::~MultiCallbackRegistry() = default;
 
