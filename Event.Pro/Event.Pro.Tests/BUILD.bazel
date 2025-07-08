@@ -1,0 +1,14 @@
+cc_test(
+    name = "event_pro_tests",
+    srcs = glob([
+        "Sources/**/*.cpp",
+    ]),
+    includes = [
+        ".",
+    ],
+    deps = [
+        "@googletest//:gtest_main",
+        "//Event.Pro:event_pro",
+    ],
+    visibility = ["//visibility:public"],
+)
