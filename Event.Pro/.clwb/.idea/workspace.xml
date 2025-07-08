@@ -29,7 +29,7 @@
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/Event/Tests_00.cpp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Event.Pro/Headers/Event.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event/MulticastEvent.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event/MulticastEvent.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/Event/MulticastEvent.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-format" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-format" afterDir="false" />

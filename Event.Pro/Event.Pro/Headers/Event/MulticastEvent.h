@@ -1,6 +1,7 @@
 #pragma once
 #include <cassert>
 #include <functional>
+#include <vector>
 
 namespace Event {
     using namespace std;
@@ -35,7 +36,7 @@ namespace Event {
         friend MulticastEvent;
 
         private:
-        function<void(Args...)> m_Callback = nullptr;
+        vector<function<void(Args...)>> m_Callbacks;
 
         private:
         explicit MultiCallbackRegistry();
@@ -47,7 +48,6 @@ namespace Event {
 
         public:
         void Subscribe(function<void(Args...)> callback);
-        void Unsubscribe();
 
         public:
         MultiCallbackRegistry &operator=(const MultiCallbackRegistry &other) = delete;
@@ -69,8 +69,10 @@ namespace Event {
 
     template <typename... Args>
     void MulticastEvent<Args...>::Invoke(Args... args) const {
-        if (this->m_CallbackRegistry.m_Callback) {
-            this->m_CallbackRegistry.m_Callback(args...);
+        for (const auto &callback : this->m_CallbackRegistry.m_Callbacks) {
+            if (callback) {
+                callback(args...);
+            }
         }
     }
 
@@ -82,11 +84,6 @@ namespace Event {
 
     template <typename... Args>
     void MultiCallbackRegistry<Args...>::Subscribe(function<void(Args...)> callback) {
-        assert(!static_cast<bool>(this->m_Callback));
-        this->m_Callback = callback;
-    }
-    template <typename... Args>
-    void MultiCallbackRegistry<Args...>::Unsubscribe() {
-        this->m_Callback = nullptr;
+        this->m_Callbacks.push_back(callback);
     }
 }

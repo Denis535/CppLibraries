@@ -9,16 +9,13 @@ namespace Event {
         event.Invoke(777);
         event.CallbackRegistry().Subscribe([](int arg) { cout << arg << endl; });
         event.Invoke(777);
-        event.CallbackRegistry().Unsubscribe();
-        event.Invoke(777);
     }
 
     TEST(Tests_00, Test_01) { // NOLINT
         auto event = MulticastEvent<int>();
         event.Invoke(777);
         event.CallbackRegistry().Subscribe([](int arg) { cout << arg << endl; });
-        event.Invoke(777);
-        event.CallbackRegistry().Unsubscribe();
+        event.CallbackRegistry().Subscribe([](int arg) { cout << arg << endl; });
         event.Invoke(777);
     }
 

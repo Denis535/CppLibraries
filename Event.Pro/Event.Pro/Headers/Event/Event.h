@@ -47,7 +47,6 @@ namespace Event {
 
         public:
         void Subscribe(function<void(Args...)> callback);
-        void Unsubscribe();
 
         public:
         CallbackRegistry &operator=(const CallbackRegistry &other) = delete;
@@ -84,9 +83,5 @@ namespace Event {
     void CallbackRegistry<Args...>::Subscribe(function<void(Args...)> callback) {
         assert(!static_cast<bool>(this->m_Callback));
         this->m_Callback = callback;
-    }
-    template <typename... Args>
-    void CallbackRegistry<Args...>::Unsubscribe() {
-        this->m_Callback = nullptr;
     }
 }
