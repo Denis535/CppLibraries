@@ -7,16 +7,35 @@ namespace std::extensions {
     using namespace std;
 
     template <typename... Args>
-    class multicast_event_callback_registry;
-
-    template <typename... Args>
     class multicast_event final {
+        public:
+        class callback_registry_ final { // NOLINT
+            friend multicast_event;
+
+            private:
+            vector<function<void(Args...)>> m_callbacks;
+
+            private:
+            explicit callback_registry_();
+
+            public:
+            explicit callback_registry_(const callback_registry_ &other) = delete;
+            explicit callback_registry_(callback_registry_ &&other) = delete;
+            ~callback_registry_();
+
+            public:
+            void add(function<void(Args...)> callback);
+
+            public:
+            callback_registry_ &operator=(const callback_registry_ &other) = delete;
+            callback_registry_ &operator=(callback_registry_ &&other) = delete;
+        };
 
         private:
-        multicast_event_callback_registry<Args...> m_callback_registry;
+        callback_registry_ m_callback_registry;
 
         public:
-        multicast_event_callback_registry<Args...> &callback_registry();
+        callback_registry_ &callback_registry();
 
         public:
         explicit multicast_event();
@@ -31,34 +50,12 @@ namespace std::extensions {
         multicast_event &operator=(const multicast_event &other) = delete;
         multicast_event &operator=(multicast_event &&other) = delete;
     };
-    template <typename... Args>
-    class multicast_event_callback_registry final {
-        friend multicast_event;
-
-        private:
-        vector<function<void(Args...)>> m_callbacks;
-
-        private:
-        explicit multicast_event_callback_registry();
-
-        public:
-        explicit multicast_event_callback_registry(const multicast_event_callback_registry &other) = delete;
-        explicit multicast_event_callback_registry(multicast_event_callback_registry &&other) = delete;
-        ~multicast_event_callback_registry();
-
-        public:
-        void add(function<void(Args...)> callback);
-
-        public:
-        multicast_event_callback_registry &operator=(const multicast_event_callback_registry &other) = delete;
-        multicast_event_callback_registry &operator=(multicast_event_callback_registry &&other) = delete;
-    };
 }
 namespace std::extensions {
 
     // ### event ###
     template <typename... Args>
-    multicast_event_callback_registry<Args...> &multicast_event<Args...>::callback_registry() {
+    typename multicast_event<Args...>::callback_registry_ &multicast_event<Args...>::callback_registry() {
         return this->m_callback_registry;
     }
 
@@ -77,15 +74,15 @@ namespace std::extensions {
         }
     }
 
-    // ### multicast_event_callback_registry ###
+    // ### callback_registry ###
     template <typename... Args>
-    multicast_event_callback_registry<Args...>::multicast_event_callback_registry() : m_callbacks() {
+    multicast_event<Args...>::callback_registry_::callback_registry_() : m_callbacks() {
     }
     template <typename... Args>
-    multicast_event_callback_registry<Args...>::~multicast_event_callback_registry() = default;
+    multicast_event<Args...>::callback_registry_::~callback_registry_() = default;
 
     template <typename... Args>
-    void multicast_event_callback_registry<Args...>::add(function<void(Args...)> callback) {
+    void multicast_event<Args...>::callback_registry_::add(function<void(Args...)> callback) {
         this->m_callbacks.push_back(callback);
     }
 }

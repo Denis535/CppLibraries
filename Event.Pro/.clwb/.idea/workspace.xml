@@ -35,8 +35,8 @@
       <change beforePath="$PROJECT_DIR$/aspects/tools/JarFilter_deploy.jar" beforeDir="false" afterPath="$PROJECT_DIR$/aspects/tools/JarFilter_deploy.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/Event/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions/Tests_00.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/event.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event/Event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/event.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/Event/MulticastEvent.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/multicast_event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/multicast_event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/multicast_event.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +116,7 @@
       <updated>1751973397352</updated>
       <workItem from="1751973400856" duration="389000" />
       <workItem from="1751973880872" duration="4266000" />
-      <workItem from="1752042595633" duration="5145000" />
+      <workItem from="1752042595633" duration="6853000" />
     </task>
     <servers />
   </component>
