@@ -57,7 +57,7 @@ namespace std::extensions {
 
         public:
         class callback_registry_ final { // NOLINT
-            friend class event;
+            friend event;
 
             private:
             optional<callback_> m_callback;
