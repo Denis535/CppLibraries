@@ -22,6 +22,7 @@ Checks: >
   readability-*,
   -readability-identifier-length,
   -readability-avoid-const-params-in-decls,
+  -readability-magic-numbers,
   -readability-redundant-access-specifiers,
   -readability-redundant-inline-specifier,
 

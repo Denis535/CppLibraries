@@ -55,7 +55,7 @@ namespace std::extensions {
 }
 namespace std::extensions {
 
-    // ### Event ###
+    // ### event ###
     template <typename... Args>
     callback_registry<Args...> &event<Args...>::callback_registry() {
         return this->m_callback_registry;
@@ -74,7 +74,7 @@ namespace std::extensions {
         }
     }
 
-    // ### CallbackRegistry ###
+    // ### callback_registry ###
     template <typename... Args>
     callback_registry<Args...>::callback_registry() = default;
     template <typename... Args>
