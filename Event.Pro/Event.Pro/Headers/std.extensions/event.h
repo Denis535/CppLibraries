@@ -66,8 +66,8 @@ namespace std::extensions {
 
     template <typename... Args>
     void event<Args...>::invoke(Args... args) const {
-        if (this->m_callback_registry.m_callback) {
-            this->m_callback_registry.m_callback(args...);
+        if (const auto &callback = this->m_callback_registry.m_callback) {
+            callback(args...);
         }
     }
 
@@ -80,7 +80,7 @@ namespace std::extensions {
     template <typename... Args>
     void event<Args...>::callback_registry_::add(void (*callback)(Args...)) {
         assert(callback != nullptr);
-        assert(!static_cast<bool>(this->m_callback));
+        assert(this->m_callback == nullptr);
         this->m_callback = callback;
     }
     template <typename... Args>
