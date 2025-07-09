@@ -6,16 +6,16 @@ namespace std::extensions {
     using namespace std;
 
     template <typename... Args>
-    class callback_registry;
+    class event_callback_registry;
 
     template <typename... Args>
     class event final {
 
         private:
-        callback_registry<Args...> m_callback_registry;
+        event_callback_registry<Args...> m_callback_registry;
 
         public:
-        callback_registry<Args...> &callback_registry();
+        event_callback_registry<Args...> &callback_registry();
 
         public:
         explicit event();
@@ -31,33 +31,33 @@ namespace std::extensions {
         event &operator=(event &&other) = delete;
     };
     template <typename... Args>
-    class callback_registry final {
+    class event_callback_registry final {
         friend event;
 
         private:
         function<void(Args...)> m_callback = nullptr;
 
         private:
-        explicit callback_registry();
+        explicit event_callback_registry();
 
         public:
-        explicit callback_registry(const callback_registry &other) = delete;
-        explicit callback_registry(callback_registry &&other) = delete;
-        ~callback_registry();
+        explicit event_callback_registry(const event_callback_registry &other) = delete;
+        explicit event_callback_registry(event_callback_registry &&other) = delete;
+        ~event_callback_registry();
 
         public:
         void add(function<void(Args...)> callback);
 
         public:
-        callback_registry &operator=(const callback_registry &other) = delete;
-        callback_registry &operator=(callback_registry &&other) = delete;
+        event_callback_registry &operator=(const event_callback_registry &other) = delete;
+        event_callback_registry &operator=(event_callback_registry &&other) = delete;
     };
 }
 namespace std::extensions {
 
     // ### event ###
     template <typename... Args>
-    callback_registry<Args...> &event<Args...>::callback_registry() {
+    event_callback_registry<Args...> &event<Args...>::callback_registry() {
         return this->m_callback_registry;
     }
 
@@ -74,14 +74,14 @@ namespace std::extensions {
         }
     }
 
-    // ### callback_registry ###
+    // ### event_callback_registry ###
     template <typename... Args>
-    callback_registry<Args...>::callback_registry() = default;
+    event_callback_registry<Args...>::event_callback_registry() = default;
     template <typename... Args>
-    callback_registry<Args...>::~callback_registry() = default;
+    event_callback_registry<Args...>::~event_callback_registry() = default;
 
     template <typename... Args>
-    void callback_registry<Args...>::add(function<void(Args...)> callback) {
+    void event_callback_registry<Args...>::add(function<void(Args...)> callback) {
         assert(!static_cast<bool>(this->m_callback));
         this->m_callback = callback;
     }
