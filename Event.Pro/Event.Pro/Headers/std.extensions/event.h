@@ -1,92 +1,117 @@
 #pragma once
 #include <cassert>
+#include <optional>
 
 namespace std::extensions {
     using namespace std;
 
-    template <typename... Args>
+    template <typename... TArgs>
     class event final {
+        private:
+        struct callback_ final { // NOLINT
+            private:
+            void (*const m_method)(TArgs...);
+
+            public:
+            explicit callback_(void (*const method)(TArgs...)) : m_method(method) {
+                assert(this->m_method != nullptr);
+            }
+            callback_(const callback_ &) = default;
+            callback_(callback_ &&) = default;
+            ~callback_() = default;
+
+            public:
+            void invoke(TArgs... args) const {
+                assert(this->m_method != nullptr);
+                this->m_method(args...);
+            };
+
+            public:
+            friend bool operator==(const callback_ &lhs, const callback_ &rhs) {
+                return lhs.m_method == rhs.m_method;
+            }
+            friend bool operator!=(const callback_ &lhs, const callback_ &rhs) {
+                return lhs.m_method != rhs.m_method;
+            }
+
+            public:
+            friend bool operator==(const callback_ &lhs, void (*const rhs)(TArgs...)) {
+                return lhs.m_method == rhs;
+            }
+            friend bool operator!=(const callback_ &lhs, void (*const rhs)(TArgs...)) {
+                return lhs.m_method != rhs;
+            }
+
+            public:
+            friend bool operator==(void (*const lhs)(TArgs...), const callback_ &rhs) {
+                return lhs == rhs.m_method;
+            }
+            friend bool operator!=(void (*const lhs)(TArgs...), const callback_ &rhs) {
+                return lhs != rhs.m_method;
+            }
+
+            public:
+            callback_ &operator=(const callback_ &) = default;
+            callback_ &operator=(callback_ &&) = default;
+        };
+
         public:
         class callback_registry_ final { // NOLINT
-            friend event;
+            friend class event;
 
             private:
-            void (*m_callback)(Args...) = nullptr;
+            optional<callback_> m_callback;
 
             private:
-            explicit callback_registry_();
+            explicit callback_registry_() : m_callback() {
+            }
 
             public:
-            explicit callback_registry_(const callback_registry_ &other) = delete;
-            explicit callback_registry_(callback_registry_ &&other) = delete;
-            ~callback_registry_();
+            callback_registry_(const callback_registry_ &) = delete;
+            callback_registry_(callback_registry_ &&) = delete;
+            ~callback_registry_() = default;
 
             public:
-            void add(void (*callback)(Args...));
-            void remove(void (*callback)(Args...));
+            void add(void (*const callback)(TArgs...)) {
+                assert(callback != nullptr);
+                assert(!this->m_callback.has_value());
+                this->m_callback.emplace(callback);
+            }
+            void remove([[maybe_unused]] void (*const callback)(TArgs...)) {
+                assert(callback != nullptr);
+                assert(this->m_callback.has_value() && this->m_callback.value() == callback);
+                this->m_callback.reset();
+            }
 
             public:
-            callback_registry_ &operator=(const callback_registry_ &other) = delete;
-            callback_registry_ &operator=(callback_registry_ &&other) = delete;
+            callback_registry_ &operator=(const callback_registry_ &) = delete;
+            callback_registry_ &operator=(callback_registry_ &&) = delete;
         };
 
         private:
         callback_registry_ m_callback_registry;
 
         public:
-        callback_registry_ &callback_registry();
-
-        public:
-        explicit event();
-        explicit event(const event &other) = delete;
-        explicit event(event &&other) = delete;
-        ~event();
-
-        public:
-        void invoke(Args... args) const;
-
-        public:
-        event &operator=(const event &other) = delete;
-        event &operator=(event &&other) = delete;
-    };
-}
-namespace std::extensions {
-
-    // ### event ###
-    template <typename... Args>
-    typename event<Args...>::callback_registry_ &event<Args...>::callback_registry() {
-        return this->m_callback_registry;
-    }
-
-    template <typename... Args>
-    event<Args...>::event() : m_callback_registry() {
-    }
-    template <typename... Args>
-    event<Args...>::~event() = default;
-
-    template <typename... Args>
-    void event<Args...>::invoke(Args... args) const {
-        if (const auto &callback = this->m_callback_registry.m_callback) {
-            callback(args...);
+        callback_registry_ &callback_registry() {
+            return this->m_callback_registry;
         }
-    }
 
-    // ### callback_registry ###
-    template <typename... Args>
-    event<Args...>::callback_registry_::callback_registry_() = default;
-    template <typename... Args>
-    event<Args...>::callback_registry_::~callback_registry_() = default;
+        public:
+        explicit event() : m_callback_registry() {
+        }
+        event(const event &) = delete;
+        event(event &&) = delete;
+        ~event() = default;
 
-    template <typename... Args>
-    void event<Args...>::callback_registry_::add(void (*callback)(Args...)) {
-        assert(callback != nullptr);
-        assert(this->m_callback == nullptr);
-        this->m_callback = callback;
-    }
-    template <typename... Args>
-    void event<Args...>::callback_registry_::remove(void (*callback)(Args...)) {
-        assert(callback != nullptr);
-        assert(this->m_callback == callback);
-        this->m_callback = nullptr;
-    }
+        public:
+        void invoke(TArgs... args) {
+            if (auto callback = this->m_callback_registry.m_callback; callback.has_value()) {
+                callback.value().invoke(args...);
+            }
+        }
+
+        public:
+        event &operator=(const event &) = delete;
+        event &operator=(event &&) = delete;
+    };
 }

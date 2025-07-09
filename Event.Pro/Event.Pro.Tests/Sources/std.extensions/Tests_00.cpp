@@ -4,7 +4,7 @@
 namespace std::extensions {
     using namespace std;
 
-    static void Print(int arg) { // NOLINT
+    void Print(int arg) { // NOLINT
         cout << arg << endl;
     }
 

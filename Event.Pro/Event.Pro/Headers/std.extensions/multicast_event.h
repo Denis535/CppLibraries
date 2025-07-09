@@ -6,30 +6,30 @@
 namespace std::extensions {
     using namespace std;
 
-    template <typename... Args>
+    template <typename... TArgs>
     class multicast_event final {
         public:
         class callback_registry_ final { // NOLINT
             friend multicast_event;
 
             private:
-            vector<void (*)(Args...)> m_callbacks;
+            vector<void (*)(TArgs...)> m_callbacks;
 
             private:
             explicit callback_registry_();
 
             public:
-            explicit callback_registry_(const callback_registry_ &other) = delete;
-            explicit callback_registry_(callback_registry_ &&other) = delete;
+            callback_registry_(const callback_registry_ &) = delete;
+            callback_registry_(callback_registry_ &&) = delete;
             ~callback_registry_();
 
             public:
-            void add(void (*callback)(Args...));
-            void remove(void (*callback)(Args...));
+            void add(void (*callback)(TArgs...));
+            void remove(void (*callback)(TArgs...));
 
             public:
-            callback_registry_ &operator=(const callback_registry_ &other) = delete;
-            callback_registry_ &operator=(callback_registry_ &&other) = delete;
+            callback_registry_ &operator=(const callback_registry_ &) = delete;
+            callback_registry_ &operator=(callback_registry_ &&) = delete;
         };
 
         private:
@@ -40,16 +40,16 @@ namespace std::extensions {
 
         public:
         explicit multicast_event();
-        explicit multicast_event(const multicast_event &other) = delete;
-        explicit multicast_event(multicast_event &&other) = delete;
+        multicast_event(const multicast_event &) = delete;
+        multicast_event(multicast_event &&) = delete;
         ~multicast_event();
 
         public:
-        void invoke(Args... args) const;
+        void invoke(TArgs... args) const;
 
         public:
-        multicast_event &operator=(const multicast_event &other) = delete;
-        multicast_event &operator=(multicast_event &&other) = delete;
+        multicast_event &operator=(const multicast_event &) = delete;
+        multicast_event &operator=(multicast_event &&) = delete;
     };
 }
 namespace std::extensions {
