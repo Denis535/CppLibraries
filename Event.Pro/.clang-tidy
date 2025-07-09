@@ -7,8 +7,10 @@ Checks: >
 
   cppcoreguidelines-*,
   -cppcoreguidelines-owning-memory,
+  -cppcoreguidelines-avoid-magic-numbers,
 
   cert-*,
+  -cert-dcl58-cpp,
 
   hicpp-*,
 
@@ -44,27 +46,27 @@ Checks: >
 
 CheckOptions:
   - key: readability-identifier-naming.NamespaceCase
-    value: CamelCase
+    value: lower_case
 
   - key: readability-identifier-naming.ClassCase
-    value: CamelCase
+    value: lower_case
 
   - key: readability-identifier-naming.StructCase
-    value: CamelCase
+    value: lower_case
 
   - key: readability-identifier-naming.UnionCase
-    value: CamelCase
+    value: lower_case
 
   - key: readability-identifier-naming.EnumCase
-    value: CamelCase
+    value: lower_case
 
   - key: readability-identifier-naming.MemberCase
-    value: CamelCase
+    value: lower_case
   - key: readability-identifier-naming.MemberPrefix
     value: m_
 
   - key: readability-identifier-naming.PublicMemberCase
-    value: CamelCase
+    value: lower_case
 
   - key: readability-identifier-naming.MethodCase
-    value: CamelCase
+    value: lower_case
