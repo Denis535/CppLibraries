@@ -1,6 +1,5 @@
 #pragma once
 #include <cassert>
-#include <functional>
 
 namespace std::extensions {
     using namespace std;
@@ -12,7 +11,7 @@ namespace std::extensions {
             friend event;
 
             private:
-            function<void(Args...)> m_callback = nullptr;
+            void (*m_callback)(Args...) = nullptr;
 
             private:
             explicit callback_registry_();
@@ -23,7 +22,8 @@ namespace std::extensions {
             ~callback_registry_();
 
             public:
-            void add(function<void(Args...)> callback);
+            void add(void (*callback)(Args...));
+            void remove(void (*callback)(Args...));
 
             public:
             callback_registry_ &operator=(const callback_registry_ &other) = delete;
@@ -78,8 +78,15 @@ namespace std::extensions {
     event<Args...>::callback_registry_::~callback_registry_() = default;
 
     template <typename... Args>
-    void event<Args...>::callback_registry_::add(function<void(Args...)> callback) {
+    void event<Args...>::callback_registry_::add(void (*callback)(Args...)) {
+        assert(callback != nullptr);
         assert(!static_cast<bool>(this->m_callback));
         this->m_callback = callback;
+    }
+    template <typename... Args>
+    void event<Args...>::callback_registry_::remove(void (*callback)(Args...)) {
+        assert(callback != nullptr);
+        assert(this->m_callback == callback);
+        this->m_callback = nullptr;
     }
 }

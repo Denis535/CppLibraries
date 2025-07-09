@@ -13,7 +13,7 @@ namespace std::extensions {
             friend multicast_event;
 
             private:
-            vector<function<void(Args...)>> m_callbacks;
+            vector<void (*)(Args...)> m_callbacks;
 
             private:
             explicit callback_registry_();
@@ -24,7 +24,8 @@ namespace std::extensions {
             ~callback_registry_();
 
             public:
-            void add(function<void(Args...)> callback);
+            void add(void (*callback)(Args...));
+            void remove(void (*callback)(Args...));
 
             public:
             callback_registry_ &operator=(const callback_registry_ &other) = delete;
@@ -68,7 +69,7 @@ namespace std::extensions {
     template <typename... Args>
     void multicast_event<Args...>::invoke(Args... args) const {
         for (const auto &callback : this->m_callback_registry.m_callbacks) {
-            if (callback) {
+            if (callback != nullptr) {
                 callback(args...);
             }
         }
@@ -82,7 +83,17 @@ namespace std::extensions {
     multicast_event<Args...>::callback_registry_::~callback_registry_() = default;
 
     template <typename... Args>
-    void multicast_event<Args...>::callback_registry_::add(function<void(Args...)> callback) {
+    void multicast_event<Args...>::callback_registry_::add(void (*callback)(Args...)) {
+        assert(callback != nullptr);
+        auto callback_ = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
+        assert(callback_ == this->m_callbacks.end());
         this->m_callbacks.push_back(callback);
+    }
+    template <typename... Args>
+    void multicast_event<Args...>::callback_registry_::remove(void (*callback)(Args...)) {
+        assert(callback != nullptr);
+        auto callback_ = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
+        assert(callback_ != this->m_callbacks.end());
+        *callback_ = nullptr;
     }
 }
