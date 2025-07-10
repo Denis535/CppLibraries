@@ -1,6 +1,5 @@
 #pragma once
 #include <cassert>
-#include <optional>
 
 namespace std::extensions {
     using namespace std;
@@ -10,11 +9,12 @@ namespace std::extensions {
         private:
         struct callback_ final { // NOLINT
             private:
-            void (*const m_method)(TArgs...);
+            void (*m_method)(TArgs...);
 
             public:
+            explicit callback_() : m_method(nullptr) {
+            }
             explicit callback_(void (*const method)(TArgs...)) : m_method(method) {
-                assert(this->m_method != nullptr);
             }
             callback_(const callback_ &) = default;
             callback_(callback_ &&) = default;
@@ -25,6 +25,11 @@ namespace std::extensions {
                 assert(this->m_method != nullptr);
                 this->m_method(args...);
             };
+
+            public:
+            explicit operator bool() const {
+                return this->m_method != nullptr;
+            }
 
             public:
             friend bool operator==(const callback_ &lhs, const callback_ &rhs) {
@@ -53,6 +58,10 @@ namespace std::extensions {
             public:
             callback_ &operator=(const callback_ &) = default;
             callback_ &operator=(callback_ &&) = default;
+
+            public:
+            void *operator new(size_t) = delete;
+            void *operator new[](size_t) = delete;
         };
 
         public:
@@ -60,7 +69,7 @@ namespace std::extensions {
             friend event;
 
             private:
-            optional<callback_> m_callback;
+            callback_ m_callback;
 
             private:
             explicit callback_registry_() : m_callback() {
@@ -74,13 +83,13 @@ namespace std::extensions {
             public:
             void add(void (*const callback)(TArgs...)) {
                 assert(callback != nullptr);
-                assert(!this->m_callback.has_value());
-                this->m_callback.emplace(callback);
+                assert(!this->m_callback);
+                this->m_callback = callback_(callback);
             }
             void remove([[maybe_unused]] void (*const callback)(TArgs...)) {
                 assert(callback != nullptr);
-                assert(this->m_callback.has_value() && this->m_callback.value() == callback);
-                this->m_callback.reset();
+                assert(this->m_callback == callback);
+                this->m_callback = callback_();
             }
 
             public:
@@ -105,8 +114,8 @@ namespace std::extensions {
 
         public:
         void invoke(TArgs... args) {
-            if (auto callback = this->m_callback_registry.m_callback; callback.has_value()) {
-                callback.value().invoke(args...);
+            if (auto callback = this->m_callback_registry.m_callback) {
+                callback.invoke(args...);
             }
         }
 
