@@ -1,7 +1,7 @@
 #include "event.h"
 #include "gtest/gtest.h"
 
-namespace std::extensions {
+namespace std::event {
     using namespace std;
 
     class my_class {

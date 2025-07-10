@@ -1,9 +1,9 @@
 #pragma once
-#include "std.extensions/multicast_event_callback_registry.h"
+#include "std.event/multicast_event_callback_registry.h"
 
-namespace std::extensions {
+namespace std::event {
     using namespace std;
-    using namespace std::extensions::internal;
+    using namespace std::event::internal;
 
     template <typename... TArgs>
     class multicast_event final {

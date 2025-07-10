@@ -1,9 +1,9 @@
 #pragma once
-#include "std.extensions/event_callback_registry.h"
+#include "std.event/event_callback_registry.h"
 
-namespace std::extensions {
+namespace std::event {
     using namespace std;
-    using namespace std::extensions::internal;
+    using namespace std::event::internal;
 
     template <typename... TArgs>
     class event final {
