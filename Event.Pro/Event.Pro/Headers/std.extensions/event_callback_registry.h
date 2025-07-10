@@ -1,9 +1,10 @@
 #pragma once
 #include <cassert>
-#include <utility>
-#include "std.extensions/event_callback.h"
+#include "std.extensions.internal/callback.h"
 
 namespace std::extensions {
+    using namespace std;
+    using namespace std::extensions::internal;
 
     template <typename... TArgs>
     class event;
@@ -13,7 +14,7 @@ namespace std::extensions {
         friend event<TArgs...>;
 
         private:
-        const event_callback<TArgs...> *m_callback;
+        const callback<TArgs...> *m_callback;
 
         private:
         explicit event_callback_registry()
@@ -23,23 +24,33 @@ namespace std::extensions {
         public:
         event_callback_registry(const event_callback_registry &) = delete;
         event_callback_registry(event_callback_registry &&) = delete;
-        ~event_callback_registry() = default;
+        ~event_callback_registry() {
+            delete this->m_callback;
+        }
 
         public:
         template <typename T>
-        void add(T *object, void (T::*method)(TArgs...)) {
+        void add(T *const object, void (T::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback == nullptr);
-            this->m_callback = new event_callback_typed<T, TArgs...>(object, method);
+            this->m_callback = new callback_typed<T, TArgs...>(object, method);
         }
         template <typename T>
-        void remove(T *object, void (T::*method)(TArgs...)) {
+        void remove(T *const object, void (T::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback != nullptr);
-            assert(this->m_callback->contains(object, method));
+            assert(this->m_callback->is_equivalent_to(object, method));
+            delete this->m_callback;
             this->m_callback = nullptr;
+        }
+
+        private:
+        void invoke(TArgs... args) {
+            if (const auto *const callback = this->m_callback) {
+                callback->invoke(args...);
+            }
         }
 
         public:

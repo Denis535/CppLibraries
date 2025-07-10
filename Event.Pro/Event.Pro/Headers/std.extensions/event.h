@@ -3,6 +3,7 @@
 
 namespace std::extensions {
     using namespace std;
+    using namespace std::extensions::internal;
 
     template <typename... TArgs>
     class event final {
@@ -25,9 +26,7 @@ namespace std::extensions {
 
         public:
         void invoke(TArgs... args) {
-            if (const auto *const callback = this->m_callback_registry.m_callback) {
-                callback->invoke(args...);
-            }
+            this->m_callback_registry.invoke(args...);
         }
 
         public:

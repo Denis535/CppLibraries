@@ -1,70 +1,11 @@
 #pragma once
 #include <cassert>
-#include <functional>
 #include <vector>
+#include "std.extensions.internal/callback.h"
 
 namespace std::extensions {
     using namespace std;
-
-    template <typename... TArgs>
-    struct callback_ final { // NOLINT
-        private:
-        void (*m_method)(TArgs...);
-
-        public:
-        explicit callback_()
-            : m_method(nullptr) {
-        }
-        explicit callback_(void (*const method)(TArgs...))
-            : m_method(method) {
-        }
-        callback_(const callback_ &) = delete;
-        callback_(callback_ &&) = default;
-        ~callback_() = default;
-
-        public:
-        void invoke(TArgs... args) const {
-            assert(this->m_method != nullptr);
-            this->m_method(args...);
-        };
-
-        public:
-        explicit operator bool() const {
-            return this->m_method != nullptr;
-        }
-
-        public:
-        friend bool operator==(const callback_ &lhs, const callback_ &rhs) {
-            return lhs.m_method == rhs.m_method;
-        }
-        friend bool operator!=(const callback_ &lhs, const callback_ &rhs) {
-            return lhs.m_method != rhs.m_method;
-        }
-
-        public:
-        friend bool operator==(const callback_ &lhs, void (*const rhs)(TArgs...)) {
-            return lhs.m_method == rhs;
-        }
-        friend bool operator!=(const callback_ &lhs, void (*const rhs)(TArgs...)) {
-            return lhs.m_method != rhs;
-        }
-
-        public:
-        friend bool operator==(void (*const lhs)(TArgs...), const callback_ &rhs) {
-            return lhs == rhs.m_method;
-        }
-        friend bool operator!=(void (*const lhs)(TArgs...), const callback_ &rhs) {
-            return lhs != rhs.m_method;
-        }
-
-        public:
-        callback_ &operator=(const callback_ &) = delete;
-        callback_ &operator=(callback_ &&) = default;
-
-        public:
-        void *operator new(size_t) = delete;
-        void *operator new[](size_t) = delete;
-    };
+    using namespace std::extensions::internal;
 
     template <typename... TArgs>
     class multicast_event;
@@ -74,7 +15,7 @@ namespace std::extensions {
         friend multicast_event<TArgs>;
 
         private:
-        vector<callback_<TArgs...>> m_callbacks;
+        vector<const callback<TArgs...> *> m_callbacks;
 
         private:
         explicit multicast_event_callback_registry()
@@ -84,20 +25,45 @@ namespace std::extensions {
         public:
         multicast_event_callback_registry(const multicast_event_callback_registry &) = delete;
         multicast_event_callback_registry(multicast_event_callback_registry &&) = delete;
-        ~multicast_event_callback_registry() = default;
+        ~multicast_event_callback_registry() {
+            for (const auto *const callback : this->m_callbacks) {
+                delete callback;
+            }
+        }
 
         public:
-        void add(void (*callback)(TArgs...)) {
-            assert(callback != nullptr);
-            auto result = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
-            assert(result == this->m_callbacks.end());
-            this->m_callbacks.push_back(callback_(callback));
+        template <typename T>
+        void add(T *const object, void (T::*const method)(TArgs...)) {
+            assert(object != nullptr);
+            assert(method != nullptr);
+            for (const auto *const callback : this->m_callbacks) {
+                if (callback != nullptr) {
+                    assert(!callback->is_equivalent_to(object, method) && "Callback is already added");
+                }
+            }
+            this->m_callbacks.push_back(new callback_typed(object, method));
         }
-        void remove(void (*callback)(TArgs...)) {
-            assert(callback != nullptr);
-            auto result = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
-            assert(result != this->m_callbacks.end());
-            *result = callback_();
+        template <typename T>
+        void remove(T *const object, void (T::*const method)(TArgs...)) {
+            assert(object != nullptr);
+            assert(method != nullptr);
+            for (auto &callback : this->m_callbacks) {
+                if (callback != nullptr && callback->is_equivalent_to(object, method)) {
+                    delete callback;
+                    callback = nullptr;
+                    return;
+                }
+            }
+            assert(false && "Callback was not removed");
+        }
+
+        private:
+        void invoke(TArgs... args) {
+            for (const auto *const callback : this->m_callbacks) {
+                if (callback != nullptr) {
+                    callback->invoke(args...);
+                }
+            }
         }
 
         public:

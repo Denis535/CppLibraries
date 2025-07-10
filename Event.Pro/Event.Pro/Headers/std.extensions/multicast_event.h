@@ -3,6 +3,7 @@
 
 namespace std::extensions {
     using namespace std;
+    using namespace std::extensions::internal;
 
     template <typename... TArgs>
     class multicast_event final {
@@ -25,11 +26,7 @@ namespace std::extensions {
 
         public:
         void invoke(TArgs... args) {
-            for (auto &callback : this->m_callback_registry.m_callbacks) {
-                if (callback) {
-                    callback.invoke(args...);
-                }
-            }
+            this->m_callback_registry.invoke(args...);
         }
 
         public:
