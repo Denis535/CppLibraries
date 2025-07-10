@@ -44,7 +44,7 @@ namespace std::extensions {
             this->m_callbacks.push_back(new callback_typed(object, method));
         }
         template <typename T>
-        void remove(T *const object, void (T::*const method)(TArgs...)) {
+        void remove(const T *const object, void (T::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
@@ -61,7 +61,7 @@ namespace std::extensions {
         }
 
         private:
-        void invoke(TArgs... args) {
+        void invoke(const TArgs... args) {
             for (const auto *const callback : this->m_callbacks) {
                 if (callback != nullptr) {
                     callback->invoke(args...);

@@ -25,7 +25,7 @@ namespace std::extensions {
         ~multicast_event() = default;
 
         public:
-        void invoke(TArgs... args) {
+        void invoke(const TArgs... args) {
             this->m_callback_registry.invoke(args...);
         }
 
