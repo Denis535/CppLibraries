@@ -19,18 +19,18 @@ namespace std::extensions::internal {
         virtual ~callback() = default;
 
         public:
-        virtual void invoke(TArgs... args) const = 0;
+        virtual void invoke(const TArgs... args) const = 0;
 
         public:
         template <typename T>
-        bool is_equivalent_to(callback_typed<T> *const callback) const {
+        bool is_equivalent_to(const callback_typed<T> *const callback) const {
             if (const auto *const this_typed = dynamic_cast<const callback_typed<T, TArgs...> *const>(this)) {
                 return this_typed->m_object == callback->m_object && this_typed->m_method == callback->m_method;
             }
             return false;
         }
         template <typename T>
-        bool is_equivalent_to(T *const object, void (T::*const method)(TArgs...)) const {
+        bool is_equivalent_to(const T *const object, void (T::*const method)(TArgs...)) const {
             if (const auto *const this_typed = dynamic_cast<const callback_typed<T, TArgs...> *const>(this)) {
                 return this_typed->m_object == object && this_typed->m_method == method;
             }
@@ -63,7 +63,7 @@ namespace std::extensions::internal {
         ~callback_typed() override = default;
 
         public:
-        void invoke(TArgs... args) const override {
+        void invoke(const TArgs... args) const override {
             assert(this->m_object != nullptr);
             assert(this->m_method != nullptr);
             (this->m_object->*this->m_method)(args...);
