@@ -114,7 +114,7 @@ namespace std::extensions {
 
         public:
         void invoke(TArgs... args) {
-            if (auto callback = this->m_callback_registry.m_callback) {
+            if (auto &callback = this->m_callback_registry.m_callback) {
                 callback.invoke(args...);
             }
         }

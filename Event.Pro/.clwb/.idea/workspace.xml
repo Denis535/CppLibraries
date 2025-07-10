@@ -31,6 +31,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions/Tests_00.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/event.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/multicast_event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions/multicast_event.h" afterDir="false" />
     </list>
@@ -114,7 +115,7 @@
       <workItem from="1751973880872" duration="4266000" />
       <workItem from="1752042595633" duration="21949000" />
       <workItem from="1752088373572" duration="1650000" />
-      <workItem from="1752124396614" duration="1662000" />
+      <workItem from="1752124396614" duration="1955000" />
     </task>
     <servers />
   </component>
