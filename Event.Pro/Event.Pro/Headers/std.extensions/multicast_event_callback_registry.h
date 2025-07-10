@@ -47,11 +47,14 @@ namespace std::extensions {
         void remove(T *const object, void (T::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
-            for (auto &callback : this->m_callbacks) {
-                if (callback != nullptr && callback->is_equivalent_to(object, method)) {
-                    delete callback;
-                    callback = nullptr;
-                    return;
+            for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
+                const auto *&callback = *callback_iter;
+                if (callback != nullptr) {
+                    if (callback->is_equivalent_to(object, method)) {
+                        delete callback;
+                        callback = nullptr;
+                        return;
+                    }
                 }
             }
             assert(false && "Callback was not removed");

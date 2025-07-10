@@ -16,6 +16,8 @@ namespace std::extensions {
         auto evt = event<int>();
         evt.invoke(777);
         evt.callback_registry().add(&obj, &my_class::my_method);
+        evt.callback_registry().remove(&obj, &my_class::my_method);
+        evt.callback_registry().add(&obj, &my_class::my_method);
         evt.invoke(777);
         evt.callback_registry().remove(&obj, &my_class::my_method);
         evt.invoke(777);
@@ -25,6 +27,8 @@ namespace std::extensions {
         auto obj = my_class();
         auto evt = multicast_event<int>();
         evt.invoke(777);
+        evt.callback_registry().add(&obj, &my_class::my_method);
+        evt.callback_registry().remove(&obj, &my_class::my_method);
         evt.callback_registry().add(&obj, &my_class::my_method);
         evt.invoke(777);
         evt.callback_registry().remove(&obj, &my_class::my_method);
