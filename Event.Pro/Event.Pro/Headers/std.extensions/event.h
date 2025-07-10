@@ -12,7 +12,7 @@ namespace std::extensions {
         event_callback_registry<TArgs...> m_callback_registry;
 
         public:
-        event_callback_registry<TArgs...> &callback_registry() {
+        [[nodiscard]] event_callback_registry<TArgs...> &callback_registry() {
             return this->m_callback_registry;
         }
 
