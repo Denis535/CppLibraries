@@ -71,7 +71,7 @@ namespace std::extensions {
             friend multicast_event;
 
             private:
-            vector<void (*)(TArgs...)> m_callbacks;
+            vector<callback_> m_callbacks;
 
             private:
             explicit callback_registry_() : m_callbacks() {
@@ -85,15 +85,15 @@ namespace std::extensions {
             public:
             void add(void (*callback)(TArgs...)) {
                 assert(callback != nullptr);
-                auto callback_ = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
-                assert(callback_ == this->m_callbacks.end());
-                this->m_callbacks.push_back(callback);
+                auto result = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
+                assert(result == this->m_callbacks.end());
+                this->m_callbacks.push_back(callback_(callback));
             }
             void remove(void (*callback)(TArgs...)) {
                 assert(callback != nullptr);
-                auto callback_ = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
-                assert(callback_ != this->m_callbacks.end());
-                *callback_ = nullptr;
+                auto result = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
+                assert(result != this->m_callbacks.end());
+                *result = callback_();
             }
 
             public:
@@ -118,9 +118,9 @@ namespace std::extensions {
 
         public:
         void invoke(TArgs... args) {
-            for (const auto &callback : this->m_callback_registry.m_callbacks) {
-                if (callback != nullptr) {
-                    callback(args...);
+            for (auto &callback : this->m_callback_registry.m_callbacks) {
+                if (callback) {
+                    callback.invoke(args...);
                 }
             }
         }
