@@ -4,25 +4,33 @@
 namespace std::extensions {
     using namespace std;
 
-    void Print(int arg) { // NOLINT
+    class my_class {
+        public:
+        void method(int arg) { // NOLINT
+            cout << arg << endl;
+        }
+    };
+
+    void method(int arg) { // NOLINT
         cout << arg << endl;
     }
 
-    TEST(Tests_00, Test_00) { // NOLINT
+    TEST(tests_00, test_00) { // NOLINT
+        auto obj = my_class();
         auto evt = event<int>();
         evt.invoke(777);
-        evt.callback_registry().add(&Print);
+        evt.callback_registry().add(&obj, &my_class::method);
         evt.invoke(777);
-        evt.callback_registry().remove(&Print);
+        evt.callback_registry().remove(&obj, &my_class::method);
         evt.invoke(777);
     }
 
-    TEST(Tests_00, Test_01) { // NOLINT
+    TEST(tests_00, test_01) { // NOLINT
         auto evt = multicast_event<int>();
         evt.invoke(777);
-        evt.callback_registry().add(&Print);
+        evt.callback_registry().add(&method);
         evt.invoke(777);
-        evt.callback_registry().remove(&Print);
+        evt.callback_registry().remove(&method);
         evt.invoke(777);
     }
 

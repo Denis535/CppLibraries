@@ -1,116 +1,23 @@
 #pragma once
-#include <cassert>
-#include <functional>
-#include <vector>
+#include "std.extensions/multicast_event_callback_registry.h"
 
 namespace std::extensions {
     using namespace std;
 
     template <typename... TArgs>
     class multicast_event final {
-        private:
-        struct callback_ final { // NOLINT
-            private:
-            void (*m_method)(TArgs...);
-
-            public:
-            explicit callback_() : m_method(nullptr) {
-            }
-            explicit callback_(void (*const method)(TArgs...)) : m_method(method) {
-            }
-            callback_(const callback_ &) = default;
-            callback_(callback_ &&) = default;
-            ~callback_() = default;
-
-            public:
-            void invoke(TArgs... args) const {
-                assert(this->m_method != nullptr);
-                this->m_method(args...);
-            };
-
-            public:
-            explicit operator bool() const {
-                return this->m_method != nullptr;
-            }
-
-            public:
-            friend bool operator==(const callback_ &lhs, const callback_ &rhs) {
-                return lhs.m_method == rhs.m_method;
-            }
-            friend bool operator!=(const callback_ &lhs, const callback_ &rhs) {
-                return lhs.m_method != rhs.m_method;
-            }
-
-            public:
-            friend bool operator==(const callback_ &lhs, void (*const rhs)(TArgs...)) {
-                return lhs.m_method == rhs;
-            }
-            friend bool operator!=(const callback_ &lhs, void (*const rhs)(TArgs...)) {
-                return lhs.m_method != rhs;
-            }
-
-            public:
-            friend bool operator==(void (*const lhs)(TArgs...), const callback_ &rhs) {
-                return lhs == rhs.m_method;
-            }
-            friend bool operator!=(void (*const lhs)(TArgs...), const callback_ &rhs) {
-                return lhs != rhs.m_method;
-            }
-
-            public:
-            callback_ &operator=(const callback_ &) = default;
-            callback_ &operator=(callback_ &&) = default;
-
-            public:
-            void *operator new(size_t) = delete;
-            void *operator new[](size_t) = delete;
-        };
-
-        public:
-        class callback_registry_ final { // NOLINT
-            friend multicast_event;
-
-            private:
-            vector<callback_> m_callbacks;
-
-            private:
-            explicit callback_registry_() : m_callbacks() {
-            }
-
-            public:
-            callback_registry_(const callback_registry_ &) = delete;
-            callback_registry_(callback_registry_ &&) = delete;
-            ~callback_registry_() = default;
-
-            public:
-            void add(void (*callback)(TArgs...)) {
-                assert(callback != nullptr);
-                auto result = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
-                assert(result == this->m_callbacks.end());
-                this->m_callbacks.push_back(callback_(callback));
-            }
-            void remove(void (*callback)(TArgs...)) {
-                assert(callback != nullptr);
-                auto result = find(this->m_callbacks.begin(), this->m_callbacks.end(), callback);
-                assert(result != this->m_callbacks.end());
-                *result = callback_();
-            }
-
-            public:
-            callback_registry_ &operator=(const callback_registry_ &) = delete;
-            callback_registry_ &operator=(callback_registry_ &&) = delete;
-        };
 
         private:
-        callback_registry_ m_callback_registry;
+        multicast_event_callback_registry<TArgs...> m_callback_registry;
 
         public:
-        callback_registry_ &callback_registry() {
+        multicast_event_callback_registry<TArgs...> &callback_registry() {
             return this->m_callback_registry;
         }
 
         public:
-        explicit multicast_event() : m_callback_registry() {
+        explicit multicast_event()
+            : m_callback_registry() {
         }
         multicast_event(const multicast_event &) = delete;
         multicast_event(multicast_event &&) = delete;
