@@ -1,10 +1,10 @@
 #pragma once
 #include <cassert>
-#include "std.extensions.event/multicast/multicast_callback_registry.h"
+#include "std.extensions.event_pro/multicast/multicast_callback_registry.h"
 
-namespace std::extensions::event {
+namespace std::extensions::event_pro {
     using namespace std;
-    using namespace std::extensions::event::internal;
+    using namespace std::extensions::event_pro::internal;
 
     template <typename... TArgs>
     class multicast_event final {

@@ -5,9 +5,9 @@ The library that allows you to implement a simple event system.
 # Example
 
 ```
-#include "event.h"
+#include "event_pro.h"
 using namespace std;
-using namespace std::event;
+using namespace std::extensions::event;
 
 auto obj = my_object();
 auto evt = event<int>();
@@ -18,9 +18,9 @@ evt.callback_registry().remove(&obj, &my_class::my_method);
 ```
 
 ```
-#include "event.h"
+#include "event_pro.h"
 using namespace std;
-using namespace std::event;
+using namespace std::extensions::event;
 
 auto obj = my_class();
 auto obj2 = my_class_2();

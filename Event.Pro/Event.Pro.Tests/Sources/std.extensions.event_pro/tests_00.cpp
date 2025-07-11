@@ -1,8 +1,7 @@
-#include "event_multicast.h"
-#include "event_unicast.h"
+#include "event_pro.h"
 #include "gtest/gtest.h"
 
-namespace std::extensions::event {
+namespace std::extensions::event_pro {
     using namespace std;
 
     class my_class {
