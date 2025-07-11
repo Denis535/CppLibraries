@@ -1,12 +1,13 @@
 #pragma once
 #include <algorithm>
 #include <cassert>
-#include <functional>
+#include "event_pro.h"
 #include "TreeMachine.Internal/Helpers.h"
 #include "TreeMachine/NodeBase.h"
 
 namespace TreeMachine {
     using namespace TreeMachine::Internal;
+    using namespace std::extensions::event_pro;
 
     template <typename TThis>
     TreeMachineBase<TThis> *NodeBase<TThis>::Machine() const {
@@ -116,37 +117,37 @@ namespace TreeMachine {
     }
 
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnBeforeAttachCallback() const {
-        return this->m_OnBeforeAttachCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnBeforeAttachCallback() {
+        return this->m_OnBeforeAttachCallback.callback_registry();
     }
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnAfterAttachCallback() const {
-        return this->m_OnAfterAttachCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnAfterAttachCallback() {
+        return this->m_OnAfterAttachCallback.callback_registry();
     }
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnBeforeDetachCallback() const {
-        return this->m_OnBeforeDetachCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnBeforeDetachCallback() {
+        return this->m_OnBeforeDetachCallback.callback_registry();
     }
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnAfterDetachCallback() const {
-        return this->m_OnAfterDetachCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnAfterDetachCallback() {
+        return this->m_OnAfterDetachCallback.callback_registry();
     }
 
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnBeforeActivateCallback() const {
-        return this->m_OnBeforeActivateCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnBeforeActivateCallback() {
+        return this->m_OnBeforeActivateCallback.callback_registry();
     }
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnAfterActivateCallback() const {
-        return this->m_OnAfterActivateCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnAfterActivateCallback() {
+        return this->m_OnAfterActivateCallback.callback_registry();
     }
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnBeforeDeactivateCallback() const {
-        return this->m_OnBeforeDeactivateCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnBeforeDeactivateCallback() {
+        return this->m_OnBeforeDeactivateCallback.callback_registry();
     }
     template <typename TThis>
-    const function<void(const any)> &NodeBase<TThis>::OnAfterDeactivateCallback() const {
-        return this->m_OnAfterDeactivateCallback;
+    multicast_callback_registry<const any> &NodeBase<TThis>::OnAfterDeactivateCallback() {
+        return this->m_OnAfterDeactivateCallback.callback_registry();
     }
 
     template <typename TThis>
@@ -269,15 +270,11 @@ namespace TreeMachine {
     }
     template <typename TThis>
     void NodeBase<TThis>::OnBeforeAttach(const any argument) {
-        if (this->m_OnBeforeAttachCallback) {
-            this->m_OnBeforeAttachCallback(argument);
-        }
+        this->m_OnBeforeAttachCallback.emit(argument);
     }
     template <typename TThis>
     void NodeBase<TThis>::OnAfterAttach(const any argument) {
-        if (this->m_OnAfterAttachCallback) {
-            this->m_OnAfterAttachCallback(argument);
-        }
+        this->m_OnAfterAttachCallback.emit(argument);
     }
 
     template <typename TThis>
@@ -285,15 +282,11 @@ namespace TreeMachine {
     }
     template <typename TThis>
     void NodeBase<TThis>::OnBeforeDetach(const any argument) {
-        if (this->m_OnBeforeDetachCallback) {
-            this->m_OnBeforeDetachCallback(argument);
-        }
+        this->m_OnBeforeDetachCallback.emit(argument);
     }
     template <typename TThis>
     void NodeBase<TThis>::OnAfterDetach(const any argument) {
-        if (this->m_OnAfterDetachCallback) {
-            this->m_OnAfterDetachCallback(argument);
-        }
+        this->m_OnAfterDetachCallback.emit(argument);
     }
 
     template <typename TThis>
@@ -301,15 +294,11 @@ namespace TreeMachine {
     }
     template <typename TThis>
     void NodeBase<TThis>::OnBeforeActivate(const any argument) {
-        if (this->m_OnBeforeActivateCallback) {
-            this->m_OnBeforeActivateCallback(argument);
-        }
+        this->m_OnBeforeActivateCallback.emit(argument);
     }
     template <typename TThis>
     void NodeBase<TThis>::OnAfterActivate(const any argument) {
-        if (this->m_OnAfterActivateCallback) {
-            this->m_OnAfterActivateCallback(argument);
-        }
+        this->m_OnAfterActivateCallback.emit(argument);
     }
 
     template <typename TThis>
@@ -317,15 +306,11 @@ namespace TreeMachine {
     }
     template <typename TThis>
     void NodeBase<TThis>::OnBeforeDeactivate(const any argument) {
-        if (this->m_OnBeforeDeactivateCallback) {
-            this->m_OnBeforeDeactivateCallback(argument);
-        }
+        this->m_OnBeforeDeactivateCallback.emit(argument);
     }
     template <typename TThis>
     void NodeBase<TThis>::OnAfterDeactivate(const any argument) {
-        if (this->m_OnAfterDeactivateCallback) {
-            this->m_OnAfterDeactivateCallback(argument);
-        }
+        this->m_OnAfterDeactivateCallback.emit(argument);
     }
 
     template <typename TThis>
@@ -406,40 +391,6 @@ namespace TreeMachine {
     template <typename TThis>
     void NodeBase<TThis>::Sort(list<TThis *> &children) const {
         (void)children;
-    }
-
-    template <typename TThis>
-    void NodeBase<TThis>::OnBeforeAttachCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeAttachCallback = callback;
-    }
-    template <typename TThis>
-    void NodeBase<TThis>::OnAfterAttachCallback(const function<void(const any)> callback) {
-        this->m_OnAfterAttachCallback = callback;
-    }
-    template <typename TThis>
-    void NodeBase<TThis>::OnBeforeDetachCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeDetachCallback = callback;
-    }
-    template <typename TThis>
-    void NodeBase<TThis>::OnAfterDetachCallback(const function<void(const any)> callback) {
-        this->m_OnAfterDetachCallback = callback;
-    }
-
-    template <typename TThis>
-    void NodeBase<TThis>::OnBeforeActivateCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeActivateCallback = callback;
-    }
-    template <typename TThis>
-    void NodeBase<TThis>::OnAfterActivateCallback(const function<void(const any)> callback) {
-        this->m_OnAfterActivateCallback = callback;
-    }
-    template <typename TThis>
-    void NodeBase<TThis>::OnBeforeDeactivateCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeDeactivateCallback = callback;
-    }
-    template <typename TThis>
-    void NodeBase<TThis>::OnAfterDeactivateCallback(const function<void(const any)> callback) {
-        this->m_OnAfterDeactivateCallback = callback;
     }
 
 }

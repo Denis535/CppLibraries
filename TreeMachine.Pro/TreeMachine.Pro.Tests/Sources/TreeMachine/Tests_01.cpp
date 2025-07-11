@@ -10,10 +10,10 @@ namespace TreeMachine {
         auto *const a = new A();
         auto *const b = new B();
 
-        root->OnBeforeAttachCallback([root, a, b]([[maybe_unused]] const any arg) {
+        root->OnBeforeAttachCallback().add([root, a, b]([[maybe_unused]] const any arg) {
             root->AddChildren(vector<Node *>{a, b}, nullptr);
         });
-        root->OnAfterDetachCallback([root]([[maybe_unused]] const any arg) {
+        root->OnAfterDetachCallback().add([root]([[maybe_unused]] const any arg) {
             root->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
         });
 
@@ -59,10 +59,10 @@ namespace TreeMachine {
         auto *const a = new A();
         auto *const b = new B();
 
-        root->OnAfterAttachCallback([root, a, b]([[maybe_unused]] const any arg) {
+        root->OnAfterAttachCallback().add([root, a, b]([[maybe_unused]] const any arg) {
             root->AddChildren(vector<Node *>{a, b}, nullptr);
         });
-        root->OnBeforeDetachCallback([root]([[maybe_unused]] const any arg) {
+        root->OnBeforeDetachCallback().add([root]([[maybe_unused]] const any arg) {
             root->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
         });
 

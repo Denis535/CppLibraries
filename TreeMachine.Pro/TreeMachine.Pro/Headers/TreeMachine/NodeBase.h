@@ -1,11 +1,12 @@
 #pragma once
 #include <any>
-#include <functional>
 #include <list>
 #include <variant>
+#include "event_pro.h"
 
 namespace TreeMachine {
     using namespace std;
+    using namespace std::extensions::event_pro;
 
     template <typename T>
     class TreeMachineBase;
@@ -32,16 +33,16 @@ namespace TreeMachine {
         list<TThis *> m_Children = list<TThis *>(0);
 
         private:
-        function<void(const any)> m_OnBeforeAttachCallback = nullptr;
-        function<void(const any)> m_OnAfterAttachCallback = nullptr;
-        function<void(const any)> m_OnBeforeDetachCallback = nullptr;
-        function<void(const any)> m_OnAfterDetachCallback = nullptr;
+        multicast_event<const any> m_OnBeforeAttachCallback;
+        multicast_event<const any> m_OnAfterAttachCallback;
+        multicast_event<const any> m_OnBeforeDetachCallback;
+        multicast_event<const any> m_OnAfterDetachCallback;
 
         private:
-        function<void(const any)> m_OnBeforeActivateCallback = nullptr;
-        function<void(const any)> m_OnAfterActivateCallback = nullptr;
-        function<void(const any)> m_OnBeforeDeactivateCallback = nullptr;
-        function<void(const any)> m_OnAfterDeactivateCallback = nullptr;
+        multicast_event<const any> m_OnBeforeActivateCallback;
+        multicast_event<const any> m_OnAfterActivateCallback;
+        multicast_event<const any> m_OnBeforeDeactivateCallback;
+        multicast_event<const any> m_OnAfterDeactivateCallback;
 
         public:
         [[nodiscard]] TreeMachineBase<TThis> *Machine() const;
@@ -70,16 +71,16 @@ namespace TreeMachine {
         [[nodiscard]] vector<TThis *> DescendantsAndSelf();
 
         public:
-        [[nodiscard]] const function<void(const any)> &OnBeforeAttachCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterAttachCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnBeforeDetachCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterDetachCallback() const;
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeAttachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterAttachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDetachCallback();
 
         public:
-        [[nodiscard]] const function<void(const any)> &OnBeforeActivateCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterActivateCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnBeforeDeactivateCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterDeactivateCallback() const;
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeActivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterActivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDeactivateCallback();
 
         protected:
         explicit NodeBase();
@@ -126,18 +127,6 @@ namespace TreeMachine {
 
         protected:
         virtual void Sort(list<TThis *> &children) const;
-
-        public:
-        void OnBeforeAttachCallback(const function<void(const any)> callback);
-        void OnAfterAttachCallback(const function<void(const any)> callback);
-        void OnBeforeDetachCallback(const function<void(const any)> callback);
-        void OnAfterDetachCallback(const function<void(const any)> callback);
-
-        public:
-        void OnBeforeActivateCallback(const function<void(const any)> callback);
-        void OnAfterActivateCallback(const function<void(const any)> callback);
-        void OnBeforeDeactivateCallback(const function<void(const any)> callback);
-        void OnAfterDeactivateCallback(const function<void(const any)> callback);
 
         public:
         NodeBase &operator=(const NodeBase &other) = delete;

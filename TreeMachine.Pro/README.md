@@ -69,16 +69,16 @@ namespace TreeMachine {
         [[nodiscard]] vector<TThis *> DescendantsAndSelf();
 
         public:
-        [[nodiscard]] const function<void(const any)> &OnBeforeAttachCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterAttachCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnBeforeDetachCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterDetachCallback() const;
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeAttachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterAttachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDetachCallback();
 
         public:
-        [[nodiscard]] const function<void(const any)> &OnBeforeActivateCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterActivateCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnBeforeDeactivateCallback() const;
-        [[nodiscard]] const function<void(const any)> &OnAfterDeactivateCallback() const;
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeActivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterActivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDeactivateCallback();
 
         protected:
         explicit NodeBase();
@@ -117,18 +117,6 @@ namespace TreeMachine {
         virtual void Sort(list<TThis *> &children) const;
 
         public:
-        void OnBeforeAttachCallback(const function<void(const any)> callback);
-        void OnAfterAttachCallback(const function<void(const any)> callback);
-        void OnBeforeDetachCallback(const function<void(const any)> callback);
-        void OnAfterDetachCallback(const function<void(const any)> callback);
-
-        public:
-        void OnBeforeActivateCallback(const function<void(const any)> callback);
-        void OnAfterActivateCallback(const function<void(const any)> callback);
-        void OnBeforeDeactivateCallback(const function<void(const any)> callback);
-        void OnAfterDeactivateCallback(const function<void(const any)> callback);
-
-        public:
         NodeBase &operator=(const NodeBase &other) = delete;
         NodeBase &operator=(NodeBase &&other) = delete;
     };
@@ -141,16 +129,16 @@ namespace TreeMachine {
     class NodeBase2 : public NodeBase<TThis> {
 
         public:
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnBeforeDescendantAttachCallback();
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnAfterDescendantAttachCallback();
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnBeforeDescendantDetachCallback();
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnAfterDescendantDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantAttachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantAttachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantDetachCallback();
 
         public:
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnBeforeDescendantActivateCallback();
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnAfterDescendantActivateCallback();
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnBeforeDescendantDeactivateCallback();
-        [[nodiscard]] const function<void(TThis *const, const any)> &OnAfterDescendantDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantActivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantActivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantDeactivateCallback();
 
         protected:
         explicit NodeBase2();
@@ -183,18 +171,6 @@ namespace TreeMachine {
         virtual void OnAfterDescendantActivate(TThis *const descendant, const any argument);
         virtual void OnBeforeDescendantDeactivate(TThis *const descendant, const any argument);
         virtual void OnAfterDescendantDeactivate(TThis *const descendant, const any argument);
-
-        public:
-        void OnBeforeDescendantAttachCallback(const function<void(TThis *const, const any)> callback);
-        void OnAfterDescendantAttachCallback(const function<void(TThis *const, const any)> callback);
-        void OnBeforeDescendantDetachCallback(const function<void(TThis *const, const any)> callback);
-        void OnAfterDescendantDetachCallback(const function<void(TThis *const, const any)> callback);
-
-        public:
-        void OnBeforeDescendantActivateCallback(const function<void(TThis *const, const any)> callback);
-        void OnAfterDescendantActivateCallback(const function<void(TThis *const, const any)> callback);
-        void OnBeforeDescendantDeactivateCallback(const function<void(TThis *const, const any)> callback);
-        void OnAfterDescendantDeactivateCallback(const function<void(TThis *const, const any)> callback);
 
         public:
         NodeBase2 &operator=(const NodeBase2 &other) = delete;
