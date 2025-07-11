@@ -32,13 +32,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.event/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions.event/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/event.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event.internal/callback.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event.internal/callback.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event/unicast/unicast_callback_registry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event/unicast/unicast_event.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event/multicast/multicast_callback_registry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event/multicast/multicast_event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions.event/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions.event/tests_00.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/MODULE.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/MODULE.bazel" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/TreeMachine.Pro/BUILD.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/TreeMachine.Pro/BUILD.bazel" afterDir="false" />
@@ -136,7 +130,7 @@
       <workItem from="1752217506079" duration="18000" />
       <workItem from="1752221084535" duration="403000" />
       <workItem from="1752231537727" duration="110000" />
-      <workItem from="1752234145455" duration="1239000" />
+      <workItem from="1752234145455" duration="1447000" />
     </task>
     <servers />
   </component>
