@@ -42,6 +42,11 @@ namespace std::extensions::event_pro {
         evt.callback_registry().remove(&obj, &my_class::my_method);
         evt.emit(777);
     }
+    TEST(tests_00, test_02) { // NOLINT
+        auto evt = unicast_event<int>();
+        evt.callback_registry().add([&evt](int arg) { cout << arg << endl; });
+        evt.emit(777);
+    }
 
     TEST(tests_00, test_10) { // NOLINT
         auto evt = multicast_event<int>();
@@ -66,6 +71,11 @@ namespace std::extensions::event_pro {
         evt.emit(777);
         evt.callback_registry().remove(&obj, &my_class::my_method_2);
         evt.callback_registry().remove(&obj, &my_class::my_method);
+        evt.emit(777);
+    }
+    TEST(tests_00, test_12) { // NOLINT
+        auto evt = multicast_event<int>();
+        evt.callback_registry().add([&evt](int arg) { cout << arg << endl; });
         evt.emit(777);
     }
 

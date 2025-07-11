@@ -39,10 +39,10 @@ namespace std::extensions::event_pro {
                     assert(!callback->equals(method) && "Callback is already added");
                 }
             }
-            this->m_callbacks.push_back(new method_callback(method));
+            this->m_callbacks.push_back(new method_callback<TArgs...>(method));
         }
-        template <typename T>
-        void add(T *const object, void (T::*const method)(TArgs...)) {
+        template <typename TObj>
+        void add(TObj *const object, void (TObj::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (const auto *const callback : this->m_callbacks) {
@@ -50,7 +50,16 @@ namespace std::extensions::event_pro {
                     assert(!callback->equals(object, method) && "Callback is already added");
                 }
             }
-            this->m_callbacks.push_back(new object_method_callback(object, method));
+            this->m_callbacks.push_back(new object_method_callback<TObj, TArgs...>(object, method));
+        }
+        template <typename TLambda>
+        void add(const TLambda lambda) {
+            for (const auto *const callback : this->m_callbacks) {
+                if (callback != nullptr) {
+                    assert(!callback->equals(lambda) && "Callback is already added");
+                }
+            }
+            this->m_callbacks.push_back(new lambda_callback<TLambda, TArgs...>(lambda));
         }
 
         public:
@@ -68,14 +77,28 @@ namespace std::extensions::event_pro {
             }
             assert(false && "Callback was not removed");
         }
-        template <typename T>
-        void remove(const T *const object, void (T::*const method)(TArgs...)) {
+        template <typename TObj>
+        void remove(const TObj *const object, void (TObj::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
                 const auto *&callback = *callback_iter;
                 if (callback != nullptr) {
                     if (callback->equals(object, method)) {
+                        delete callback;
+                        callback = nullptr;
+                        return;
+                    }
+                }
+            }
+            assert(false && "Callback was not removed");
+        }
+        template <typename TLambda>
+        void remove(const TLambda lambda) {
+            for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
+                const auto *&callback = *callback_iter;
+                if (callback != nullptr) {
+                    if (callback->equals(lambda)) {
                         delete callback;
                         callback = nullptr;
                         return;

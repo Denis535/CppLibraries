@@ -36,7 +36,6 @@
       <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +127,7 @@
       <workItem from="1752221084535" duration="403000" />
       <workItem from="1752231537727" duration="110000" />
       <workItem from="1752234145455" duration="1587000" />
-      <workItem from="1752236329515" duration="2027000" />
+      <workItem from="1752236329515" duration="6939000" />
     </task>
     <servers />
   </component>

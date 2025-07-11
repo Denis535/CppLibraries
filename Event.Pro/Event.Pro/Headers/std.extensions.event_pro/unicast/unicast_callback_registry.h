@@ -34,12 +34,17 @@ namespace std::extensions::event_pro {
             assert(this->m_callback == nullptr);
             this->m_callback = new method_callback<TArgs...>(method);
         }
-        template <typename T>
-        void add(T *const object, void (T::*const method)(TArgs...)) {
+        template <typename TObj>
+        void add(TObj *const object, void (TObj::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback == nullptr);
-            this->m_callback = new object_method_callback<T, TArgs...>(object, method);
+            this->m_callback = new object_method_callback<TObj, TArgs...>(object, method);
+        }
+        template <typename TLambda>
+        void add(TLambda lambda) {
+            assert(this->m_callback == nullptr);
+            this->m_callback = new lambda_callback<TLambda, TArgs...>(lambda);
         }
 
         public:
@@ -50,12 +55,19 @@ namespace std::extensions::event_pro {
             delete this->m_callback;
             this->m_callback = nullptr;
         }
-        template <typename T>
-        void remove(const T *const object, void (T::*const method)(TArgs...)) {
+        template <typename TObj>
+        void remove(const TObj *const object, void (TObj::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback != nullptr);
             assert(this->m_callback->equals(object, method));
+            delete this->m_callback;
+            this->m_callback = nullptr;
+        }
+        template <typename TLambda>
+        void remove(const TLambda lambda) {
+            assert(this->m_callback != nullptr);
+            assert(this->m_callback->equals(lambda));
             delete this->m_callback;
             this->m_callback = nullptr;
         }
