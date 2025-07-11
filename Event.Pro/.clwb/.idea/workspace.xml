@@ -20,6 +20,7 @@
   </component>
   <component name="BlazeSyncStatusState">
     <option name="dirty" value="true" />
+    <option name="lastSyncFailed" value="true" />
   </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
@@ -118,6 +119,8 @@
       <workItem from="1752124396614" duration="2040000" />
       <workItem from="1752130914628" duration="26538000" />
       <workItem from="1752214336799" duration="1444000" />
+      <workItem from="1752215943639" duration="51000" />
+      <workItem from="1752217506079" duration="18000" />
     </task>
     <servers />
   </component>

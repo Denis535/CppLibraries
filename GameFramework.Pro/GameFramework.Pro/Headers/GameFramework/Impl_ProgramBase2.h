@@ -26,7 +26,11 @@ namespace GameFramework {
     }
 
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
-    ProgramBase2<TTheme, TScreen, TRouter, TApplication>::ProgramBase2(TApplication *const application, TRouter *const router, TScreen *const screen, TTheme *const theme) : m_Application(application), m_Router(router), m_Screen(screen), m_Theme(theme) {
+    ProgramBase2<TTheme, TScreen, TRouter, TApplication>::ProgramBase2(TApplication *const application, TRouter *const router, TScreen *const screen, TTheme *const theme)
+        : m_Application(application),
+          m_Router(router),
+          m_Screen(screen),
+          m_Theme(theme) {
     }
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
     ProgramBase2<TTheme, TScreen, TRouter, TApplication>::~ProgramBase2() {

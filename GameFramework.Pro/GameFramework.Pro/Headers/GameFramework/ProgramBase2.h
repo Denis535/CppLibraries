@@ -28,12 +28,12 @@ namespace GameFramework {
         explicit ProgramBase2(TApplication *const application, TRouter *const router, TScreen *const screen, TTheme *const theme);
 
         public:
-        explicit ProgramBase2(const ProgramBase2 &other) = delete;
-        explicit ProgramBase2(ProgramBase2 &&other) = delete;
+        explicit ProgramBase2(const ProgramBase2 &) = delete;
+        explicit ProgramBase2(ProgramBase2 &&) = delete;
         virtual ~ProgramBase2();
 
         public:
-        ProgramBase2 &operator=(const ProgramBase2 &other) = delete;
-        ProgramBase2 &operator=(ProgramBase2 &&other) = delete;
+        ProgramBase2 &operator=(const ProgramBase2 &) = delete;
+        ProgramBase2 &operator=(ProgramBase2 &&) = delete;
     };
 }
