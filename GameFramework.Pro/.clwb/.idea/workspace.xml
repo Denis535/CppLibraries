@@ -27,17 +27,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../.clang-format" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFramework/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFramework/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_ProgramBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/Impl_ProgramBase2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFramework/ProgramBase2.h" afterDir="false" />
-    </list>
+    <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,7 +133,7 @@
       <workItem from="1751792953836" duration="17530000" />
       <workItem from="1751871772216" duration="4723000" />
       <workItem from="1752217532342" duration="127000" />
-      <workItem from="1752217805156" duration="2795000" />
+      <workItem from="1752217805156" duration="3161000" />
     </task>
     <servers />
   </component>
