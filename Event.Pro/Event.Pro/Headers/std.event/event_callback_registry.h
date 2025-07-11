@@ -41,7 +41,7 @@ namespace std::event {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback != nullptr);
-            assert(this->m_callback->is_equivalent_to(object, method));
+            assert(this->m_callback->equals(object, method));
             delete this->m_callback;
             this->m_callback = nullptr;
         }

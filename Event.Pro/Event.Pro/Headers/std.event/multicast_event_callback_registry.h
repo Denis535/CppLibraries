@@ -38,7 +38,7 @@ namespace std::event {
             assert(method != nullptr);
             for (const auto *const callback : this->m_callbacks) {
                 if (callback != nullptr) {
-                    assert(!callback->is_equivalent_to(object, method) && "Callback is already added");
+                    assert(!callback->equals(object, method) && "Callback is already added");
                 }
             }
             this->m_callbacks.push_back(new callback_typed(object, method));
@@ -50,7 +50,7 @@ namespace std::event {
             for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
                 const auto *&callback = *callback_iter;
                 if (callback != nullptr) {
-                    if (callback->is_equivalent_to(object, method)) {
+                    if (callback->equals(object, method)) {
                         delete callback;
                         callback = nullptr;
                         return;

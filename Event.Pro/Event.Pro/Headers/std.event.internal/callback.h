@@ -23,14 +23,14 @@ namespace std::event::internal {
 
         public:
         template <typename T>
-        bool is_equivalent_to(const callback_typed<T> *const callback) const {
+        bool equals(const callback_typed<T> *const callback) const {
             if (const auto *const this_typed = dynamic_cast<const callback_typed<T, TArgs...> *const>(this)) {
                 return this_typed->m_object == callback->m_object && this_typed->m_method == callback->m_method;
             }
             return false;
         }
         template <typename T>
-        bool is_equivalent_to(const T *const object, void (T::*const method)(TArgs...)) const {
+        bool equals(const T *const object, void (T::*const method)(TArgs...)) const {
             if (const auto *const this_typed = dynamic_cast<const callback_typed<T, TArgs...> *const>(this)) {
                 return this_typed->m_object == object && this_typed->m_method == method;
             }
