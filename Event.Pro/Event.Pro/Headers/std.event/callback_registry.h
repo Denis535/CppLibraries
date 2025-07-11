@@ -10,21 +10,21 @@ namespace std::event {
     class event;
 
     template <typename... TArgs>
-    class event_callback_registry final { // NOLINT
+    class callback_registry final { // NOLINT
         friend event<TArgs...>;
 
         private:
         const callback<TArgs...> *m_callback;
 
         private:
-        explicit event_callback_registry()
+        explicit callback_registry()
             : m_callback(nullptr) {
         }
 
         public:
-        event_callback_registry(const event_callback_registry &) = delete;
-        event_callback_registry(event_callback_registry &&) = delete;
-        ~event_callback_registry() {
+        callback_registry(const callback_registry &) = delete;
+        callback_registry(callback_registry &&) = delete;
+        ~callback_registry() {
             delete this->m_callback;
         }
 
@@ -47,14 +47,14 @@ namespace std::event {
         }
 
         private:
-        void invoke(const TArgs... args) {
+        void emit(const TArgs... args) {
             if (const auto *const callback = this->m_callback) {
-                callback->invoke(args...);
+                callback->emit(args...);
             }
         }
 
         public:
-        event_callback_registry &operator=(const event_callback_registry &) = delete;
-        event_callback_registry &operator=(event_callback_registry &&) = delete;
+        callback_registry &operator=(const callback_registry &) = delete;
+        callback_registry &operator=(callback_registry &&) = delete;
     };
 }

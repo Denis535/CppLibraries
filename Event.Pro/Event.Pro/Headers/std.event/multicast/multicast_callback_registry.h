@@ -11,21 +11,21 @@ namespace std::event {
     class multicast_event;
 
     template <typename... TArgs>
-    class multicast_event_callback_registry final { // NOLINT
+    class multicast_callback_registry final { // NOLINT
         friend multicast_event<TArgs>;
 
         private:
         vector<const callback<TArgs...> *> m_callbacks;
 
         private:
-        explicit multicast_event_callback_registry()
+        explicit multicast_callback_registry()
             : m_callbacks() {
         }
 
         public:
-        multicast_event_callback_registry(const multicast_event_callback_registry &) = delete;
-        multicast_event_callback_registry(multicast_event_callback_registry &&) = delete;
-        ~multicast_event_callback_registry() {
+        multicast_callback_registry(const multicast_callback_registry &) = delete;
+        multicast_callback_registry(multicast_callback_registry &&) = delete;
+        ~multicast_callback_registry() {
             for (const auto *const callback : this->m_callbacks) {
                 delete callback;
             }
@@ -61,16 +61,16 @@ namespace std::event {
         }
 
         private:
-        void invoke(const TArgs... args) {
+        void emit(const TArgs... args) {
             for (const auto *const callback : this->m_callbacks) {
                 if (callback != nullptr) {
-                    callback->invoke(args...);
+                    callback->emit(args...);
                 }
             }
         }
 
         public:
-        multicast_event_callback_registry &operator=(const multicast_event_callback_registry &) = delete;
-        multicast_event_callback_registry &operator=(multicast_event_callback_registry &&) = delete;
+        multicast_callback_registry &operator=(const multicast_callback_registry &) = delete;
+        multicast_callback_registry &operator=(multicast_callback_registry &&) = delete;
     };
 }

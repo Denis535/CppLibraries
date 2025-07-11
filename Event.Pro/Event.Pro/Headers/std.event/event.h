@@ -1,5 +1,6 @@
 #pragma once
-#include "std.event/event_callback_registry.h"
+#include <cassert>
+#include "std.event/callback_registry.h"
 
 namespace std::event {
     using namespace std;
@@ -9,10 +10,10 @@ namespace std::event {
     class event final {
 
         private:
-        event_callback_registry<TArgs...> m_callback_registry;
+        callback_registry<TArgs...> m_callback_registry;
 
         public:
-        [[nodiscard]] event_callback_registry<TArgs...> &callback_registry() {
+        [[nodiscard]] callback_registry<TArgs...> &callback_registry() {
             return this->m_callback_registry;
         }
 
@@ -25,8 +26,8 @@ namespace std::event {
         ~event() = default;
 
         public:
-        void invoke(const TArgs... args) {
-            this->m_callback_registry.invoke(args...);
+        void emit(const TArgs... args) {
+            this->m_callback_registry.emit(args...);
         }
 
         public:

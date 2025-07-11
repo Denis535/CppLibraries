@@ -32,9 +32,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.event/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.event/Tests_00.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/event.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event.internal/callback.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event.internal/callback.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event_callback_registry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast_event_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast_event_callback_registry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/callback_registry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast_event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast_event_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_callback_registry.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +92,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Cpp.Libraries\Event.Pro\Event.Pro\Headers\std.event\multicast" />
       <recent name="D:\Projects\Cpp.Libraries\Event.Pro\Event.Pro\Headers\std.extensions.internal" />
       <recent name="D:\Projects\Cpp.Libraries\Event.Pro\Event.Pro\Headers" />
       <recent name="D:\Projects\Cpp.Libraries\Event.Pro\Event.Pro.Tests\Sources\Event" />
@@ -120,7 +125,7 @@
       <workItem from="1752088373572" duration="1650000" />
       <workItem from="1752124396614" duration="2040000" />
       <workItem from="1752130914628" duration="26538000" />
-      <workItem from="1752214336799" duration="220000" />
+      <workItem from="1752214336799" duration="751000" />
     </task>
     <servers />
   </component>
