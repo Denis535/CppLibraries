@@ -47,9 +47,9 @@ namespace std::event {
         }
 
         private:
-        void emit(const TArgs... args) {
+        void invoke(const TArgs... args) {
             if (const auto *const callback = this->m_callback) {
-                callback->emit(args...);
+                callback->invoke(args...);
             }
         }
 

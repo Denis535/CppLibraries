@@ -20,7 +20,6 @@
   </component>
   <component name="BlazeSyncStatusState">
     <option name="dirty" value="true" />
-    <option name="lastSyncFailed" value="true" />
   </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
@@ -33,6 +32,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event.internal/callback.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event.internal/callback.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/callback_registry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_callback_registry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_event.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.event/multicast/multicast_event.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +126,7 @@
       <workItem from="1752214336799" duration="1444000" />
       <workItem from="1752215943639" duration="51000" />
       <workItem from="1752217506079" duration="18000" />
+      <workItem from="1752221084535" duration="110000" />
     </task>
     <servers />
   </component>

@@ -27,7 +27,7 @@ namespace std::event {
 
         public:
         void emit(const TArgs... args) {
-            this->m_callback_registry.emit(args...);
+            this->m_callback_registry.invoke(args...);
         }
 
         public:

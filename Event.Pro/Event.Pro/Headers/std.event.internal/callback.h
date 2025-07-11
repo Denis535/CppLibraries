@@ -19,7 +19,7 @@ namespace std::event::internal {
         virtual ~callback() = default;
 
         public:
-        virtual void emit(const TArgs... args) const = 0;
+        virtual void invoke(const TArgs... args) const = 0;
 
         public:
         template <typename T>
@@ -63,7 +63,7 @@ namespace std::event::internal {
         ~callback_typed() override = default;
 
         public:
-        void emit(const TArgs... args) const override {
+        void invoke(const TArgs... args) const override {
             assert(this->m_object != nullptr);
             assert(this->m_method != nullptr);
             (this->m_object->*this->m_method)(args...);

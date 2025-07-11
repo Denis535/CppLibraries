@@ -61,10 +61,10 @@ namespace std::event {
         }
 
         private:
-        void emit(const TArgs... args) {
+        void invoke(const TArgs... args) {
             for (const auto *const callback : this->m_callbacks) {
                 if (callback != nullptr) {
-                    callback->emit(args...);
+                    callback->invoke(args...);
                 }
             }
         }
