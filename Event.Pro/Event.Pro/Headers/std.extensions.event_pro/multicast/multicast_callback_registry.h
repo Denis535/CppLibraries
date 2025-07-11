@@ -32,6 +32,15 @@ namespace std::extensions::event_pro {
         }
 
         public:
+        void add(void (*const method)(TArgs...)) {
+            assert(method != nullptr);
+            for (const auto *const callback : this->m_callbacks) {
+                if (callback != nullptr) {
+                    assert(!callback->equals(method) && "Callback is already added");
+                }
+            }
+            this->m_callbacks.push_back(new method_callback(method));
+        }
         template <typename T>
         void add(T *const object, void (T::*const method)(TArgs...)) {
             assert(object != nullptr);
@@ -41,7 +50,23 @@ namespace std::extensions::event_pro {
                     assert(!callback->equals(object, method) && "Callback is already added");
                 }
             }
-            this->m_callbacks.push_back(new callback_typed(object, method));
+            this->m_callbacks.push_back(new object_method_callback(object, method));
+        }
+
+        public:
+        void remove(void (*const method)(TArgs...)) {
+            assert(method != nullptr);
+            for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
+                const auto *&callback = *callback_iter;
+                if (callback != nullptr) {
+                    if (callback->equals(method)) {
+                        delete callback;
+                        callback = nullptr;
+                        return;
+                    }
+                }
+            }
+            assert(false && "Callback was not removed");
         }
         template <typename T>
         void remove(const T *const object, void (T::*const method)(TArgs...)) {

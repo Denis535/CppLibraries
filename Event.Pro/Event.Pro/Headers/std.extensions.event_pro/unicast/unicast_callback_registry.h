@@ -29,12 +29,26 @@ namespace std::extensions::event_pro {
         }
 
         public:
+        void add(void (*const method)(TArgs...)) {
+            assert(method != nullptr);
+            assert(this->m_callback == nullptr);
+            this->m_callback = new method_callback<TArgs...>(method);
+        }
         template <typename T>
         void add(T *const object, void (T::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback == nullptr);
-            this->m_callback = new callback_typed<T, TArgs...>(object, method);
+            this->m_callback = new object_method_callback<T, TArgs...>(object, method);
+        }
+
+        public:
+        void remove(void (*const method)(TArgs...)) {
+            assert(method != nullptr);
+            assert(this->m_callback != nullptr);
+            assert(this->m_callback->equals(method));
+            delete this->m_callback;
+            this->m_callback = nullptr;
         }
         template <typename T>
         void remove(const T *const object, void (T::*const method)(TArgs...)) {

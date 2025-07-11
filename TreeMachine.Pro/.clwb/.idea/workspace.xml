@@ -30,9 +30,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

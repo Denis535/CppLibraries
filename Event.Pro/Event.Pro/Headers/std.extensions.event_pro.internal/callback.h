@@ -4,14 +4,17 @@
 namespace std::extensions::event_pro::internal {
     using namespace std;
 
+    template <typename... TArgs>
+    class method_callback; // NOLINT
+
     template <typename T, typename... TArgs>
-    class callback_typed; // NOLINT
+    class object_method_callback; // NOLINT
 
     template <typename... TArgs>
     class callback { // NOLINT
 
         protected:
-        callback() = default;
+        explicit callback() = default;
 
         public:
         callback(const callback &) = delete;
@@ -22,17 +25,16 @@ namespace std::extensions::event_pro::internal {
         virtual void invoke(const TArgs... args) const = 0;
 
         public:
-        template <typename T>
-        bool equals(const callback_typed<T> *const callback) const {
-            if (const auto *const this_typed = dynamic_cast<const callback_typed<T, TArgs...> *const>(this)) {
-                return this_typed->m_object == callback->m_object && this_typed->m_method == callback->m_method;
+        bool equals(void (*const method)(TArgs...)) const {
+            if (const auto *const self = dynamic_cast<const method_callback<TArgs...> *const>(this)) {
+                return self->m_method == method;
             }
             return false;
         }
         template <typename T>
         bool equals(const T *const object, void (T::*const method)(TArgs...)) const {
-            if (const auto *const this_typed = dynamic_cast<const callback_typed<T, TArgs...> *const>(this)) {
-                return this_typed->m_object == object && this_typed->m_method == method;
+            if (const auto *const self = dynamic_cast<const object_method_callback<T, TArgs...> *const>(this)) {
+                return self->m_object == object && self->m_method == method;
             }
             return false;
         }
@@ -41,8 +43,36 @@ namespace std::extensions::event_pro::internal {
         callback &operator=(const callback &) = delete;
         callback &operator=(callback &&) = delete;
     };
+    template <typename... TArgs>
+    class method_callback final : public callback<TArgs...> { // NOLINT
+        friend callback;
+
+        private:
+        void (*const m_method)(TArgs...);
+
+        public:
+        explicit method_callback(void (*const method)(TArgs...))
+            : m_method(method) {
+            assert(this->m_method != nullptr);
+        }
+
+        public:
+        method_callback(const method_callback &) = delete;
+        method_callback(method_callback &&) = delete;
+        ~method_callback() override = default;
+
+        public:
+        void invoke(const TArgs... args) const override {
+            assert(this->m_method != nullptr);
+            this->m_method(args...);
+        }
+
+        public:
+        method_callback &operator=(const method_callback &) = delete;
+        method_callback &operator=(method_callback &&) = delete;
+    };
     template <typename T, typename... TArgs>
-    class callback_typed final : public callback<TArgs...> { // NOLINT
+    class object_method_callback final : public callback<TArgs...> { // NOLINT
         friend callback;
 
         private:
@@ -50,7 +80,7 @@ namespace std::extensions::event_pro::internal {
         void (T::*const m_method)(TArgs...);
 
         public:
-        callback_typed(T *const object, void (T::*const method)(TArgs...))
+        explicit object_method_callback(T *const object, void (T::*const method)(TArgs...))
             : m_object(object),
               m_method(method) {
             assert(this->m_object != nullptr);
@@ -58,9 +88,9 @@ namespace std::extensions::event_pro::internal {
         }
 
         public:
-        callback_typed(const callback_typed &) = delete;
-        callback_typed(callback_typed &&) = delete;
-        ~callback_typed() override = default;
+        object_method_callback(const object_method_callback &) = delete;
+        object_method_callback(object_method_callback &&) = delete;
+        ~object_method_callback() override = default;
 
         public:
         void invoke(const TArgs... args) const override {
@@ -70,7 +100,7 @@ namespace std::extensions::event_pro::internal {
         }
 
         public:
-        callback_typed &operator=(const callback_typed &) = delete;
-        callback_typed &operator=(callback_typed &&) = delete;
+        object_method_callback &operator=(const object_method_callback &) = delete;
+        object_method_callback &operator=(object_method_callback &&) = delete;
     };
 }
