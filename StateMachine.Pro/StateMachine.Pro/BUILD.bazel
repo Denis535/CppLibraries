@@ -5,6 +5,7 @@ cc_library(
     ]),
     strip_include_prefix = "Headers",
     deps = [
+        "@event_pro//:event_pro",
     ],
     visibility = ["//visibility:public"],
 )

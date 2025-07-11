@@ -2,3 +2,12 @@ module(name = "state_machine_pro", version = "1.0.0")
 
 bazel_dep(name = "platforms",   version = "1.0.0")
 bazel_dep(name = "googletest",  version = "1.17.0")
+
+bazel_dep(name = "event_pro", version = "1.0.0")
+
+git_override(
+    module_name = "event_pro",
+    remote      = "https://github.com/Denis535/Cpp.Libraries.git",
+    tag         = "Event.Pro/v1.0.0",
+    strip_prefix= "Event.Pro",
+)

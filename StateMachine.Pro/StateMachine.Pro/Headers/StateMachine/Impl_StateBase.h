@@ -1,9 +1,11 @@
 #pragma once
 #include <cassert>
+#include "event_pro.h"
 #include "StateBase.h"
 
 namespace StateMachine {
     using namespace std;
+    using namespace std::extensions::event_pro;
 
     template <typename TThis>
     StateMachineBase<TThis> *StateBase<TThis>::Machine() const {
@@ -19,36 +21,36 @@ namespace StateMachine {
     }
 
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnBeforeAttachCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnBeforeAttachCallback() {
         return this->m_OnBeforeAttachCallback;
     }
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnAfterAttachCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnAfterAttachCallback() {
         return this->m_OnAfterAttachCallback;
     }
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnBeforeDetachCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnBeforeDetachCallback() {
         return this->m_OnBeforeDetachCallback;
     }
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnAfterDetachCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnAfterDetachCallback() {
         return this->m_OnAfterDetachCallback;
     }
 
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnBeforeActivateCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnBeforeActivateCallback() {
         return this->m_OnBeforeActivateCallback;
     }
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnAfterActivateCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnAfterActivateCallback() {
         return this->m_OnAfterActivateCallback;
     }
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnBeforeDeactivateCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnBeforeDeactivateCallback() {
         return this->m_OnBeforeDeactivateCallback;
     }
     template <typename TThis>
-    const function<void(const any)> &StateBase<TThis>::OnAfterDeactivateCallback() const {
+    multicast_callback_registry<const any> &StateBase<TThis>::OnAfterDeactivateCallback() {
         return this->m_OnAfterDeactivateCallback;
     }
 
@@ -122,15 +124,11 @@ namespace StateMachine {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeAttach(const any argument) {
-        if (this->m_OnBeforeAttachCallback) {
-            this->m_OnBeforeAttachCallback(argument);
-        }
+        this->m_OnBeforeAttachCallback.emit(argument);
     }
     template <typename TThis>
     void StateBase<TThis>::OnAfterAttach(const any argument) {
-        if (this->m_OnAfterAttachCallback) {
-            this->m_OnAfterAttachCallback(argument);
-        }
+        this->m_OnAfterAttachCallback.emit(argument);
     }
 
     template <typename TThis>
@@ -138,15 +136,11 @@ namespace StateMachine {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeDetach(const any argument) {
-        if (this->m_OnBeforeDetachCallback) {
-            this->m_OnBeforeDetachCallback(argument);
-        }
+        this->m_OnBeforeDetachCallback.emit(argument);
     }
     template <typename TThis>
     void StateBase<TThis>::OnAfterDetach(const any argument) {
-        if (this->m_OnAfterDetachCallback) {
-            this->m_OnAfterDetachCallback(argument);
-        }
+        this->m_OnAfterDetachCallback.emit(argument);
     }
 
     template <typename TThis>
@@ -154,15 +148,11 @@ namespace StateMachine {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeActivate(const any argument) {
-        if (this->m_OnBeforeActivateCallback) {
-            this->m_OnBeforeActivateCallback(argument);
-        }
+        this->m_OnBeforeActivateCallback.emit(argument);
     }
     template <typename TThis>
     void StateBase<TThis>::OnAfterActivate(const any argument) {
-        if (this->m_OnAfterActivateCallback) {
-            this->m_OnAfterActivateCallback(argument);
-        }
+        this->m_OnAfterActivateCallback.emit(argument);
     }
 
     template <typename TThis>
@@ -170,49 +160,11 @@ namespace StateMachine {
     }
     template <typename TThis>
     void StateBase<TThis>::OnBeforeDeactivate(const any argument) {
-        if (this->m_OnBeforeDeactivateCallback) {
-            this->m_OnBeforeDeactivateCallback(argument);
-        }
+        this->m_OnBeforeDeactivateCallback.emit(argument);
     }
     template <typename TThis>
     void StateBase<TThis>::OnAfterDeactivate(const any argument) {
-        if (this->m_OnAfterDeactivateCallback) {
-            this->m_OnAfterDeactivateCallback(argument);
-        }
-    }
-
-    template <typename TThis>
-    void StateBase<TThis>::OnBeforeAttachCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeAttachCallback = callback;
-    }
-    template <typename TThis>
-    void StateBase<TThis>::OnAfterAttachCallback(const function<void(const any)> callback) {
-        this->m_OnAfterAttachCallback = callback;
-    }
-    template <typename TThis>
-    void StateBase<TThis>::OnBeforeDetachCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeDetachCallback = callback;
-    }
-    template <typename TThis>
-    void StateBase<TThis>::OnAfterDetachCallback(const function<void(const any)> callback) {
-        this->m_OnAfterDetachCallback = callback;
-    }
-
-    template <typename TThis>
-    void StateBase<TThis>::OnBeforeActivateCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeActivateCallback = callback;
-    }
-    template <typename TThis>
-    void StateBase<TThis>::OnAfterActivateCallback(const function<void(const any)> callback) {
-        this->m_OnAfterActivateCallback = callback;
-    }
-    template <typename TThis>
-    void StateBase<TThis>::OnBeforeDeactivateCallback(const function<void(const any)> callback) {
-        this->m_OnBeforeDeactivateCallback = callback;
-    }
-    template <typename TThis>
-    void StateBase<TThis>::OnAfterDeactivateCallback(const function<void(const any)> callback) {
-        this->m_OnAfterDeactivateCallback = callback;
+        this->m_OnAfterDeactivateCallback.emit(argument);
     }
 
 }
