@@ -1,7 +1,7 @@
 #pragma once
 #include <cassert>
 
-namespace std::event::internal {
+namespace std::extensions::event::internal {
     using namespace std;
 
     template <typename T, typename... TArgs>

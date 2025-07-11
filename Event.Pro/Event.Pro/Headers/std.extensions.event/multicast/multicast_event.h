@@ -1,10 +1,10 @@
 #pragma once
 #include <cassert>
-#include "std.event/multicast/multicast_callback_registry.h"
+#include "std.extensions.event/multicast/multicast_callback_registry.h"
 
-namespace std::event {
+namespace std::extensions::event {
     using namespace std;
-    using namespace std::event::internal;
+    using namespace std::extensions::event::internal;
 
     template <typename... TArgs>
     class multicast_event final {
@@ -26,7 +26,7 @@ namespace std::event {
         ~multicast_event() = default;
 
         public:
-        void emit(const TArgs... args) {
+        void emit(const TArgs... args) const {
             this->m_callback_registry.invoke(args...);
         }
 

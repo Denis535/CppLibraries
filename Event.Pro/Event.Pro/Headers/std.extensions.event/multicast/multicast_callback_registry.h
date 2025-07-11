@@ -1,11 +1,11 @@
 #pragma once
 #include <cassert>
 #include <vector>
-#include "std.event.internal/callback.h"
+#include "std.extensions.event.internal/callback.h"
 
-namespace std::event {
+namespace std::extensions::event {
     using namespace std;
-    using namespace std::event::internal;
+    using namespace std::extensions::event::internal;
 
     template <typename... TArgs>
     class multicast_event;
@@ -61,7 +61,7 @@ namespace std::event {
         }
 
         private:
-        void invoke(const TArgs... args) {
+        void invoke(const TArgs... args) const {
             for (const auto *const callback : this->m_callbacks) {
                 if (callback != nullptr) {
                     callback->invoke(args...);

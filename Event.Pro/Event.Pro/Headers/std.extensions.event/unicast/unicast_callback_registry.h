@@ -1,30 +1,30 @@
 #pragma once
 #include <cassert>
-#include "std.event.internal/callback.h"
+#include "std.extensions.event.internal/callback.h"
 
-namespace std::event {
+namespace std::extensions::event {
     using namespace std;
-    using namespace std::event::internal;
+    using namespace std::extensions::event::internal;
 
     template <typename... TArgs>
-    class event;
+    class unicast_event;
 
     template <typename... TArgs>
-    class callback_registry final { // NOLINT
-        friend event<TArgs...>;
+    class unicast_callback_registry final { // NOLINT
+        friend unicast_event<TArgs...>;
 
         private:
         const callback<TArgs...> *m_callback;
 
         private:
-        explicit callback_registry()
+        explicit unicast_callback_registry()
             : m_callback(nullptr) {
         }
 
         public:
-        callback_registry(const callback_registry &) = delete;
-        callback_registry(callback_registry &&) = delete;
-        ~callback_registry() {
+        unicast_callback_registry(const unicast_callback_registry &) = delete;
+        unicast_callback_registry(unicast_callback_registry &&) = delete;
+        ~unicast_callback_registry() {
             delete this->m_callback;
         }
 
@@ -47,14 +47,14 @@ namespace std::event {
         }
 
         private:
-        void invoke(const TArgs... args) {
+        void invoke(const TArgs... args) const {
             if (const auto *const callback = this->m_callback) {
                 callback->invoke(args...);
             }
         }
 
         public:
-        callback_registry &operator=(const callback_registry &) = delete;
-        callback_registry &operator=(callback_registry &&) = delete;
+        unicast_callback_registry &operator=(const unicast_callback_registry &) = delete;
+        unicast_callback_registry &operator=(unicast_callback_registry &&) = delete;
     };
 }

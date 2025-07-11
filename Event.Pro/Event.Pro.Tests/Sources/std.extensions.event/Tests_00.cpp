@@ -1,7 +1,8 @@
-#include "event.h"
+#include "event_multicast.h"
+#include "event_unicast.h"
 #include "gtest/gtest.h"
 
-namespace std::event {
+namespace std::extensions::event {
     using namespace std;
 
     class my_class {
@@ -22,7 +23,7 @@ namespace std::event {
 
     TEST(tests_00, test_00) { // NOLINT
         auto obj = my_class();
-        auto evt = event<int>();
+        auto evt = unicast_event<int>();
         evt.emit(777);
         evt.callback_registry().add(&obj, &my_class::my_method);
         evt.callback_registry().remove(&obj, &my_class::my_method);
