@@ -14,13 +14,11 @@ AccessModifierOffset: 0
 # === Layout ===
 BreakBeforeBraces: Attach
 AllowShortFunctionsOnASingleLine: All
-PackConstructorInitializers: CurrentLine
-BraceWrapping:
-  AfterFunction: false
+PackConstructorInitializers: Never
 
 # === Handling ===
-SortIncludes: "CaseInsensitive"
-SortUsingDeclarations: false
+SortIncludes: CaseInsensitive
+SortUsingDeclarations: Lexicographic
 IncludeBlocks: Preserve
 IncludeCategories:
   - Regex: '^(<pch\.h>)$'

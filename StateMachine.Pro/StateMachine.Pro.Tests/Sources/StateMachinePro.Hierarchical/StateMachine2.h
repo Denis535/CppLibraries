@@ -1,7 +1,7 @@
 #pragma once
-#include "StateMachine.Hierarchical.h"
+#include "StateMachinePro.h"
 
-namespace StateMachine::Hierarchical {
+namespace StateMachinePro::Hierarchical {
     using namespace std;
 
     class State : public StateBase<State> {
@@ -82,8 +82,8 @@ namespace StateMachine::Hierarchical {
         }
 
         public:
-        using StateMachineBase::SetState;
         using StateMachineBase::AddState;
         using StateMachineBase::RemoveState;
+        using StateMachineBase::SetState;
     };
 }

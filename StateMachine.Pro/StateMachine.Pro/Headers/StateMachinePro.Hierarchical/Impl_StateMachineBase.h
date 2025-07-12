@@ -2,7 +2,7 @@
 #include <cassert>
 #include "StateMachineBase.h"
 
-namespace StateMachine {
+namespace StateMachinePro::Hierarchical {
     using namespace std;
 
     template <typename T>

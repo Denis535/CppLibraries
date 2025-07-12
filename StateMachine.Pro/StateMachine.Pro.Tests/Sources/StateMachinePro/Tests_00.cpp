@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "StateMachine2.h"
 
-namespace StateMachine {
+namespace StateMachinePro {
     using namespace std;
 
     TEST(Tests_00, Test_00) { // NOLINT

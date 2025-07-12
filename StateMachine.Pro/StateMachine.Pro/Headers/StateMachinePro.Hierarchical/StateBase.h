@@ -4,7 +4,7 @@
 #include <variant>
 #include "event_pro.h"
 
-namespace StateMachine::Hierarchical {
+namespace StateMachinePro::Hierarchical {
     using namespace std;
     using namespace std::extensions::event_pro;
 

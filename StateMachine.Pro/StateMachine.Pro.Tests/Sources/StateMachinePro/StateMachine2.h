@@ -1,7 +1,7 @@
 #pragma once
-#include "StateMachine.h"
+#include "StateMachinePro.h"
 
-namespace StateMachine {
+namespace StateMachinePro {
     using namespace std;
 
     class State : public StateBase<State> {

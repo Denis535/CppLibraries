@@ -3,7 +3,7 @@
 #include "event_pro.h"
 #include "StateBase.h"
 
-namespace StateMachine {
+namespace StateMachinePro {
     using namespace std;
     using namespace std::extensions::event_pro;
 
