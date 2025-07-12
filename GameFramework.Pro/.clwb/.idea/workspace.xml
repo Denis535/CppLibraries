@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="14" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="22" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/OptionsDialog/SelectedPageId/@EntryValue" value="CppGeneralOptions" type="string" />
@@ -18,9 +18,6 @@
     <option name="projectViewFile" value="D:\Projects\Cpp.Libraries\GameFramework.Pro\.clwb\.bazelproject" />
     <option name="workspaceRoot" value="D:\Projects\Cpp.Libraries\GameFramework.Pro" />
   </component>
-  <component name="BlazeSyncStatusState">
-    <option name="dirty" value="true" />
-  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -32,7 +29,6 @@
   <component name="ChangeListManager">
     <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MODULE.bazel" beforeDir="false" afterPath="$PROJECT_DIR$/../MODULE.bazel" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +141,7 @@
       <workItem from="1752315880435" duration="1211000" />
       <workItem from="1752317129460" duration="178000" />
       <workItem from="1752320584721" duration="542000" />
-      <workItem from="1752322544252" duration="934000" />
+      <workItem from="1752322544252" duration="1368000" />
     </task>
     <servers />
   </component>
