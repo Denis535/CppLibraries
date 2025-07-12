@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "TreeMachine2.h"
+#include "TreeMachine.h"
 
 namespace TreeMachinePro {
     using namespace std;
@@ -14,7 +14,7 @@ namespace TreeMachinePro {
             root->AddChildren(vector<Node *>{a, b}, nullptr);
         });
         root->OnAfterDetachCallback().add([root]([[maybe_unused]] const any arg) {
-            root->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
+            root->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const auto arg) { delete child; });
         });
 
         {
@@ -63,7 +63,7 @@ namespace TreeMachinePro {
             root->AddChildren(vector<Node *>{a, b}, nullptr);
         });
         root->OnBeforeDetachCallback().add([root]([[maybe_unused]] const any arg) {
-            root->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
+            root->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const auto arg) { delete child; });
         });
 
         {

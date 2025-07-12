@@ -16,8 +16,8 @@ namespace TreeMachinePro {
         explicit TreeMachineBase();
 
         public:
-        explicit TreeMachineBase(const TreeMachineBase &other) = delete;
-        explicit TreeMachineBase(TreeMachineBase &&other) = delete;
+        explicit TreeMachineBase(const TreeMachineBase &) = delete;
+        explicit TreeMachineBase(TreeMachineBase &&) = delete;
         virtual ~TreeMachineBase();
 
         protected:
@@ -26,8 +26,8 @@ namespace TreeMachinePro {
         void RemoveRoot(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        TreeMachineBase &operator=(const TreeMachineBase &other) = delete;
-        TreeMachineBase &operator=(TreeMachineBase &&other) = delete;
+        TreeMachineBase &operator=(const TreeMachineBase &) = delete;
+        TreeMachineBase &operator=(TreeMachineBase &&) = delete;
     };
 }
 ```
@@ -84,8 +84,8 @@ namespace TreeMachinePro {
         explicit NodeBase();
 
         public:
-        explicit NodeBase(const NodeBase &other) = delete;
-        explicit NodeBase(NodeBase &&other) = delete;
+        explicit NodeBase(const NodeBase &) = delete;
+        explicit NodeBase(NodeBase &&) = delete;
         virtual ~NodeBase();
 
         protected:
@@ -117,8 +117,8 @@ namespace TreeMachinePro {
         virtual void Sort(list<TThis *> &children) const;
 
         public:
-        NodeBase &operator=(const NodeBase &other) = delete;
-        NodeBase &operator=(NodeBase &&other) = delete;
+        NodeBase &operator=(const NodeBase &) = delete;
+        NodeBase &operator=(NodeBase &&) = delete;
     };
 }
 ```
@@ -144,8 +144,8 @@ namespace TreeMachinePro {
         explicit NodeBase2();
 
         public:
-        explicit NodeBase2(const NodeBase2 &other) = delete;
-        explicit NodeBase2(NodeBase2 &&other) = delete;
+        explicit NodeBase2(const NodeBase2 &) = delete;
+        explicit NodeBase2(NodeBase2 &&) = delete;
         ~NodeBase2() override;
 
         protected:
@@ -173,8 +173,8 @@ namespace TreeMachinePro {
         virtual void OnAfterDescendantDeactivate(TThis *const descendant, const any argument);
 
         public:
-        NodeBase2 &operator=(const NodeBase2 &other) = delete;
-        NodeBase2 &operator=(NodeBase2 &&other) = delete;
+        NodeBase2 &operator=(const NodeBase2 &) = delete;
+        NodeBase2 &operator=(NodeBase2 &&) = delete;
     };
 }
 ```

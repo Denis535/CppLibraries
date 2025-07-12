@@ -18,8 +18,8 @@ namespace TreeMachinePro {
         explicit TreeMachineBase();
 
         public:
-        explicit TreeMachineBase(const TreeMachineBase &other) = delete;
-        explicit TreeMachineBase(TreeMachineBase &&other) = delete;
+        explicit TreeMachineBase(const TreeMachineBase &) = delete;
+        explicit TreeMachineBase(TreeMachineBase &&) = delete;
         virtual ~TreeMachineBase();
 
         protected:
@@ -28,7 +28,7 @@ namespace TreeMachinePro {
         void RemoveRoot(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        TreeMachineBase &operator=(const TreeMachineBase &other) = delete;
-        TreeMachineBase &operator=(TreeMachineBase &&other) = delete;
+        TreeMachineBase &operator=(const TreeMachineBase &) = delete;
+        TreeMachineBase &operator=(TreeMachineBase &&) = delete;
     };
 }

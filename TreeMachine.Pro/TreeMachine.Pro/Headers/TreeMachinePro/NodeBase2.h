@@ -37,8 +37,8 @@ namespace TreeMachinePro {
         explicit NodeBase2();
 
         public:
-        explicit NodeBase2(const NodeBase2 &other) = delete;
-        explicit NodeBase2(NodeBase2 &&other) = delete;
+        explicit NodeBase2(const NodeBase2 &) = delete;
+        explicit NodeBase2(NodeBase2 &&) = delete;
         ~NodeBase2() override;
 
         protected:
@@ -66,7 +66,7 @@ namespace TreeMachinePro {
         virtual void OnAfterDescendantDeactivate(TThis *const descendant, const any argument);
 
         public:
-        NodeBase2 &operator=(const NodeBase2 &other) = delete;
-        NodeBase2 &operator=(NodeBase2 &&other) = delete;
+        NodeBase2 &operator=(const NodeBase2 &) = delete;
+        NodeBase2 &operator=(NodeBase2 &&) = delete;
     };
 }

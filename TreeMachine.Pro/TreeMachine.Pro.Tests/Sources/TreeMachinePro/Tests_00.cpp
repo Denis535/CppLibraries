@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "TreeMachine2.h"
+#include "TreeMachine.h"
 
 namespace TreeMachinePro {
     using namespace std;
@@ -68,7 +68,7 @@ namespace TreeMachinePro {
         }
         {
             // machine.Root.RemoveChildren
-            machine->Root()->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
+            machine->Root()->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const auto arg) { delete child; });
             EXPECT_NE(machine->Root(), nullptr);
             EXPECT_EQ(machine->Root()->Machine(), machine);
             EXPECT_EQ(machine->Root()->IsRoot(), true);
@@ -180,7 +180,7 @@ namespace TreeMachinePro {
         }
         {
             // root.RemoveChildren
-            root->RemoveChildren(nullptr, [](auto *const child, [[maybe_unused]] const auto arg) { delete child; });
+            root->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const auto arg) { delete child; });
             EXPECT_NE(root, nullptr);
             EXPECT_EQ(root->Machine(), nullptr);
             EXPECT_EQ(root->IsRoot(), true);

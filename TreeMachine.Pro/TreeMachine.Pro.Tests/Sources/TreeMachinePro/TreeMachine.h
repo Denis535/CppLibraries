@@ -8,6 +8,8 @@ namespace TreeMachinePro {
 
         public:
         explicit Node() = default;
+        Node(const Node &) = delete;
+        Node(Node &&) = delete;
         ~Node() override {
             this->RemoveChildren(
                 nullptr,
@@ -96,6 +98,10 @@ namespace TreeMachinePro {
         using NodeBase::RemoveChild;
         using NodeBase::RemoveChildren;
         using NodeBase::RemoveSelf;
+
+        public:
+        Node &operator=(const Node &) = delete;
+        Node &operator=(Node &&) = delete;
     };
     class Root final : public Node {
     };
@@ -110,6 +116,8 @@ namespace TreeMachinePro {
 
         public:
         explicit TreeMachine() = default;
+        TreeMachine(const TreeMachine &) = delete;
+        TreeMachine(TreeMachine &&) = delete;
         ~TreeMachine() override {
             if (this->Root() != nullptr) {
                 this->RemoveRoot(
@@ -121,5 +129,9 @@ namespace TreeMachinePro {
         public:
         using TreeMachineBase::AddRoot;
         using TreeMachineBase::RemoveRoot;
+
+        public:
+        TreeMachine &operator=(const TreeMachine &) = delete;
+        TreeMachine &operator=(TreeMachine &&) = delete;
     };
 }

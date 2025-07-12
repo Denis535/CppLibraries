@@ -87,8 +87,8 @@ namespace TreeMachinePro {
         explicit NodeBase();
 
         public:
-        explicit NodeBase(const NodeBase &other) = delete;
-        explicit NodeBase(NodeBase &&other) = delete;
+        explicit NodeBase(const NodeBase &) = delete;
+        explicit NodeBase(NodeBase &&) = delete;
         virtual ~NodeBase();
 
         private:
@@ -130,7 +130,7 @@ namespace TreeMachinePro {
         virtual void Sort(list<TThis *> &children) const;
 
         public:
-        NodeBase &operator=(const NodeBase &other) = delete;
-        NodeBase &operator=(NodeBase &&other) = delete;
+        NodeBase &operator=(const NodeBase &) = delete;
+        NodeBase &operator=(NodeBase &&) = delete;
     };
 }
