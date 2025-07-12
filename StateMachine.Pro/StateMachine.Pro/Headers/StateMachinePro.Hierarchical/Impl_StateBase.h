@@ -19,7 +19,7 @@ namespace StateMachinePro::Hierarchical {
     }
 
     template <typename TThis>
-    StateMachineBase<TThis> *StateBase<TThis>::Machine_NoRecursive() const {
+    StateMachineBase<TThis> *StateBase<TThis>::Machine_NoRecursive() const { // NOLINT
         if (auto *const *const machine = get_if<StateMachineBase<TThis> *>(&this->m_Owner)) {
             return *machine;
         }

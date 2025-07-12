@@ -62,8 +62,8 @@ namespace StateMachinePro {
         explicit StateBase();
 
         public:
-        explicit StateBase(const StateBase &other) = delete;
-        explicit StateBase(StateBase &&other) = delete;
+        explicit StateBase(const StateBase &) = delete;
+        explicit StateBase(StateBase &&) = delete;
         virtual ~StateBase();
 
         private:
@@ -91,7 +91,7 @@ namespace StateMachinePro {
         virtual void OnAfterDeactivate(const any argument);  // overriding methods must invoke base implementation
 
         public:
-        StateBase &operator=(const StateBase &other) = delete;
-        StateBase &operator=(StateBase &&other) = delete;
+        StateBase &operator=(const StateBase &) = delete;
+        StateBase &operator=(StateBase &&) = delete;
     };
 }

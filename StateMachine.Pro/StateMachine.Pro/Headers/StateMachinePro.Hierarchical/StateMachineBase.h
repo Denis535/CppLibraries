@@ -18,8 +18,8 @@ namespace StateMachinePro::Hierarchical {
         explicit StateMachineBase();
 
         public:
-        explicit StateMachineBase(const StateMachineBase &other) = delete;
-        explicit StateMachineBase(StateMachineBase &&other) = delete;
+        explicit StateMachineBase(const StateMachineBase &) = delete;
+        explicit StateMachineBase(StateMachineBase &&) = delete;
         virtual ~StateMachineBase();
 
         protected:
@@ -29,7 +29,7 @@ namespace StateMachinePro::Hierarchical {
         void RemoveState(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        StateMachineBase &operator=(const StateMachineBase &other) = delete;
-        StateMachineBase &operator=(StateMachineBase &&other) = delete;
+        StateMachineBase &operator=(const StateMachineBase &) = delete;
+        StateMachineBase &operator=(StateMachineBase &&) = delete;
     };
 }

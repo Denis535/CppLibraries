@@ -86,8 +86,8 @@ namespace StateMachinePro::Hierarchical {
         explicit StateBase();
 
         public:
-        explicit StateBase(const StateBase &other) = delete;
-        explicit StateBase(StateBase &&other) = delete;
+        explicit StateBase(const StateBase &) = delete;
+        explicit StateBase(StateBase &&) = delete;
         virtual ~StateBase();
 
         private:
@@ -124,7 +124,7 @@ namespace StateMachinePro::Hierarchical {
         void RemoveSelf(const any argument, const function<void(const TThis *const, const any)> callback);
 
         public:
-        StateBase &operator=(const StateBase &other) = delete;
-        StateBase &operator=(StateBase &&other) = delete;
+        StateBase &operator=(const StateBase &) = delete;
+        StateBase &operator=(StateBase &&) = delete;
     };
 }
