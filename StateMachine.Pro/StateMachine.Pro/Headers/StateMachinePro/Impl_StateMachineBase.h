@@ -1,6 +1,6 @@
 #pragma once
 #include <cassert>
-#include "StateMachineBase.h"
+#include "StateMachinePro/StateMachineBase.h"
 
 namespace StateMachinePro {
     using namespace std;

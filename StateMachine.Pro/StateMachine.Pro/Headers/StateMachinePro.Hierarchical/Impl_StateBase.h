@@ -1,7 +1,7 @@
 #pragma once
 #include <cassert>
 #include "event_pro.h"
-#include "StateBase.h"
+#include "StateMachinePro.Hierarchical/StateBase.h"
 
 namespace StateMachinePro::Hierarchical {
     using namespace std;

@@ -1,7 +1,7 @@
 #pragma once
 #include <cassert>
 #include "event_pro.h"
-#include "StateBase.h"
+#include "StateMachinePro/StateBase.h"
 
 namespace StateMachinePro {
     using namespace std;

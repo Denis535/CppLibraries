@@ -28,10 +28,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/StateMachine2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/StateMachine2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/Tests_00.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateMachineBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/Impl_StateBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/Impl_StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/Impl_StateMachineBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,7 @@
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -127,7 +128,8 @@
       <workItem from="1752303851482" duration="82000" />
       <workItem from="1752312454141" duration="1055000" />
       <workItem from="1752317593944" duration="872000" />
-      <workItem from="1752319509188" duration="386000" />
+      <workItem from="1752319509188" duration="507000" />
+      <workItem from="1752320200548" duration="378000" />
     </task>
     <servers />
   </component>

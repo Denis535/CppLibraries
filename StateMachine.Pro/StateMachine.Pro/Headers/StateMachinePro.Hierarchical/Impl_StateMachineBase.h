@@ -1,6 +1,6 @@
 #pragma once
 #include <cassert>
-#include "StateMachineBase.h"
+#include "StateMachinePro.Hierarchical/StateMachineBase.h"
 
 namespace StateMachinePro::Hierarchical {
     using namespace std;
