@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "StateMachine2.h"
+#include "StateMachine.h"
 
 namespace StateMachinePro::Hierarchical {
     using namespace std;

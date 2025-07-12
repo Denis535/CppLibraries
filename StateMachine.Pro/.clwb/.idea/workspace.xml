@@ -27,22 +27,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/code_generator_info.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/intellij_info_bundled.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/java_info.bzl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/python_info.bzl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/StateMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/StateMachine2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/StateMachine2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/StateMachine2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/StateMachineBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/StateMachineBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/StateMachine2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/Tests_00.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/StateMachine2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/Tests_00.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +47,7 @@
     <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -70,31 +59,31 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Bazel Command.Test.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "bazel.project.detector.is.bazel.project": "true",
-    "cf.advertisement.text.overridden": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Bazel Command.Test.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;bazel.project.detector.is.bazel.project&quot;: &quot;true&quot;,
+    &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Test" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command">
       <blaze-settings blaze-command="test" kind="cc_test" handler-id="BlazeCLionRunConfigurationHandlerProvider">
@@ -138,6 +127,7 @@
       <workItem from="1752303851482" duration="82000" />
       <workItem from="1752312454141" duration="1055000" />
       <workItem from="1752317593944" duration="872000" />
+      <workItem from="1752319509188" duration="386000" />
     </task>
     <servers />
   </component>
