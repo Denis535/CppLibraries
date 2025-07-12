@@ -11,8 +11,8 @@ namespace GameFrameworkPro {
 
         public:
         explicit Entity() = default;
-        explicit Entity(const Entity &) = delete;
-        explicit Entity(Entity &&) = delete;
+        Entity(const Entity &) = delete;
+        Entity(Entity &&) = delete;
         ~Entity() override = default;
 
         public:
@@ -23,8 +23,8 @@ namespace GameFrameworkPro {
 
         public:
         explicit Player() = default;
-        explicit Player(const Player &) = delete;
-        explicit Player(Player &&) = delete;
+        Player(const Player &) = delete;
+        Player(Player &&) = delete;
         ~Player() override = default;
 
         public:
@@ -42,8 +42,8 @@ namespace GameFrameworkPro {
             : m_Player(new Player()),
               m_Entity(new Entity()) {
         }
-        explicit Game(const Game &) = delete;
-        explicit Game(Game &&) = delete;
+        Game(const Game &) = delete;
+        Game(Game &&) = delete;
         ~Game() override {
             delete this->m_Entity;
             delete this->m_Player;
@@ -64,8 +64,8 @@ namespace GameFrameworkPro {
         explicit Application()
             : m_Game(new Game()) {
         }
-        explicit Application(const Application &) = delete;
-        explicit Application(Application &&) = delete;
+        Application(const Application &) = delete;
+        Application(Application &&) = delete;
         ~Application() override {
             delete this->m_Game;
         }
@@ -86,13 +86,13 @@ namespace GameFrameworkPro {
         Application *const m_Application = nullptr;
 
         public:
-        explicit Router(const function<Theme *()> theme, const function<Screen *()> screen, Application *const application)
-            : m_Theme(theme),
+        explicit Router(Application *const application, const function<Screen *()> screen, const function<Theme *()> theme)
+            : m_Application(application),
               m_Screen(screen),
-              m_Application(application) {
+              m_Theme(theme) {
         }
-        explicit Router(const Router &) = delete;
-        explicit Router(Router &&) = delete;
+        Router(const Router &) = delete;
+        Router(Router &&) = delete;
         ~Router() override = default;
 
         public:
@@ -104,8 +104,8 @@ namespace GameFrameworkPro {
 
         public:
         explicit MainWidgetView() = default;
-        explicit MainWidgetView(const MainWidgetView &) = delete;
-        explicit MainWidgetView(MainWidgetView &&) = delete;
+        MainWidgetView(const MainWidgetView &) = delete;
+        MainWidgetView(MainWidgetView &&) = delete;
         ~MainWidgetView() override = default;
 
         public:
@@ -118,8 +118,8 @@ namespace GameFrameworkPro {
         explicit MainWidget()
             : ViewableWidgetBase_Typed(new MainWidgetView()) {
         }
-        explicit MainWidget(const MainWidget &) = delete;
-        explicit MainWidget(MainWidget &&) = delete;
+        MainWidget(const MainWidget &) = delete;
+        MainWidget(MainWidget &&) = delete;
         ~MainWidget() override = default;
 
         protected:
@@ -138,8 +138,8 @@ namespace GameFrameworkPro {
 
         public:
         explicit GameWidgetView() = default;
-        explicit GameWidgetView(const GameWidgetView &) = delete;
-        explicit GameWidgetView(GameWidgetView &&) = delete;
+        GameWidgetView(const GameWidgetView &) = delete;
+        GameWidgetView(GameWidgetView &&) = delete;
         ~GameWidgetView() override = default;
 
         public:
@@ -152,8 +152,8 @@ namespace GameFrameworkPro {
         explicit GameWidget()
             : ViewableWidgetBase_Typed(new GameWidgetView()) {
         }
-        explicit GameWidget(const GameWidget &) = delete;
-        explicit GameWidget(GameWidget &&) = delete;
+        GameWidget(const GameWidget &) = delete;
+        GameWidget(GameWidget &&) = delete;
         ~GameWidget() override = default;
 
         protected:
@@ -175,8 +175,8 @@ namespace GameFrameworkPro {
             this->AddChild(new MainWidget(), nullptr);
             this->AddChild(new GameWidget(), nullptr);
         }
-        explicit RootWidget(const RootWidget &) = delete;
-        explicit RootWidget(RootWidget &&) = delete;
+        RootWidget(const RootWidget &) = delete;
+        RootWidget(RootWidget &&) = delete;
         ~RootWidget() override {
             this->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
         }
@@ -211,20 +211,15 @@ namespace GameFrameworkPro {
         RootWidget &operator=(const RootWidget &) = delete;
         RootWidget &operator=(RootWidget &&) = delete;
     };
-    class Screen final : public ScreenBase {
-
-        private:
-        Application *const m_Application = nullptr;
-        Router *const m_Router = nullptr;
+    class Screen final : public ScreenBase2<Router, Application> {
 
         public:
-        explicit Screen(Application *const application, Router *const router)
-            : m_Application(application),
-              m_Router(router) {
+        explicit Screen(class Application *const application, class Router *const router)
+            : ScreenBase2(application, router) {
             this->AddRoot(new RootWidget(), nullptr);
         }
-        explicit Screen(const Screen &) = delete;
-        explicit Screen(Screen &&) = delete;
+        Screen(const Screen &) = delete;
+        Screen(Screen &&) = delete;
         ~Screen() override {
             this->RemoveRoot(nullptr, [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
         }
@@ -238,8 +233,8 @@ namespace GameFrameworkPro {
 
         public:
         explicit MainPlayList() = default;
-        explicit MainPlayList(const MainPlayList &) = delete;
-        explicit MainPlayList(MainPlayList &&) = delete;
+        MainPlayList(const MainPlayList &) = delete;
+        MainPlayList(MainPlayList &&) = delete;
         ~MainPlayList() override = default;
 
         public:
@@ -250,29 +245,24 @@ namespace GameFrameworkPro {
 
         public:
         explicit GamePlayList() = default;
-        explicit GamePlayList(const GamePlayList &) = delete;
-        explicit GamePlayList(GamePlayList &&) = delete;
+        GamePlayList(const GamePlayList &) = delete;
+        GamePlayList(GamePlayList &&) = delete;
         ~GamePlayList() override = default;
 
         public:
         GamePlayList &operator=(const GamePlayList &) = delete;
         GamePlayList &operator=(GamePlayList &&) = delete;
     };
-    class Theme final : public ThemeBase {
-
-        private:
-        Application *const m_Application = nullptr;
-        Router *const m_Router = nullptr;
+    class Theme final : public ThemeBase2<Router, Application> {
 
         public:
-        explicit Theme(Application *const application, Router *const router)
-            : m_Application(application),
-              m_Router(router) {
+        explicit Theme(class Application *const application, class Router *const router)
+            : ThemeBase2(application, router) {
             this->SetState(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             this->SetState(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
-        explicit Theme(const Theme &) = delete;
-        explicit Theme(Theme &&) = delete;
+        Theme(const Theme &) = delete;
+        Theme(Theme &&) = delete;
         ~Theme() override {
             this->SetState(nullptr, nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
@@ -287,13 +277,10 @@ namespace GameFrameworkPro {
 
         public:
         explicit Program()
-            : ProgramBase2(new class Application(),
-                           new class Router([this]() { return this->Theme(); }, [this]() { return this->Screen(); }, this->Application()),
-                           new class Screen(this->Application(), this->Router()),
-                           new class Theme(this->Application(), this->Router())) {
+            : ProgramBase2(new class Application(), new class Router(this->Application(), [this]() { return this->Screen(); }, [this]() { return this->Theme(); }), new class Screen(this->Application(), this->Router()), new class Theme(this->Application(), this->Router())) {
         }
-        explicit Program(const Program &) = delete;
-        explicit Program(Program &&) = delete;
+        Program(const Program &) = delete;
+        Program(Program &&) = delete;
         ~Program() override = default;
 
         public:
