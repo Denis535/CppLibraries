@@ -1,11 +1,12 @@
 #pragma once
-#include "StateMachine.h"
-#include "TreeMachine.h"
+#include "StateMachinePro.h"
+#include "TreeMachinePro.h"
 
-namespace GameFramework {
+namespace GameFrameworkPro {
     using namespace std;
-    using namespace StateMachine;
-    using namespace TreeMachine;
+    using namespace std::extensions::event_pro;
+    using namespace StateMachinePro;
+    using namespace TreeMachinePro;
 
     class ProgramBase {
 

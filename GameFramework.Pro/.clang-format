@@ -17,8 +17,8 @@ AllowShortFunctionsOnASingleLine: All
 PackConstructorInitializers: Never
 
 # === Handling ===
-SortIncludes: "CaseInsensitive"
-SortUsingDeclarations: false
+SortIncludes: CaseInsensitive
+SortUsingDeclarations: Lexicographic
 IncludeBlocks: Preserve
 IncludeCategories:
   - Regex: '^(<pch\.h>)$'

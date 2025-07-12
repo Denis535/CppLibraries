@@ -1,8 +1,9 @@
-#include "GameFramework.h"
+#include "GameFrameworkPro.h"
 #include "gtest/gtest.h"
 
-namespace GameFramework {
+namespace GameFrameworkPro {
     using namespace std;
+    using namespace std::extensions::event_pro;
 
     // Game
     class Entity final : public EntityBase {
