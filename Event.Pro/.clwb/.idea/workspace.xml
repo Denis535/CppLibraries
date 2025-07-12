@@ -31,10 +31,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -131,7 +127,7 @@
       <workItem from="1752236329515" duration="8398000" />
       <workItem from="1752261709257" duration="3326000" />
       <workItem from="1752297542745" duration="45000" />
-      <workItem from="1752297628483" duration="5422000" />
+      <workItem from="1752297628483" duration="5487000" />
     </task>
     <servers />
   </component>
