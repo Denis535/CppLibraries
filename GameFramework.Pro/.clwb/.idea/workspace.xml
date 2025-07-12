@@ -18,6 +18,9 @@
     <option name="projectViewFile" value="D:\Projects\Cpp.Libraries\GameFramework.Pro\.clwb\.bazelproject" />
     <option name="workspaceRoot" value="D:\Projects\Cpp.Libraries\GameFramework.Pro" />
   </component>
+  <component name="BlazeSyncStatusState">
+    <option name="dirty" value="true" />
+  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -29,6 +32,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +146,7 @@
       <workItem from="1752317129460" duration="178000" />
       <workItem from="1752320584721" duration="542000" />
       <workItem from="1752322544252" duration="1368000" />
+      <workItem from="1752338513543" duration="1459000" />
     </task>
     <servers />
   </component>

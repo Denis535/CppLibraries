@@ -1,3 +1,4 @@
+#include <functional>
 #include "GameFrameworkPro.h"
 #include "gtest/gtest.h"
 
@@ -75,14 +76,20 @@ namespace GameFrameworkPro {
     };
 
     // UI
+    class Theme;
+    class Screen;
     class Router final : RouterBase {
 
         private:
+        const function<Theme *()> m_Theme;
+        const function<Screen *()> m_Screen;
         Application *const m_Application = nullptr;
 
         public:
-        explicit Router(Application *const application)
-            : m_Application(application) {
+        explicit Router(const function<Theme *()> theme, const function<Screen *()> screen, Application *const application)
+            : m_Theme(theme),
+              m_Screen(screen),
+              m_Application(application) {
         }
         explicit Router(const Router &) = delete;
         explicit Router(Router &&) = delete;
@@ -280,7 +287,10 @@ namespace GameFrameworkPro {
 
         public:
         explicit Program()
-            : ProgramBase2(new class Application(), new class Router(this->Application()), new class Screen(this->Application(), this->Router()), new class Theme(this->Application(), this->Router())) {
+            : ProgramBase2(new class Application(),
+                           new class Router([this]() { return this->Theme(); }, [this]() { return this->Screen(); }, this->Application()),
+                           new class Screen(this->Application(), this->Router()),
+                           new class Theme(this->Application(), this->Router())) {
         }
         explicit Program(const Program &) = delete;
         explicit Program(Program &&) = delete;
