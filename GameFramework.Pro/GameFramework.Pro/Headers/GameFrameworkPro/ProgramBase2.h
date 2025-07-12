@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include "StateMachinePro.h"
 #include "TreeMachinePro.h"
 
@@ -16,10 +17,10 @@ namespace GameFrameworkPro {
     class ProgramBase2 : public ProgramBase {
 
         private:
-        TTheme *const m_Theme = nullptr;
-        TScreen *const m_Screen = nullptr;
-        TRouter *const m_Router = nullptr;
-        TApplication *const m_Application = nullptr;
+        TTheme *const m_Theme;
+        TScreen *const m_Screen;
+        TRouter *const m_Router;
+        TApplication *const m_Application;
 
         protected:
         TTheme *Theme() const;
@@ -43,8 +44,8 @@ namespace GameFrameworkPro {
     class ThemeBase2 : public ThemeBase {
 
         private:
-        TRouter *const m_Router = nullptr;
-        TApplication *const m_Application = nullptr;
+        TRouter *const m_Router;
+        TApplication *const m_Application;
 
         protected:
         TRouter *Router() const;
@@ -66,8 +67,8 @@ namespace GameFrameworkPro {
     class ScreenBase2 : public ScreenBase {
 
         private:
-        TRouter *const m_Router = nullptr;
-        TApplication *const m_Application = nullptr;
+        TRouter *const m_Router;
+        TApplication *const m_Application;
 
         protected:
         TRouter *Router() const;
@@ -84,5 +85,30 @@ namespace GameFrameworkPro {
         public:
         ScreenBase2 &operator=(const ScreenBase2 &) = delete;
         ScreenBase2 &operator=(ScreenBase2 &&) = delete;
+    };
+    template <typename TTheme, typename TScreen, typename TApplication>
+    class RouterBase2 {
+
+        private:
+        const function<TTheme *()> m_Theme;
+        const function<TScreen *()> m_Screen;
+        TApplication *const m_Application;
+
+        protected:
+        TTheme *Theme() const;
+        TScreen *Screen() const;
+        TApplication *Application() const;
+
+        protected:
+        explicit RouterBase2(TApplication *const application, const function<TScreen *()> screen, const function<TTheme *()> theme);
+
+        public:
+        explicit RouterBase2(const RouterBase2 &) = delete;
+        explicit RouterBase2(RouterBase2 &&) = delete;
+        virtual ~RouterBase2();
+
+        public:
+        RouterBase2 &operator=(const RouterBase2 &) = delete;
+        RouterBase2 &operator=(RouterBase2 &&) = delete;
     };
 }

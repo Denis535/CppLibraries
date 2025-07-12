@@ -78,18 +78,11 @@ namespace GameFrameworkPro {
     // UI
     class Theme;
     class Screen;
-    class Router final : RouterBase {
-
-        private:
-        const function<Theme *()> m_Theme;
-        const function<Screen *()> m_Screen;
-        Application *const m_Application = nullptr;
+    class Router final : RouterBase2<Theme, Screen, Application> {
 
         public:
-        explicit Router(Application *const application, const function<Screen *()> screen, const function<Theme *()> theme)
-            : m_Application(application),
-              m_Screen(screen),
-              m_Theme(theme) {
+        explicit Router(class Application *const application, const function<class Screen *()> screen, const function<class Theme *()> theme)
+            : RouterBase2(application, screen, theme) {
         }
         Router(const Router &) = delete;
         Router(Router &&) = delete;
