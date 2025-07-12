@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="4" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="3" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/LiveTemplatesHousekeeping/HotspotSessionHintIsShown/@EntryValue" value="true" type="bool" />
@@ -32,7 +32,17 @@
   <component name="ChangeListManager">
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/code_generator_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/intellij_info_bundled.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/java_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/python_info.bzl" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions.event_pro/tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro.Tests/Sources/std.extensions.event_pro/tests_00.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +134,10 @@
       <workItem from="1752221084535" duration="403000" />
       <workItem from="1752231537727" duration="110000" />
       <workItem from="1752234145455" duration="1587000" />
-      <workItem from="1752236329515" duration="8188000" />
+      <workItem from="1752236329515" duration="8398000" />
+      <workItem from="1752261709257" duration="3326000" />
+      <workItem from="1752297542745" duration="45000" />
+      <workItem from="1752297628483" duration="4899000" />
     </task>
     <servers />
   </component>

@@ -17,7 +17,7 @@ namespace std::extensions::event_pro {
         void my_method(string arg) { // NOLINT
             cout << arg << endl;
         }
-        void my_method_2(string arg) { // NOLINT
+        void my_method_2(string arg) const { // NOLINT
             cout << arg << endl;
         }
     };
@@ -89,14 +89,5 @@ namespace std::extensions::event_pro {
         evt.callback_registry().remove(lambda);
         evt.emit("777");
     }
-    // TEST(tests_00, test_13) { // NOLINT
-    //     auto evt = multicast_event<string>();
-    //     auto lambda = [&evt, &lambda](string arg) {
-    //         cout << arg << endl;
-    //         evt.callback_registry().remove(lambda);
-    //     };
-    //     evt.callback_registry().add(lambda);
-    //     evt.emit("777");
-    // }
 
 }

@@ -39,7 +39,7 @@ namespace std::extensions::event_pro {
                     assert(!callback->equals(method) && "Callback is already added");
                 }
             }
-            this->m_callbacks.push_back(new method_callback<TArgs...>(method));
+            this->m_callbacks.push_back(callback<TArgs...>::create(method));
         }
         template <typename TObj>
         void add(TObj *const object, void (TObj::*const method)(TArgs...)) {
@@ -50,7 +50,18 @@ namespace std::extensions::event_pro {
                     assert(!callback->equals(object, method) && "Callback is already added");
                 }
             }
-            this->m_callbacks.push_back(new object_method_callback<TObj, TArgs...>(object, method));
+            this->m_callbacks.push_back(callback<TArgs...>::create(object, method));
+        }
+        template <typename TObj>
+        void add(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
+            assert(object != nullptr);
+            assert(method != nullptr);
+            for (const auto *const callback : this->m_callbacks) {
+                if (callback != nullptr) {
+                    assert(!callback->equals(object, method) && "Callback is already added");
+                }
+            }
+            this->m_callbacks.push_back(callback<TArgs...>::create(object, method));
         }
         template <typename TLambda>
         void add(const TLambda lambda) {
@@ -59,7 +70,7 @@ namespace std::extensions::event_pro {
                     assert(!callback->equals(lambda) && "Callback is already added");
                 }
             }
-            this->m_callbacks.push_back(new lambda_callback<TLambda, TArgs...>(lambda));
+            this->m_callbacks.push_back(callback<TArgs...>::create(lambda));
         }
 
         public:
@@ -78,7 +89,23 @@ namespace std::extensions::event_pro {
             assert(false && "Callback was not removed");
         }
         template <typename TObj>
-        void remove(const TObj *const object, void (TObj::*const method)(TArgs...)) {
+        void remove(TObj *const object, void (TObj::*const method)(TArgs...)) {
+            assert(object != nullptr);
+            assert(method != nullptr);
+            for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
+                const auto *&callback = *callback_iter;
+                if (callback != nullptr) {
+                    if (callback->equals(object, method)) {
+                        delete callback;
+                        callback = nullptr;
+                        return;
+                    }
+                }
+            }
+            assert(false && "Callback was not removed");
+        }
+        template <typename TObj>
+        void remove(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {

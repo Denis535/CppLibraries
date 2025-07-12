@@ -32,19 +32,26 @@ namespace std::extensions::event_pro {
         void add(void (*const method)(TArgs...)) {
             assert(method != nullptr);
             assert(this->m_callback == nullptr);
-            this->m_callback = new method_callback<TArgs...>(method);
+            this->m_callback = callback<TArgs...>::create(method);
         }
         template <typename TObj>
         void add(TObj *const object, void (TObj::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback == nullptr);
-            this->m_callback = new object_method_callback<TObj, TArgs...>(object, method);
+            this->m_callback = callback<TArgs...>::create(object, method);
+        }
+        template <typename TObj>
+        void add(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
+            assert(object != nullptr);
+            assert(method != nullptr);
+            assert(this->m_callback == nullptr);
+            this->m_callback = callback<TArgs...>::create(object, method);
         }
         template <typename TLambda>
-        void add(TLambda lambda) {
+        void add(const TLambda lambda) {
             assert(this->m_callback == nullptr);
-            this->m_callback = new lambda_callback<TLambda, TArgs...>(lambda);
+            this->m_callback = callback<TArgs...>::create(lambda);
         }
 
         public:
@@ -56,7 +63,16 @@ namespace std::extensions::event_pro {
             this->m_callback = nullptr;
         }
         template <typename TObj>
-        void remove(const TObj *const object, void (TObj::*const method)(TArgs...)) {
+        void remove(TObj *const object, void (TObj::*const method)(TArgs...)) {
+            assert(object != nullptr);
+            assert(method != nullptr);
+            assert(this->m_callback != nullptr);
+            assert(this->m_callback->equals(object, method));
+            delete this->m_callback;
+            this->m_callback = nullptr;
+        }
+        template <typename TObj>
+        void remove(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback != nullptr);

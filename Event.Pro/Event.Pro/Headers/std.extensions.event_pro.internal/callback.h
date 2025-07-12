@@ -4,10 +4,10 @@
 namespace std::extensions::event_pro::internal {
     using namespace std;
 
-    template <typename... TArgs>
+    template <typename TMethod, typename... TArgs>
     class method_callback; // NOLINT
 
-    template <typename T, typename... TArgs>
+    template <typename TObj, typename TMethod, typename... TArgs>
     class object_method_callback; // NOLINT
 
     template <typename TLambda, typename... TArgs>
@@ -15,6 +15,20 @@ namespace std::extensions::event_pro::internal {
 
     template <typename... TArgs>
     class callback { // NOLINT
+
+        public:
+        template <typename TMethod>
+        static enable_if_t<is_pointer_v<TMethod> && is_function_v<remove_pointer_t<TMethod>>, callback *> create(TMethod const method) {
+            return new method_callback<TMethod, TArgs...>(method);
+        }
+        template <typename TObj, typename TMethod>
+        static callback *create(TObj *const object, TMethod const method) {
+            return new object_method_callback<TObj, TMethod, TArgs...>(object, method);
+        }
+        template <typename TLambda>
+        static enable_if_t<!is_pointer_v<TLambda> && is_invocable_v<TLambda, TArgs...>, callback *> create(const TLambda lambda) {
+            return new lambda_callback<TLambda, TArgs...>(lambda);
+        }
 
         protected:
         explicit callback() = default;
@@ -28,23 +42,24 @@ namespace std::extensions::event_pro::internal {
         virtual void invoke(const TArgs... args) const = 0;
 
         public:
-        [[nodiscard]] bool equals(void (*const method)(TArgs...)) const {
-            if (const auto *const self = dynamic_cast<const method_callback<TArgs...> *const>(this)) {
-                return self->m_method == method;
+        template <typename TMethod>
+        [[nodiscard]] enable_if_t<is_pointer_v<TMethod> && is_function_v<remove_pointer_t<TMethod>>, bool> equals(TMethod const method) const {
+            if (const auto *const self = dynamic_cast<const method_callback<TMethod, TArgs...> *const>(this)) {
+                return self->equals(method);
             }
             return false;
         }
-        template <typename TObj>
-        [[nodiscard]] bool equals(const TObj *const object, void (TObj::*const method)(TArgs...)) const {
-            if (const auto *const self = dynamic_cast<const object_method_callback<TObj, TArgs...> *const>(this)) {
-                return self->m_object == object && self->m_method == method;
+        template <typename TObj, typename TMethod>
+        [[nodiscard]] bool equals(TObj *const object, TMethod const method) const {
+            if (const auto *const self = dynamic_cast<const object_method_callback<TObj, TMethod, TArgs...> *const>(this)) {
+                return self->equals(object, method);
             }
             return false;
         }
         template <typename TLambda>
-        [[nodiscard]] bool equals([[maybe_unused]] const TLambda lambda) const {
+        [[nodiscard]] enable_if_t<!is_pointer_v<TLambda> && is_invocable_v<TLambda, TArgs...>, bool> equals(const TLambda lambda) const {
             if (const auto *const self = dynamic_cast<const lambda_callback<TLambda, TArgs...> *const>(this)) {
-                return true;
+                return self->equals(lambda);
             }
             return false;
         }
@@ -53,15 +68,15 @@ namespace std::extensions::event_pro::internal {
         callback &operator=(const callback &) = delete;
         callback &operator=(callback &&) = delete;
     };
-    template <typename... TArgs>
+    template <typename TMethod, typename... TArgs>
     class method_callback final : public callback<TArgs...> { // NOLINT
         friend callback;
 
         private:
-        void (*const m_method)(TArgs...);
+        TMethod const m_method;
 
-        public:
-        explicit method_callback(void (*const method)(TArgs...))
+        private:
+        explicit method_callback(TMethod const method)
             : m_method(method) {
             assert(this->m_method != nullptr);
         }
@@ -78,19 +93,24 @@ namespace std::extensions::event_pro::internal {
         }
 
         public:
+        [[nodiscard]] bool equals(TMethod const method) const {
+            return this->m_method == method;
+        }
+
+        public:
         method_callback &operator=(const method_callback &) = delete;
         method_callback &operator=(method_callback &&) = delete;
     };
-    template <typename TObj, typename... TArgs>
+    template <typename TObj, typename TMethod, typename... TArgs>
     class object_method_callback final : public callback<TArgs...> { // NOLINT
         friend callback;
 
         private:
         TObj *const m_object;
-        void (TObj::*const m_method)(TArgs...);
+        TMethod const m_method;
 
-        public:
-        explicit object_method_callback(TObj *const object, void (TObj::*const method)(TArgs...))
+        private:
+        explicit object_method_callback(TObj *const object, TMethod const method)
             : m_object(object),
               m_method(method) {
             assert(this->m_object != nullptr);
@@ -110,6 +130,11 @@ namespace std::extensions::event_pro::internal {
         }
 
         public:
+        [[nodiscard]] bool equals(TObj *const object, TMethod const method) const {
+            return this->m_object == object && this->m_method == method;
+        }
+
+        public:
         object_method_callback &operator=(const object_method_callback &) = delete;
         object_method_callback &operator=(object_method_callback &&) = delete;
     };
@@ -120,7 +145,7 @@ namespace std::extensions::event_pro::internal {
         private:
         const TLambda m_lambda;
 
-        public:
+        private:
         explicit lambda_callback(const TLambda lambda)
             : m_lambda(lambda) {
         }
@@ -133,6 +158,11 @@ namespace std::extensions::event_pro::internal {
         public:
         void invoke(const TArgs... args) const override {
             this->m_lambda(args...);
+        }
+
+        public:
+        [[nodiscard]] bool equals([[maybe_unused]] const TLambda lambda) const {
+            return true;
         }
 
         public:
