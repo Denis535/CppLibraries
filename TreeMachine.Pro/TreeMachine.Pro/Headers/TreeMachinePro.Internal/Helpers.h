@@ -2,7 +2,7 @@
 #include <list>
 #include <vector>
 
-namespace TreeMachine::Internal {
+namespace TreeMachinePro::Internal {
     using namespace std;
 
     template <typename T>

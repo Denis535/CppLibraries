@@ -2,10 +2,10 @@
 #include <any>
 #include <cassert>
 #include <functional>
-#include "TreeMachine.Internal/Helpers.h"
-#include "TreeMachine/TreeMachineBase.h"
+#include "TreeMachinePro.Internal/Helpers.h"
+#include "TreeMachinePro/TreeMachineBase.h"
 
-namespace TreeMachine {
+namespace TreeMachinePro {
 
     template <typename T>
     T *TreeMachineBase<T>::Root() const {

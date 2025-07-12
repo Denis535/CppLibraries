@@ -1,13 +1,17 @@
 #pragma once
 #include <algorithm>
+#include <any>
 #include <cassert>
+#include <list>
+#include <variant>
+#include <vector>
 #include "event_pro.h"
-#include "TreeMachine.Internal/Helpers.h"
-#include "TreeMachine/NodeBase.h"
+#include "TreeMachinePro.Internal/Helpers.h"
+#include "TreeMachinePro/NodeBase.h"
 
-namespace TreeMachine {
-    using namespace TreeMachine::Internal;
+namespace TreeMachinePro {
     using namespace std::extensions::event_pro;
+    using namespace TreeMachinePro::Internal;
 
     template <typename TThis>
     TreeMachineBase<TThis> *NodeBase<TThis>::Machine() const {
