@@ -20,6 +20,7 @@
   </component>
   <component name="BlazeSyncStatusState">
     <option name="dirty" value="true" />
+    <option name="lastSyncFailed" value="true" />
   </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
@@ -31,12 +32,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8f221e8-dfc0-40bb-9514-45079ad3e553" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro.internal/callback.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/multicast/multicast_callback_registry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Event.Pro/Headers/std.extensions.event_pro/unicast/unicast_callback_registry.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/code_generator_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/intellij_info_bundled.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/java_info.bzl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/aspects/python_info.bzl" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +135,8 @@
       <workItem from="1752297542745" duration="45000" />
       <workItem from="1752297628483" duration="5638000" />
       <workItem from="1752303939434" duration="2090000" />
+      <workItem from="1752317316728" duration="226000" />
+      <workItem from="1752317587144" duration="4000" />
     </task>
     <servers />
   </component>
