@@ -19,10 +19,13 @@ namespace std::extensions::event_pro::internal {
         public:
         template <typename TMethod>
         static enable_if_t<is_pointer_v<TMethod> && is_function_v<remove_pointer_t<TMethod>>, callback *> create(TMethod const method) {
+            assert(method != nullptr);
             return new method_callback<TMethod, TArgs...>(method);
         }
         template <typename TObject, typename TMethod>
         static callback *create(TObject *const object, TMethod const method) {
+            assert(object != nullptr);
+            assert(method != nullptr);
             return new object_method_callback<TObject, TMethod, TArgs...>(object, method);
         }
         template <typename TLambda>
@@ -44,6 +47,7 @@ namespace std::extensions::event_pro::internal {
         public:
         template <typename TMethod>
         [[nodiscard]] enable_if_t<is_pointer_v<TMethod> && is_function_v<remove_pointer_t<TMethod>>, bool> equals(TMethod const method) const {
+            assert(method != nullptr);
             if (const auto *const self = dynamic_cast<const method_callback<TMethod, TArgs...> *const>(this)) {
                 return self->equals(method);
             }
@@ -51,6 +55,8 @@ namespace std::extensions::event_pro::internal {
         }
         template <typename TObject, typename TMethod>
         [[nodiscard]] bool equals(TObject *const object, TMethod const method) const {
+            assert(object != nullptr);
+            assert(method != nullptr);
             if (const auto *const self = dynamic_cast<const object_method_callback<TObject, TMethod, TArgs...> *const>(this)) {
                 return self->equals(object, method);
             }
@@ -94,6 +100,7 @@ namespace std::extensions::event_pro::internal {
 
         public:
         [[nodiscard]] bool equals(TMethod const method) const {
+            assert(this->m_method != nullptr);
             return this->m_method == method;
         }
 
@@ -131,6 +138,8 @@ namespace std::extensions::event_pro::internal {
 
         public:
         [[nodiscard]] bool equals(TObject *const object, TMethod const method) const {
+            assert(this->m_object != nullptr);
+            assert(this->m_method != nullptr);
             return this->m_object == object && this->m_method == method;
         }
 
