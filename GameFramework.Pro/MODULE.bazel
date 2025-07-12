@@ -1,4 +1,4 @@
-module(name = "game_framework_pro", version = "1.1.0")
+module(name = "game_framework_pro", version = "1.0.0")
 
 bazel_dep(name = "platforms",   version = "1.0.0")
 bazel_dep(name = "googletest",  version = "1.17.0")
@@ -17,13 +17,13 @@ git_override(
 git_override(
     module_name = "state_machine_pro",
     remote      = "https://github.com/Denis535/Cpp.Libraries.git",
-    tag         = "StateMachine.Pro/v1.1.0",
+    tag         = "StateMachine.Pro/v1.0.0",
     strip_prefix= "StateMachine.Pro",
 )
 
 git_override(
     module_name = "tree_machine_pro",
     remote      = "https://github.com/Denis535/Cpp.Libraries.git",
-    tag         = "TreeMachine.Pro/v1.1.0",
+    tag         = "TreeMachine.Pro/v1.0.0",
     strip_prefix= "TreeMachine.Pro",
 )
