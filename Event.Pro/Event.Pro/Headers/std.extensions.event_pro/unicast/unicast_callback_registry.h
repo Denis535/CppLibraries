@@ -34,15 +34,15 @@ namespace std::extensions::event_pro {
             assert(this->m_callback == nullptr);
             this->m_callback = callback<TArgs...>::create(method);
         }
-        template <typename TObj>
-        void add(TObj *const object, void (TObj::*const method)(TArgs...)) {
+        template <typename TObject>
+        void add(TObject *const object, void (TObject::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback == nullptr);
             this->m_callback = callback<TArgs...>::create(object, method);
         }
-        template <typename TObj>
-        void add(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
+        template <typename TObject>
+        void add(const TObject *const object, void (TObject::*const method)(TArgs...) const) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback == nullptr);
@@ -62,8 +62,8 @@ namespace std::extensions::event_pro {
             delete this->m_callback;
             this->m_callback = nullptr;
         }
-        template <typename TObj>
-        void remove(TObj *const object, void (TObj::*const method)(TArgs...)) {
+        template <typename TObject>
+        void remove(TObject *const object, void (TObject::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback != nullptr);
@@ -71,8 +71,8 @@ namespace std::extensions::event_pro {
             delete this->m_callback;
             this->m_callback = nullptr;
         }
-        template <typename TObj>
-        void remove(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
+        template <typename TObject>
+        void remove(const TObject *const object, void (TObject::*const method)(TArgs...) const) {
             assert(object != nullptr);
             assert(method != nullptr);
             assert(this->m_callback != nullptr);

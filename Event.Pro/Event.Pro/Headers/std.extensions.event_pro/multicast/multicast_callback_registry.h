@@ -41,8 +41,8 @@ namespace std::extensions::event_pro {
             }
             this->m_callbacks.push_back(callback<TArgs...>::create(method));
         }
-        template <typename TObj>
-        void add(TObj *const object, void (TObj::*const method)(TArgs...)) {
+        template <typename TObject>
+        void add(TObject *const object, void (TObject::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (const auto *const callback : this->m_callbacks) {
@@ -52,8 +52,8 @@ namespace std::extensions::event_pro {
             }
             this->m_callbacks.push_back(callback<TArgs...>::create(object, method));
         }
-        template <typename TObj>
-        void add(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
+        template <typename TObject>
+        void add(const TObject *const object, void (TObject::*const method)(TArgs...) const) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (const auto *const callback : this->m_callbacks) {
@@ -88,8 +88,8 @@ namespace std::extensions::event_pro {
             }
             assert(false && "Callback was not removed");
         }
-        template <typename TObj>
-        void remove(TObj *const object, void (TObj::*const method)(TArgs...)) {
+        template <typename TObject>
+        void remove(TObject *const object, void (TObject::*const method)(TArgs...)) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {
@@ -104,8 +104,8 @@ namespace std::extensions::event_pro {
             }
             assert(false && "Callback was not removed");
         }
-        template <typename TObj>
-        void remove(const TObj *const object, void (TObj::*const method)(TArgs...) const) {
+        template <typename TObject>
+        void remove(const TObject *const object, void (TObject::*const method)(TArgs...) const) {
             assert(object != nullptr);
             assert(method != nullptr);
             for (auto callback_iter = this->m_callbacks.rbegin(); callback_iter != this->m_callbacks.rend(); ++callback_iter) {

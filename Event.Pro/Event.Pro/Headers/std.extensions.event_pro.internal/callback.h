@@ -7,7 +7,7 @@ namespace std::extensions::event_pro::internal {
     template <typename TMethod, typename... TArgs>
     class method_callback; // NOLINT
 
-    template <typename TObj, typename TMethod, typename... TArgs>
+    template <typename TObject, typename TMethod, typename... TArgs>
     class object_method_callback; // NOLINT
 
     template <typename TLambda, typename... TArgs>
@@ -21,9 +21,9 @@ namespace std::extensions::event_pro::internal {
         static enable_if_t<is_pointer_v<TMethod> && is_function_v<remove_pointer_t<TMethod>>, callback *> create(TMethod const method) {
             return new method_callback<TMethod, TArgs...>(method);
         }
-        template <typename TObj, typename TMethod>
-        static callback *create(TObj *const object, TMethod const method) {
-            return new object_method_callback<TObj, TMethod, TArgs...>(object, method);
+        template <typename TObject, typename TMethod>
+        static callback *create(TObject *const object, TMethod const method) {
+            return new object_method_callback<TObject, TMethod, TArgs...>(object, method);
         }
         template <typename TLambda>
         static enable_if_t<!is_pointer_v<TLambda> && is_invocable_v<TLambda, TArgs...>, callback *> create(const TLambda lambda) {
@@ -49,9 +49,9 @@ namespace std::extensions::event_pro::internal {
             }
             return false;
         }
-        template <typename TObj, typename TMethod>
-        [[nodiscard]] bool equals(TObj *const object, TMethod const method) const {
-            if (const auto *const self = dynamic_cast<const object_method_callback<TObj, TMethod, TArgs...> *const>(this)) {
+        template <typename TObject, typename TMethod>
+        [[nodiscard]] bool equals(TObject *const object, TMethod const method) const {
+            if (const auto *const self = dynamic_cast<const object_method_callback<TObject, TMethod, TArgs...> *const>(this)) {
                 return self->equals(object, method);
             }
             return false;
@@ -101,16 +101,16 @@ namespace std::extensions::event_pro::internal {
         method_callback &operator=(const method_callback &) = delete;
         method_callback &operator=(method_callback &&) = delete;
     };
-    template <typename TObj, typename TMethod, typename... TArgs>
+    template <typename TObject, typename TMethod, typename... TArgs>
     class object_method_callback final : public callback<TArgs...> { // NOLINT
         friend callback;
 
         private:
-        TObj *const m_object;
+        TObject *const m_object;
         TMethod const m_method;
 
         private:
-        explicit object_method_callback(TObj *const object, TMethod const method)
+        explicit object_method_callback(TObject *const object, TMethod const method)
             : m_object(object),
               m_method(method) {
             assert(this->m_object != nullptr);
@@ -130,7 +130,7 @@ namespace std::extensions::event_pro::internal {
         }
 
         public:
-        [[nodiscard]] bool equals(TObj *const object, TMethod const method) const {
+        [[nodiscard]] bool equals(TObject *const object, TMethod const method) const {
             return this->m_object == object && this->m_method == method;
         }
 
