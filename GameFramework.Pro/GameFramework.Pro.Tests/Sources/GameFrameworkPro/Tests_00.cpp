@@ -106,12 +106,14 @@ namespace GameFrameworkPro {
     class MainWidget final : public ViewableWidgetBase_Typed<MainWidgetView> {
 
         public:
-        explicit MainWidget()
-            : ViewableWidgetBase_Typed(new MainWidgetView()) {
+        explicit MainWidget() {
+            this->SetView(new MainWidgetView());
         }
         MainWidget(const MainWidget &) = delete;
         MainWidget(MainWidget &&) = delete;
-        ~MainWidget() override = default;
+        ~MainWidget() override {
+            delete this->View();
+        }
 
         protected:
         void OnActivate([[maybe_unused]] const any argument) override {
@@ -140,12 +142,14 @@ namespace GameFrameworkPro {
     class GameWidget final : public ViewableWidgetBase_Typed<GameWidgetView> {
 
         public:
-        explicit GameWidget()
-            : ViewableWidgetBase_Typed(new GameWidgetView()) {
+        explicit GameWidget() {
+            this->SetView(new GameWidgetView());
         }
         GameWidget(const GameWidget &) = delete;
         GameWidget(GameWidget &&) = delete;
-        ~GameWidget() override = default;
+        ~GameWidget() override {
+            delete this->View();
+        }
 
         protected:
         void OnActivate([[maybe_unused]] const any argument) override {

@@ -106,13 +106,14 @@ namespace GameFrameworkPro {
     class ViewableWidgetBase : public WidgetBase {
 
         private:
-        ViewBase *const m_View = nullptr;
+        ViewBase *m_View = nullptr;
 
         public:
         [[nodiscard]] ViewBase *View() const;
+        void SetView(ViewBase *const view);
 
         protected:
-        explicit ViewableWidgetBase(ViewBase *const view);
+        explicit ViewableWidgetBase();
 
         public:
         explicit ViewableWidgetBase(const ViewableWidgetBase &) = delete;
@@ -128,9 +129,10 @@ namespace GameFrameworkPro {
 
         public:
         [[nodiscard]] TView *View() const;
+        void SetView(TView *const view);
 
         protected:
-        explicit ViewableWidgetBase_Typed(TView *const view);
+        explicit ViewableWidgetBase_Typed();
 
         public:
         explicit ViewableWidgetBase_Typed(const ViewableWidgetBase_Typed &) = delete;

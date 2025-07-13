@@ -95,24 +95,25 @@ namespace GameFrameworkPro {
     inline ViewBase *ViewableWidgetBase::View() const {
         return this->m_View;
     }
+    inline void ViewableWidgetBase::SetView(ViewBase *const view) {
+        this->m_View = view;
+    }
 
-    inline ViewableWidgetBase::ViewableWidgetBase(ViewBase *const view)
-        : m_View(view) {
-    }
-    inline ViewableWidgetBase::~ViewableWidgetBase() {
-        delete this->m_View;
-    }
+    inline ViewableWidgetBase::ViewableWidgetBase() = default;
+    inline ViewableWidgetBase::~ViewableWidgetBase() = default;
 
     // ### ViewableWidgetBase_Typed ###
     template <typename TView>
     TView *ViewableWidgetBase_Typed<TView>::View() const {
         return dynamic_cast<TView *>(this->ViewableWidgetBase::View());
     }
+    template <typename TView>
+    void ViewableWidgetBase_Typed<TView>::SetView(TView *const view) {
+        this->ViewableWidgetBase::SetView(view);
+    }
 
     template <typename TView>
-    ViewableWidgetBase_Typed<TView>::ViewableWidgetBase_Typed(TView *const view)
-        : ViewableWidgetBase(view) {
-    }
+    ViewableWidgetBase_Typed<TView>::ViewableWidgetBase_Typed() = default;
     template <typename TView>
     ViewableWidgetBase_Typed<TView>::~ViewableWidgetBase_Typed() = default;
 
