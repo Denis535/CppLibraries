@@ -12,19 +12,42 @@ namespace GameFrameworkPro {
         return this->m_Theme;
     }
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
+    void ProgramBase2<TTheme, TScreen, TRouter, TApplication>::SetTheme(TTheme *const theme) {
+        assert(theme != nullptr);
+        this->m_Theme = theme;
+    }
+
+    template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
     TScreen *ProgramBase2<TTheme, TScreen, TRouter, TApplication>::Screen() const {
         assert(this->m_Screen != nullptr);
         return this->m_Screen;
     }
+    template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
+    void ProgramBase2<TTheme, TScreen, TRouter, TApplication>::SetScreen(TScreen *const screen) {
+        assert(screen != nullptr);
+        this->m_Screen = screen;
+    }
+
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
     TRouter *ProgramBase2<TTheme, TScreen, TRouter, TApplication>::Router() const {
         assert(this->m_Router != nullptr);
         return this->m_Router;
     }
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
+    void ProgramBase2<TTheme, TScreen, TRouter, TApplication>::SetRouter(TRouter *const router) {
+        assert(router != nullptr);
+        this->m_Router = router;
+    }
+
+    template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
     TApplication *ProgramBase2<TTheme, TScreen, TRouter, TApplication>::Application() const {
         assert(this->m_Application != nullptr);
         return this->m_Application;
+    }
+    template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
+    void ProgramBase2<TTheme, TScreen, TRouter, TApplication>::SetApplication(TApplication *const application) {
+        assert(application != nullptr);
+        this->m_Application = application;
     }
 
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
@@ -35,34 +58,11 @@ namespace GameFrameworkPro {
           m_Application(nullptr) {
     }
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
-    ProgramBase2<TTheme, TScreen, TRouter, TApplication>::ProgramBase2(TTheme *const theme, TScreen *const screen, TRouter *const router, TApplication *const application)
-        : m_Theme(theme),
-          m_Screen(screen),
-          m_Router(router),
-          m_Application(application) {
-        assert(this->m_Theme != nullptr);
-        assert(this->m_Screen != nullptr);
-        assert(this->m_Router != nullptr);
-        assert(this->m_Application != nullptr);
-    }
-    template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
     ProgramBase2<TTheme, TScreen, TRouter, TApplication>::~ProgramBase2() {
         delete this->m_Theme;
         delete this->m_Screen;
         delete this->m_Router;
         delete this->m_Application;
-    }
-
-    template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
-    void ProgramBase2<TTheme, TScreen, TRouter, TApplication>::Initialize(TTheme *const theme, TScreen *const screen, TRouter *const router, TApplication *const application) {
-        assert(theme != nullptr);
-        assert(screen != nullptr);
-        assert(router != nullptr);
-        assert(application != nullptr);
-        this->m_Theme = theme;
-        this->m_Screen = screen;
-        this->m_Router = router;
-        this->m_Application = application;
     }
 
     // ### ThemeBase ###

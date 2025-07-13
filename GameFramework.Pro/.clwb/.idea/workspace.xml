@@ -35,7 +35,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase2.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +155,7 @@
       <workItem from="1752344778825" duration="2857000" />
       <workItem from="1752385799525" duration="4946000" />
       <workItem from="1752410019281" duration="1104000" />
-      <workItem from="1752414597529" duration="1861000" />
+      <workItem from="1752414597529" duration="3587000" />
     </task>
     <servers />
   </component>

@@ -14,8 +14,8 @@ namespace GameFrameworkPro {
         explicit ProgramBase();
 
         public:
-        explicit ProgramBase(const ProgramBase &) = delete;
-        explicit ProgramBase(ProgramBase &&) = delete;
+        ProgramBase(const ProgramBase &) = delete;
+        ProgramBase(ProgramBase &&) = delete;
         virtual ~ProgramBase();
 
         public:
@@ -30,8 +30,8 @@ namespace GameFrameworkPro {
         explicit ThemeBase();
 
         public:
-        explicit ThemeBase(const ThemeBase &) = delete;
-        explicit ThemeBase(ThemeBase &&) = delete;
+        ThemeBase(const ThemeBase &) = delete;
+        ThemeBase(ThemeBase &&) = delete;
         ~ThemeBase() override;
 
         public:
@@ -44,8 +44,8 @@ namespace GameFrameworkPro {
         explicit PlayListBase();
 
         public:
-        explicit PlayListBase(const PlayListBase &) = delete;
-        explicit PlayListBase(PlayListBase &&) = delete;
+        PlayListBase(const PlayListBase &) = delete;
+        PlayListBase(PlayListBase &&) = delete;
         ~PlayListBase() override;
 
         public:
@@ -62,8 +62,8 @@ namespace GameFrameworkPro {
         explicit ScreenBase();
 
         public:
-        explicit ScreenBase(const ScreenBase &) = delete;
-        explicit ScreenBase(ScreenBase &&) = delete;
+        ScreenBase(const ScreenBase &) = delete;
+        ScreenBase(ScreenBase &&) = delete;
         ~ScreenBase() override;
 
         public:
@@ -79,8 +79,8 @@ namespace GameFrameworkPro {
         explicit WidgetBase();
 
         public:
-        explicit WidgetBase(const WidgetBase &) = delete;
-        explicit WidgetBase(WidgetBase &&) = delete;
+        WidgetBase(const WidgetBase &) = delete;
+        WidgetBase(WidgetBase &&) = delete;
         ~WidgetBase() override;
 
         protected:
@@ -109,16 +109,16 @@ namespace GameFrameworkPro {
         ViewBase *m_View = nullptr;
 
         public:
-        [[nodiscard]] ViewBase *View() const;
-        void SetView(ViewBase *const view);
+        [[nodiscard]] ViewBase *View() const; // NOLINT
+        void SetView(ViewBase *const view);   // NOLINT
 
         protected:
         explicit ViewableWidgetBase();
 
         public:
-        explicit ViewableWidgetBase(const ViewableWidgetBase &) = delete;
-        explicit ViewableWidgetBase(ViewableWidgetBase &&) = delete;
-        ~ViewableWidgetBase() override;
+        ViewableWidgetBase(const ViewableWidgetBase &) = delete;
+        ViewableWidgetBase(ViewableWidgetBase &&) = delete;
+        ~ViewableWidgetBase() override; // view must be deleted
 
         public:
         ViewableWidgetBase &operator=(const ViewableWidgetBase &) = delete;
@@ -128,15 +128,15 @@ namespace GameFrameworkPro {
     class ViewableWidgetBase_Typed : public ViewableWidgetBase { // NOLINT
 
         public:
-        [[nodiscard]] TView *View() const;
-        void SetView(TView *const view);
+        [[nodiscard]] TView *View() const; // NOLINT
+        void SetView(TView *const view);   // NOLINT
 
         protected:
         explicit ViewableWidgetBase_Typed();
 
         public:
-        explicit ViewableWidgetBase_Typed(const ViewableWidgetBase_Typed &) = delete;
-        explicit ViewableWidgetBase_Typed(ViewableWidgetBase_Typed &&) = delete;
+        ViewableWidgetBase_Typed(const ViewableWidgetBase_Typed &) = delete;
+        ViewableWidgetBase_Typed(ViewableWidgetBase_Typed &&) = delete;
         ~ViewableWidgetBase_Typed() override;
 
         public:
@@ -149,8 +149,8 @@ namespace GameFrameworkPro {
         explicit ViewBase();
 
         public:
-        explicit ViewBase(const ViewBase &) = delete;
-        explicit ViewBase(ViewBase &&) = delete;
+        ViewBase(const ViewBase &) = delete;
+        ViewBase(ViewBase &&) = delete;
         virtual ~ViewBase();
 
         public:
@@ -164,8 +164,8 @@ namespace GameFrameworkPro {
         explicit RouterBase();
 
         public:
-        explicit RouterBase(const RouterBase &) = delete;
-        explicit RouterBase(RouterBase &&) = delete;
+        RouterBase(const RouterBase &) = delete;
+        RouterBase(RouterBase &&) = delete;
         virtual ~RouterBase();
 
         public:
@@ -179,8 +179,8 @@ namespace GameFrameworkPro {
         explicit ApplicationBase();
 
         public:
-        explicit ApplicationBase(const ApplicationBase &) = delete;
-        explicit ApplicationBase(ApplicationBase &&) = delete;
+        ApplicationBase(const ApplicationBase &) = delete;
+        ApplicationBase(ApplicationBase &&) = delete;
         virtual ~ApplicationBase();
 
         public:
@@ -194,8 +194,8 @@ namespace GameFrameworkPro {
         explicit GameBase();
 
         public:
-        explicit GameBase(const GameBase &) = delete;
-        explicit GameBase(GameBase &&) = delete;
+        GameBase(const GameBase &) = delete;
+        GameBase(GameBase &&) = delete;
         virtual ~GameBase();
 
         public:
@@ -208,8 +208,8 @@ namespace GameFrameworkPro {
         explicit PlayerBase();
 
         public:
-        explicit PlayerBase(const PlayerBase &) = delete;
-        explicit PlayerBase(PlayerBase &&) = delete;
+        PlayerBase(const PlayerBase &) = delete;
+        PlayerBase(PlayerBase &&) = delete;
         virtual ~PlayerBase();
 
         public:
@@ -222,8 +222,8 @@ namespace GameFrameworkPro {
         explicit EntityBase();
 
         public:
-        explicit EntityBase(const EntityBase &) = delete;
-        explicit EntityBase(EntityBase &&) = delete;
+        EntityBase(const EntityBase &) = delete;
+        EntityBase(EntityBase &&) = delete;
         virtual ~EntityBase();
 
         public:

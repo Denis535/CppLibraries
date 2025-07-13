@@ -272,11 +272,10 @@ namespace GameFrameworkPro {
 
         public:
         explicit Program() {
-            auto *const application = new class Application();
-            auto *const router = new class Router([this]() { return this->Theme(); }, [this]() { return this->Screen(); }, application);
-            auto *const screen = new class Screen(router, application);
-            auto *const theme = new class Theme(router, application);
-            this->Initialize(theme, screen, router, application);
+            this->SetApplication(new class Application());
+            this->SetRouter(new class Router([this] { return this->Theme(); }, [this] { return this->Screen(); }, this->Application()));
+            this->SetScreen(new class Screen(this->Router(), this->Application()));
+            this->SetTheme(new class Theme(this->Router(), this->Application()));
         }
         Program(const Program &) = delete;
         Program(Program &&) = delete;

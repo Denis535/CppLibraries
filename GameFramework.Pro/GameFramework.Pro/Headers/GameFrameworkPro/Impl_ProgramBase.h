@@ -30,7 +30,9 @@ namespace GameFrameworkPro {
     }
 
     inline WidgetBase::WidgetBase() = default;
-    inline WidgetBase::~WidgetBase() = default;
+    inline WidgetBase::~WidgetBase() {
+        assert(this->Children().empty() && "Widget must have no children");
+    }
 
     inline void WidgetBase::ShowSelf() {
         assert(this->Parent() != nullptr && "Widget must have parent");

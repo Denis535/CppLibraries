@@ -20,21 +20,24 @@ namespace GameFrameworkPro {
 
         protected:
         [[nodiscard]] TTheme *Theme() const;
+        void SetTheme(TTheme *const theme);
+
         [[nodiscard]] TScreen *Screen() const;
+        void SetScreen(TScreen *const screen);
+
         [[nodiscard]] TRouter *Router() const;
+        void SetRouter(TRouter *const router);
+
         [[nodiscard]] TApplication *Application() const;
+        void SetApplication(TApplication *const application);
 
         protected:
         explicit ProgramBase2();
-        explicit ProgramBase2(TTheme *const theme, TScreen *const screen, TRouter *const router, TApplication *const application);
 
         public:
-        explicit ProgramBase2(const ProgramBase2 &) = delete;
-        explicit ProgramBase2(ProgramBase2 &&) = delete;
+        ProgramBase2(const ProgramBase2 &) = delete;
+        ProgramBase2(ProgramBase2 &&) = delete;
         ~ProgramBase2() override;
-
-        protected:
-        void Initialize(TTheme *const theme, TScreen *const screen, TRouter *const router, TApplication *const application);
 
         public:
         ProgramBase2 &operator=(const ProgramBase2 &) = delete;
@@ -55,8 +58,8 @@ namespace GameFrameworkPro {
         explicit ThemeBase2(TRouter *const router, TApplication *const application);
 
         public:
-        explicit ThemeBase2(const ThemeBase2 &) = delete;
-        explicit ThemeBase2(ThemeBase2 &&) = delete;
+        ThemeBase2(const ThemeBase2 &) = delete;
+        ThemeBase2(ThemeBase2 &&) = delete;
         ~ThemeBase2() override;
 
         public:
@@ -78,8 +81,8 @@ namespace GameFrameworkPro {
         explicit ScreenBase2(TRouter *const router, TApplication *const application);
 
         public:
-        explicit ScreenBase2(const ScreenBase2 &) = delete;
-        explicit ScreenBase2(ScreenBase2 &&) = delete;
+        ScreenBase2(const ScreenBase2 &) = delete;
+        ScreenBase2(ScreenBase2 &&) = delete;
         ~ScreenBase2() override;
 
         public:
@@ -103,8 +106,8 @@ namespace GameFrameworkPro {
         explicit RouterBase2(const function<TTheme *()> theme, const function<TScreen *()> screen, TApplication *const application);
 
         public:
-        explicit RouterBase2(const RouterBase2 &) = delete;
-        explicit RouterBase2(RouterBase2 &&) = delete;
+        RouterBase2(const RouterBase2 &) = delete;
+        RouterBase2(RouterBase2 &&) = delete;
         ~RouterBase2() override;
 
         public:
