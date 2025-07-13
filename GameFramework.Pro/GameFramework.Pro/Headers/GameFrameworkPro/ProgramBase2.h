@@ -19,10 +19,10 @@ namespace GameFrameworkPro {
         TApplication *m_Application;
 
         protected:
-        TTheme *Theme() const;
-        TScreen *Screen() const;
-        TRouter *Router() const;
-        TApplication *Application() const;
+        [[nodiscard]] TTheme *Theme() const;
+        [[nodiscard]] TScreen *Screen() const;
+        [[nodiscard]] TRouter *Router() const;
+        [[nodiscard]] TApplication *Application() const;
 
         protected:
         explicit ProgramBase2();
@@ -48,8 +48,8 @@ namespace GameFrameworkPro {
         TApplication *const m_Application;
 
         protected:
-        TRouter *Router() const;
-        TApplication *Application() const;
+        [[nodiscard]] TRouter *Router() const;
+        [[nodiscard]] TApplication *Application() const;
 
         protected:
         explicit ThemeBase2(TRouter *const router, TApplication *const application);
@@ -71,8 +71,8 @@ namespace GameFrameworkPro {
         TApplication *const m_Application;
 
         protected:
-        TRouter *Router() const;
-        TApplication *Application() const;
+        [[nodiscard]] TRouter *Router() const;
+        [[nodiscard]] TApplication *Application() const;
 
         protected:
         explicit ScreenBase2(TRouter *const router, TApplication *const application);
@@ -95,9 +95,9 @@ namespace GameFrameworkPro {
         TApplication *const m_Application;
 
         protected:
-        TTheme *Theme() const;
-        TScreen *Screen() const;
-        TApplication *Application() const;
+        [[nodiscard]] TTheme *Theme() const;
+        [[nodiscard]] TScreen *Screen() const;
+        [[nodiscard]] TApplication *Application() const;
 
         protected:
         explicit RouterBase2(const function<TTheme *()> theme, const function<TScreen *()> screen, TApplication *const application);
