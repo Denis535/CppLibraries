@@ -32,8 +32,7 @@
   <component name="ChangeListManager">
     <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +152,7 @@
       <workItem from="1752410019281" duration="1104000" />
       <workItem from="1752414597529" duration="7624000" />
       <workItem from="1752424786636" duration="469000" />
+      <workItem from="1752435796051" duration="73000" />
     </task>
     <servers />
   </component>

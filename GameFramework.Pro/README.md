@@ -9,6 +9,7 @@ The framework consists of the following classes:
 - ProgramBase
 - UI
     - ThemeBase
+    - PlayListBase
     - ScreenBase
     - WidgetBase
     - ViewableWidgetBase
