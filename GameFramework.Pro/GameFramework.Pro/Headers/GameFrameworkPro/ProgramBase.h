@@ -4,7 +4,6 @@
 
 namespace GameFrameworkPro {
     using namespace std;
-    using namespace std::extensions::event_pro;
     using namespace StateMachinePro;
     using namespace TreeMachinePro;
 

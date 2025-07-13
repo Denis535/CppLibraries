@@ -5,22 +5,17 @@
 
 namespace GameFrameworkPro {
     using namespace std;
-    using namespace std::extensions::event_pro;
     using namespace StateMachinePro;
     using namespace TreeMachinePro;
-
-    class ProgramBase;
-    class ThemeBase;
-    class ScreenBase;
 
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
     class ProgramBase2 : public ProgramBase {
 
         private:
-        TTheme *const m_Theme;
-        TScreen *const m_Screen;
-        TRouter *const m_Router;
-        TApplication *const m_Application;
+        TTheme *m_Theme;
+        TScreen *m_Screen;
+        TRouter *m_Router;
+        TApplication *m_Application;
 
         protected:
         TTheme *Theme() const;
@@ -29,12 +24,16 @@ namespace GameFrameworkPro {
         TApplication *Application() const;
 
         protected:
-        explicit ProgramBase2(TApplication *const application, TRouter *const router, TScreen *const screen, TTheme *const theme);
+        explicit ProgramBase2();
+        explicit ProgramBase2(TTheme *const theme, TScreen *const screen, TRouter *const router, TApplication *const application);
 
         public:
         explicit ProgramBase2(const ProgramBase2 &) = delete;
         explicit ProgramBase2(ProgramBase2 &&) = delete;
         ~ProgramBase2() override;
+
+        protected:
+        void Initialize(TTheme *const theme, TScreen *const screen, TRouter *const router, TApplication *const application);
 
         public:
         ProgramBase2 &operator=(const ProgramBase2 &) = delete;
@@ -52,7 +51,7 @@ namespace GameFrameworkPro {
         TApplication *Application() const;
 
         protected:
-        explicit ThemeBase2(TApplication *const application, TRouter *const router);
+        explicit ThemeBase2(TRouter *const router, TApplication *const application);
 
         public:
         explicit ThemeBase2(const ThemeBase2 &) = delete;
@@ -75,7 +74,7 @@ namespace GameFrameworkPro {
         TApplication *Application() const;
 
         protected:
-        explicit ScreenBase2(TApplication *const application, TRouter *const router);
+        explicit ScreenBase2(TRouter *const router, TApplication *const application);
 
         public:
         explicit ScreenBase2(const ScreenBase2 &) = delete;
@@ -87,7 +86,7 @@ namespace GameFrameworkPro {
         ScreenBase2 &operator=(ScreenBase2 &&) = delete;
     };
     template <typename TTheme, typename TScreen, typename TApplication>
-    class RouterBase2 {
+    class RouterBase2 : public RouterBase {
 
         private:
         const function<TTheme *()> m_Theme;
@@ -100,12 +99,12 @@ namespace GameFrameworkPro {
         TApplication *Application() const;
 
         protected:
-        explicit RouterBase2(TApplication *const application, const function<TScreen *()> screen, const function<TTheme *()> theme);
+        explicit RouterBase2(const function<TTheme *()> theme, const function<TScreen *()> screen, TApplication *const application);
 
         public:
         explicit RouterBase2(const RouterBase2 &) = delete;
         explicit RouterBase2(RouterBase2 &&) = delete;
-        virtual ~RouterBase2();
+        ~RouterBase2() override;
 
         public:
         RouterBase2 &operator=(const RouterBase2 &) = delete;

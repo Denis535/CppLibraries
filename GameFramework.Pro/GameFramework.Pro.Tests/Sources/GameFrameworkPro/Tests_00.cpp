@@ -81,8 +81,8 @@ namespace GameFrameworkPro {
     class Router final : RouterBase2<Theme, Screen, Application> {
 
         public:
-        explicit Router(class Application *const application, const function<class Screen *()> screen, const function<class Theme *()> theme)
-            : RouterBase2(application, screen, theme) {
+        explicit Router(const function<class Theme *()> theme, const function<class Screen *()> screen, class Application *const application)
+            : RouterBase2(theme, screen, application) {
         }
         Router(const Router &) = delete;
         Router(Router &&) = delete;
@@ -207,8 +207,8 @@ namespace GameFrameworkPro {
     class Screen final : public ScreenBase2<Router, Application> {
 
         public:
-        explicit Screen(class Application *const application, class Router *const router)
-            : ScreenBase2(application, router) {
+        explicit Screen(class Router *const router, class Application *const application)
+            : ScreenBase2(router, application) {
             this->AddRoot(new RootWidget(), nullptr);
         }
         Screen(const Screen &) = delete;
@@ -249,8 +249,8 @@ namespace GameFrameworkPro {
     class Theme final : public ThemeBase2<Router, Application> {
 
         public:
-        explicit Theme(class Application *const application, class Router *const router)
-            : ThemeBase2(application, router) {
+        explicit Theme(class Router *const router, class Application *const application)
+            : ThemeBase2(router, application) {
             this->SetState(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             this->SetState(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
@@ -269,8 +269,12 @@ namespace GameFrameworkPro {
     class Program final : public ProgramBase2<Theme, Screen, Router, Application> {
 
         public:
-        explicit Program()
-            : ProgramBase2(new class Application(), new class Router(this->Application(), [this]() { return this->Screen(); }, [this]() { return this->Theme(); }), new class Screen(this->Application(), this->Router()), new class Theme(this->Application(), this->Router())) {
+        explicit Program() {
+            auto *const application = new class Application();
+            auto *const router = new class Router([this]() { return this->Theme(); }, [this]() { return this->Screen(); }, application);
+            auto *const screen = new class Screen(router, application);
+            auto *const theme = new class Theme(router, application);
+            this->Initialize(theme, screen, router, application);
         }
         Program(const Program &) = delete;
         Program(Program &&) = delete;
