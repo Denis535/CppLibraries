@@ -3,8 +3,6 @@
 #include "gtest/gtest.h"
 
 namespace GameFrameworkPro {
-    using namespace std;
-    using namespace std::extensions::event_pro;
 
     // Game
     class Entity final : public EntityBase {

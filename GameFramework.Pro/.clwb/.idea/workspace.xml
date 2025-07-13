@@ -33,7 +33,6 @@
     <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase2.h" afterDir="false" />
     </list>
@@ -151,7 +150,7 @@
       <workItem from="1752322544252" duration="1368000" />
       <workItem from="1752338513543" duration="4291000" />
       <workItem from="1752344778825" duration="2857000" />
-      <workItem from="1752385799525" duration="3335000" />
+      <workItem from="1752385799525" duration="3696000" />
     </task>
     <servers />
   </component>
