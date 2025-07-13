@@ -106,7 +106,7 @@ namespace GameFrameworkPro {
     class ViewableWidgetBase : public WidgetBase {
 
         private:
-        ViewBase *m_View = nullptr;
+        ViewBase *m_View;
 
         public:
         [[nodiscard]] ViewBase *View() const; // NOLINT

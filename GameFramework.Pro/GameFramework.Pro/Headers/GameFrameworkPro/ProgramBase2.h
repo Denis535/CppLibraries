@@ -93,17 +93,22 @@ namespace GameFrameworkPro {
     class RouterBase2 : public RouterBase {
 
         private:
-        const function<TTheme *()> m_Theme;
-        const function<TScreen *()> m_Screen;
-        TApplication *const m_Application;
+        function<TTheme *()> m_Theme;
+        function<TScreen *()> m_Screen;
+        TApplication *m_Application;
 
         protected:
         [[nodiscard]] TTheme *Theme() const;
+        void SetTheme(const function<TTheme *()> theme);
+
         [[nodiscard]] TScreen *Screen() const;
+        void SetScreen(const function<TScreen *()> screen);
+
         [[nodiscard]] TApplication *Application() const;
+        void SetApplication(TApplication *const application);
 
         protected:
-        explicit RouterBase2(const function<TTheme *()> theme, const function<TScreen *()> screen, TApplication *const application);
+        explicit RouterBase2();
 
         public:
         RouterBase2(const RouterBase2 &) = delete;

@@ -79,8 +79,10 @@ namespace GameFrameworkPro {
     class Router final : RouterBase2<Theme, Screen, Application> {
 
         public:
-        explicit Router(const function<class Theme *()> theme, const function<class Screen *()> screen, class Application *const application)
-            : RouterBase2(theme, screen, application) {
+        explicit Router(const function<class Theme *()> theme, const function<class Screen *()> screen, class Application *const application) {
+            this->SetTheme(theme);
+            this->SetScreen(screen);
+            this->SetApplication(application);
         }
         Router(const Router &) = delete;
         Router(Router &&) = delete;

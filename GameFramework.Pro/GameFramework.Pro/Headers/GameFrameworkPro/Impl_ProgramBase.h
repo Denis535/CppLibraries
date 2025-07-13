@@ -103,7 +103,9 @@ namespace GameFrameworkPro {
         this->m_View = view;
     }
 
-    inline ViewableWidgetBase::ViewableWidgetBase() = default;
+    inline ViewableWidgetBase::ViewableWidgetBase()
+        : m_View(nullptr) {
+    }
     inline ViewableWidgetBase::~ViewableWidgetBase() = default;
 
     // ### ViewableWidgetBase_Typed ###

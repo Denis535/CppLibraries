@@ -1,9 +1,7 @@
 #pragma once
 #include <cassert>
-#include <functional>
 #include "GameFrameworkPro/ProgramBase2.h"
 #include "StateMachinePro.h"
-#include "TreeMachinePro.h"
 
 namespace GameFrameworkPro {
 
@@ -115,27 +113,45 @@ namespace GameFrameworkPro {
     template <typename TTheme, typename TScreen, typename TApplication>
     TTheme *RouterBase2<TTheme, TScreen, TApplication>::Theme() const {
         assert(this->m_Theme != nullptr);
-        return this->m_Theme();
+        auto *result = this->m_Theme();
+        assert(result != nullptr);
+        return result;
     }
+    template <typename TTheme, typename TScreen, typename TApplication>
+    void RouterBase2<TTheme, TScreen, TApplication>::SetTheme(const function<TTheme *()> theme) {
+        assert(theme != nullptr);
+        this->m_Theme = theme;
+    }
+
     template <typename TTheme, typename TScreen, typename TApplication>
     TScreen *RouterBase2<TTheme, TScreen, TApplication>::Screen() const {
         assert(this->m_Screen != nullptr);
-        return this->m_Screen();
+        auto *result = this->m_Screen();
+        assert(result != nullptr);
+        return result;
     }
+    template <typename TTheme, typename TScreen, typename TApplication>
+    void RouterBase2<TTheme, TScreen, TApplication>::SetScreen(const function<TScreen *()> screen) {
+        assert(screen != nullptr);
+        this->m_Screen = screen;
+    }
+
     template <typename TTheme, typename TScreen, typename TApplication>
     TApplication *RouterBase2<TTheme, TScreen, TApplication>::Application() const {
         assert(this->m_Application != nullptr);
         return this->m_Application;
     }
+    template <typename TTheme, typename TScreen, typename TApplication>
+    void RouterBase2<TTheme, TScreen, TApplication>::SetApplication(TApplication *const application) {
+        assert(application != nullptr);
+        this->m_Application = application;
+    }
 
     template <typename TTheme, typename TScreen, typename TApplication>
-    RouterBase2<TTheme, TScreen, TApplication>::RouterBase2(const function<TTheme *()> theme, const function<TScreen *()> screen, TApplication *const application)
-        : m_Theme(theme),
-          m_Screen(screen),
-          m_Application(application) {
-        assert(this->m_Theme != nullptr);
-        assert(this->m_Screen != nullptr);
-        assert(this->m_Application != nullptr);
+    RouterBase2<TTheme, TScreen, TApplication>::RouterBase2()
+        : m_Theme(nullptr),
+          m_Screen(nullptr),
+          m_Application(nullptr) {
     }
     template <typename TTheme, typename TScreen, typename TApplication>
     RouterBase2<TTheme, TScreen, TApplication>::~RouterBase2() = default;
