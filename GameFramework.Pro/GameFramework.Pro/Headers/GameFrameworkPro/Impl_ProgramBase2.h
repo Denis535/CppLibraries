@@ -59,12 +59,7 @@ namespace GameFrameworkPro {
           m_Application(nullptr) {
     }
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
-    ProgramBase2<TTheme, TScreen, TRouter, TApplication>::~ProgramBase2() {
-        delete this->m_Theme;
-        delete this->m_Screen;
-        delete this->m_Router;
-        delete this->m_Application;
-    }
+    ProgramBase2<TTheme, TScreen, TRouter, TApplication>::~ProgramBase2() = default;
 
     // ### ThemeBase ###
     template <typename TRouter, typename TApplication>

@@ -283,7 +283,12 @@ namespace GameFrameworkPro {
         }
         Program(const Program &) = delete;
         Program(Program &&) = delete;
-        ~Program() override = default;
+        ~Program() override {
+            delete this->Application();
+            delete this->Router();
+            delete this->Screen();
+            delete this->Theme();
+        }
 
         public:
         Program &operator=(const Program &) = delete;
