@@ -211,8 +211,9 @@ namespace GameFrameworkPro {
     class Screen final : public ScreenBase2<Router, Application> {
 
         public:
-        explicit Screen(class Router *const router, class Application *const application)
-            : ScreenBase2(router, application) {
+        explicit Screen(class Router *const router, class Application *const application) {
+            this->SetRouter(router);
+            this->SetApplication(application);
             this->AddRoot(new RootWidget(), nullptr);
         }
         Screen(const Screen &) = delete;
@@ -253,8 +254,9 @@ namespace GameFrameworkPro {
     class Theme final : public ThemeBase2<Router, Application> {
 
         public:
-        explicit Theme(class Router *const router, class Application *const application)
-            : ThemeBase2(router, application) {
+        explicit Theme(class Router *const router, class Application *const application) {
+            this->SetRouter(router);
+            this->SetApplication(application);
             this->SetState(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             this->SetState(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }

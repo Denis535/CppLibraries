@@ -2,6 +2,7 @@
 #include <cassert>
 #include "GameFrameworkPro/ProgramBase2.h"
 #include "StateMachinePro.h"
+#include "TreeMachinePro.h"
 
 namespace GameFrameworkPro {
 
@@ -72,17 +73,26 @@ namespace GameFrameworkPro {
         return this->m_Router;
     }
     template <typename TRouter, typename TApplication>
+    void ThemeBase2<TRouter, TApplication>::SetRouter(TRouter *const router) {
+        assert(router != nullptr);
+        this->m_Router = router;
+    }
+
+    template <typename TRouter, typename TApplication>
     TApplication *ThemeBase2<TRouter, TApplication>::Application() const {
         assert(this->m_Application != nullptr);
         return this->m_Application;
     }
+    template <typename TRouter, typename TApplication>
+    void ThemeBase2<TRouter, TApplication>::SetApplication(TApplication *const application) {
+        assert(application != nullptr);
+        this->m_Application = application;
+    }
 
     template <typename TRouter, typename TApplication>
-    ThemeBase2<TRouter, TApplication>::ThemeBase2(TRouter *const router, TApplication *const application)
-        : m_Router(router),
-          m_Application(application) {
-        assert(this->m_Router != nullptr);
-        assert(this->m_Application != nullptr);
+    ThemeBase2<TRouter, TApplication>::ThemeBase2()
+        : m_Router(nullptr),
+          m_Application(nullptr) {
     }
     template <typename TRouter, typename TApplication>
     ThemeBase2<TRouter, TApplication>::~ThemeBase2() = default;
@@ -94,17 +104,26 @@ namespace GameFrameworkPro {
         return this->m_Router;
     }
     template <typename TRouter, typename TApplication>
+    void ScreenBase2<TRouter, TApplication>::SetRouter(TRouter *const router) {
+        assert(router != nullptr);
+        this->m_Router = router;
+    }
+
+    template <typename TRouter, typename TApplication>
     TApplication *ScreenBase2<TRouter, TApplication>::Application() const {
         assert(this->m_Application != nullptr);
         return this->m_Application;
     }
+    template <typename TRouter, typename TApplication>
+    void ScreenBase2<TRouter, TApplication>::SetApplication(TApplication *const application) {
+        assert(application != nullptr);
+        this->m_Application = application;
+    }
 
     template <typename TRouter, typename TApplication>
-    ScreenBase2<TRouter, TApplication>::ScreenBase2(TRouter *const router, TApplication *const application)
-        : m_Router(router),
-          m_Application(application) {
-        assert(this->m_Router != nullptr);
-        assert(this->m_Application != nullptr);
+    ScreenBase2<TRouter, TApplication>::ScreenBase2()
+        : m_Router(nullptr),
+          m_Application(nullptr) {
     }
     template <typename TRouter, typename TApplication>
     ScreenBase2<TRouter, TApplication>::~ScreenBase2() = default;

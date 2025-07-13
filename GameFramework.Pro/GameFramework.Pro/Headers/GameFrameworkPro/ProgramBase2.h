@@ -47,15 +47,18 @@ namespace GameFrameworkPro {
     class ThemeBase2 : public ThemeBase {
 
         private:
-        TRouter *const m_Router;
-        TApplication *const m_Application;
+        TRouter *m_Router;
+        TApplication *m_Application;
 
         protected:
         [[nodiscard]] TRouter *Router() const;
+        void SetRouter(TRouter *const router);
+
         [[nodiscard]] TApplication *Application() const;
+        void SetApplication(TApplication *const application);
 
         protected:
-        explicit ThemeBase2(TRouter *const router, TApplication *const application);
+        explicit ThemeBase2();
 
         public:
         ThemeBase2(const ThemeBase2 &) = delete;
@@ -70,15 +73,18 @@ namespace GameFrameworkPro {
     class ScreenBase2 : public ScreenBase {
 
         private:
-        TRouter *const m_Router;
-        TApplication *const m_Application;
+        TRouter *m_Router;
+        TApplication *m_Application;
 
         protected:
         [[nodiscard]] TRouter *Router() const;
+        void SetRouter(TRouter *const router);
+
         [[nodiscard]] TApplication *Application() const;
+        void SetApplication(TApplication *const application);
 
         protected:
-        explicit ScreenBase2(TRouter *const router, TApplication *const application);
+        explicit ScreenBase2();
 
         public:
         ScreenBase2(const ScreenBase2 &) = delete;
