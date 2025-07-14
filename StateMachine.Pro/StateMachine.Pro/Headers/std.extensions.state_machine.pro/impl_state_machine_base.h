@@ -11,7 +11,8 @@ namespace std::extensions::state_machine::pro {
     }
 
     template <typename T>
-    state_machine_base<T>::state_machine_base() {
+    state_machine_base<T>::state_machine_base()
+        : m_state(nullptr) {
         static_assert(is_base_of_v<state_base<T>, T>);
     }
     template <typename T>

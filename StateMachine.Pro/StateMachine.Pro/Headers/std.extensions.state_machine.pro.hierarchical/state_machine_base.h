@@ -9,7 +9,7 @@ namespace std::extensions::state_machine::pro::hierarchical {
     class state_machine_base {
 
         private:
-        T *m_state = nullptr;
+        T *m_state;
 
         protected:
         [[nodiscard]] T *state() const;

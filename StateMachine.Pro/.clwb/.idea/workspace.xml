@@ -31,23 +31,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro.Hierarchical/StateMachine.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro.Hierarchical/Tests_00.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro/StateMachine.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro/Tests_00.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/Impl_StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/Impl_StateMachineBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/StateMachineBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/Impl_StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/Impl_StateMachineBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/StateMachineBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro.hierarchical/impl_state_machine_base.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro.hierarchical/impl_state_machine_base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro.hierarchical/state_machine_base.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro.hierarchical/state_machine_base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro/impl_state_machine_base.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro/impl_state_machine_base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro/state_machine_base.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro/state_machine_base.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +153,7 @@
       <workItem from="1752506409308" duration="202000" />
       <workItem from="1752506667665" duration="7085000" />
       <workItem from="1752514117104" duration="510000" />
-      <workItem from="1752515276810" duration="2252000" />
+      <workItem from="1752515276810" duration="2969000" />
     </task>
     <servers />
   </component>
