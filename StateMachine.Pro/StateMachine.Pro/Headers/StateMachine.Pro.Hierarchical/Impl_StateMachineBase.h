@@ -1,8 +1,8 @@
 #pragma once
 #include <cassert>
-#include "StateMachinePro/StateMachineBase.h"
+#include "StateMachine.Pro.Hierarchical/StateMachineBase.h"
 
-namespace StateMachinePro {
+namespace StateMachine::Pro::Hierarchical {
     using namespace std;
 
     template <typename T>

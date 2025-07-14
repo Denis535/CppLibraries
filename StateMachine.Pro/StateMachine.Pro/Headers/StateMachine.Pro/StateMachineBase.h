@@ -2,7 +2,7 @@
 #include <any>
 #include <functional>
 
-namespace StateMachinePro {
+namespace StateMachine::Pro {
     using namespace std;
 
     template <typename T>

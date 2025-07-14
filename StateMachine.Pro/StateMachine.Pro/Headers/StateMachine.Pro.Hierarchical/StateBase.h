@@ -1,11 +1,12 @@
 #pragma once
 #include <any>
+#include <functional>
 #include <variant>
-#include "event_pro.h"
+#include "event.pro.h"
 
-namespace StateMachinePro {
+namespace StateMachine::Pro::Hierarchical {
     using namespace std;
-    using namespace std::extensions::event_pro;
+    using namespace std::extensions::event::pro;
 
     template <typename T>
     class StateMachineBase;
@@ -23,10 +24,13 @@ namespace StateMachinePro {
         };
 
         private:
-        variant<nullptr_t, StateMachineBase<TThis> *> m_Owner = nullptr;
+        variant<nullptr_t, StateMachineBase<TThis> *, TThis *> m_Owner = nullptr;
 
         private:
         Activity_ m_Activity = Activity_::Inactive;
+
+        private:
+        TThis *m_Child = nullptr;
 
         private:
         multicast_event<const any> m_OnBeforeAttachCallback;
@@ -43,8 +47,28 @@ namespace StateMachinePro {
         public:
         [[nodiscard]] StateMachineBase<TThis> *Machine() const;
 
+        private:
+        [[nodiscard]] StateMachineBase<TThis> *Machine_NoRecursive() const; // NOLINT
+
+        public:
+        [[nodiscard]] bool IsRoot() const;
+        [[nodiscard]] const TThis *Root() const;
+        [[nodiscard]] TThis *Root();
+
+        public:
+        [[nodiscard]] TThis *Parent() const;
+        [[nodiscard]] vector<TThis *> Ancestors() const;
+        [[nodiscard]] vector<const TThis *> AncestorsAndSelf() const;
+        [[nodiscard]] vector<TThis *> AncestorsAndSelf();
+
         public:
         [[nodiscard]] Activity_ Activity() const;
+
+        public:
+        [[nodiscard]] TThis *Child() const;
+        [[nodiscard]] vector<TThis *> Descendants() const;
+        [[nodiscard]] vector<const TThis *> DescendantsAndSelf() const;
+        [[nodiscard]] vector<TThis *> DescendantsAndSelf();
 
         public:
         [[nodiscard]] multicast_callback_registry<const any> &OnBeforeAttachCallback();
@@ -68,7 +92,9 @@ namespace StateMachinePro {
 
         private:
         void Attach(StateMachineBase<TThis> *const machine, const any argument);
+        void Attach(TThis *const parent, const any argument);
         void Detach(StateMachineBase<TThis> *const machine, const any argument);
+        void Detach(TThis *const parent, const any argument);
 
         private:
         void Activate(const any argument);
@@ -89,6 +115,13 @@ namespace StateMachinePro {
         virtual void OnDeactivate(const any argument);       // overriding methods must invoke base implementation
         virtual void OnBeforeDeactivate(const any argument); // overriding methods must invoke base implementation
         virtual void OnAfterDeactivate(const any argument);  // overriding methods must invoke base implementation
+
+        protected:
+        virtual void SetChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
+        virtual void AddChild(TThis *const child, const any argument);
+        virtual void RemoveChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
+        void RemoveChild(const any argument, const function<void(const TThis *const, const any)> callback);
+        void RemoveSelf(const any argument, const function<void(const TThis *const, const any)> callback);
 
         public:
         StateBase &operator=(const StateBase &) = delete;

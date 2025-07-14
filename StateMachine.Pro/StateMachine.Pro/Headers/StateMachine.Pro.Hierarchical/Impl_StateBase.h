@@ -1,11 +1,11 @@
 #pragma once
 #include <cassert>
-#include "event_pro.h"
-#include "StateMachinePro.Hierarchical/StateBase.h"
+#include "event.pro.h"
+#include "StateMachine.Pro.Hierarchical/StateBase.h"
 
-namespace StateMachinePro::Hierarchical {
+namespace StateMachine::Pro::Hierarchical {
     using namespace std;
-    using namespace std::extensions::event_pro;
+    using namespace std::extensions::event::pro;
 
     template <typename TThis>
     StateMachineBase<TThis> *StateBase<TThis>::Machine() const {

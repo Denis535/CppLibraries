@@ -5,7 +5,7 @@ The library that allows you to easily implement a stateful object.
 # Reference
 
 ```
-namespace StateMachinePro {
+namespace StateMachine::Pro {
     template <typename T>
     class StateMachineBase {
 
@@ -34,7 +34,7 @@ namespace StateMachinePro {
 ```
 
 ```
-namespace StateMachinePro {
+namespace StateMachine::Pro {
     template <typename TThis>
     class StateBase {
 
@@ -98,7 +98,7 @@ namespace StateMachinePro {
 # Reference (Hierarchical)
 
 ```
-namespace StateMachinePro::Hierarchical {
+namespace StateMachine::Pro::Hierarchical {
     template <typename T>
     class StateMachineBase {
 
@@ -127,7 +127,7 @@ namespace StateMachinePro::Hierarchical {
 ```
 
 ```
-namespace StateMachinePro::Hierarchical {
+namespace StateMachine::Pro::Hierarchical {
     template <typename TThis>
     class StateBase {
 
@@ -216,9 +216,9 @@ namespace StateMachinePro::Hierarchical {
 
 ```
 #pragma once
-#include "StateMachinePro.h"
+#include "StateMachine.Pro.h"
 
-namespace StateMachinePro {
+namespace StateMachine::Pro {
     using namespace std;
 
     class State : public StateBase<State> {

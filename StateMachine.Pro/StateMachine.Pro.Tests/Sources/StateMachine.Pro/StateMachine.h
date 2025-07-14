@@ -1,7 +1,7 @@
 #pragma once
-#include "StateMachinePro.h"
+#include "StateMachine.Pro.h"
 
-namespace StateMachinePro::Hierarchical {
+namespace StateMachine::Pro {
     using namespace std;
 
     class State : public StateBase<State> {
@@ -10,11 +10,7 @@ namespace StateMachinePro::Hierarchical {
         explicit State() = default;
         State(const State &) = delete;
         State(State &&) = delete;
-        ~State() override {
-            if (this->Child() != nullptr) {
-                this->RemoveChild(nullptr, [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
-            }
-        }
+        ~State() override = default;
 
         protected:
         void OnAttach(const any argument) override {

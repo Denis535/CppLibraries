@@ -2,7 +2,7 @@
 #include <any>
 #include <functional>
 
-namespace StateMachinePro::Hierarchical {
+namespace StateMachine::Pro::Hierarchical {
     using namespace std;
 
     template <typename T>
