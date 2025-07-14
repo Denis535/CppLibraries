@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="49" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="4" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoRenameType/@EntryValue" value="false" type="bool" />
@@ -21,9 +21,6 @@
     <option name="projectViewFile" value="D:\Projects\Cpp.Libraries\TreeMachine.Pro\.clwb\.bazelproject" />
     <option name="workspaceRoot" value="D:\Projects\Cpp.Libraries\TreeMachine.Pro" />
   </component>
-  <component name="BlazeSyncStatusState">
-    <option name="dirty" value="true" />
-  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -34,26 +31,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro.Tests/Sources/StateMachine.Pro.Hierarchical/StateMachine.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro.Tests/Sources/StateMachine.Pro.Hierarchical/Tests_00.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro.Tests/Sources/StateMachine.Pro/StateMachine.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro.Tests/Sources/StateMachine.Pro/Tests_00.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/Impl_StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/Impl_StateMachineBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/StateMachineBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/state_machine.pro.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro/Impl_StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro/Impl_StateMachineBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro/StateBase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/StateMachine.Pro/Headers/StateMachine.Pro/StateMachineBase.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_01.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_01.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_02.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_02.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,6 +151,7 @@
       <workItem from="1752483201955" duration="10397000" />
       <workItem from="1752496550042" duration="1084000" />
       <workItem from="1752514637550" duration="628000" />
+      <workItem from="1752521134330" duration="466000" />
     </task>
     <servers />
   </component>

@@ -18,9 +18,6 @@
     <option name="projectViewFile" value="D:\Projects\Cpp.Libraries\StateMachine.Pro\.clwb\.bazelproject" />
     <option name="workspaceRoot" value="D:\Projects\Cpp.Libraries\StateMachine.Pro" />
   </component>
-  <component name="BlazeSyncStatusState">
-    <option name="lastSyncFailed" value="true" />
-  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -31,9 +28,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro.hierarchical/impl_state_base.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro.hierarchical/impl_state_base.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro/impl_state_base.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/std.extensions.state_machine.pro/impl_state_base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aspects/tools/JarFilter_deploy.jar" beforeDir="false" afterPath="$PROJECT_DIR$/aspects/tools/JarFilter_deploy.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,8 +109,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Bazel Command.Test" />
       <item itemvalue="Bazel Command.Clean" />
+      <item itemvalue="Bazel Command.Test" />
     </list>
   </component>
   <component name="TaskManager">
@@ -152,6 +150,8 @@
       <workItem from="1752506667665" duration="7085000" />
       <workItem from="1752514117104" duration="510000" />
       <workItem from="1752515276810" duration="3997000" />
+      <workItem from="1752520849245" duration="9000" />
+      <workItem from="1752521611159" duration="100000" />
     </task>
     <servers />
   </component>
