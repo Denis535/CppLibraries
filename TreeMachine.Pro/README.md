@@ -5,7 +5,7 @@ The library that allows you to easily implement a hierarchical object.
 # Reference
 
 ```
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     template <typename T>
     class TreeMachineBase {
 
@@ -33,7 +33,7 @@ namespace TreeMachinePro {
 ```
 
 ```
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     template <typename TThis>
     class NodeBase {
 
@@ -124,7 +124,7 @@ namespace TreeMachinePro {
 ```
 
 ```
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     template <typename TThis>
     class NodeBase2 : public NodeBase<TThis> {
 
@@ -183,9 +183,9 @@ namespace TreeMachinePro {
 
 ```
 #pragma once
-#include "TreeMachinePro.h"
+#include "TreeMachine.Pro.h"
 
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     using namespace std;
 
     class Node : public NodeBase2<Node> {
