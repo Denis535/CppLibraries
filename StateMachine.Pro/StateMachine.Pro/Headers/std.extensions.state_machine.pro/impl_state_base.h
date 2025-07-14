@@ -77,7 +77,9 @@ namespace std::extensions::state_machine::pro {
             this->on_attach(argument);
             this->on_after_attach(argument);
         }
-        this->activate(argument);
+        if constexpr (true) { // NOLINT
+            this->activate(argument);
+        }
     }
 
     template <typename TThis>
@@ -85,7 +87,9 @@ namespace std::extensions::state_machine::pro {
         assert(machine != nullptr && "Argument 'machine' must be non-null");
         assert(this->machine() == machine && "State must have machine");
         assert(this->m_activity == activity_::active && "State must be active");
-        this->deactivate(argument);
+        if constexpr (true) { // NOLINT
+            this->deactivate(argument);
+        }
         {
             this->on_before_detach(argument);
             this->on_detach(argument);

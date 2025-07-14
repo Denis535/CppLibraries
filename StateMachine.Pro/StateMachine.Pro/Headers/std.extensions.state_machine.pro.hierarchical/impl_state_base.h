@@ -176,7 +176,7 @@ namespace std::extensions::state_machine::pro::hierarchical {
             this->on_attach(argument);
             this->on_after_attach(argument);
         }
-        {
+        if constexpr (true) { // NOLINT
             this->activate(argument);
         }
     }
@@ -203,7 +203,7 @@ namespace std::extensions::state_machine::pro::hierarchical {
         assert(machine != nullptr && "Argument 'machine' must be non-null");
         assert(this->machine_no_recursive() == machine && "State must have stateful");
         assert(this->m_activity == activity_::active && "State must be active");
-        {
+        if constexpr (true) { // NOLINT
             this->deactivate(argument);
         }
         {
