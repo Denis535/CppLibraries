@@ -5,12 +5,12 @@ The library that allows you to implement a simple event system.
 # Example
 
 ```
-#include "event_pro.h"
+#include "event.pro.h"
 using namespace std;
-using namespace std::extensions::event_pro;
+using namespace std::extensions::event::pro;
 
 auto obj = my_object();
-auto evt = event<int>();
+auto evt = unicast_event<int>();
 
 evt.callback_registry().add(&my_method);
 evt.emit(777);
@@ -22,9 +22,9 @@ evt.callback_registry().remove(&obj, &my_class::my_method);
 ```
 
 ```
-#include "event_pro.h"
+#include "event.pro.h"
 using namespace std;
-using namespace std::extensions::event_pro;
+using namespace std::extensions::event::pro;
 
 auto obj = my_class();
 auto evt = multicast_event<int>();

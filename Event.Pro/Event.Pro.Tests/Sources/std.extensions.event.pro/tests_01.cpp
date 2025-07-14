@@ -1,14 +1,14 @@
 #include <string>
-#include "event_pro.h"
+#include "event.pro.h"
 #include "gtest/gtest.h"
 
-namespace std::extensions::event_pro {
+namespace std::extensions::event::pro {
     using namespace std;
 
-    void my_method(string arg) { // NOLINT
+    static void my_method(string arg) { // NOLINT
         cout << arg << endl;
     }
-    void my_method_2(string arg) { // NOLINT
+    static void my_method_2(string arg) { // NOLINT
         cout << arg << endl;
     }
 
@@ -22,39 +22,7 @@ namespace std::extensions::event_pro {
         }
     };
 
-    TEST(tests_00, test_00) { // NOLINT
-        auto evt = unicast_event<string>();
-        evt.emit("777");
-        evt.callback_registry().add(&my_method);
-        evt.callback_registry().remove(&my_method);
-        evt.callback_registry().add(&my_method);
-        evt.emit("777");
-        evt.callback_registry().remove(&my_method);
-        evt.emit("777");
-    }
-    TEST(tests_00, test_01) { // NOLINT
-        auto obj = my_class();
-        auto evt = unicast_event<string>();
-        evt.emit("777");
-        evt.callback_registry().add(&obj, &my_class::my_method);
-        evt.callback_registry().remove(&obj, &my_class::my_method);
-        evt.callback_registry().add(&obj, &my_class::my_method);
-        evt.emit("777");
-        evt.callback_registry().remove(&obj, &my_class::my_method);
-        evt.emit("777");
-    }
-    TEST(tests_00, test_02) { // NOLINT
-        auto evt = unicast_event<string>();
-        auto lambda = [&evt](string arg) { cout << arg << endl; };
-        evt.callback_registry().add(lambda);
-        evt.callback_registry().remove(lambda);
-        evt.callback_registry().add(lambda);
-        evt.emit("777");
-        evt.callback_registry().remove(lambda);
-        evt.emit("777");
-    }
-
-    TEST(tests_00, test_10) { // NOLINT
+    TEST(tests_01, test_00) { // NOLINT
         auto evt = multicast_event<string>();
         evt.emit("777");
         evt.callback_registry().add(&my_method);
@@ -66,7 +34,7 @@ namespace std::extensions::event_pro {
         evt.callback_registry().remove(&my_method);
         evt.emit("777");
     }
-    TEST(tests_00, test_11) { // NOLINT
+    TEST(tests_01, test_01) { // NOLINT
         auto obj = my_class();
         auto evt = multicast_event<string>();
         evt.emit("777");
@@ -79,7 +47,7 @@ namespace std::extensions::event_pro {
         evt.callback_registry().remove(&obj, &my_class::my_method);
         evt.emit("777");
     }
-    TEST(tests_00, test_12) { // NOLINT
+    TEST(tests_01, test_02) { // NOLINT
         auto evt = multicast_event<string>();
         auto lambda = [&evt](string arg) { cout << arg << endl; };
         evt.callback_registry().add(lambda);

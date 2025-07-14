@@ -1,11 +1,11 @@
 #pragma once
 #include <cassert>
 #include <vector>
-#include "std.extensions.event_pro.internal/callback.h"
+#include "std.extensions.event.pro.internal/callback.h"
 
-namespace std::extensions::event_pro {
+namespace std::extensions::event::pro {
     using namespace std;
-    using namespace std::extensions::event_pro::internal;
+    using namespace std::extensions::event::pro::internal;
 
     template <typename... TArgs>
     class multicast_event;
