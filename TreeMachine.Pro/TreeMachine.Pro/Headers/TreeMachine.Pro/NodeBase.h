@@ -3,11 +3,11 @@
 #include <list>
 #include <variant>
 #include <vector>
-#include "event_pro.h"
+#include "event.pro.h"
 
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     using namespace std;
-    using namespace std::extensions::event_pro;
+    using namespace std::extensions::event::pro;
 
     template <typename T>
     class TreeMachineBase;

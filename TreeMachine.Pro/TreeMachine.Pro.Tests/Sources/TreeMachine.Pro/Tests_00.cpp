@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "TreeMachine.h"
 
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     using namespace std;
 
     TEST(Tests_00, Test_00) { // NOLINT

@@ -1,7 +1,7 @@
 #pragma once
-#include "TreeMachinePro.h"
+#include "TreeMachine.Pro.h"
 
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     using namespace std;
 
     class Node : public NodeBase2<Node> {

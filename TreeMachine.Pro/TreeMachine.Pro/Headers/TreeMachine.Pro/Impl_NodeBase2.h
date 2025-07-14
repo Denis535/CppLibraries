@@ -1,12 +1,12 @@
 #pragma once
 #include <any>
-#include "event_pro.h"
-#include "TreeMachinePro.Internal/Helpers.h"
-#include "TreeMachinePro/NodeBase2.h"
+#include "event.pro.h"
+#include "TreeMachine.Pro.Internal/Helpers.h"
+#include "TreeMachine.Pro/NodeBase2.h"
 
-namespace TreeMachinePro {
-    using namespace std::extensions::event_pro;
-    using namespace TreeMachinePro::Internal;
+namespace TreeMachine::Pro {
+    using namespace std::extensions::event::pro;
+    using namespace TreeMachine::Pro::Internal;
 
     template <typename TThis>
     multicast_callback_registry<TThis *const, const any> &NodeBase2<TThis>::OnBeforeDescendantAttachCallback() {

@@ -5,13 +5,13 @@
 #include <list>
 #include <variant>
 #include <vector>
-#include "event_pro.h"
-#include "TreeMachinePro.Internal/Helpers.h"
-#include "TreeMachinePro/NodeBase.h"
+#include "event.pro.h"
+#include "TreeMachine.Pro.Internal/Helpers.h"
+#include "TreeMachine.Pro/NodeBase.h"
 
-namespace TreeMachinePro {
-    using namespace std::extensions::event_pro;
-    using namespace TreeMachinePro::Internal;
+namespace TreeMachine::Pro {
+    using namespace std::extensions::event::pro;
+    using namespace TreeMachine::Pro::Internal;
 
     template <typename TThis>
     TreeMachineBase<TThis> *NodeBase<TThis>::Machine() const {

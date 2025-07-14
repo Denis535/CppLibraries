@@ -2,7 +2,7 @@
 #include <any>
 #include <functional>
 
-namespace TreeMachinePro {
+namespace TreeMachine::Pro {
     using namespace std;
 
     template <typename T>
