@@ -4,7 +4,7 @@
 namespace std::extensions::tree_machine::pro {
     using namespace std;
 
-    TEST(Tests_01, Test_00) { // NOLINT
+    TEST(tests_01, test_00) { // NOLINT
         auto *const machine = new tree_machine();
         auto *const root = new root_node();
         auto *const a = new a_node();
@@ -53,7 +53,7 @@ namespace std::extensions::tree_machine::pro {
         delete machine;
     }
 
-    TEST(Tests_01, Test_01) { // NOLINT
+    TEST(tests_01, test_01) { // NOLINT
         auto *const machine = new tree_machine();
         auto *const root = new root_node();
         auto *const a = new a_node();
