@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="29" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="11" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/Housekeeping/RefactoringsMru/RenameRefactoring/DoRenameType/@EntryValue" value="false" type="bool" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
   </component>
   <component name="BlazeImportSettings">
@@ -30,10 +31,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3405bd3-d9bf-426f-ade2-1ae5a47f2a8f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_00.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_01.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tests_02.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/std.extensions.tree_machine.pro/tree_machine.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/std.extensions.tree_machine.pro/impl_node_base.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/std.extensions.tree_machine.pro/impl_node_base2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/std.extensions.tree_machine.pro/impl_tree_machine_base.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/std.extensions.tree_machine.pro/node_base.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/std.extensions.tree_machine.pro/node_base2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/std.extensions.tree_machine.pro/tree_machine_base.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-format" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-tidy" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clang-tidy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../.clang-format" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.clang-tidy" beforeDir="false" afterPath="$PROJECT_DIR$/../.clang-tidy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine.Pro/Tests_00.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine.Pro/Tests_01.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine.Pro/Tests_02.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro.Tests/Sources/TreeMachine.Pro/TreeMachine.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro.Internal/Helpers.h" beforeDir="false" afterPath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/std.extensions.tree_machine.pro.internal/helpers.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro/Impl_NodeBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro/Impl_NodeBase2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro/Impl_TreeMachineBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro/NodeBase.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro/NodeBase2.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TreeMachine.Pro/Headers/TreeMachine.Pro/TreeMachineBase.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +73,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/_bazel_Denis/husjs2la/execroot/_main/bazel-out/x64_windows-dbg/bin/TreeMachine.Pro/_virtual_includes/tree_machine_pro/tree_machine.pro/impl_node_base.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
@@ -59,33 +88,33 @@
     <option name="showLibraryContents" value="true" />
     <option name="showScratchesAndConsoles" value="false" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Bazel Command.Clean.executor": "Run",
-    "Bazel Command.Test.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "bazel.project.detector.is.bazel.project": "true",
-    "cf.advertisement.text.overridden": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Projects/Cpp.Libraries/TreeMachine.Pro",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Bazel Command.Clean.executor&quot;: &quot;Run&quot;,
+    &quot;Bazel Command.Test.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;bazel.project.detector.is.bazel.project&quot;: &quot;true&quot;,
+    &quot;cf.advertisement.text.overridden&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/Cpp.Libraries/TreeMachine.Pro&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Bazel Command.Test">
     <configuration name="Clean" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command">
       <blaze-settings blaze-command="clean" handler-id="BlazeCommandGenericRunConfigurationHandlerProvider">
@@ -145,7 +174,11 @@
       <workItem from="1752306560583" duration="2763000" />
       <workItem from="1752318474770" duration="1005000" />
       <workItem from="1752320025578" duration="169000" />
-      <workItem from="1752474682837" duration="2409000" />
+      <workItem from="1752474682837" duration="2514000" />
+      <workItem from="1752480545941" duration="2371000" />
+      <workItem from="1752483117547" duration="45000" />
+      <workItem from="1752483201955" duration="10397000" />
+      <workItem from="1752496550042" duration="693000" />
     </task>
     <servers />
   </component>

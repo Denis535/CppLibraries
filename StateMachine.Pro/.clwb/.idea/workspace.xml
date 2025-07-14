@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BackendCodeEditorMiscSettings">
-    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="31" type="long" />
+    <option name="/Default/Environment/Hierarchy/GeneratedFilesCacheKey/Timestamp/@EntryValue" value="40" type="long" />
     <option name="/Default/Housekeeping/FeatureSuggestion/FeatureSuggestionManager/DisabledSuggesters/=SwitchToGoToActionSuggester/@EntryIndexedValue" value="true" type="bool" />
     <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
     <option name="/Default/RiderDebugger/RiderRestoreDecompile/RestoreDecompileSetting/@EntryValue" value="false" type="bool" />
@@ -28,22 +28,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0f6c0f7c-5152-4ebb-9d06-918e68c37a5e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Event.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clang-format" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clang-tidy" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clang-tidy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GameFramework.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/StateMachine.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro.Hierarchical/StateMachine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro.Hierarchical/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro.Hierarchical/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/StateMachine.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro/StateMachine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachinePro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro.Tests/Sources/StateMachine.Pro/Tests_00.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/Impl_StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/Impl_StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/Impl_StateMachineBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.Hierarchical/StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.Hierarchical/StateMachineBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/Impl_StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/Impl_StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/Impl_StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/Impl_StateMachineBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/StateBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/StateBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachinePro/StateMachineBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../StateMachine.Pro/Headers/StateMachine.Pro/StateMachineBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../.clang-format" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.clang-tidy" beforeDir="false" afterPath="$PROJECT_DIR$/../.clang-tidy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-format" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-tidy" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clang-tidy" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,7 +149,7 @@
       <workItem from="1752317593944" duration="872000" />
       <workItem from="1752319509188" duration="507000" />
       <workItem from="1752320200548" duration="378000" />
-      <workItem from="1752479623509" duration="681000" />
+      <workItem from="1752479623509" duration="903000" />
     </task>
     <servers />
   </component>

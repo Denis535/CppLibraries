@@ -5,176 +5,176 @@ The library that allows you to easily implement a hierarchical object.
 # Reference
 
 ```
-namespace TreeMachine::Pro {
+namespace std::extensions::tree_machine::pro {
     template <typename T>
-    class TreeMachineBase {
+    class tree_machine_base {
 
         protected:
-        [[nodiscard]] T *Root() const;
+        [[nodiscard]] T *root() const;
 
         protected:
-        explicit TreeMachineBase();
+        explicit tree_machine_base();
 
         public:
-        explicit TreeMachineBase(const TreeMachineBase &) = delete;
-        explicit TreeMachineBase(TreeMachineBase &&) = delete;
-        virtual ~TreeMachineBase();
+        tree_machine_base(const tree_machine_base &) = delete;
+        tree_machine_base(tree_machine_base &&) = delete;
+        virtual ~tree_machine_base();
 
         protected:
-        virtual void AddRoot(T *const root, const any argument);                                                              // overriding methods must invoke base implementation
-        virtual void RemoveRoot(T *const root, const any argument, const function<void(const T *const, const any)> callback); // overriding methods must invoke base implementation
-        void RemoveRoot(const any argument, const function<void(const T *const, const any)> callback);
+        virtual void add_root(T *const root, const any argument);                                                              // overriding methods must invoke base implementation
+        virtual void remove_root(T *const root, const any argument, const function<void(const T *const, const any)> callback); // overriding methods must invoke base implementation
+        void remove_root(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        TreeMachineBase &operator=(const TreeMachineBase &) = delete;
-        TreeMachineBase &operator=(TreeMachineBase &&) = delete;
+        tree_machine_base &operator=(const tree_machine_base &) = delete;
+        tree_machine_base &operator=(tree_machine_base &&) = delete;
     };
 }
 ```
 
 ```
-namespace TreeMachine::Pro {
+namespace std::extensions::tree_machine::pro {
     template <typename TThis>
-    class NodeBase {
+    class node_base {
 
         public:
-        enum class Activity : uint8_t {
-            Inactive,
-            Activating,
-            Active,
-            Deactivating,
+        enum class activity : uint8_t {
+            inactive,
+            activating,
+            active,
+            deactivating,
         };
 
         public:
-        [[nodiscard]] TreeMachineBase<TThis> *Machine() const;
+        [[nodiscard]] TreeMachineBase<TThis> *machine() const;
 
         public:
-        [[nodiscard]] bool IsRoot() const;
-        [[nodiscard]] const TThis *Root() const;
-        [[nodiscard]] TThis *Root();
+        [[nodiscard]] bool is_root() const;
+        [[nodiscard]] const TThis *root() const;
+        [[nodiscard]] TThis *root();
 
         public:
-        [[nodiscard]] TThis *Parent() const;
-        [[nodiscard]] vector<TThis *> Ancestors() const;
-        [[nodiscard]] vector<const TThis *> AncestorsAndSelf() const;
-        [[nodiscard]] vector<TThis *> AncestorsAndSelf();
+        [[nodiscard]] TThis *parent() const;
+        [[nodiscard]] vector<TThis *> ancestors() const;
+        [[nodiscard]] vector<const TThis *> ancestors_and_self() const;
+        [[nodiscard]] vector<TThis *> ancestors_and_self();
 
         public:
-        [[nodiscard]] Activity Activity() const;
+        [[nodiscard]] activity activity() const;
 
         public:
-        [[nodiscard]] const list<TThis *> &Children() const;
-        [[nodiscard]] vector<TThis *> Descendants() const;
-        [[nodiscard]] vector<const TThis *> DescendantsAndSelf() const;
-        [[nodiscard]] vector<TThis *> DescendantsAndSelf();
+        [[nodiscard]] const list<TThis *> &children() const;
+        [[nodiscard]] vector<TThis *> descendants() const;
+        [[nodiscard]] vector<const TThis *> descendants_and_self() const;
+        [[nodiscard]] vector<TThis *> descendants_and_self();
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDetachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_detach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_detach_callback();
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDeactivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_deactivate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_deactivate_callback();
 
         protected:
-        explicit NodeBase();
+        explicit node_base();
 
         public:
-        explicit NodeBase(const NodeBase &) = delete;
-        explicit NodeBase(NodeBase &&) = delete;
-        virtual ~NodeBase();
+        node_base(const node_base &) = delete;
+        node_base(node_base &&) = delete;
+        virtual ~node_base();
 
         protected:
-        virtual void OnAttach(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeAttach(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterAttach(const any argument);  // overriding methods must invoke base implementation
-        virtual void OnDetach(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeDetach(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterDetach(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_attach(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_attach(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_attach(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_detach(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_detach(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_detach(const any argument);  // overriding methods must invoke base implementation
 
         protected:
-        virtual void OnActivate(const any argument);         // overriding methods must invoke base implementation
-        virtual void OnBeforeActivate(const any argument);   // overriding methods must invoke base implementation
-        virtual void OnAfterActivate(const any argument);    // overriding methods must invoke base implementation
-        virtual void OnDeactivate(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeDeactivate(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterDeactivate(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_activate(const any argument);          // overriding methods must invoke base implementation
+        virtual void on_before_activate(const any argument);   // overriding methods must invoke base implementation
+        virtual void on_after_activate(const any argument);    // overriding methods must invoke base implementation
+        virtual void on_deactivate(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_deactivate(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_deactivate(const any argument);  // overriding methods must invoke base implementation
 
         protected:
-        virtual void AddChild(TThis *const child, const any argument); // overriding methods must invoke base implementation
-        void AddChildren(const vector<TThis *> &children, const any argument);
-        virtual void RemoveChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback); // overriding methods must invoke base implementation
-        bool RemoveChild(const function<bool(const TThis *const)> predicate, const any argument, const function<void(const TThis *const, const any)> callback);
-        int32_t RemoveChildren(const function<bool(const TThis *const)> predicate, const any argument, const function<void(const TThis *const, const any)> callback);
-        int32_t RemoveChildren(const any argument, const function<void(const TThis *const, const any)> callback);
-        void RemoveSelf(const any argument, const function<void(const TThis *const, const any)> callback);
+        virtual void add_child(TThis *const child, const any argument); // overriding methods must invoke base implementation
+        void add_children(const vector<TThis *> &children, const any argument);
+        virtual void remove_child(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback); // overriding methods must invoke base implementation
+        bool remove_child(const function<bool(const TThis *const)> predicate, const any argument, const function<void(const TThis *const, const any)> callback);
+        int32_t remove_children(const function<bool(const TThis *const)> predicate, const any argument, const function<void(const TThis *const, const any)> callback);
+        int32_t remove_children(const any argument, const function<void(const TThis *const, const any)> callback);
+        void remove_self(const any argument, const function<void(const TThis *const, const any)> callback);
 
         protected:
-        virtual void Sort(list<TThis *> &children) const;
+        virtual void sort(list<TThis *> &children) const;
 
         public:
-        NodeBase &operator=(const NodeBase &) = delete;
-        NodeBase &operator=(NodeBase &&) = delete;
+        node_base &operator=(const node_base &) = delete;
+        node_base &operator=(node_base &&) = delete;
     };
 }
 ```
 
 ```
-namespace TreeMachine::Pro {
+namespace std::extensions::tree_machine::pro {
     template <typename TThis>
-    class NodeBase2 : public NodeBase<TThis> {
+    class node_base2 : public node_base<TThis> {
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantDetachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_descendant_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_descendant_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_descendant_detach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_descendant_detach_callback();
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDescendantDeactivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDescendantDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_descendant_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_descendant_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_descendant_deactivate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_descendant_deactivate_callback();
 
         protected:
-        explicit NodeBase2();
+        explicit node_base2();
 
         public:
-        explicit NodeBase2(const NodeBase2 &) = delete;
-        explicit NodeBase2(NodeBase2 &&) = delete;
-        ~NodeBase2() override;
+        node_base2(const node_base2 &) = delete;
+        node_base2(node_base2 &&) = delete;
+        ~node_base2() override;
 
         protected:
-        void OnAttach(const any argument) override;       // overriding methods must invoke base implementation
-        void OnBeforeAttach(const any argument) override; // overriding methods must invoke base implementation
-        void OnAfterAttach(const any argument) override;  // overriding methods must invoke base implementation
-        void OnDetach(const any argument) override;       // overriding methods must invoke base implementation
-        void OnBeforeDetach(const any argument) override; // overriding methods must invoke base implementation
-        void OnAfterDetach(const any argument) override;  // overriding methods must invoke base implementation
-        virtual void OnBeforeDescendantAttach(TThis *const descendant, const any argument);
-        virtual void OnAfterDescendantAttach(TThis *const descendant, const any argument);
-        virtual void OnBeforeDescendantDetach(TThis *const descendant, const any argument);
-        virtual void OnAfterDescendantDetach(TThis *const descendant, const any argument);
+        void on_attach(const any argument) override;        // overriding methods must invoke base implementation
+        void on_before_attach(const any argument) override; // overriding methods must invoke base implementation
+        void on_after_attach(const any argument) override;  // overriding methods must invoke base implementation
+        void on_detach(const any argument) override;        // overriding methods must invoke base implementation
+        void on_before_detach(const any argument) override; // overriding methods must invoke base implementation
+        void on_after_detach(const any argument) override;  // overriding methods must invoke base implementation
+        virtual void on_before_descendant_attach(TThis *const descendant, const any argument);
+        virtual void on_after_descendant_attach(TThis *const descendant, const any argument);
+        virtual void on_before_descendant_detach(TThis *const descendant, const any argument);
+        virtual void on_after_descendant_detach(TThis *const descendant, const any argument);
 
         protected:
-        void OnActivate(const any argument) override;         // overriding methods must invoke base implementation
-        void OnBeforeActivate(const any argument) override;   // overriding methods must invoke base implementation
-        void OnAfterActivate(const any argument) override;    // overriding methods must invoke base implementation
-        void OnDeactivate(const any argument) override;       // overriding methods must invoke base implementation
-        void OnBeforeDeactivate(const any argument) override; // overriding methods must invoke base implementation
-        void OnAfterDeactivate(const any argument) override;  // overriding methods must invoke base implementation
-        virtual void OnBeforeDescendantActivate(TThis *const descendant, const any argument);
-        virtual void OnAfterDescendantActivate(TThis *const descendant, const any argument);
-        virtual void OnBeforeDescendantDeactivate(TThis *const descendant, const any argument);
-        virtual void OnAfterDescendantDeactivate(TThis *const descendant, const any argument);
+        void on_activate(const any argument) override;          // overriding methods must invoke base implementation
+        void on_before_activate(const any argument) override;   // overriding methods must invoke base implementation
+        void on_after_activate(const any argument) override;    // overriding methods must invoke base implementation
+        void on_deactivate(const any argument) override;        // overriding methods must invoke base implementation
+        void on_before_deactivate(const any argument) override; // overriding methods must invoke base implementation
+        void on_after_deactivate(const any argument) override;  // overriding methods must invoke base implementation
+        virtual void on_before_descendant_activate(TThis *const descendant, const any argument);
+        virtual void on_after_descendant_activate(TThis *const descendant, const any argument);
+        virtual void on_before_descendant_deactivate(TThis *const descendant, const any argument);
+        virtual void on_after_descendant_dactivate(TThis *const descendant, const any argument);
 
         public:
-        NodeBase2 &operator=(const NodeBase2 &) = delete;
-        NodeBase2 &operator=(NodeBase2 &&) = delete;
+        node_base2 &operator=(const node_base2 &) = delete;
+        node_base2 &operator=(node_base2 &&) = delete;
     };
 }
 ```
@@ -183,128 +183,144 @@ namespace TreeMachine::Pro {
 
 ```
 #pragma once
-#include "TreeMachine.Pro.h"
+#include "tree_machine.pro.h"
 
-namespace TreeMachine::Pro {
+namespace std::extensions::tree_machine::pro {
     using namespace std;
 
-    class Node : public NodeBase2<Node> {
+    class node : public node_base2<node> {
 
         public:
-        explicit Node() = default;
-        ~Node() override {
-            this->RemoveChildren(
+        explicit node() = default;
+
+        public:
+        node(const node &) = delete;
+        node(node &&) = delete;
+        ~node() override {
+            this->remove_children(
                 nullptr,
                 [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
         }
 
         protected:
-        void OnAttach(const any argument) override {
-            this->NodeBase2::OnAttach(argument);
+        void on_attach(const any argument) override {
+            this->node_base2::on_attach(argument);
             cout << "OnAttach: " << typeid(*this).name() << endl;
         }
-        void OnBeforeAttach(const any argument) override {
-            this->NodeBase2::OnBeforeAttach(argument);
+        void on_before_attach(const any argument) override {
+            this->node_base2::on_before_attach(argument);
         }
-        void OnAfterAttach(const any argument) override {
-            this->NodeBase2::OnAfterAttach(argument);
+        void on_after_attach(const any argument) override {
+            this->node_base2::on_after_attach(argument);
         }
 
         protected:
-        void OnDetach(const any argument) override {
+        void on_detach(const any argument) override {
             cout << "OnDetach: " << typeid(*this).name() << endl;
-            this->NodeBase2::OnDetach(argument);
+            this->node_base2::on_detach(argument);
         }
-        void OnBeforeDetach(const any argument) override {
-            this->NodeBase2::OnBeforeDetach(argument);
+        void on_before_detach(const any argument) override {
+            this->node_base2::on_before_detach(argument);
         }
-        void OnAfterDetach(const any argument) override {
-            this->NodeBase2::OnAfterDetach(argument);
-        }
-
-        protected:
-        void OnBeforeDescendantAttach(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnBeforeDescendantAttach(descendant, argument);
-        }
-        void OnAfterDescendantAttach(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnAfterDescendantAttach(descendant, argument);
-        }
-        void OnBeforeDescendantDetach(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnBeforeDescendantDetach(descendant, argument);
-        }
-        void OnAfterDescendantDetach(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnAfterDescendantDetach(descendant, argument);
+        void on_after_detach(const any argument) override {
+            this->node_base2::on_after_detach(argument);
         }
 
         protected:
-        void OnActivate(const any argument) override {
-            this->NodeBase2::OnActivate(argument);
+        void on_before_descendant_attach(node *const descendant, const any argument) override {
+            this->node_base2::on_before_descendant_attach(descendant, argument);
+        }
+        void on_after_descendant_attach(node *const descendant, const any argument) override {
+            this->node_base2::on_after_descendant_attach(descendant, argument);
+        }
+        void on_before_descendant_detach(node *const descendant, const any argument) override {
+            this->node_base2::on_before_descendant_detach(descendant, argument);
+        }
+        void on_after_descendant_detach(node *const descendant, const any argument) override {
+            this->node_base2::on_after_descendant_detach(descendant, argument);
+        }
+
+        protected:
+        void on_activate(const any argument) override {
+            this->node_base2::on_activate(argument);
             cout << "OnActivate: " << typeid(*this).name() << endl;
         }
-        void OnBeforeActivate(const any argument) override {
-            this->NodeBase2::OnBeforeActivate(argument);
+        void on_before_activate(const any argument) override {
+            this->node_base2::on_before_activate(argument);
         }
-        void OnAfterActivate(const any argument) override {
-            this->NodeBase2::OnAfterActivate(argument);
+        void on_after_activate(const any argument) override {
+            this->node_base2::on_after_activate(argument);
         }
 
         protected:
-        void OnDeactivate(const any argument) override {
+        void on_deactivate(const any argument) override {
             cout << "OnDeactivate: " << typeid(*this).name() << endl;
-            this->NodeBase2::OnDeactivate(argument);
+            this->node_base2::on_deactivate(argument);
         }
-        void OnBeforeDeactivate(const any argument) override {
-            this->NodeBase2::OnBeforeDeactivate(argument);
+        void on_before_deactivate(const any argument) override {
+            this->node_base2::on_before_deactivate(argument);
         }
-        void OnAfterDeactivate(const any argument) override {
-            this->NodeBase2::OnAfterDeactivate(argument);
+        void on_after_deactivate(const any argument) override {
+            this->node_base2::on_after_deactivate(argument);
         }
 
         protected:
-        void OnBeforeDescendantActivate(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnBeforeDescendantActivate(descendant, argument);
+        void on_before_descendant_activate(node *const descendant, const any argument) override {
+            this->node_base2::on_before_descendant_activate(descendant, argument);
         }
-        void OnAfterDescendantActivate(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnAfterDescendantActivate(descendant, argument);
+        void on_after_descendant_activate(node *const descendant, const any argument) override {
+            this->node_base2::on_after_descendant_activate(descendant, argument);
         }
-        void OnBeforeDescendantDeactivate(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnBeforeDescendantDeactivate(descendant, argument);
+        void on_before_descendant_deactivate(node *const descendant, const any argument) override {
+            this->node_base2::on_before_descendant_deactivate(descendant, argument);
         }
-        void OnAfterDescendantDeactivate(Node *const descendant, const any argument) override {
-            this->NodeBase2::OnAfterDescendantDeactivate(descendant, argument);
+        void on_after_descendant_deactivate(node *const descendant, const any argument) override {
+            this->node_base2::on_after_descendant_deactivate(descendant, argument);
         }
 
         public:
-        using NodeBase::AddChild;
-        using NodeBase::AddChildren;
-        using NodeBase::RemoveChild;
-        using NodeBase::RemoveChildren;
-        using NodeBase::RemoveSelf;
-    };
-    class Root final : public Node {
-    };
-    class A final : public Node {
-    };
-    class B final : public Node {
-    };
-    class TreeMachine final : public TreeMachineBase<Node> {
+        using node_base::add_child;
+        using node_base::add_children;
+        using node_base::remove_child;
+        using node_base::remove_children;
+        using node_base::remove_self;
 
         public:
-        using TreeMachineBase::Root;
+        node &operator=(const node &) = delete;
+        node &operator=(node &&) = delete;
+    };
+    class root_node final : public node {
+    };
+    class a_node final : public node {
+    };
+    class b_node final : public node {
+    };
+    class tree_machine final : public tree_machine_base<node> {
 
         public:
-        explicit TreeMachine() = default;
-        ~TreeMachine() override {
-            if (this->Root() != nullptr) {
-                this->RemoveRoot(
+        using tree_machine_base::root;
+
+        public:
+        explicit tree_machine() = default;
+
+        public:
+        tree_machine(const tree_machine &) = delete;
+        tree_machine(tree_machine &&) = delete;
+        ~tree_machine() override {
+            if (this->root() != nullptr) {
+                this->remove_root(
                     nullptr,
                     [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
             }
         }
 
         public:
-        using TreeMachineBase::AddRoot;
-        using TreeMachineBase::RemoveRoot;
+        using tree_machine_base::add_root;
+        using tree_machine_base::remove_root;
+
+        public:
+        tree_machine &operator=(const tree_machine &) = delete;
+        tree_machine &operator=(tree_machine &&) = delete;
     };
 }
 ```
