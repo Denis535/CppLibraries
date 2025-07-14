@@ -5,92 +5,92 @@ The library that allows you to easily implement a stateful object.
 # Reference
 
 ```
-namespace StateMachine::Pro {
+namespace std.extensions.state_machine.pro {
     template <typename T>
-    class StateMachineBase {
+    class state_machine_base {
 
         protected:
-        [[nodiscard]] T *State() const;
+        [[nodiscard]] T *state() const;
 
         protected:
-        explicit StateMachineBase();
+        explicit state_machine_base();
 
         public:
-        explicit StateMachineBase(const StateMachineBase &) = delete;
-        explicit StateMachineBase(StateMachineBase &&) = delete;
-        virtual ~StateMachineBase();
+        state_machine_base(const state_machine_base &) = delete;
+        state_machine_base(state_machine_base &&) = delete;
+        virtual ~state_machine_base();
 
         protected:
-        virtual void SetState(T *const state, const any argument, const function<void(const T *const, const any)> callback);
-        virtual void AddState(T *const state, const any argument);
-        virtual void RemoveState(T *const state, const any argument, const function<void(const T *const, const any)> callback);
-        void RemoveState(const any argument, const function<void(const T *const, const any)> callback);
+        virtual void set_state(T *const state, const any argument, const function<void(const T *const, const any)> callback);
+        virtual void add_state(T *const state, const any argument);
+        virtual void remove_state(T *const state, const any argument, const function<void(const T *const, const any)> callback);
+        void remove_state(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        StateMachineBase &operator=(const StateMachineBase &) = delete;
-        StateMachineBase &operator=(StateMachineBase &&) = delete;
+        state_machine_base &operator=(const state_machine_base &) = delete;
+        state_machine_base &operator=(state_machine_base &&) = delete;
     };
 }
 ```
 
 ```
-namespace StateMachine::Pro {
+namespace std.extensions.state_machine.pro {
     template <typename TThis>
-    class StateBase {
+    class state_base {
 
         public:
-        enum class Activity_ : uint8_t { // NOLINT
-            Inactive,
-            Activating,
-            Active,
-            Deactivating,
+        enum class activity_ : uint8_t { // NOLINT
+            inactive,
+            activating,
+            active,
+            deactivating,
         };
 
         public:
-        [[nodiscard]] StateMachineBase<TThis> *Machine() const;
+        [[nodiscard]] state_machine_base<TThis> *machine() const;
 
         public:
-        [[nodiscard]] Activity_ Activity() const;
+        [[nodiscard]] activity_ activity() const;
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDetachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_detach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_detach_callback();
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDeactivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_deactivate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_deactivate_callback();
 
         protected:
-        explicit StateBase();
+        explicit state_base();
 
         public:
-        explicit StateBase(const StateBase &) = delete;
-        explicit StateBase(StateBase &&) = delete;
-        virtual ~StateBase();
+        state_base(const state_base &) = delete;
+        state_base(state_base &&) = delete;
+        virtual ~state_base();
 
         protected:
-        virtual void OnAttach(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeAttach(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterAttach(const any argument);  // overriding methods must invoke base implementation
-        virtual void OnDetach(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeDetach(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterDetach(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_attach(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_attach(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_attach(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_detach(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_detach(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_detach(const any argument);  // overriding methods must invoke base implementation
 
         protected:
-        virtual void OnActivate(const any argument);         // overriding methods must invoke base implementation
-        virtual void OnBeforeActivate(const any argument);   // overriding methods must invoke base implementation
-        virtual void OnAfterActivate(const any argument);    // overriding methods must invoke base implementation
-        virtual void OnDeactivate(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeDeactivate(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterDeactivate(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_activate(const any argument);          // overriding methods must invoke base implementation
+        virtual void on_before_activate(const any argument);   // overriding methods must invoke base implementation
+        virtual void on_after_activate(const any argument);    // overriding methods must invoke base implementation
+        virtual void on_deactivate(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_deactivate(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_deactivate(const any argument);  // overriding methods must invoke base implementation
 
         public:
-        StateBase &operator=(const StateBase &) = delete;
-        StateBase &operator=(StateBase &&) = delete;
+        state_base &operator=(const state_base &) = delete;
+        state_base &operator=(state_base &&) = delete;
     };
 }
 ```
@@ -98,116 +98,116 @@ namespace StateMachine::Pro {
 # Reference (Hierarchical)
 
 ```
-namespace StateMachine::Pro::Hierarchical {
+namespace std.extensions.state_machine.pro::hierarchical {
     template <typename T>
-    class StateMachineBase {
+    class state_machine_base {
 
         protected:
-        [[nodiscard]] T *State() const;
+        [[nodiscard]] T *state() const;
 
         protected:
-        explicit StateMachineBase();
+        explicit state_machine_base();
 
         public:
-        explicit StateMachineBase(const StateMachineBase &) = delete;
-        explicit StateMachineBase(StateMachineBase &&) = delete;
-        virtual ~StateMachineBase();
+        state_machine_base(const state_machine_base &) = delete;
+        state_machine_base(state_machine_base &&) = delete;
+        virtual ~state_machine_base();
 
         protected:
-        virtual void SetState(T *const state, const any argument, const function<void(const T *const, const any)> callback);
-        virtual void AddState(T *const state, const any argument);
-        virtual void RemoveState(T *const state, const any argument, const function<void(const T *const, const any)> callback);
-        void RemoveState(const any argument, const function<void(const T *const, const any)> callback);
+        virtual void set_state(T *const state, const any argument, const function<void(const T *const, const any)> callback);
+        virtual void add_state(T *const state, const any argument);
+        virtual void remove_state(T *const state, const any argument, const function<void(const T *const, const any)> callback);
+        void remove_state(const any argument, const function<void(const T *const, const any)> callback);
 
         public:
-        StateMachineBase &operator=(const StateMachineBase &) = delete;
-        StateMachineBase &operator=(StateMachineBase &&) = delete;
+        state_machine_base &operator=(const state_machine_base &) = delete;
+        state_machine_base &operator=(state_machine_base &&) = delete;
     };
 }
 ```
 
 ```
-namespace StateMachine::Pro::Hierarchical {
+namespace std.extensions.state_machine.pro::hierarchical {
     template <typename TThis>
-    class StateBase {
+    class state_base {
 
         public:
-        enum class Activity_ : uint8_t { // NOLINT
-            Inactive,
-            Activating,
-            Active,
-            Deactivating,
+        enum class activity_ : uint8_t { // NOLINT
+            inactive,
+            activating,
+            active,
+            deactivating,
         };
 
         public:
-        [[nodiscard]] StateMachineBase<TThis> *Machine() const;
+        [[nodiscard]] state_machine_base<TThis> *machine() const;
 
         public:
-        [[nodiscard]] bool IsRoot() const;
-        [[nodiscard]] const TThis *Root() const;
-        [[nodiscard]] TThis *Root();
+        [[nodiscard]] bool is_root() const;
+        [[nodiscard]] const TThis *root() const;
+        [[nodiscard]] TThis *root();
 
         public:
-        [[nodiscard]] TThis *Parent() const;
-        [[nodiscard]] vector<TThis *> Ancestors() const;
-        [[nodiscard]] vector<const TThis *> AncestorsAndSelf() const;
-        [[nodiscard]] vector<TThis *> AncestorsAndSelf();
+        [[nodiscard]] TThis *parent() const;
+        [[nodiscard]] vector<TThis *> ancestors() const;
+        [[nodiscard]] vector<const TThis *> ancestors_and_self() const;
+        [[nodiscard]] vector<TThis *> ancestors_and_self();
 
         public:
-        [[nodiscard]] Activity_ Activity() const;
+        [[nodiscard]] activity_ activity() const;
 
         public:
-        [[nodiscard]] TThis *Child() const;
-        [[nodiscard]] vector<TThis *> Descendants() const;
-        [[nodiscard]] vector<const TThis *> DescendantsAndSelf() const;
-        [[nodiscard]] vector<TThis *> DescendantsAndSelf();
+        [[nodiscard]] TThis *child() const;
+        [[nodiscard]] vector<TThis *> descendants() const;
+        [[nodiscard]] vector<const TThis *> descendants_and_self() const;
+        [[nodiscard]] vector<TThis *> descendants_and_self();
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterAttachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDetachCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDetachCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_attach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_detach_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_detach_callback();
 
         public:
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterActivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnBeforeDeactivateCallback();
-        [[nodiscard]] multicast_callback_registry<const any> &OnAfterDeactivateCallback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_activate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_before_deactivate_callback();
+        [[nodiscard]] multicast_callback_registry<const any> &on_after_deactivate_callback();
 
         protected:
-        explicit StateBase();
+        explicit state_base();
 
         public:
-        explicit StateBase(const StateBase &) = delete;
-        explicit StateBase(StateBase &&) = delete;
-        virtual ~StateBase();
+        state_base(const state_base &) = delete;
+        state_base(state_base &&) = delete;
+        virtual ~state_base();
 
         protected:
-        virtual void OnAttach(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeAttach(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterAttach(const any argument);  // overriding methods must invoke base implementation
-        virtual void OnDetach(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeDetach(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterDetach(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_attach(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_attach(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_attach(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_detach(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_detach(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_detach(const any argument);  // overriding methods must invoke base implementation
 
         protected:
-        virtual void OnActivate(const any argument);         // overriding methods must invoke base implementation
-        virtual void OnBeforeActivate(const any argument);   // overriding methods must invoke base implementation
-        virtual void OnAfterActivate(const any argument);    // overriding methods must invoke base implementation
-        virtual void OnDeactivate(const any argument);       // overriding methods must invoke base implementation
-        virtual void OnBeforeDeactivate(const any argument); // overriding methods must invoke base implementation
-        virtual void OnAfterDeactivate(const any argument);  // overriding methods must invoke base implementation
+        virtual void on_activate(const any argument);          // overriding methods must invoke base implementation
+        virtual void on_before_activate(const any argument);   // overriding methods must invoke base implementation
+        virtual void on_after_activate(const any argument);    // overriding methods must invoke base implementation
+        virtual void on_deactivate(const any argument);        // overriding methods must invoke base implementation
+        virtual void on_before_deactivate(const any argument); // overriding methods must invoke base implementation
+        virtual void on_after_deactivate(const any argument);  // overriding methods must invoke base implementation
 
         protected:
-        virtual void SetChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
-        virtual void AddChild(TThis *const child, const any argument);
-        virtual void RemoveChild(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
-        void RemoveChild(const any argument, const function<void(const TThis *const, const any)> callback);
-        void RemoveSelf(const any argument, const function<void(const TThis *const, const any)> callback);
+        virtual void set_child(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
+        virtual void add_child(TThis *const child, const any argument);
+        virtual void remove_child(TThis *const child, const any argument, const function<void(const TThis *const, const any)> callback);
+        void remove_child(const any argument, const function<void(const TThis *const, const any)> callback);
+        void remove_self(const any argument, const function<void(const TThis *const, const any)> callback);
 
         public:
-        StateBase &operator=(const StateBase &) = delete;
-        StateBase &operator=(StateBase &&) = delete;
+        state_base &operator=(const state_base &) = delete;
+        state_base &operator=(state_base &&) = delete;
     };
 }
 ```
@@ -216,88 +216,98 @@ namespace StateMachine::Pro::Hierarchical {
 
 ```
 #pragma once
-#include "StateMachine.Pro.h"
+#include "state_machine.pro.h"
 
-namespace StateMachine::Pro {
-    using namespace std;
-
-    class State : public StateBase<State> {
+namespace std::extensions::state_machine::pro {
+    class state : public state_base<state> {
 
         public:
-        explicit State() = default;
-        ~State() override = default;
+        explicit state() = default;
+        state(const state &) = delete;
+        state(state &&) = delete;
+        ~state() override = default;
 
         protected:
-        void OnAttach(const any argument) override {
-            this->StateBase::OnAttach(argument);
+        void on_attach(const any argument) override {
+            this->state_base::on_attach(argument);
             cout << "OnAttach: " << typeid(*this).name() << endl;
         }
-        void OnBeforeAttach(const any argument) override {
-            this->StateBase::OnBeforeAttach(argument);
+        void on_before_attach(const any argument) override {
+            this->state_base::on_before_attach(argument);
         }
-        void OnAfterAttach(const any argument) override {
-            this->StateBase::OnAfterAttach(argument);
+        void on_after_attach(const any argument) override {
+            this->state_base::on_after_attach(argument);
         }
 
         protected:
-        void OnDetach(const any argument) override {
+        void on_detach(const any argument) override {
             cout << "OnDetach: " << typeid(*this).name() << endl;
-            this->StateBase::OnDetach(argument);
+            this->state_base::on_detach(argument);
         }
-        void OnBeforeDetach(const any argument) override {
-            this->StateBase::OnBeforeDetach(argument);
+        void on_before_detach(const any argument) override {
+            this->state_base::on_before_detach(argument);
         }
-        void OnAfterDetach(const any argument) override {
-            this->StateBase::OnAfterDetach(argument);
+        void on_after_detach(const any argument) override {
+            this->state_base::on_after_detach(argument);
         }
 
         protected:
-        void OnActivate(const any argument) override {
-            this->StateBase::OnActivate(argument);
+        void on_activate(const any argument) override {
+            this->state_base::on_activate(argument);
             cout << "OnActivate: " << typeid(*this).name() << endl;
         }
-        void OnBeforeActivate(const any argument) override {
-            this->StateBase::OnBeforeActivate(argument);
+        void on_before_activate(const any argument) override {
+            this->state_base::on_before_activate(argument);
         }
-        void OnAfterActivate(const any argument) override {
-            this->StateBase::OnAfterActivate(argument);
+        void on_after_activate(const any argument) override {
+            this->state_base::on_after_activate(argument);
         }
 
         protected:
-        void OnDeactivate(const any argument) override {
+        void on_deactivate(const any argument) override {
             cout << "OnDeactivate: " << typeid(*this).name() << endl;
-            this->StateBase::OnDeactivate(argument);
+            this->state_base::on_deactivate(argument);
         }
-        void OnBeforeDeactivate(const any argument) override {
-            this->StateBase::OnBeforeDeactivate(argument);
+        void on_before_deactivate(const any argument) override {
+            this->state_base::on_before_deactivate(argument);
         }
-        void OnAfterDeactivate(const any argument) override {
-            this->StateBase::OnAfterDeactivate(argument);
+        void on_after_deactivate(const any argument) override {
+            this->state_base::on_after_deactivate(argument);
         }
-    };
-    class A : public State {
-    };
-    class B : public State {
-    };
-    class StateMachine : public StateMachineBase<State> {
 
         public:
-        using StateMachineBase::State;
+        state &operator=(const state &) = delete;
+        state &operator=(state &&) = delete;
+    };
+    class a_state final : public state {
+    };
+    class b_state final : public state {
+    };
+    class state_machine final : public state_machine_base<state> {
 
         public:
-        explicit StateMachine() = default;
-        ~StateMachine() override {
-            if (this->State() != nullptr) {
-                this->RemoveState(
+        using state_machine_base::state;
+
+        public:
+        explicit state_machine() = default;
+        state_machine(const state_machine &) = delete;
+        state_machine(state_machine &&) = delete;
+        ~state_machine() override {
+            if (this->state() != nullptr) {
+                this->remove_state(
                     nullptr,
                     [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
             }
         }
 
         public:
-        using StateMachineBase::SetState;
-        using StateMachineBase::AddState;
-        using StateMachineBase::RemoveState;
+        using state_machine_base::set_state;
+        using state_machine_base::add_state;
+        using state_machine_base::remove_state;
+
+        public:
+        state_machine &operator=(const state_machine &) = delete;
+        state_machine &operator=(state_machine &&) = delete;
     };
 }
 ```
