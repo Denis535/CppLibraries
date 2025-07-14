@@ -2,7 +2,6 @@
 #include "tree_machine.h"
 
 namespace std::extensions::tree_machine::pro {
-    using namespace std;
 
     TEST(tests_02, test_00) { // NOLINT
         auto *const machine = new tree_machine();
