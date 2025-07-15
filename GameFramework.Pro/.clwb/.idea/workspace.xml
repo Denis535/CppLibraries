@@ -18,9 +18,6 @@
     <option name="projectViewFile" value="D:\Projects\Cpp.Libraries\GameFramework.Pro\.clwb\.bazelproject" />
     <option name="workspaceRoot" value="D:\Projects\Cpp.Libraries\GameFramework.Pro" />
   </component>
-  <component name="BlazeSyncStatusState">
-    <option name="dirty" value="true" />
-  </component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -32,7 +29,13 @@
   <component name="ChangeListManager">
     <list default="true" id="83a659f5-5f1c-4d6d-8be4-7da5d2aa9efb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro.Tests/Sources/GameFrameworkPro/Tests_00.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/Impl_ProgramBase2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase2.h" beforeDir="false" afterPath="$PROJECT_DIR$/../GameFramework.Pro/Headers/GameFrameworkPro/ProgramBase2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../StateMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TreeMachine.Pro/.clwb/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +102,7 @@
   <component name="RunManager" selected="Bazel Command.Test">
     <configuration name="Clean" type="BlazeCommandRunConfigurationType" factoryName="Bazel Command">
       <blaze-settings handler-id="BlazeCommandGenericRunConfigurationHandlerProvider" blaze-command="clean">
+        <blaze-user-flag>--expunge</blaze-user-flag>
         <env_state>
           <envs />
         </env_state>
@@ -119,8 +123,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Bazel Command.Test" />
       <item itemvalue="Bazel Command.Clean" />
+      <item itemvalue="Bazel Command.Test" />
     </list>
   </component>
   <component name="TaskManager">
@@ -153,6 +157,10 @@
       <workItem from="1752414597529" duration="7624000" />
       <workItem from="1752424786636" duration="469000" />
       <workItem from="1752435796051" duration="73000" />
+      <workItem from="1752520866816" duration="263000" />
+      <workItem from="1752521713227" duration="9000" />
+      <workItem from="1752560695048" duration="4000" />
+      <workItem from="1752560819296" duration="2445000" />
     </task>
     <servers />
   </component>

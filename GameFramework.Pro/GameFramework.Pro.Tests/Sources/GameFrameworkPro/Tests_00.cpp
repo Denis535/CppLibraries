@@ -76,7 +76,7 @@ namespace GameFrameworkPro {
     // UI
     class Theme;
     class Screen;
-    class Router final : RouterBase2<Theme, Screen, Application> {
+    class Router final : public RouterBase2<Theme, Screen, Application> {
 
         public:
         explicit Router(const function<class Theme *()> theme, const function<class Screen *()> screen, class Application *const application) {
@@ -118,10 +118,10 @@ namespace GameFrameworkPro {
         }
 
         protected:
-        void OnActivate([[maybe_unused]] const any argument) override {
+        void on_activate([[maybe_unused]] const any argument) override {
             this->ShowSelf();
         }
-        void OnDeactivate([[maybe_unused]] const any argument) override {
+        void on_deactivate([[maybe_unused]] const any argument) override {
             this->HideSelf();
         }
 
@@ -154,10 +154,10 @@ namespace GameFrameworkPro {
         }
 
         protected:
-        void OnActivate([[maybe_unused]] const any argument) override {
+        void on_activate([[maybe_unused]] const any argument) override {
             this->ShowSelf();
         }
-        void OnDeactivate([[maybe_unused]] const any argument) override {
+        void on_deactivate([[maybe_unused]] const any argument) override {
             this->HideSelf();
         }
 
@@ -169,19 +169,19 @@ namespace GameFrameworkPro {
 
         public:
         explicit RootWidget() {
-            this->AddChild(new MainWidget(), nullptr);
-            this->AddChild(new GameWidget(), nullptr);
+            this->add_child(new MainWidget(), nullptr);
+            this->add_child(new GameWidget(), nullptr);
         }
         RootWidget(const RootWidget &) = delete;
         RootWidget(RootWidget &&) = delete;
         ~RootWidget() override {
-            this->RemoveChildren(nullptr, [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
+            this->remove_children(nullptr, [](const auto *const child, [[maybe_unused]] const any arg) { delete child; });
         }
 
         protected:
-        void OnActivate([[maybe_unused]] const any argument) override {
+        void on_activate([[maybe_unused]] const any argument) override {
         }
-        void OnDeactivate([[maybe_unused]] const any argument) override {
+        void on_deactivate([[maybe_unused]] const any argument) override {
         }
 
         protected:
@@ -214,12 +214,12 @@ namespace GameFrameworkPro {
         explicit Screen(class Router *const router, class Application *const application) {
             this->SetRouter(router);
             this->SetApplication(application);
-            this->AddRoot(new RootWidget(), nullptr);
+            this->add_root(new RootWidget(), nullptr);
         }
         Screen(const Screen &) = delete;
         Screen(Screen &&) = delete;
         ~Screen() override {
-            this->RemoveRoot(nullptr, [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
+            this->remove_root(nullptr, [](const auto *const root, [[maybe_unused]] const any arg) { delete root; });
         }
 
         public:
@@ -257,13 +257,13 @@ namespace GameFrameworkPro {
         explicit Theme(class Router *const router, class Application *const application) {
             this->SetRouter(router);
             this->SetApplication(application);
-            this->SetState(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
-            this->SetState(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
+            this->set_state(new MainPlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
+            this->set_state(new GamePlayList(), nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
         Theme(const Theme &) = delete;
         Theme(Theme &&) = delete;
         ~Theme() override {
-            this->SetState(nullptr, nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
+            this->set_state(nullptr, nullptr, [](const auto *const state, [[maybe_unused]] const any arg) { delete state; });
         }
 
         public:

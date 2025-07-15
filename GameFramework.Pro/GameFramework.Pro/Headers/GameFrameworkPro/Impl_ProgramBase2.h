@@ -1,8 +1,6 @@
 #pragma once
 #include <cassert>
 #include "GameFrameworkPro/ProgramBase2.h"
-#include "StateMachinePro.h"
-#include "TreeMachinePro.h"
 
 namespace GameFrameworkPro {
 

@@ -1,12 +1,13 @@
 #pragma once
-#include "StateMachinePro.h"
-#include "TreeMachinePro.h"
+#include "event.pro.h"
+#include "state_machine.pro.h"
+#include "tree_machine.pro.h"
 
 namespace GameFrameworkPro {
     using namespace std;
-    using namespace std::extensions::event_pro;
-    using namespace StateMachinePro;
-    using namespace TreeMachinePro;
+    using namespace std::extensions::event::pro;
+    using namespace std::extensions::state_machine::pro;
+    using namespace std::extensions::tree_machine::pro;
 
     class ProgramBase {
 
@@ -24,7 +25,7 @@ namespace GameFrameworkPro {
     };
 
     class PlayListBase;
-    class ThemeBase : public StateMachineBase<PlayListBase> {
+    class ThemeBase : public state_machine_base<PlayListBase> {
 
         protected:
         explicit ThemeBase();
@@ -38,7 +39,7 @@ namespace GameFrameworkPro {
         ThemeBase &operator=(const ThemeBase &) = delete;
         ThemeBase &operator=(ThemeBase &&) = delete;
     };
-    class PlayListBase : public StateBase<PlayListBase> {
+    class PlayListBase : public state_base<PlayListBase> {
 
         protected:
         explicit PlayListBase();
@@ -56,7 +57,7 @@ namespace GameFrameworkPro {
     class WidgetBase;
     class ViewableWidgetBase;
     class ViewBase;
-    class ScreenBase : public TreeMachineBase<WidgetBase> {
+    class ScreenBase : public tree_machine_base<WidgetBase> {
 
         protected:
         explicit ScreenBase();
@@ -70,7 +71,7 @@ namespace GameFrameworkPro {
         ScreenBase &operator=(const ScreenBase &) = delete;
         ScreenBase &operator=(ScreenBase &&) = delete;
     };
-    class WidgetBase : public NodeBase2<WidgetBase> {
+    class WidgetBase : public node_base2<WidgetBase> {
 
         public:
         [[nodiscard]] ScreenBase *Screen() const;

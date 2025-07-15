@@ -1,13 +1,14 @@
 #pragma once
 #include <functional>
-#include "StateMachinePro.h"
-#include "TreeMachinePro.h"
+#include "event.pro.h"
+#include "state_machine.pro.h"
+#include "tree_machine.pro.h"
 
 namespace GameFrameworkPro {
     using namespace std;
-    using namespace std::extensions::event_pro;
-    using namespace StateMachinePro;
-    using namespace TreeMachinePro;
+    using namespace std::extensions::event::pro;
+    using namespace std::extensions::state_machine::pro;
+    using namespace std::extensions::tree_machine::pro;
 
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>
     class ProgramBase2 : public ProgramBase {

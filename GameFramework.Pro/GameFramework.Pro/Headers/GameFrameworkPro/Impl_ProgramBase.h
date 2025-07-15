@@ -1,8 +1,6 @@
 #pragma once
 #include <cassert>
 #include "GameFrameworkPro/ProgramBase.h"
-#include "StateMachinePro.h"
-#include "TreeMachinePro.h"
 
 namespace GameFrameworkPro {
 
@@ -13,7 +11,7 @@ namespace GameFrameworkPro {
     // ### ThemeBase ###
     inline ThemeBase::ThemeBase() = default;
     inline ThemeBase::~ThemeBase() {
-        assert(this->State() == nullptr && "Theme must have no state");
+        assert(this->state() == nullptr && "Theme must have no state");
     }
 
     // ### PlayListBase ###
@@ -23,26 +21,26 @@ namespace GameFrameworkPro {
     // ### ScreenBase ###
     inline ScreenBase::ScreenBase() = default;
     inline ScreenBase::~ScreenBase() {
-        assert(this->Root() == nullptr && "Screen must have no root");
+        assert(this->root() == nullptr && "Screen must have no root");
     }
 
     // ### WidgetBase ###
     inline ScreenBase *WidgetBase::Screen() const {
-        return dynamic_cast<ScreenBase *>(this->Machine());
+        return dynamic_cast<ScreenBase *>(this->machine());
     }
 
     inline WidgetBase::WidgetBase() = default;
     inline WidgetBase::~WidgetBase() {
-        assert(this->Children().empty() && "Widget must have no children");
+        assert(this->children().empty() && "Widget must have no children");
     }
 
     inline void WidgetBase::ShowSelf() {
-        assert(this->Parent() != nullptr && "Widget must have parent");
-        this->Parent()->ShowWidgetRecursive(this);
+        assert(this->parent() != nullptr && "Widget must have parent");
+        this->parent()->ShowWidgetRecursive(this);
     }
     inline void WidgetBase::HideSelf() {
-        assert(this->Parent() != nullptr && "Widget must have parent");
-        this->Parent()->HideWidgetRecursive(this);
+        assert(this->parent() != nullptr && "Widget must have parent");
+        this->parent()->HideWidgetRecursive(this);
     }
 
     inline void WidgetBase::ShowWidget(WidgetBase *const widget) {
@@ -75,7 +73,7 @@ namespace GameFrameworkPro {
         if (this->TryShowWidget(widget)) {
             return true;
         }
-        if (auto *const parent = this->Parent()) {
+        if (auto *const parent = this->parent()) {
             return parent->TryShowWidgetRecursive(widget);
         }
         return false;
@@ -89,7 +87,7 @@ namespace GameFrameworkPro {
         if (this->TryHideWidget(widget)) {
             return true;
         }
-        if (auto *const parent = this->Parent()) {
+        if (auto *const parent = this->parent()) {
             return parent->TryHideWidgetRecursive(widget);
         }
         return false;
