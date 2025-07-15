@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 
 namespace GameFramework::Pro {
+    using namespace GameFramework::Pro::Extensions;
 
     // Game
     class Entity final : public EntityBase {
