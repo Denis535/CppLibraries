@@ -4,7 +4,7 @@
 #include "state_machine.pro.h"
 #include "tree_machine.pro.h"
 
-namespace GameFrameworkPro {
+namespace GameFramework::Pro {
     using namespace std;
     using namespace std::extensions::event::pro;
     using namespace std::extensions::state_machine::pro;

@@ -1,8 +1,8 @@
 #pragma once
 #include <cassert>
-#include "GameFrameworkPro/ProgramBase2.h"
+#include "GameFramework.Pro/ProgramBase2.h"
 
-namespace GameFrameworkPro {
+namespace GameFramework::Pro {
 
     // ### ProgramBase ###
     template <typename TTheme, typename TScreen, typename TRouter, typename TApplication>

@@ -1,8 +1,8 @@
 #include <functional>
-#include "GameFrameworkPro.h"
+#include "GameFramework.Pro.h"
 #include "gtest/gtest.h"
 
-namespace GameFrameworkPro {
+namespace GameFramework::Pro {
 
     // Game
     class Entity final : public EntityBase {

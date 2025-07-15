@@ -1,8 +1,8 @@
 #pragma once
 #include <cassert>
-#include "GameFrameworkPro/ProgramBase.h"
+#include "GameFramework.Pro/ProgramBase.h"
 
-namespace GameFrameworkPro {
+namespace GameFramework::Pro {
 
     // ### ProgramBase ###
     inline ProgramBase::ProgramBase() = default;
