@@ -34,65 +34,6 @@ namespace GameFramework::Pro {
         assert(this->children().empty() && "Widget must have no children");
     }
 
-    inline void WidgetBase::ShowSelf() {
-        assert(this->parent() != nullptr && "Widget must have parent");
-        this->parent()->ShowWidgetRecursive(this);
-    }
-    inline void WidgetBase::HideSelf() {
-        assert(this->parent() != nullptr && "Widget must have parent");
-        this->parent()->HideWidgetRecursive(this);
-    }
-
-    inline void WidgetBase::ShowWidget(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        const auto wasShown = TryShowWidget(widget);
-        assert(wasShown && "Can not show widget");
-    }
-    inline void WidgetBase::ShowWidgetRecursive(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        const auto wasShown = TryShowWidgetRecursive(widget);
-        assert(wasShown && "Can not show widget");
-    }
-    inline void WidgetBase::HideWidget(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        const auto wasHidden = TryHideWidget(widget);
-        assert(wasHidden && "Can not hide widget");
-    }
-    inline void WidgetBase::HideWidgetRecursive(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        const auto wasHidden = TryHideWidgetRecursive(widget);
-        assert(wasHidden && "Can not hide widget");
-    }
-
-    inline bool WidgetBase::TryShowWidget(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        return false; // You can override to show widget
-    }
-    inline bool WidgetBase::TryShowWidgetRecursive(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        if (this->TryShowWidget(widget)) {
-            return true;
-        }
-        if (auto *const parent = this->parent()) {
-            return parent->TryShowWidgetRecursive(widget);
-        }
-        return false;
-    }
-    inline bool WidgetBase::TryHideWidget(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        return false; // You can override to hide widget
-    }
-    inline bool WidgetBase::TryHideWidgetRecursive(WidgetBase *const widget) {
-        assert(widget != nullptr && "Argument 'widget' must be non-null");
-        if (this->TryHideWidget(widget)) {
-            return true;
-        }
-        if (auto *const parent = this->parent()) {
-            return parent->TryHideWidgetRecursive(widget);
-        }
-        return false;
-    }
-
     // ### ViewableWidgetBase ###
     inline ViewBase *ViewableWidgetBase::View() const {
         return this->m_View;

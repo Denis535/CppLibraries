@@ -120,10 +120,8 @@ namespace GameFramework::Pro {
 
         protected:
         void on_activate([[maybe_unused]] const any argument) override {
-            this->ShowSelf();
         }
         void on_deactivate([[maybe_unused]] const any argument) override {
-            this->HideSelf();
         }
 
         public:
@@ -156,10 +154,8 @@ namespace GameFramework::Pro {
 
         protected:
         void on_activate([[maybe_unused]] const any argument) override {
-            this->ShowSelf();
         }
         void on_deactivate([[maybe_unused]] const any argument) override {
-            this->HideSelf();
         }
 
         public:
@@ -183,26 +179,6 @@ namespace GameFramework::Pro {
         void on_activate([[maybe_unused]] const any argument) override {
         }
         void on_deactivate([[maybe_unused]] const any argument) override {
-        }
-
-        protected:
-        bool TryShowWidget(WidgetBase *const widget) override {
-            if (dynamic_cast<MainWidget *const>(widget) != nullptr) {
-                return true;
-            }
-            if (dynamic_cast<GameWidget *const>(widget) != nullptr) {
-                return true;
-            }
-            return false;
-        }
-        bool TryHideWidget(WidgetBase *const widget) override {
-            if (dynamic_cast<MainWidget *const>(widget) != nullptr) {
-                return true;
-            }
-            if (dynamic_cast<GameWidget *const>(widget) != nullptr) {
-                return true;
-            }
-            return false;
         }
 
         public:

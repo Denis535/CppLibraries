@@ -84,22 +84,6 @@ namespace GameFramework::Pro {
         WidgetBase(WidgetBase &&) = delete;
         ~WidgetBase() override;
 
-        protected:
-        virtual void ShowSelf();
-        virtual void HideSelf();
-
-        protected:
-        void ShowWidget(WidgetBase *const widget);
-        void ShowWidgetRecursive(WidgetBase *const widget);
-        void HideWidget(WidgetBase *const widget);
-        void HideWidgetRecursive(WidgetBase *const widget);
-
-        protected:
-        virtual bool TryShowWidget(WidgetBase *const widget);
-        bool TryShowWidgetRecursive(WidgetBase *const widget);
-        virtual bool TryHideWidget(WidgetBase *const widget);
-        bool TryHideWidgetRecursive(WidgetBase *const widget);
-
         public:
         WidgetBase &operator=(const WidgetBase &) = delete;
         WidgetBase &operator=(WidgetBase &&) = delete;
